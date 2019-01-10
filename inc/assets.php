@@ -18,9 +18,6 @@ function gotham_enqueue_assets() {
 			false
 		);
 	} else {
-		/* Load Web Fonts */
-		wp_enqueue_style( 'gotham-web-fonts', 'https://fonts.googleapis.com/css?family=Archivo+Narrow|Open+Sans:400,400i,700,700i|Titillium+Web:400,700', [], '1.0' );
-
 		/* Global Scripts & Styles */
 		wp_enqueue_script( 'gotham-site-js', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'site-js' ), [], '1.0', true );
 		wp_enqueue_style( 'gotham-site-css', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'site-css' ), [], '1.0' );
