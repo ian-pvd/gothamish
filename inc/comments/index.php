@@ -4,14 +4,14 @@
  *
  * Customize or disable theme comments options
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
-if ( ! function_exists( 'pvd_disable_comments' ) ) :
+if ( ! function_exists( 'gotham_disable_comments' ) ) :
 	/**
 	 * Disables comments for all post types
 	 */
-	function pvd_disable_comments() {
+	function gotham_disable_comments() {
 		foreach ( get_post_types() as $post_type ) {
 			if ( post_type_supports( $post_type, 'comments' ) ) {
 				remove_post_type_support( $post_type, 'comments' );
@@ -20,7 +20,7 @@ if ( ! function_exists( 'pvd_disable_comments' ) ) :
 		}
 	}
 endif;
-add_action( 'admin_init', 'pvd_disable_comments' );
+add_action( 'admin_init', 'gotham_disable_comments' );
 
 /**
  * Close comments on the front-end

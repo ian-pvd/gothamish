@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 ?>
@@ -22,14 +22,14 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				pvd_posted_on();
-				pvd_posted_by();
+				gotham_posted_on();
+				gotham_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php pvd_post_thumbnail(); ?>
+	<?php gotham_post_thumbnail(); ?>
 
 	<div class="entry-content wp-content">
 		<?php
@@ -37,7 +37,7 @@
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'pvd' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'gotham' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -50,7 +50,7 @@
 
 		wp_link_pages(
 			[
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'pvd' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gotham' ),
 				'after'  => '</div>',
 			]
 		);
@@ -58,6 +58,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php pvd_entry_footer(); ?>
+		<?php gotham_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

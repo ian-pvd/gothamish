@@ -1,10 +1,10 @@
 <?php
 /**
- * roundhouse Feature Image
+ * Gothamish Feature Image
  *
  * Fieldmanager fields config
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 /**
@@ -20,13 +20,13 @@
  *			- Vignette
  *			- Add these as individual classes (.feature--grayscale)
  */
-function pvd_fm_group_feature_image() {
+function gotham_fm_group_feature_image() {
 	$fm = new Fieldmanager_Group( [
 		'name' => 'featured_image_format',
 		'children' => [
 			'layout' => new Fieldmanager_Select( [
 				'limit' => 1,
-				'label' => __( 'Image Layout', 'roundhouse' ),
+				'label' => __( 'Image Layout', 'gotham' ),
 				'attributes' => [
 					'style' => 'width: 100%',
 				],
@@ -39,12 +39,12 @@ function pvd_fm_group_feature_image() {
 					],
 				] ),
 				'default_value' => 'standard',
-				'description' => __( '<ul><li>Fullbleed: 100% viewport width & height.</li><li>Wide: 100% site max width, 16:9 ratio.</li><li>Large: 100% page width, 3:2 ratio.</li><li>Standard: Post width, as post content.</li></ul>', 'roundhouse' ),
+				'description' => __( '<ul><li>Fullbleed: 100% viewport width & height.</li><li>Wide: 100% site max width, 16:9 ratio.</li><li>Large: 100% page width, 3:2 ratio.</li><li>Standard: Post width, as post content.</li></ul>', 'gotham' ),
 				'escape' => [ 'description' => 'wp_kses_post' ],
 			] ),
 			'align' => new Fieldmanager_Select( [
 				'limit' => 1,
-				'label' => __( 'Image Alignment', 'roundhouse' ),
+				'label' => __( 'Image Alignment', 'gotham' ),
 				'attributes' => [
 					'style' => 'width: 100%',
 				],
@@ -56,10 +56,10 @@ function pvd_fm_group_feature_image() {
 					],
 				] ),
 				'default_value' => 'top',
-				'description' => __( 'Vertical photo alignment, if cropped.', 'roundhouse' ),
+				'description' => __( 'Vertical photo alignment, if cropped.', 'gotham' ),
 			] ),
 			'effects' => new Fieldmanager_Checkboxes( [
-				'label' => __( 'Image Effects', 'roundhouse' ),
+				'label' => __( 'Image Effects', 'gotham' ),
 				'datasource' => new Fieldmanager_Datasource( [
 					'options' => [
 						'grayscale' => 'Grayscale',
@@ -73,11 +73,11 @@ function pvd_fm_group_feature_image() {
 	] );
 
 	$fm->add_meta_box(
-		__( 'Featured Image Format', 'roundhouse' ),
+		__( 'Featured Image Format', 'gotham' ),
 		[ 'post', 'page' ],
 		'side',
 		'core'
 	);
 }
 
-add_action( 'fm_post_post', 'pvd_fm_group_feature_image' );
+add_action( 'fm_post_post', 'gotham_fm_group_feature_image' );

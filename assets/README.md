@@ -1,4 +1,4 @@
-# roundhouse Theme Core
+# Gothamish Theme Core
 
 This theme makes use of:
 * Webpack

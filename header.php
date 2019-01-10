@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site site--mobile-nav">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'pvd' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gotham' ); ?></a>
 
 	<header id="masthead" class="site-header site-header--sticky">
 		<div class="site-header__wrapper">
@@ -38,15 +38,15 @@
 					<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 					<?php
 				endif;
-				$pvd_description = get_bloginfo( 'description', 'display' );
-				if ( $pvd_description || is_customize_preview() ) :
+				$gotham_description = get_bloginfo( 'description', 'display' );
+				if ( $gotham_description || is_customize_preview() ) :
 					?>
-					<p class="site-header__description"><?php echo $pvd_description; /* WPCS: xss ok. */ ?></p>
+					<p class="site-header__description"><?php echo $gotham_description; /* WPCS: xss ok. */ ?></p>
 				<?php endif; ?>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="site-header__navigation main-navigation main-navigation--priority-nav">
-				<button id="mobile-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'pvd' ); ?></button>
+				<button id="mobile-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gotham' ); ?></button>
 				<?php
 				wp_nav_menu(
 					[

@@ -10,12 +10,12 @@
  * @param string $asset The asset name.
  * @return string The asset version.
  */
-function pvd_get_asset_version( $asset ) {
+function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'post-css' => 'post.92cf74.css',
-		'post-js' => 'post.92cf74.js',
-		'site-css' => 'site.92cf74.css',
-		'site-js' => 'site.92cf74.js',
+		'post-css' => 'post.80b8c5.css',
+		'post-js' => 'post.80b8c5.js',
+		'site-css' => 'site.80b8c5.css',
+		'site-js' => 'site.80b8c5.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }

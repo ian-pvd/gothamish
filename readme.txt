@@ -1,4 +1,4 @@
-=== roundhouse ===
+=== Gothamish ===
 
 Contributors: ian_pvd
 Tags: custom-background, custom-logo, custom-menu, featured-images, translation-ready
@@ -11,7 +11,7 @@ License URI: LICENSE
 
 == Description ==
 
-roundhouse is a multimedia WordPress starter theme.
+Gothamish is a WordPress news theme about New York.
 
 == Installation ==
 
@@ -23,13 +23,13 @@ roundhouse is a multimedia WordPress starter theme.
 
 = Does this theme support any plugins? =
 
-roundhouse includes support for Infinite Scroll in Jetpack.
+Gothamish includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 0.6.0 - Jan 9 2019 =
-* First roundhouse release
+= 0.0.0 - Jan 10 2019 =
+* Git Init
 
 == Credits ==
 
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Based on roundhouse https://github.com/ian-pvd/roundhouse, [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)

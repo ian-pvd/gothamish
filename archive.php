@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 get_header();

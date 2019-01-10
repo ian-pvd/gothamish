@@ -1,7 +1,7 @@
 {
-  "name": "roundhouse",
+  "name": "gothamish",
   "version": "1.0.0",
-  "description": "roundhouse is a multimedia WordPress starter theme",
+  "description": "Gothamish is a WordPress news theme about New York",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.2.0",
@@ -40,7 +40,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ian-pvd/roundhouse.git"
+    "url": "git+https://github.com/ian-pvd/gothamish.git"
   },
   "keywords": [
     "webpack",
@@ -49,7 +49,7 @@
   "author": "ian_pvd",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/ian-pvd/roundhouse/issues"
+    "url": "https://github.com/ian-pvd/gothamish/issues"
   },
-  "homepage": "https://github.com/ian-pvd/roundhouse#readme"
+  "homepage": "https://github.com/ian-pvd/gothamish#readme"
 }

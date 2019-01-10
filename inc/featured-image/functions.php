@@ -1,18 +1,18 @@
 <?php
 /**
- * roundhouse Feature Image
+ * Gothamish Feature Image
  *
  * Theme handler functions
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
-function pvd_get_featured_image_format() {
+function gotham_get_featured_image_format() {
 	$featured_image_format = get_post_meta( get_the_ID(), 'featured_image_format', true );
 	return $featured_image_format;
 }
 
-function pvd_get_featured_image_options() {
+function gotham_get_featured_image_options() {
 	$featured_image_options = [
 		'image_layouts' => true, // This theme supports image layouts (v2 - array to filter supported layouts)
 		'image_alignment' => true, // This theme supports image alignment

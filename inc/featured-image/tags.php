@@ -1,17 +1,17 @@
 <?php
 /**
- * roundhouse Feature Image
+ * Gothamish Feature Image
  *
  * Theme output tags
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 // Display the Featured Image
-function pvd_the_featured_image( $classes = [] ) {
+function gotham_the_featured_image( $classes = [] ) {
 
 	// v2 - Get theme options for Featured Images
-	$theme_options = pvd_get_featured_image_options();
+	$theme_options = gotham_get_featured_image_options();
 
 	// Check if we have a post thumbnail & what to do if we don't
 	if ( ! has_post_thumbnail() && false == $theme_options[ 'show_empty' ] ) {
@@ -19,7 +19,7 @@ function pvd_the_featured_image( $classes = [] ) {
 	}
 
 	// Get the Featured Image format array
-	$featured_image = pvd_get_featured_image_format();
+	$featured_image = gotham_get_featured_image_format();
 
 	// Get the post thumbnail ID
 	$thumbnail_id = get_post_thumbnail_id();
@@ -115,7 +115,7 @@ function pvd_the_featured_image( $classes = [] ) {
 		</div>
 		<?php if ( isset( $caption ) && isset( $caption_classes ) ) : ?>
 		<figcaption class="<?php esc_attr_e( $caption_classes ); ?>">
-			<?php _e( $caption, 'roundhouse' ); ?>
+			<?php _e( $caption, 'gotham' ); ?>
 		</figcaption>
 		<?php endif; ?>
 	</figure>
@@ -123,8 +123,8 @@ function pvd_the_featured_image( $classes = [] ) {
 }
 
 // Add Image Layout Class to Body Wrapper
-add_filter( 'body_class','pvd_featured_image_body_class' );
-function pvd_featured_image_body_class( $body_classes ) {
+add_filter( 'body_class','gotham_featured_image_body_class' );
+function gotham_featured_image_body_class( $body_classes ) {
 
 	// If it's not a single post or single page
 	if ( ! is_singular() ) {
@@ -133,10 +133,10 @@ function pvd_featured_image_body_class( $body_classes ) {
 	}
 
 	// v2 - Get theme options for Featured Images
-	$theme_options = pvd_get_featured_image_options();
+	$theme_options = gotham_get_featured_image_options();
 
 	// Get the Featured Image format array
-	$featured_image = pvd_get_featured_image_format();
+	$featured_image = gotham_get_featured_image_format();
 
 	// Add Featured Image layout class
 	if ( isset( $featured_image['layout'] ) && $theme_options['image_layouts'] ) {

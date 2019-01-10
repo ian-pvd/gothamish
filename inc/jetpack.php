@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package roundhouse
+ * @package Gothamish
  */
 
 /**
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function pvd_jetpack_setup() {
+function gotham_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'pvd_infinite_scroll_render',
+		'render'    => 'gotham_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
@@ -28,7 +28,7 @@ function pvd_jetpack_setup() {
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details'    => array(
-			'stylesheet' => 'pvd-style',
+			'stylesheet' => 'gotham-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
@@ -42,12 +42,12 @@ function pvd_jetpack_setup() {
 		),
 	) );
 }
-add_action( 'after_setup_theme', 'pvd_jetpack_setup' );
+add_action( 'after_setup_theme', 'gotham_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function pvd_infinite_scroll_render() {
+function gotham_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

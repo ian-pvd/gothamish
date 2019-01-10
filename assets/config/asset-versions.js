@@ -37,7 +37,7 @@ module.exports = function AssetVersions(stats) {
  * @param string $asset The asset name.
  * @return string The asset version.
  */
-function pvd_get_asset_version( $asset ) {
+function gotham_get_asset_version( $asset ) {
 \t$assets = ${result.join('\n')};
 \treturn ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }\n`;
