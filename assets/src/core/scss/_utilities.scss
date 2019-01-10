@@ -1,0 +1,135 @@
+/**
+ * Theme Utilities
+ */
+
+/* Functions */
+
+// Return px value as rem.
+@function rem($px, $base: $base-unit) {
+	@return ( $px / $base ) * 1rem;
+}
+
+// Space using rem grid.
+@function spacer($units) {
+	@return ( $units * 1rem );
+}
+
+/* Mixins */
+
+// Link hover effect
+@mixin link-hover() {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+// Hide text in element
+@mixin hide-text() {
+	overflow: hidden;
+	text-indent: 101%;
+	white-space: nowrap;
+}
+
+// Aspect ratio container
+@mixin aspect-ratio($width: 3, $height: 2) {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	padding-top: calc( ( #{$height} / #{$width} ) * 100%);
+	position: relative;
+	width: 100%;
+}
+
+// Absolute Pinned
+@mixin absolute-pinned() {
+	bottom: 0;
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100%;
+}
+
+// Scale image to fill container
+@mixin image-fill() {
+	height: 100%;
+	object-fit: cover;
+	object-position: 50% 50%;
+	width: 100%;
+}
+
+// Display pseudo element as block
+@mixin pseudo-block($height: 1em, $width: 1em) {
+	content: '';
+	display: block;
+	height: $height;
+	width: $width;
+}
+
+// Placeholder background image
+@mixin image-placeholder {
+	background-image: url('../../img/image-icon.svg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: auto 25%;
+	box-shadow: 0 0 50vw rgba(0,0,0,0.333) inset;
+}
+
+// WP Screen Reader Text Mixin
+@mixin screen-reader-text {
+	/* Disable stylelint for !important browser overrides */
+	/* stylelint-disable declaration-no-important */
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+
+	&:focus {
+		background-color: #eee;
+		clip: auto !important;
+		clip-path: none;
+		color: $color--primary;
+		display: block;
+		font: $font--body;
+		height: auto;
+		left: spacer(0.5);
+		line-height: normal;
+		padding: spacer(1) spacer(1.5);
+		text-decoration: none;
+		top: spacer(0.5);
+		width: auto;
+		z-index: z-index(front);
+	}
+	/* stylelint-enable */
+}
+
+// Reset Default Browser Button Styles
+@mixin reset-button() {
+	background-color: transparent;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+}
+
+/* SCSS Dev Utilities */
+
+// Dev Block Inspector
+@mixin dev-block($color: red, $background: yellow, $outline: dotted) {
+	outline: 1px $outline $color;
+	background: fade-out($background, 0.95);
+
+	&:hover {
+		outline: 2px $outline $color;
+		background: fade-out($background, 0.75);
+	}
+}

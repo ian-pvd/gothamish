@@ -1,0 +1,22 @@
+/**
+ * Theme core styles
+ */
+
+// Base Unit
+$base-unit: 16;
+
+// Import Core Files
+@import 'utilities';
+@import 'breakpoints';
+@import 'colors';
+@import 'layout';
+@import 'grid';
+@import 'z-index';
+@import 'typography';
+@import 'animations';
+
+// Import Theme Options
+@import 'options';
+
+// Import Theme Variables
+@import 'variables';

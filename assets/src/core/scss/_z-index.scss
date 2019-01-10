@@ -1,0 +1,25 @@
+/**
+ *  Core Z-Index Utility
+ */
+
+// List of named Z-Index values
+$z-index: (
+	front: 100000,
+	modal: 1000,
+	notice: 100,
+	interface: 10,
+	first: 1,
+	neutral: 0,
+	last: -1,
+);
+
+// SCSS Z-Index Shortcut Function
+@function z-index($key) {
+	@if map-has-key($z-index, $key) {
+		@return map-get($z-index, $key);
+	}
+
+	@warn 'Unknown `#{$key}` in $z-index.';
+
+	@return null;
+}

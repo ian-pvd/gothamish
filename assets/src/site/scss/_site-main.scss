@@ -1,0 +1,79 @@
+/**
+ * Site Main Styles
+ */
+
+.site-content,
+.content-area,
+.site-main,
+.post,
+.page {
+	width: 100%;
+}
+
+.site-content {
+	@include wrapper;
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: spacer(1);
+
+	@include breakpoints(none, medium) {
+		align-items: center;
+		flex-direction: column;
+	}
+}
+
+.content-area {
+	width: 100%;
+
+	@include breakpoints(medium) {
+		flex: 1 1 auto;
+	}
+}
+
+.post-list,
+.widget-area {
+	@include vertical-rhythm(spacer(2));
+}
+
+.widget-area {
+	flex: 0 0 auto;
+	margin-top: spacer(1);
+	width: rem(320);
+
+	@include breakpoints(medium) {
+		margin-left: spacer(1);
+		margin-top: 0;
+	}
+
+	.widget {
+		max-width: 320px;
+		width: 100%;
+
+		* {
+			max-width: 100%;
+		}
+	}
+}
+
+/* Single Content Column Layout Option */
+.site-content--single-column {
+	@include wrapper($width--content);
+	flex-direction: column;
+	justify-content: start;
+
+	.content-area {
+		margin-bottom: spacer(2);
+	}
+
+	@include breakpoints(medium) {
+		.widget-area {
+			@include grid(2);
+			margin-left: 0;
+			width: 100%;
+		}
+
+		.widget {
+			@include center-margins();
+		}
+	}
+}

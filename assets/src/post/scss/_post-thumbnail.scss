@@ -1,0 +1,14 @@
+/**
+ * Post Thumbnail styles
+ */
+
+.post-thumbnail {
+	margin-bottom: spacer(1);
+	display: block;
+
+	figcaption {
+		font-size: rem(12);
+		font-style: italic;
+		margin-top: spacer(1);
+	}
+}

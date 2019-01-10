@@ -1,0 +1,13 @@
+/**
+ * Grid Utilities
+ */
+
+/* Mixins */
+
+// CSS3 Grid Mixin
+@mixin grid($cols: 3, $gutter: spacer(1)) {
+	display: grid;
+	grid-gap: $gutter;
+	grid-template-columns: repeat($cols, 1fr);
+	justify-items: stretch;
+}

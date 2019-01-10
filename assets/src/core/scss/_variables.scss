@@ -1,0 +1,42 @@
+/**
+ * Theme Variables
+ *
+ * Theme specific reusable values.
+ */
+
+/* Base unit in px */
+/* @see `../index.scss` */
+$base-unit: $base-unit;
+
+/* Default Project Colors */
+/* see `./_colors.scss` */
+$color--primary: color(green);
+$color--secondary: color(red-dark);
+$color--tertiary: color(blue-light);
+$color--highlight: color(green-dark);
+$color--text: color(black);
+$color--background: color(white);
+
+/* Default Project Fonts */
+/* see `./_typography.scss` */
+$font--body: 1rem/#{calc(5/3)} font-family(sans-serif);
+$font--header: 700 1.5rem/#{calc(4/3)} font-family(display);
+$font--branding: 700 2rem/1 font-family(display);
+$font--mono: 0.75rem/1rem font-family(mono);
+
+/* Common theme values */
+
+// Max content width
+$width--content: 44rem;
+
+// Max site width
+$width--site: 72rem;
+
+// Theme Layout Vars
+$height--site-header-content: rem(24);
+$height--site-header: spacer(4);
+$margin-bottom--site-header: spacer(1);
+$width--mobile-menu: rem(256);
+
+// Reusable Borders
+$border--solid: 1px solid $color--secondary;

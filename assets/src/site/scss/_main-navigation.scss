@@ -1,0 +1,138 @@
+/**
+ * Main Navigation
+ */
+
+.site--mobile-nav {
+	transition: transform 250ms;
+
+	&.toggle__mobile-nav--active {
+		transform: translate3d(-$width--mobile-menu, 0, 0);
+		transition: transform 250ms;
+
+		@include breakpoints(small) {
+			transform: none;
+		}
+	}
+}
+
+.main-navigation {
+	font: 500 1rem/1 font-family(display);
+	min-width: $height--site-header-content;
+	overflow: hidden;
+	text-transform: uppercase;
+
+	@include breakpoints(small) {
+		font-size: rem(20);
+	}
+}
+
+.main-navigation__menu-toggle {
+	@include reset-button;
+	@include hide-text;
+	background-color: $color--primary;
+	height: $height--site-header-content;
+	margin-left: auto;
+	mask: url(../img/icon-menu.svg) no-repeat center;
+	mask-size: cover;
+	width: $height--site-header-content;
+
+	&[aria-expanded='true'] {
+		mask: url(../img/icon-close.svg) no-repeat center;
+	}
+
+	@include breakpoints(small) {
+		display: none;
+	}
+}
+
+.primary-nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+	transform: translateX($width--mobile-menu);
+	width: $width--mobile-menu;
+
+	@include breakpoints(small) {
+		align-items: center;
+		display: flex;
+		height: 100%;
+		margin-left: auto;
+		position: relative;
+		transform: none;
+		width: auto;
+	}
+
+	> ul,
+	.primary-nav__menu {
+		list-style: none;
+		margin: 0;
+
+		@include breakpoints(small) {
+			align-items: flex-start;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: flex-end;
+		}
+
+		> li {
+			border-bottom: 1px solid $color--text;
+			color: $color--text;
+
+			@include breakpoints(small) {
+				align-items: center;
+				border-bottom: none;
+				display: flex;
+				margin: 0 0 0 spacer(1);
+				white-space: nowrap;
+
+				&:first-of-type {
+					margin-bottom: spacer(1);
+					margin-left: 0;
+				}
+
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		a {
+			display: flex;
+			padding: 1em;
+			text-decoration: none;
+
+			@include breakpoints(small) {
+				@include link-hover;
+				padding: 0;
+			}
+		}
+	}
+}
+
+/* Top Level Main Navigation Option */
+.main-navigation--top-level {
+	li > ul {
+		display: none;
+	}
+}
+
+/* Priority Nav Main Navigation Option */
+.main-navigation--priority-nav {
+	@include breakpoints(small) {
+		align-items: center;
+
+		.primary-nav__menu {
+			flex-wrap: wrap;
+			max-height: $height--site-header-content;
+			overflow: hidden;
+
+			li {
+				height: $height--site-header-content;
+			}
+
+			li > ul {
+				display: none;
+			}
+		}
+	}
+}

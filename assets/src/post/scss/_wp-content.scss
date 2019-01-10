@@ -1,0 +1,49 @@
+/**
+ * WP Content Styles
+ */
+
+blockquote,
+cite,
+dfn,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	border-bottom: 3px solid darken($color--background, 10%);
+	border-top: 3px solid darken($color--background, 10%);
+	padding: spacer(0.5) 0;
+}
+
+pre {
+	background-color: darken($color--background, 10%);
+	font: $font--mono;
+	max-width: 100%;
+	overflow: auto;
+	padding: spacer(0.5) spacer(1);
+}
+
+code,
+kbd,
+tt,
+var {
+	font: $font--mono;
+	font-size: rem(14);
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted $color--text;
+	cursor: help;
+}
+
+mark,
+ins {
+	background-color: darken($color--background, 10%);
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}

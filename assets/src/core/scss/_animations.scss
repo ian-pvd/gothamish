@@ -1,0 +1,29 @@
+/**
+ * Theme Animations
+ *
+ * Keyframes, transitions & mixins.
+ */
+
+@mixin fade-in() {
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin slide-down() {
+	@keyframes slideDown {
+		0% {
+			transform: translate(-50%, -1.5em);
+		}
+
+		100% {
+			transform: translate(-50%, 0);
+		}
+	}
+}

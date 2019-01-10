@@ -1,0 +1,71 @@
+/**
+ * Theme Breakpoints
+ */
+
+// Breakpoint values array
+$breakpoints: (
+	x-small: 256px,
+	small: 512px,
+	medium: 768px,
+	large: 1024px,
+	x-large: 1600px,
+	xx-large: 2800px,
+);
+
+// SCSS Breakpoint shortcut mixin
+@mixin breakpoints($from: none, $to: none, $media: all) {
+	$min-width: null;
+	$max-width: null;
+
+	@if (type-of($from) == string) and (map-has-key($breakpoints, $from)) {
+		$min-width: map-get($breakpoints, $from);
+	}
+	@else if ($from == none) {
+		$min-width: false;
+	}
+	@else if ((type-of($from) == number) and (unitless($from) == false)) {
+		$min-width: $from;
+	}
+	@else {
+		@error 'Min width value #{$from} was not found.';
+	}
+
+	@if (type-of($to) == string) and (map-has-key($breakpoints, $to)) {
+		$max-width: map-get($breakpoints, $to);
+	}
+	@else if ($to == none) {
+		$max-width: false;
+	}
+	@else if ((type-of($to) == number) and (unitless($to) == false)) {
+		$max-width: $to;
+	}
+	@else {
+		@error 'Max width value #{$to} was not found.';
+	}
+
+	// If both min & max values
+	@if ($min-width != false) AND ($max-width != false) {
+		$min-width: $min-width + 1px;
+
+		@media (min-width: #{$min-width}) and (max-width: #{$max-width}) {
+			@content;
+		}
+	}
+	// If either min or max vlaue
+	@else if ($min-width != false) {
+		$min-width: $min-width + 1px;
+
+		@media (min-width: #{$min-width}) {
+			@content;
+		}
+	}
+	@else if ($max-width != false) {
+		@media (max-width: #{$max-width}) {
+			@content;
+		}
+	}
+	// if min and max are both false
+	@else {
+		@content;
+	}
+}

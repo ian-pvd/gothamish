@@ -1,0 +1,51 @@
+/**
+ * Core CSS Colors
+ *
+ * List of primary & secondary named colors for use in CSS.
+ */
+
+$colors: (
+	black: black,
+	grey-very-dark: hsl(0,0,20),
+	grey-dark: hsl(0,0,40),
+	grey: hsl(0,0,50),
+	grey-light: hsl(0,0,60),
+	grey-very-light: hsl(0,0,80),
+	grey-very-very-light: hsl(0,0,95),
+	white: white,
+	red: crimson,
+	red-dark: darkred,
+	red-light: lightcoral,
+	yellow: yellow,
+	yellow-dark: darkgoldenrod,
+	yellow-light: lemonchiffon,
+	green: forestgreen,
+	green-dark: darkgreen,
+	green-light: palegreen,
+	cyan: lightskyblue,
+	cyan-dark: deepskyblue,
+	cyan-light: lightcyan,
+	blue: mediumblue,
+	blue-dark: midnightblue,
+	blue-light: dodgerblue,
+	magenta: deeppink,
+	magenta-dark: mediumvioletred,
+	magenta-light: hotpink,
+	purple: purple,
+	purple-dark: purple,
+	purple-light: purple,
+	orange: orange,
+	orange-dark: orange,
+	orange-light: orange,
+);
+
+// SCSS Color Map Shortcut Function
+@function color($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+
+	@warn 'Unknown `#{$key}` in $colors.';
+
+	@return null;
+}

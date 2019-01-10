@@ -1,0 +1,25 @@
+/**
+ * Theme Options
+ *
+ * Override default utility values with custom theme values
+ */
+
+/* Custom Breakpoints */
+/* @see `./_breakpoints.scss` */
+$custom-breakpoints: ();
+$breakpoints: map-merge($breakpoints, $custom-breakpoints);
+
+/* Custom Colors */
+/* @see `./_colors.scss` */
+$custom-colors: ();
+$colors: map-merge($colors, $custom-colors);
+
+/* Custom Font Families */
+/* @see `./_typography.scss` */
+$custom-font-families: ();
+$font-families: map-merge($font-families, $custom-font-families);
+
+/* Custom Z-Index */
+/* @see `./_z-index.scss` */
+$custom-z-index: ();
+$z-index: map-merge($z-index, $custom-z-index);

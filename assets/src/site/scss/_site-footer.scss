@@ -1,0 +1,62 @@
+/**
+ * Site Footer Styles
+ */
+
+.site-footer {
+	border-top: 1px solid $color--text;
+	margin-top: auto;
+	padding: spacer(1) 0;
+}
+
+.site-footer__wrapper {
+	@include wrapper;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+.footer-navigation {
+	ul {
+		display: flex;
+		justify-content: center;
+		list-style: none;
+		margin: 0 0 spacer(1);
+		text-align: center;
+
+		@include breakpoints(none, small) {
+			flex-wrap: wrap;
+		}
+	}
+
+	li {
+		@include separator('', spacer(0.5));
+		white-space: nowrap;
+
+		@include breakpoints(small) {
+			@include separator;
+		}
+	}
+}
+
+.site-info {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.copyright {
+	font-size: rem(12);
+	letter-spacing: letter-spacing(100);
+	line-height: 1;
+	text-transform: uppercase;
+
+	a {
+		@include link-hover;
+		font-weight: 700;
+	}
+}
+
+.copyright__author {
+	margin-bottom: spacer(0.25);
+}

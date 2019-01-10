@@ -1,0 +1,16 @@
+/**
+ * Post Content styles
+ */
+
+.entry-content {
+	margin-bottom: spacer(1);
+
+	> * {
+		max-width: 100%;
+		margin-bottom: spacer(1);
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

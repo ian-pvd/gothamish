@@ -1,0 +1,36 @@
+/**
+ * Post Header styles
+ */
+
+.entry-header,
+.page-header {
+	margin-bottom: spacer(1);
+}
+
+.entry-title {
+	font: $font--header;
+
+	@at-root h1#{&} {
+		font-size: 2rem;
+	}
+}
+
+.entry-meta {
+	display: flex;
+
+	> * {
+		width: 50%;
+	}
+}
+
+.byline {
+	order: -1;
+}
+
+.entry-date {
+	text-align: right;
+}
+
+.entry-date__last-updated {
+	display: none;
+}

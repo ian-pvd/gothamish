@@ -1,0 +1,17 @@
+/**
+ * Post Styles
+ */
+
+// Load Theme Core
+@import '../../core/scss/index.scss';
+
+// Import Post Styles
+// @import 'post';
+@import 'post-header';
+@import 'post-thumbnail';
+@import 'post-content';
+
+// WordPress Content Styles
+.wp-content {
+	@import 'wp-content';
+}

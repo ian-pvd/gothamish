@@ -1,0 +1,18 @@
+/**
+ * Site Styles
+ *
+ * Global site theme styles
+ */
+
+// Load Theme Core
+@import '../../core/scss/index.scss';
+
+// Import CSS Reset
+@import 'reset';
+
+// Import Site Styles
+@import 'site';
+@import 'site-header';
+@import 'main-navigation';
+@import 'site-main';
+@import 'site-footer';

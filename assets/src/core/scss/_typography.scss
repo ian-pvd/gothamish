@@ -1,0 +1,44 @@
+/**
+ * Typography Utilities
+ */
+
+/* Named Font Families */
+$font-families: (
+	sans-serif: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+	serif: 'Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman",  serif',
+	display: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+	mono: 'Monaco, Consolas, "Andale Mono", monospace',
+);
+
+/* Functions */
+
+// SCSS Fonts Map Shortcut Function
+@function font-family($key) {
+	@if map-has-key($font-families, $key) {
+		@return unquote(map-get($font-families, $key));
+	}
+
+	@warn 'Unknown `#{$key}` in $font-families.';
+
+	@return null;
+}
+
+// PS style letter spacing based on 1000 value
+@function letter-spacing($spacing: 100) {
+	@return #{$spacing / 1000}em;
+}
+
+/* Mixins */
+
+// Comma separated list styles for standard UL > LI, OL lists.
+@mixin comma-list() {
+	li,
+	ol {
+		display: inline-block;
+
+		&:not(:last-child)::after {
+			content: ',\00a0';
+			display: inline-block;
+		}
+	}
+}

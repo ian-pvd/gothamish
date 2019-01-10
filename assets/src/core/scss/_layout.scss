@@ -1,0 +1,105 @@
+/**
+ * Layout Utilities
+ */
+
+/* Mixins */
+
+// Center Margins
+@mixin center-margins() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@mixin wrapper($max-width: $width--site, $gutter: spacer(1)) {
+	@include center-margins();
+	max-width: calc(#{$max-width} + (2 * #{$gutter}));
+	padding-left: $gutter;
+	padding-right: $gutter;
+	width: 100%;
+}
+
+// Absolute Center
+@mixin absolute-center() {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+// Horizontal Center
+@mixin horizontal-center() {
+	display: block;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+// Horizontal Separator
+@mixin separator($character: '|', $spacing: spacer(1)) {
+	&::after {
+		content: $character;
+		margin: 0 $spacing;
+	}
+
+	&:last-child {
+		&::after {
+			display: none;
+		}
+	}
+}
+
+// Variable Width Full Bleed Mixin
+@mixin full-bleed($width: 100vw) {
+	margin-left: 50%;
+	max-width: none;
+	transform: translateX(-50%);
+	width: #{$width};
+}
+
+// Adds vertical spacing to all child elements but the last
+@mixin vertical-rhythm($margin: spacer(1), $padding: 0, $border: none) {
+	> * {
+		border-bottom: $border;
+		margin-bottom: $margin;
+		padding-bottom: $padding;
+
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+
+// Clear a float
+@mixin clearfix() {
+	&::after {
+		clear: both;
+		content: '';
+	}
+}
+
+// Makes an image frame at a width & height ratio
+@mixin intrinsic-image($width, $height, $vertical-align: middle) {
+	height: 0;
+	overflow: hidden;
+	padding-top: calc((#{$height}/#{$width}) * 100%);
+	position: relative;
+
+	> img,
+	> source {
+		position: absolute;
+
+		@if ($vertical-align == 'top') {
+			top: 0;
+		}
+		@else if ($vertical-align == 'bottom') {
+			bottom: 0;
+		}
+		@else {
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+}
