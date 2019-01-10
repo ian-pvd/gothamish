@@ -4,6 +4,7 @@
 
 // Global Scripts
 import toggleMobileNav from './js/toggleMobileNav';
+import loadWebFonts from './js/webFontLoader';
 
 // Global Styles
 import './scss/index.scss';
@@ -16,4 +17,5 @@ if (module.hot) {
 // Enquue Site JS Modules
 document.addEventListener('DOMContentLoaded', () => {
   toggleMobileNav();
+  loadWebFonts();
 });
