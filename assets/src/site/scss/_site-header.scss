@@ -29,7 +29,7 @@
 	width: 100%;
 	position: relative;
 
-	@include breakpoints(medium) {
+	@include breakpoints(large) {
 		&::after {
 			@include pseudo-block(0,100%);
 			border-bottom: 1px solid #CCC;
@@ -47,7 +47,7 @@
 .custom-logo-link {
 	display: none;
 
-	@include breakpoints(medium) {
+	@include breakpoints(large) {
 		@include center-margins();
 		display: block;
 		background: white;
@@ -74,7 +74,7 @@
 		text-decoration: none;
 	}
 
-	@include breakpoints(medium) {
+	@include breakpoints(large) {
 		.custom-logo-link + & {
 			display: none;
 		}
@@ -91,31 +91,10 @@
 	margin-left: auto;
 	max-height: 100%;
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		display: none;
 		flex: 1 1 auto;
 		width: 100%;
 		height: auto;
-	}
-}
-
-/* Sticky Site Header Option */
-.site-header--sticky {
-	position: fixed;
-	background-color: $color--background;
-	max-height: $height--site-header;
-
-	& + * {
-		padding-top: $height--site-header + $margin-bottom--site-header;
-	}
-
-	.site-header__wrapper {
-		height: $height--site-header-content;
-	}
-
-	@include breakpoints(none, large) {
-		.site-header__description {
-			display: none;
-		}
 	}
 }

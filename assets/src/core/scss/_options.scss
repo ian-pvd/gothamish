@@ -29,6 +29,7 @@ $colors: map-merge($colors, $custom-colors);
 /* Custom Font Families */
 /* @see `./_typography.scss` */
 $custom-font-families: (
+	sans-serif: '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
 	logotype: '"Titillium Web", "Andale Mono", sans-serif',
 	headers: '"Archivo Narrow", "Arial Narrow", sans-serif',
 );

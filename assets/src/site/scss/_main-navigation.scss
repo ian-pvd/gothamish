@@ -9,7 +9,7 @@
 		transform: translate3d(-$width--mobile-menu, 0, 0);
 		transition: transform 250ms;
 
-		@include breakpoints(small) {
+		@include breakpoints(large) {
 			transform: none;
 		}
 	}
@@ -19,7 +19,7 @@
 	min-width: $width--menu-toggle;
 	overflow: hidden;
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		font-size: rem(20);
 	}
 }
@@ -39,7 +39,7 @@
 		mask: url(../img/icon-close.svg) no-repeat center;
 	}
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		display: none;
 	}
 }
@@ -52,7 +52,7 @@
 	transform: translateX($width--mobile-menu);
 	width: $width--mobile-menu;
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		align-items: center;
 		display: flex;
 		height: 100%;
@@ -67,7 +67,7 @@
 		list-style: none;
 		margin: 0;
 
-		@include breakpoints(small) {
+		@include breakpoints(large) {
 			align-items: flex-start;
 			display: flex;
 			flex-flow: row wrap;
@@ -78,7 +78,7 @@
 			border-bottom: $border--hr-light;
 			color: $color--text;
 
-			@include breakpoints(small) {
+			@include breakpoints(large) {
 				align-items: center;
 				border-bottom: none;
 				display: flex;
@@ -102,7 +102,7 @@
 			text-decoration: none;
 			color: inherit;
 
-			@include breakpoints(small) {
+			@include breakpoints(large) {
 				@include link-hover;
 				padding: 0;
 			}
@@ -119,7 +119,7 @@
 
 /* Priority Nav Main Navigation Option */
 .main-navigation--priority-nav {
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		align-items: center;
 
 		.primary-nav__menu {
