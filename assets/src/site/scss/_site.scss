@@ -8,7 +8,7 @@ html {
 }
 
 body {
-	background: $color--background;
+	background: color(white);
 	color: $color--text;
 	font: $font--body;
 }
@@ -30,6 +30,7 @@ body,
 .site {
 	display: flex;
 	flex-direction: column;
+	background-color: $color--background;
 
 	@include breakpoints(small) {
 		@include center-margins();

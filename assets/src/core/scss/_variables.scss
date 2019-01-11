@@ -12,6 +12,7 @@ $base-unit: $base-unit;
 /* see `./_colors.scss` */
 $color--background: color(grey-very-very-light);
 $color--branding: color(grey-very-very-dark);
+$color--interface: color(grey-very-light);
 $color--highlight: color(red);
 $color--page: color(white);
 $color--primary: color(red);
@@ -22,9 +23,10 @@ $color--text: color(black);
 /* Default Project Fonts */
 /* see `./_typography.scss` */
 $font--body: 1rem/#{calc(5/3)} font-family(sans-serif);
-$font--header: 700 1.5rem/#{calc(4/3)} font-family(display);
-$font--branding: 500 #{rem(24)}/1 font-family(logotype);
+$font--header: 700 1.5rem/#{calc(4/3)} font-family(headers);
+$font--branding: #{rem(24)}/1 font-family(logotype);
 $font--mono: 0.75rem/1rem font-family(mono);
+$font--interface: #{rem(20)}/1 font-family(headers);
 
 /* Common theme values */
 
@@ -43,3 +45,4 @@ $width--menu-toggle: rem(24);
 
 // Reusable Borders
 $border--solid: 1px solid $color--secondary;
+$border--hr-light: 1px solid color(grey-very-light);

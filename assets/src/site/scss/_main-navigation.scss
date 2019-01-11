@@ -16,10 +16,8 @@
 }
 
 .main-navigation {
-	font: 500 1rem/1 font-family(display);
 	min-width: $width--menu-toggle;
 	overflow: hidden;
-	text-transform: uppercase;
 
 	@include breakpoints(small) {
 		font-size: rem(20);
@@ -29,7 +27,8 @@
 .main-navigation__menu-toggle {
 	@include reset-button;
 	@include hide-text;
-	background-color: $color--primary;
+	font-size: 2rem; // Affects mask-size scaling
+	background-color: $color--interface;
 	height: $width--menu-toggle;
 	margin-left: auto;
 	mask: url(../img/icon-menu.svg) no-repeat center;
@@ -46,6 +45,7 @@
 }
 
 .primary-nav {
+	font: $font--interface;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -75,7 +75,7 @@
 		}
 
 		> li {
-			border-bottom: 1px solid $color--text;
+			border-bottom: $border--hr-light;
 			color: $color--text;
 
 			@include breakpoints(small) {
@@ -100,6 +100,7 @@
 			display: flex;
 			padding: 1em;
 			text-decoration: none;
+			color: inherit;
 
 			@include breakpoints(small) {
 				@include link-hover;

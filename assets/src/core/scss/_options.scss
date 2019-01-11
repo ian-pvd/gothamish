@@ -28,7 +28,10 @@ $colors: map-merge($colors, $custom-colors);
 
 /* Custom Font Families */
 /* @see `./_typography.scss` */
-$custom-font-families: ();
+$custom-font-families: (
+	logotype: '"Titillium Web", "Andale Mono", sans-serif',
+	headers: '"Archivo Narrow", "Arial Narrow", sans-serif',
+);
 $font-families: map-merge($font-families, $custom-font-families);
 
 /* Custom Z-Index */
