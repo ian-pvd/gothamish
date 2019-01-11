@@ -35,10 +35,11 @@ $width--content: 44rem;
 $width--site: 72rem;
 
 // Theme Layout Vars
-$height--site-header-content: rem(24);
-$height--site-header: spacer(4);
+$height--site-header-content: rem(64);
+$height--site-header: rem(96);
 $margin-bottom--site-header: spacer(1);
 $width--mobile-menu: rem(256);
+$width--menu-toggle: rem(24);
 
 // Reusable Borders
 $border--solid: 1px solid $color--secondary;

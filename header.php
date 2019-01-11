@@ -28,6 +28,8 @@
 		<div class="site-header__wrapper">
 			<div class="site-header__branding">
 				<?php
+				the_custom_logo();
+
 				$gotham_description = get_bloginfo( 'description', 'display' );
 
 				if ( $gotham_description ) {
@@ -35,7 +37,6 @@
 				} else {
 					$logo_link_title = get_bloginfo( 'name' );
 				}
-				the_custom_logo();
 
 				if ( is_front_page() && is_home() ) :
 					?>

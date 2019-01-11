@@ -17,7 +17,7 @@
 
 .main-navigation {
 	font: 500 1rem/1 font-family(display);
-	min-width: $height--site-header-content;
+	min-width: $width--menu-toggle;
 	overflow: hidden;
 	text-transform: uppercase;
 
@@ -30,11 +30,11 @@
 	@include reset-button;
 	@include hide-text;
 	background-color: $color--primary;
-	height: $height--site-header-content;
+	height: $width--menu-toggle;
 	margin-left: auto;
 	mask: url(../img/icon-menu.svg) no-repeat center;
 	mask-size: cover;
-	width: $height--site-header-content;
+	width: $width--menu-toggle;
 
 	&[aria-expanded='true'] {
 		mask: url(../img/icon-close.svg) no-repeat center;
@@ -123,11 +123,11 @@
 
 		.primary-nav__menu {
 			flex-wrap: wrap;
-			max-height: $height--site-header-content;
+			max-height: $width--menu-toggle;
 			overflow: hidden;
 
 			li {
-				height: $height--site-header-content;
+				height: $width--menu-toggle;
 			}
 
 			li > ul {
