@@ -3,7 +3,7 @@
  */
 
 .site-header {
-	border-bottom: 1px solid $color--text;
+	background-color: $color--page;
 	display: flex;
 	flex: 0 0 auto;
 	height: auto;
@@ -25,15 +25,22 @@
 .site-header__branding {
 	display: flex;
 	flex-direction: column;
-	flex: 0 1 auto;
-	margin-right: spacer(1);
+	flex: 1 1 auto;
+	width: 100%;
+	position: relative;
 
 	@include breakpoints(medium) {
-		flex: 1 0 auto;
+		&::after {
+			@include pseudo-block(0,100%);
+			border-bottom: 1px solid #CCC;
+			bottom: spacer(1);
+			position: absolute;
+			z-index: z-index(last);
+		}
 	}
 
 	@include breakpoints(large) {
-		flex-direction: row;
+		// flex-direction: row;
 	}
 }
 
@@ -41,14 +48,19 @@
 	align-items: center;
 	display: flex;
 	font: $font--branding;
-	letter-spacing: letter-spacing(125);
 	margin: 0;
-	text-transform: uppercase;
+	text-transform: lowercase;
 
 	a {
-		color: $color--primary;
+		color: $color--branding;
 		display: block;
 		text-decoration: none;
+	}
+
+	@include breakpoints(medium) {
+		@include center-margins();
+		background: $color--page;
+		padding: spacer(0.5) spacer(1);
 	}
 }
 
@@ -60,20 +72,6 @@
 	}
 }
 
-.site-header__description {
-	align-items: center;
-	display: flex;
-	line-height: 1;
-	padding-top: 1em;
-
-	@include breakpoints(large) {
-		border-left: 1px solid $color--text;
-		margin-left: spacer(1);
-		padding-left: spacer(1);
-		padding-top: 0;
-	}
-}
-
 .site-header__navigation {
 	flex: 0 0 $height--site-header-content;
 	height: $height--site-header-content;
@@ -81,7 +79,7 @@
 	max-height: 100%;
 
 	@include breakpoints(small) {
-		display: flex;
+		display: none;
 		flex: 1 1 auto;
 		width: 100%;
 		height: auto;

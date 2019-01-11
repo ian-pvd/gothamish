@@ -10,18 +10,20 @@ $base-unit: $base-unit;
 
 /* Default Project Colors */
 /* see `./_colors.scss` */
-$color--primary: color(green);
-$color--secondary: color(red-dark);
-$color--tertiary: color(blue-light);
-$color--highlight: color(green-dark);
+$color--background: color(grey-very-very-light);
+$color--branding: color(grey-very-very-dark);
+$color--highlight: color(red);
+$color--page: color(white);
+$color--primary: color(red);
+$color--secondary: color(grey-very-very-dark);
+$color--tertiary: color(yellow-dark);
 $color--text: color(black);
-$color--background: color(white);
 
 /* Default Project Fonts */
 /* see `./_typography.scss` */
 $font--body: 1rem/#{calc(5/3)} font-family(sans-serif);
 $font--header: 700 1.5rem/#{calc(4/3)} font-family(display);
-$font--branding: 700 2rem/1 font-family(logotype);
+$font--branding: 500 #{rem(24)}/1 font-family(logotype);
 $font--mono: 0.75rem/1rem font-family(mono);
 
 /* Common theme values */

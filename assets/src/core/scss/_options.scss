@@ -11,7 +11,19 @@ $breakpoints: map-merge($breakpoints, $custom-breakpoints);
 
 /* Custom Colors */
 /* @see `./_colors.scss` */
-$custom-colors: ();
+$custom-colors: (
+	black: #1A1A1A,
+	grey-very-very-dark: #333,
+	grey-very-dark: #555,
+	grey-dark: #666,
+	grey: #808080,
+	grey-light: #AAA,
+	grey-very-light: #CCC,
+	grey-very-very-light: #E6E6E6,
+	red: #A00,
+	red-dark: #900,
+	yellow-dark: #E6D520,
+);
 $colors: map-merge($colors, $custom-colors);
 
 /* Custom Font Families */

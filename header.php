@@ -24,25 +24,29 @@
 <div id="page" class="site site--mobile-nav">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gotham' ); ?></a>
 
-	<header id="masthead" class="site-header site-header--sticky">
+	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">
 			<div class="site-header__branding">
 				<?php
+				$gotham_description = get_bloginfo( 'description', 'display' );
+
+				if ( $gotham_description ) {
+					$logo_link_title = $gotham_description;
+				} else {
+					$logo_link_title = get_bloginfo( 'name' );
+				}
 				the_custom_logo();
+
 				if ( is_front_page() && is_home() ) :
 					?>
-					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 					<?php
 				else :
 					?>
-					<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 					<?php
 				endif;
-				$gotham_description = get_bloginfo( 'description', 'display' );
-				if ( $gotham_description || is_customize_preview() ) :
-					?>
-					<p class="site-header__description"><?php echo $gotham_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif; ?>
+				?>
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="site-header__navigation main-navigation main-navigation--priority-nav">
