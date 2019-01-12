@@ -10,19 +10,23 @@ $base-unit: $base-unit;
 
 /* Default Project Colors */
 /* see `./_colors.scss` */
-$color--primary: color(green);
-$color--secondary: color(red-dark);
-$color--tertiary: color(blue-light);
-$color--highlight: color(green-dark);
+$color--background: color(grey-very-very-light);
+$color--branding: color(grey-very-very-dark);
+$color--interface: color(grey-very-light);
+$color--highlight: color(red);
+$color--page: color(white);
+$color--primary: color(red);
+$color--secondary: color(grey-very-very-dark);
+$color--tertiary: color(yellow-dark);
 $color--text: color(black);
-$color--background: color(white);
 
 /* Default Project Fonts */
 /* see `./_typography.scss` */
 $font--body: 1rem/#{calc(5/3)} font-family(sans-serif);
-$font--header: 700 1.5rem/#{calc(4/3)} font-family(display);
-$font--branding: 700 2rem/1 font-family(logotype);
+$font--header: 700 1.5rem/#{calc(4/3)} font-family(headers);
+$font--branding: #{rem(24)}/1 font-family(logotype);
 $font--mono: 0.75rem/1rem font-family(mono);
+$font--interface: #{rem(20)}/1 font-family(headers);
 
 /* Common theme values */
 
@@ -33,10 +37,12 @@ $width--content: 44rem;
 $width--site: 72rem;
 
 // Theme Layout Vars
-$height--site-header-content: rem(24);
-$height--site-header: spacer(4);
+$height--site-header-content: rem(64);
+$height--site-header: rem(96);
 $margin-bottom--site-header: spacer(1);
 $width--mobile-menu: rem(256);
+$width--menu-toggle: rem(24);
 
 // Reusable Borders
 $border--solid: 1px solid $color--secondary;
+$border--hr-light: 1px solid color(grey-very-light);

@@ -11,12 +11,28 @@ $breakpoints: map-merge($breakpoints, $custom-breakpoints);
 
 /* Custom Colors */
 /* @see `./_colors.scss` */
-$custom-colors: ();
+$custom-colors: (
+	black: #1A1A1A,
+	grey-very-very-dark: #333,
+	grey-very-dark: #555,
+	grey-dark: #666,
+	grey: #808080,
+	grey-light: #AAA,
+	grey-very-light: #CCC,
+	grey-very-very-light: #E6E6E6,
+	red: #A00,
+	red-dark: #900,
+	yellow-dark: #E6D520,
+);
 $colors: map-merge($colors, $custom-colors);
 
 /* Custom Font Families */
 /* @see `./_typography.scss` */
-$custom-font-families: ();
+$custom-font-families: (
+	sans-serif: '"Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+	logotype: '"Titillium Web", "Andale Mono", sans-serif',
+	headers: '"Archivo Narrow", "Arial Narrow", sans-serif',
+);
 $font-families: map-merge($font-families, $custom-font-families);
 
 /* Custom Z-Index */

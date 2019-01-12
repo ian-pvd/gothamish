@@ -9,19 +9,17 @@
 		transform: translate3d(-$width--mobile-menu, 0, 0);
 		transition: transform 250ms;
 
-		@include breakpoints(small) {
+		@include breakpoints(large) {
 			transform: none;
 		}
 	}
 }
 
 .main-navigation {
-	font: 500 1rem/1 font-family(display);
-	min-width: $height--site-header-content;
+	min-width: $width--menu-toggle;
 	overflow: hidden;
-	text-transform: uppercase;
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		font-size: rem(20);
 	}
 }
@@ -29,30 +27,32 @@
 .main-navigation__menu-toggle {
 	@include reset-button;
 	@include hide-text;
-	background-color: $color--primary;
-	height: $height--site-header-content;
+	font-size: 2rem; // Affects mask-size scaling
+	background-color: $color--interface;
+	height: $width--menu-toggle;
 	margin-left: auto;
 	mask: url(../img/icon-menu.svg) no-repeat center;
 	mask-size: cover;
-	width: $height--site-header-content;
+	width: $width--menu-toggle;
 
 	&[aria-expanded='true'] {
 		mask: url(../img/icon-close.svg) no-repeat center;
 	}
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		display: none;
 	}
 }
 
 .primary-nav {
+	font: $font--interface;
 	position: absolute;
 	right: 0;
 	top: 0;
 	transform: translateX($width--mobile-menu);
 	width: $width--mobile-menu;
 
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		align-items: center;
 		display: flex;
 		height: 100%;
@@ -67,7 +67,7 @@
 		list-style: none;
 		margin: 0;
 
-		@include breakpoints(small) {
+		@include breakpoints(large) {
 			align-items: flex-start;
 			display: flex;
 			flex-flow: row wrap;
@@ -75,10 +75,10 @@
 		}
 
 		> li {
-			border-bottom: 1px solid $color--text;
+			border-bottom: $border--hr-light;
 			color: $color--text;
 
-			@include breakpoints(small) {
+			@include breakpoints(large) {
 				align-items: center;
 				border-bottom: none;
 				display: flex;
@@ -100,8 +100,9 @@
 			display: flex;
 			padding: 1em;
 			text-decoration: none;
+			color: inherit;
 
-			@include breakpoints(small) {
+			@include breakpoints(large) {
 				@include link-hover;
 				padding: 0;
 			}
@@ -118,16 +119,16 @@
 
 /* Priority Nav Main Navigation Option */
 .main-navigation--priority-nav {
-	@include breakpoints(small) {
+	@include breakpoints(large) {
 		align-items: center;
 
 		.primary-nav__menu {
 			flex-wrap: wrap;
-			max-height: $height--site-header-content;
+			max-height: $width--menu-toggle;
 			overflow: hidden;
 
 			li {
-				height: $height--site-header-content;
+				height: $width--menu-toggle;
 			}
 
 			li > ul {
