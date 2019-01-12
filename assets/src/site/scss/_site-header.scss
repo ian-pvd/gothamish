@@ -38,10 +38,6 @@
 			z-index: z-index(last);
 		}
 	}
-
-	@include breakpoints(large) {
-		// flex-direction: row;
-	}
 }
 
 .custom-logo-link {
