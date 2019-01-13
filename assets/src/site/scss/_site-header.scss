@@ -94,3 +94,12 @@
 		height: auto;
 	}
 }
+
+.social-links {
+	a {
+		&:hover,
+		&[href]:hover {
+			background: color(grey-very-very-light);
+		}
+	}
+}

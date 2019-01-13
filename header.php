@@ -63,6 +63,12 @@
 				);
 				?>
 			</nav><!-- #site-navigation -->
+
+			<?php if ( has_nav_menu( 'social-links' ) ) : ?>
+			<div class="site-header__social-links">
+				<?php gotham_social_links(); ?>
+			</div>
+			<?php endif; ?>
 		</div>
 	</header><!-- #masthead -->
 
