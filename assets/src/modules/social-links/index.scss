@@ -1,0 +1,80 @@
+/**
+ * Social Links
+ *
+ * Icons & Colors via: https://simpleicons.org/
+ */
+
+// Module URL Reference Variable
+$module-url: '../../modules/social-links/';
+
+/* Social Network Color Options */
+/* @see `./_colors.scss` */
+$social-colors: (
+	facebook: #3B5998,
+	instagram: #E4405F,
+	linkedin: #0077B5,
+	medium: #12100E,
+	messenger: #0084FF,
+	pinterest: #BD081C,
+	reddit: #FF4500,
+	snapchat: #FFFC00,
+	tumblr: #36465D,
+	twitter: #1DA1F2,
+	whatsapp: #25D366,
+	youtube: #FF0000,
+);
+$colors: map-merge($colors, $social-colors);
+
+.social-links {
+	display: flex;
+	list-style: none;
+	margin: 0;
+
+	> li {
+		background-color: red;
+	}
+
+	a {
+		align-items: center;
+		background-color: $color--primary;
+		color: color(white);
+		display: flex;
+		font-size: rem(12);
+		height: rem(32);
+		justify-content: center;
+		min-width: rem(32);
+		padding: 0 rem(8);
+		text-decoration: none;
+		white-space: nowrap;
+		width: 100%;
+
+		&:hover {
+			color: $color--primary;
+			background: color(white);
+		}
+
+		@each $site, $color in $social-colors {
+			&[href*='#{$site}'] {
+				@include hide-text;
+				background: $color;
+				max-width: rem(32);
+
+				&:hover {
+					background: color(white);
+				}
+
+				span {
+					background: color(white);
+					display: flex;
+					height: 100%;
+					mask: url('#{$module-url}#{$site}.svg') center no-repeat;
+					mask-size: rem(20);
+
+					&:hover {
+						background: $color;
+					}
+				}
+			}
+		}
+	}
+}
