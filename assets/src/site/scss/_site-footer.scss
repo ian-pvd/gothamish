@@ -11,7 +11,6 @@
 .site-footer__wrapper {
 	@include wrapper;
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	width: 100%;
 }
@@ -40,23 +39,24 @@
 }
 
 .site-info {
-	display: flex;
-	flex-direction: column;
+	font: $font--interface;
+	font-size: rem(14);
 	text-align: center;
-}
 
-.copyright {
-	font-size: rem(12);
-	letter-spacing: letter-spacing(100);
-	line-height: 1;
-	text-transform: uppercase;
+	@include breakpoints(small) {
+		font-size: rem(12);
+	}
 
 	a {
 		@include link-hover;
-		font-weight: 700;
+		color: $color--text;
+
+		&:hover {
+			color: color(red);
+		}
 	}
 }
 
-.copyright__author {
-	margin-bottom: spacer(0.25);
+.copyright {
+	margin-right: calc(1em / 3);
 }

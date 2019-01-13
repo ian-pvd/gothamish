@@ -49,7 +49,6 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		register_nav_menus(
 			[
 				'primary-nav' => esc_html__( 'Primary Navigation', 'gotham' ),
-				'utilities-menu'  => esc_html__( 'Utilities Menu', 'gotham' ),
 			]
 		);
 
