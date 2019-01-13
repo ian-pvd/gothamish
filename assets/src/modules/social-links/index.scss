@@ -30,10 +30,6 @@ $colors: map-merge($colors, $social-colors);
 	list-style: none;
 	margin: 0;
 
-	> li {
-		background-color: red;
-	}
-
 	a {
 		align-items: center;
 		background-color: $color--primary;
