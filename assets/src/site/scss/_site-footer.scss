@@ -40,20 +40,20 @@
 }
 
 .site-info {
-	display: flex;
-	flex-direction: column;
 	text-align: center;
 }
 
 .copyright {
-	font-size: rem(12);
-	letter-spacing: letter-spacing(100);
-	line-height: 1;
-	text-transform: uppercase;
+	font: $font--interface;
+	font-size: rem(14);
 
 	a {
 		@include link-hover;
-		font-weight: 700;
+		color: $color--text;
+
+		&:hover {
+			color: color(red);
+		}
 	}
 }
 
