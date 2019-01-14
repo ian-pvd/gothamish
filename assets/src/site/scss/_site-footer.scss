@@ -3,45 +3,22 @@
  */
 
 .site-footer {
-	border-top: 1px solid $color--text;
 	margin-top: auto;
 	padding: spacer(1) 0;
 }
 
 .site-footer__wrapper {
 	@include wrapper;
-	display: flex;
-	justify-content: center;
+	line-height: 1;
+	text-align: center;
 	width: 100%;
-}
-
-.footer-navigation {
-	ul {
-		display: flex;
-		justify-content: center;
-		list-style: none;
-		margin: 0 0 spacer(1);
-		text-align: center;
-
-		@include breakpoints(none, small) {
-			flex-wrap: wrap;
-		}
-	}
-
-	li {
-		@include separator('', spacer(0.5));
-		white-space: nowrap;
-
-		@include breakpoints(small) {
-			@include separator;
-		}
-	}
 }
 
 .site-info {
 	font: $font--interface;
 	font-size: rem(14);
 	text-align: center;
+	display: inline;
 
 	@include breakpoints(small) {
 		font-size: rem(12);
@@ -55,8 +32,4 @@
 			color: color(red);
 		}
 	}
-}
-
-.copyright {
-	margin-right: calc(1em / 3);
 }
