@@ -95,11 +95,25 @@
 	}
 }
 
+/* Customize social links module styles */
 .social-links {
 	a {
-		&:hover,
+		/* Allow extra specificity for module overrides */
+		/* stylelint-disable selector-max-specificity */
 		&[href]:hover {
-			background: color(grey-very-very-light);
+			background: color(grey-dark);
+			color: color(white);
+
+			span {
+				background: color(white);
+			}
 		}
+
+		&[href*='mailto']:hover {
+			span {
+				background: transparent;
+			}
+		}
+		/* stylelint enable */
 	}
 }
