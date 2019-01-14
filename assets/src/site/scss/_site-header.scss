@@ -20,6 +20,10 @@
 .site-header__wrapper {
 	@include wrapper();
 	display: flex;
+
+	@include breakpoints(large) {
+		flex-wrap: wrap;
+	}
 }
 
 .site-header__branding {
@@ -30,6 +34,8 @@
 	position: relative;
 
 	@include breakpoints(large) {
+		order: 1;
+
 		&::after {
 			@include pseudo-block(0,100%);
 			border-bottom: 1px solid #CCC;
@@ -92,5 +98,37 @@
 		flex: 1 1 auto;
 		width: 100%;
 		height: auto;
+	}
+}
+
+.site-header__social-links {
+	display: none;
+
+	@include breakpoints(large) {
+		display: block;
+		margin-left: auto;
+	}
+}
+
+/* Customize social links module styles */
+.social-links {
+	a {
+		/* Allow extra specificity for module overrides */
+		/* stylelint-disable selector-max-specificity */
+		&[href]:hover {
+			background: color(grey-dark);
+			color: color(white);
+
+			span {
+				background: color(white);
+			}
+		}
+
+		&[href*='mailto']:hover {
+			span {
+				background: transparent;
+			}
+		}
+		/* stylelint enable */
 	}
 }
