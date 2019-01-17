@@ -176,16 +176,18 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 					case 'best-of':
 						$banner_type = $tag->slug;
 						$banner_text = __(
-							'Best of <span class="site-logotype">Gothamish</span>',
+							'Best of <span class="site-logotype"><span>Gotham</span>ish</span>',
 							'gotham'
 						);
+						$banner_link = get_term_link( $tag );
 						break;
 					case 'gothamish-films':
 						$banner_type = $tag->slug;
 						$banner_text = __(
-							'<span class="site-logotype">Gothamish</span> Films',
+							'<span class="site-logotype"><span>Gotham</span>ish</span> Films',
 							'gotham'
 						);
+						$banner_link = get_term_link( $tag );
 						break;
 				}
 
@@ -193,12 +195,13 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 				if ( isset( $banner_type ) && isset( $banner_text ) ) {
 					// Display the tag.
 					printf(
-						'<div class="post__banner post__banner--%1$s">%2$s</div>',
+						'<a href="%3$s" class="post__banner post__banner--%1$s">%2$s</a>',
 						sanitize_html_class( $banner_type ),
 						wp_kses(
 							$banner_text,
 							[ 'span' => [ 'class' => [] ] ]
-						)
+						),
+						esc_url( $banner_link )
 					);
 					break;
 				}
