@@ -163,6 +163,46 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 	 * If a post has a specific tag, display a banner above the post header.
 	 */
 	function gotham_post_banner() {
-		echo '<div class="post__banner">Best of <span class="site-logotype">Gothamish</span></div>';
+		// Get a list of the post tags.
+		$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+
+		// If list isn't empty...
+		if ( ! empty( $post_tags ) ) {
+
+			// Loop through the list.
+			foreach ( $post_tags as $tag ) {
+				// Check for specific post tags.
+				switch ( $tag->slug ) {
+					case 'best-of':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'Best of <span class="site-logotype">Gothamish</span>',
+							'gotham'
+						);
+						break;
+					case 'gothamish-films':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'<span class="site-logotype">Gothamish</span> Films',
+							'gotham'
+						);
+						break;
+				}
+
+				// If a matching tag was found, stop searching.
+				if ( isset( $banner_type ) && isset( $banner_text ) ) {
+					// Display the tag.
+					printf(
+						'<div class="post__banner post__banner--%1$s">%2$s</div>',
+						sanitize_html_class( $banner_type ),
+						wp_kses(
+							$banner_text,
+							[ 'span' => [ 'class' => [] ] ]
+						)
+					);
+					break;
+				}
+			}
+		}
 	}
 endif;
