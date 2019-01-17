@@ -187,6 +187,13 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 							'gotham'
 						);
 						break;
+					case 'pizza':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'<span class="site-logotype">Gothamish</span> Pizza',
+							'gotham'
+						);
+						break;
 				}
 
 				// If a matching tag was found, stop searching.

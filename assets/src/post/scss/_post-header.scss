@@ -42,6 +42,12 @@
 	text-align: right;
 	margin-bottom: spacer(1);
 
+	&.post__banner--pizza {
+		background: url('http://www.themesltd.com/backgrounds/food/pizza_slices.png') center;
+		background-size: cover;
+		text-shadow: 1px 1px 2px color(black);
+	}
+
 	.site-logotype {
 		font-size: 1.25em;
 	}
