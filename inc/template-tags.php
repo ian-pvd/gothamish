@@ -64,13 +64,27 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function gotham_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'gotham' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$byline = coauthors_posts_links( null, ' & ', null, null, false );
+		} else {
+			$byline = the_author_posts_link();
+		}
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		printf(
+			'<span class="byline">%1$s %2$s</span>',
+			esc_html__( 'By', 'gotham' ),
+			wp_kses(
+				$byline,
+				[
+					'a' => [
+						'href'  => [],
+						'title' => [],
+						'class' => [],
+						'rel'   => [],
+					],
+				]
+			)
+		);
 
 	}
 endif;
