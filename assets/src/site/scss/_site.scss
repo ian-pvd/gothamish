@@ -249,4 +249,8 @@ object {
 	font-family: font-family(logotype);
 	line-height: 1;
 	text-transform: lowercase;
+
+	span {
+		font-weight: 700;
+	}
 }
