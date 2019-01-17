@@ -67,6 +67,11 @@ h5,
 h6 {
 	clear: both;
 	font: $font--header;
+
+	// Limit layout shifting once Archivo loads
+	html:not(.wf-archivonarrow-n4-active) & {
+		letter-spacing: letter-spacing(-25);
+	}
 }
 
 h1 {
