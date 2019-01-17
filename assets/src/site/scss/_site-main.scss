@@ -13,8 +13,10 @@
 .site-content {
 	@include wrapper;
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	margin-bottom: spacer(1);
+	background: $color--page;
+	padding-top: spacer(1);
 
 	@include breakpoints(none, medium) {
 		align-items: center;
@@ -24,6 +26,7 @@
 
 .content-area {
 	width: 100%;
+	max-width: $width--content;
 
 	@include breakpoints(medium) {
 		flex: 1 1 auto;
