@@ -243,3 +243,10 @@ iframe,
 object {
 	max-width: 100%;
 }
+
+/* Special site-wide selectors */
+.site-logotype {
+	font-family: font-family(logotype);
+	line-height: 1;
+	text-transform: lowercase;
+}

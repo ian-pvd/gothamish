@@ -155,3 +155,14 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+if ( ! function_exists( 'gotham_post_banner' ) ) :
+	/**
+	 * Displays a special taxonomy banner for posts.
+	 *
+	 * If a post has a specific tag, display a banner above the post header.
+	 */
+	function gotham_post_banner() {
+		echo '<div class="post__banner">Best of <span class="site-logotype">Gothamish</span></div>';
+	}
+endif;

@@ -10,6 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+		gotham_post_banner();
+	?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
