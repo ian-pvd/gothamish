@@ -16,17 +16,19 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 
 		$time_string = '<time class="entry-date__published entry-date__updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date__published" datetime="%1$s">%2$s</time>';
+			$time_string    = '<time class="entry-date__published" datetime="%1$s">%2$s</time>';
 			$updated_string = '<time class="entry-date__updated" datetime="%1$s">%2$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() )
 		);
 
-		if ( $updated_string ) {
-			$updated_string = sprintf( $updated_string,
+		if ( isset( $updated_string ) ) {
+			$updated_string = sprintf(
+				$updated_string,
 				esc_attr( get_the_modified_date( DATE_W3C ) ),
 				esc_html( get_the_modified_date() )
 			);
@@ -38,7 +40,7 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		if ( $updated_string ) {
+		if ( isset( $updated_string ) ) {
 			$last_updated = sprintf(
 				/* translators: %s: last updated date. */
 				esc_html_x( 'Last updated %s', 'updated', 'gotham' ),
@@ -48,7 +50,7 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 
 		echo '<span class="entry-date__posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-		if ( $updated_string ) {
+		if ( isset( $updated_string ) ) {
 			echo '<span class="entry-date__last-updated">' . $last_updated . '</span>'; // WPCS: XSS OK.
 		}
 
