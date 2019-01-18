@@ -241,8 +241,6 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 	 * Displays a CTA to subscribe to the weekly food emails.
 	 *
 	 * TODO: Make this text editable via the admin.
-	 *
-	 * Source: Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. <a href="https://gothamist.com/newsletter/index.php?weekly=1">Subscribe Today!</a>
 	 */
 	function gotham_digest_subscribe() {
 		// Get a list of post categories.
@@ -253,11 +251,13 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 			// If we find the food category...
 			if ( 'food' === $category->slug ) {
 				// Print the subscribe CTA.
-				echo '<div class="entry-footer__digest-subscribe">';
-
 				printf(
+					'<div class="entry-footer__digest-subscribe">' .
 					/* translators: %s: Subscribe Link */
-					esc_html__( 'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. %s', 'gotham' ),
+					esc_html__(
+						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. %s',
+						'gotham'
+					) . '</div>',
 					sprintf(
 						'<a href="%2$s">%1$s</a>',
 						esc_html__( 'Subscribe Today!', 'gotham' ),
@@ -265,10 +265,41 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 					)
 				);
 
-				echo '</div>';
 				// And then stop looking.
 				break;
 			}
 		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_donation_appeal' ) ) :
+	/**
+	 * Displays an appeal to donate.
+	 *
+	 * TODO: Make this text editable via the admin.
+	 */
+	function gotham_donation_appeal() {
+		// Print the subscribe CTA.
+		printf(
+			'<div class="entry-footer__donation-appeal">' .
+			wp_kses(
+				/* translators: %s: Donate Link */
+				__(
+					'<span class="site-logotype"><span>Gotham</span>ish</span> is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from Gothamish. Thank you!',
+					'gotham'
+				),
+				[ 'span' => [ 'class' => [] ] ]
+			) . '</div>',
+			sprintf(
+				'<a href="%2$s" target="_blank">%1$s</a>',
+				esc_html__( 'PVD Industrial', 'gotham' ),
+				esc_url( 'https://ian.pvdind.com' )
+			),
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html__( 'making a donation today', 'gotham' ),
+				esc_url( '/donate' )
+			)
+		);
 	}
 endif;

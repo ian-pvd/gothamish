@@ -22,6 +22,7 @@ $custom-colors: (
 	grey-very-very-light: #E6E6E6,
 	red: #A00,
 	red-dark: #900,
+	yellow: #FF6,
 	yellow-dark: #E6D520,
 );
 $colors: map-merge($colors, $custom-colors);
