@@ -4,8 +4,6 @@
 
 /* Images & Figures */
 .wp-block-image {
-	margin: 0;
-
 	.alignleft,
 	.alignright {
 		max-width: 60%;
@@ -94,7 +92,7 @@ blockquote,
 	}
 
 	&.alignleft {
-		float: right;
+		float: left;
 		margin-right: spacer(1.5);
 	}
 
@@ -163,6 +161,61 @@ hr,
 	}
 }
 
+/* Media */
+.wp-block-audio {
+	border-top: $border--hr-light;
+	padding-top: spacer(1.5);
+}
+
+audio {
+	height: rem(48);
+}
+
+.wp-block-audio,
+.wp-block-video {
+	figcaption {
+		@include image-caption();
+		font-style: normal;
+	}
+}
+
+/* WP Embeds */
+.wp-block-embed__wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Galleries */
+.wp-block-gallery {
+	@include center-margins();
+
+	&.columns-3 {
+		@include grid(3);
+
+		li {
+			width: 100%;
+			margin: 0;
+		}
+	}
+}
+
+/* Tables */
+table {
+	border: $border--hr-light;
+	border-collapse: collapse;
+
+	th,
+	td {
+		border: $border--hr-light;
+		padding: spacer(0.25) spacer(0.5);
+	}
+
+	th {
+		background: fade-out($color--background, 0.875);
+	}
+}
+
 /* WP Gutenberg Blocks */
 .wp-block-subhead {
 	color: color(grey);
@@ -208,7 +261,6 @@ big,
 }
 
 /* Everything Else */
-
 code,
 kbd,
 tt,
