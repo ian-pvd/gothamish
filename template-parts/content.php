@@ -62,6 +62,10 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php gotham_entry_footer(); ?>
+		<?php gotham_digest_subscribe(); ?>
+		<?php gotham_donation_appeal(); ?>
+		<?php gotham_footer_byline(); ?>
+		<?php gotham_jetpack_share(); ?>
+		<?php gotham_entry_tags(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

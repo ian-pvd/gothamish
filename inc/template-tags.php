@@ -62,16 +62,15 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 				]
 			)
 		);
-
 	}
 endif;
 
-if ( ! function_exists( 'gotham_entry_footer' ) ) :
+if ( ! function_exists( 'gotham_entry_categories' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the categories.
 	 */
-	function gotham_entry_footer() {
-		// Hide category and tag text for pages.
+	function gotham_entry_categories() {
+		// Hide category text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'gotham' ) );
@@ -79,15 +78,35 @@ if ( ! function_exists( 'gotham_entry_footer' ) ) :
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'gotham' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
+		}
+	}
+endif;
 
+if ( ! function_exists( 'gotham_entry_tags' ) ) :
+	/**
+	 * Prints HTML with meta information for the tags.
+	 */
+	function gotham_entry_tags() {
+		// Hide tag text for pages.
+		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'gotham' ) );
+			$tags_list = get_the_tag_list( '<ul class="entry-footer__tags-list"><li>', '</li><li>', '</li></ul>' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'gotham' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf(
+					'<div class="entry-footer__tags">%1$s</div>',
+					$tags_list
+				); // WPCS: XSS OK.
 			}
 		}
+	}
+endif;
 
+if ( ! function_exists( 'gotham_entry_edit_icon' ) ) :
+	/**
+	 * Prints a post edit link for WP users with edit permissions.
+	 */
+	function gotham_entry_edit_icon() {
 		edit_post_link(
 			sprintf(
 				wp_kses(
@@ -232,6 +251,139 @@ if ( ! function_exists( 'gotham_posted_in' ) ) :
 				// And then stop looking.
 				break;
 			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
+	/**
+	 * Displays a CTA to subscribe to the weekly food emails.
+	 *
+	 * TODO: Make this text editable via the admin.
+	 */
+	function gotham_digest_subscribe() {
+		// Get a list of post categories.
+		$post_categories = get_the_category();
+
+		// Loop through the categories.
+		foreach ( $post_categories as $category ) {
+			// If we find the food category...
+			if ( 'food' === $category->slug ) {
+				// Print the subscribe CTA.
+				printf(
+					'<div class="entry-footer__digest-subscribe">' .
+					/* translators: %s: Subscribe Link */
+					esc_html__(
+						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. %s',
+						'gotham'
+					) . '</div>',
+					sprintf(
+						'<a href="%2$s">%1$s</a>',
+						esc_html__( 'Subscribe Today!', 'gotham' ),
+						esc_url( '/newsletter' )
+					)
+				);
+
+				// And then stop looking.
+				break;
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_donation_appeal' ) ) :
+	/**
+	 * Displays an appeal to donate.
+	 *
+	 * TODO: Make this text editable via the admin.
+	 */
+	function gotham_donation_appeal() {
+		// Print the subscribe CTA.
+		printf(
+			'<div class="entry-footer__donation-appeal">' .
+			wp_kses(
+				/* translators: %s: Donate Link */
+				__(
+					'<span class="site-logotype"><span>Gotham</span>ish</span> is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from Gothamish. Thank you!',
+					'gotham'
+				),
+				[ 'span' => [ 'class' => [] ] ]
+			) . '</div>',
+			sprintf(
+				'<a href="%2$s" target="_blank">%1$s</a>',
+				esc_html__( 'PVD Industrial', 'gotham' ),
+				esc_url( 'https://ian.pvdind.com' )
+			),
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html__( 'making a donation today', 'gotham' ),
+				esc_url( '/donate' )
+			)
+		);
+	}
+endif;
+
+if ( ! function_exists( 'gotham_footer_byline' ) ) :
+	/**
+	 * Displays author and contact info in the footer.
+	 */
+	function gotham_footer_byline() {
+		echo '<div class="entry-footer__contact">';
+
+		// Print the Author Info.
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$byline = coauthors_posts_links( null, null, null, null, false );
+		} else {
+			$byline = the_author_posts_link();
+		}
+
+		printf(
+			'<div class="entry-footer__contact-byline">%1$s %2$s</div>',
+			esc_html__( 'Written by:', 'gotham' ),
+			wp_kses(
+				$byline,
+				[
+					'a' => [
+						'href'  => [],
+						'title' => [],
+						'class' => [],
+						'rel'   => [],
+					],
+				]
+			)
+		);
+
+		// Print the contact & tips links.
+		printf(
+			'<div class="entry-footer__contact-links">' .
+			/* translators: %s: Contact Link */
+			esc_html__(
+				'Contact the %1$s of this article or email %2$s with further questions, comments or tips.',
+				'gotham'
+			) . '</div>',
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html__( 'author', 'gotham' ),
+				esc_url( '/authors' )
+			),
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html( 'tips@gothamist.com' ),
+				esc_url( 'mailto:tips@gothamist.com' )
+			)
+		);
+
+		echo '</div>';
+	}
+endif;
+
+if ( ! function_exists( 'gotham_jetpack_share' ) ) :
+	/**
+	 * Displays Jetpack Sharedaddy links.
+	 */
+	function gotham_jetpack_share() {
+		if ( function_exists( 'sharing_display' ) ) {
+			sharing_display( '', true );
 		}
 	}
 endif;
