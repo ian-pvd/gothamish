@@ -62,7 +62,6 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 				]
 			)
 		);
-
 	}
 endif;
 
@@ -301,5 +300,59 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 				esc_url( '/donate' )
 			)
 		);
+	}
+endif;
+
+if ( ! function_exists( 'gotham_footer_byline' ) ) :
+	/**
+	 * Displays author and contact info in the footer.
+	 */
+	function gotham_footer_byline() {
+		echo '<div class="entry-footer__contact">';
+
+		// Print the Author Info.
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$byline = coauthors_posts_links( null, null, null, null, false );
+		} else {
+			$byline = the_author_posts_link();
+		}
+
+		printf(
+			'<div class="entry-footer__contact-byline">%1$s %2$s</div>',
+			esc_html__( 'Written by:', 'gotham' ),
+			wp_kses(
+				$byline,
+				[
+					'a' => [
+						'href'  => [],
+						'title' => [],
+						'class' => [],
+						'rel'   => [],
+					],
+				]
+			)
+		);
+
+		// Print the contact & tips links.
+		printf(
+			'<div class="entry-footer__contact-links">' .
+			/* translators: %s: Contact Link */
+			esc_html__(
+				'Contact the %1$s of this article or email %2$s with further questions, comments or tips.',
+				'gotham'
+			) . '</div>',
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html__( 'author', 'gotham' ),
+				esc_url( '/authors' )
+			),
+			sprintf(
+				'<a href="%2$s">%1$s</a>',
+				esc_html( 'tips@gothamist.com' ),
+				esc_url( 'mailto:tips@gothamist.com' )
+			)
+		);
+
+		echo '</div>';
 	}
 endif;

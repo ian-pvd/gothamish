@@ -7,7 +7,8 @@
 }
 
 .entry-footer__digest-subscribe,
-.entry-footer__donation-appeal {
+.entry-footer__donation-appeal,
+.entry-footer__contact {
 	margin-bottom: spacer(1);
 	font-size: rem(14);
 }
@@ -25,4 +26,13 @@
 	.site-logotype {
 		font-size: 1.125em;
 	}
+}
+
+.entry-footer__contact-byline {
+	margin-bottom: spacer(1);
+}
+
+.entry-footer__contact-links {
+	font-style: italic;
+	color: color(grey);
 }
