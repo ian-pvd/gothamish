@@ -17,11 +17,5 @@
 }
 
 .post-thumbnail__caption {
-	border-bottom: $border--hr-light;
-	color: color(grey-dark);
-	font-size: rem(12);
-	font-style: italic;
-	line-height: calc(4em / 3);
-	margin-top: spacer(1);
-	padding-bottom: spacer(1);
+	@include image-caption();
 }

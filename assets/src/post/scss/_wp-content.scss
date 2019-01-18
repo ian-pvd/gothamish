@@ -3,6 +3,26 @@
  */
 
 /* Images & Figures */
+.wp-block-image {
+	margin: 0;
+
+	.alignleft,
+	.alignright {
+		max-width: 60%;
+		margin-bottom: spacer(0.5);
+	}
+
+	.aligncenter,
+	&.alignwide,
+	&.alignfull {
+		margin-bottom: spacer(1);
+	}
+
+	figcaption {
+		@include image-caption();
+		margin-bottom: 0;
+	}
+}
 
 /* Lists */
 
