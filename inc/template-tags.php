@@ -65,12 +65,12 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'gotham_entry_footer' ) ) :
+if ( ! function_exists( 'gotham_entry_categories' ) ) :
 	/**
-	 * Prints HTML with meta information for the categories, tags and comments.
+	 * Prints HTML with meta information for the categories.
 	 */
-	function gotham_entry_footer() {
-		// Hide category and tag text for pages.
+	function gotham_entry_categories() {
+		// Hide category text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'gotham' ) );
@@ -78,15 +78,35 @@ if ( ! function_exists( 'gotham_entry_footer' ) ) :
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'gotham' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
+		}
+	}
+endif;
 
+if ( ! function_exists( 'gotham_entry_tags' ) ) :
+	/**
+	 * Prints HTML with meta information for the tags.
+	 */
+	function gotham_entry_tags() {
+		// Hide tag text for pages.
+		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'gotham' ) );
+			$tags_list = get_the_tag_list( '<ul class="entry-footer__tags-list"><li>', '</li><li>', '</li></ul>' );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'gotham' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf(
+					'<div class="entry-footer__tags">%1$s</div>',
+					$tags_list
+				); // WPCS: XSS OK.
 			}
 		}
+	}
+endif;
 
+if ( ! function_exists( 'gotham_entry_edit_icon' ) ) :
+	/**
+	 * Prints a post edit link for WP users with edit permissions.
+	 */
+	function gotham_entry_edit_icon() {
 		edit_post_link(
 			sprintf(
 				wp_kses(

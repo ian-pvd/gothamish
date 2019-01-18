@@ -3,7 +3,7 @@
  */
 
 .entry-footer {
-	//idk
+	margin-bottom: spacer(2);
 }
 
 .entry-footer__digest-subscribe,
@@ -11,6 +11,11 @@
 .entry-footer__contact {
 	font-size: rem(14);
 	margin-bottom: spacer(1);
+}
+
+.entry-footer__contact,
+.entry-footer .sharedaddy {
+	margin-bottom: spacer(2);
 }
 
 .entry-footer__digest-subscribe {
@@ -38,8 +43,6 @@
 }
 
 .entry-footer .sharedaddy {
-	margin-bottom: spacer(1);
-
 	.sd-title {
 		@include screen-reader-text();
 	}
@@ -69,5 +72,32 @@
 
 	.share-end {
 		display: none;
+	}
+}
+
+.entry-footer__tags-list {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+
+	li {
+		margin-right: spacer(1);
+
+		a {
+			background: grey;
+			color: color(white);
+			display: block;
+			font-size: rem(12);
+			line-height: 1;
+			padding: spacer(0.25) spacer(0.5);
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+
+			&:hover {
+				background: $color--primary;
+			}
+		}
 	}
 }
