@@ -12,47 +12,26 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function gotham_posted_on() {
-		echo '<div class="entry-date">';
+		echo '<span class="entry-date">';
 
-		$time_string = '<time class="entry-date__published entry-date__updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date__published" datetime="%1$s">%2$s</time>';
-			$updated_string = '<time class="entry-date__updated" datetime="%1$s">%2$s</time>';
-		}
+		$time_string = '<time class="entry-date__published entry-date__updated" datetime="%1$s">%2$s at %3$s</time>';
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() )
+			esc_html( get_the_date() ),
+			esc_html( get_the_time() )
 		);
-
-		if ( $updated_string ) {
-			$updated_string = sprintf( $updated_string,
-				esc_attr( get_the_modified_date( DATE_W3C ) ),
-				esc_html( get_the_modified_date() )
-			);
-		}
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'gotham' ),
+			esc_html_x( 'on %s', 'post date', 'gotham' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		if ( $updated_string ) {
-			$last_updated = sprintf(
-				/* translators: %s: last updated date. */
-				esc_html_x( 'Last updated %s', 'updated', 'gotham' ),
-				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $updated_string . '</a>'
-			);
-		}
-
 		echo '<span class="entry-date__posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-		if ( $updated_string ) {
-			echo '<span class="entry-date__last-updated">' . $last_updated . '</span>'; // WPCS: XSS OK.
-		}
-
-		echo '</div>';
+		echo '</span>';
 
 	}
 endif;
@@ -62,13 +41,27 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 	 * Prints HTML with meta information for the current author.
 	 */
 	function gotham_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'gotham' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
+		if ( function_exists( 'coauthors_posts_links' ) ) {
+			$byline = coauthors_posts_links( null, ' & ', null, null, false );
+		} else {
+			$byline = the_author_posts_link();
+		}
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		printf(
+			'<span class="byline">%1$s %2$s</span>',
+			esc_html__( 'By', 'gotham' ),
+			wp_kses(
+				$byline,
+				[
+					'a' => [
+						'href'  => [],
+						'title' => [],
+						'class' => [],
+						'rel'   => [],
+					],
+				]
+			)
+		);
 
 	}
 endif;
@@ -130,10 +123,12 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 			?>
 
 			<figure class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<div class="post-thumbnail__frame">
+					<?php the_post_thumbnail(); ?>
+				</div>
 
 				<?php if ( get_the_post_thumbnail_caption() ) : ?>
-				<figcaption><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
+				<figcaption class="post-thumbnail__caption"><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
 				<?php endif; ?>
 			</figure><!-- .post-thumbnail -->
 
@@ -141,15 +136,102 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
+			the_post_thumbnail(
+				'post-thumbnail',
+				[
+					'alt' => the_title_attribute(
+						[
+							'echo' => false,
+						]
+					),
+				]
+			);
 			?>
 		</a>
 
 		<?php
 		endif; // End is_singular().
+	}
+endif;
+
+if ( ! function_exists( 'gotham_post_banner' ) ) :
+	/**
+	 * Displays a special taxonomy banner for posts.
+	 *
+	 * If a post has a specific tag, display a banner above the post header.
+	 */
+	function gotham_post_banner() {
+		// Get a list of the post tags.
+		$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+
+		// If list isn't empty...
+		if ( ! empty( $post_tags ) ) {
+
+			// Loop through the list.
+			foreach ( $post_tags as $tag ) {
+				// Check for specific post tags.
+				switch ( $tag->slug ) {
+					case 'best-of':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'Best of <span class="site-logotype"><span>Gotham</span>ish</span>',
+							'gotham'
+						);
+						$banner_link = get_term_link( $tag );
+						break;
+					case 'gothamish-films':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'<span class="site-logotype"><span>Gotham</span>ish</span> Films',
+							'gotham'
+						);
+						$banner_link = get_term_link( $tag );
+						break;
+				}
+
+				// If a matching tag was found, stop searching.
+				if ( isset( $banner_type ) && isset( $banner_text ) ) {
+					// Display the tag.
+					printf(
+						'<a href="%3$s" class="post__banner post__banner--%1$s">%2$s</a>',
+						sanitize_html_class( $banner_type ),
+						wp_kses(
+							$banner_text,
+							[ 'span' => [ 'class' => [] ] ]
+						),
+						esc_url( $banner_link )
+					);
+					break;
+				}
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_posted_in' ) ) :
+	/**
+	 * Returns a top level category for the post.
+	 *
+	 * TODO: Explicitly set & retrieve primary category.
+	 */
+	function gotham_posted_in() {
+		// Get a list of post categories.
+		$post_categories = get_the_category();
+
+		// Loop through the categories.
+		foreach ( $post_categories as $category ) {
+			// If we find a top level category, that isn't "uncategorized" ...
+			if ( 0 === $category->parent && 'uncategorized' !== $category->slug ) {
+				// Print the "posted in" info.
+				printf(
+					'<span>%1$s <a href="%2$s">%3$s</a></span>',
+					esc_html__( 'in', 'gotham' ),
+					esc_url( get_term_link( $category ) ),
+					esc_html( $category->name )
+				);
+				// And then stop looking.
+				break;
+			}
+		}
 	}
 endif;

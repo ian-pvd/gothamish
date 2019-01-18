@@ -10,6 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+		gotham_post_banner();
+	?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -22,8 +25,9 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				gotham_posted_on();
 				gotham_posted_by();
+				gotham_posted_in();
+				gotham_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

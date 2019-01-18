@@ -7,19 +7,55 @@
 	margin-bottom: spacer(1);
 }
 
+.post__banner {
+	background: $color--primary;
+	color: color(white);
+	display: block;
+	font-family: font-family(logotype);
+	letter-spacing: letter-spacing(50);
+	margin-bottom: spacer(1);
+	padding: spacer(0.5) spacer(1);
+	text-align: right;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover,
+	&:visited {
+		color: color(white);
+	}
+
+	.site-logotype {
+		font-size: 1.25em;
+	}
+}
+
 .entry-title {
 	font: $font--header;
+	margin-bottom: spacer(1);
 
 	@at-root h1#{&} {
 		font-size: 2rem;
+		line-height: 1;
 	}
 }
 
 .entry-meta {
-	display: flex;
+	color: color( grey-very-dark );
+	font-size: rem(12);
+	line-height: calc( 4em / 3);
+	text-transform: uppercase;
+
+	a {
+		color: color( grey-very-dark );
+		font-weight: 700;
+	}
 
 	> * {
-		width: 50%;
+		margin-right: calc(1em / 4);
+
+		&:last-child {
+			margin-right: 0;
+		}
 	}
 }
 
