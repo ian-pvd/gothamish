@@ -3,7 +3,13 @@
  */
 
 .entry-footer {
+	border-bottom: $border--hr-light;
 	margin-bottom: spacer(2);
+	padding-bottom: spacer(2);
+
+	> div:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .entry-footer__digest-subscribe,
@@ -47,23 +53,36 @@
 		@include screen-reader-text();
 	}
 
+	/* Use !important to override Jetpack !important */
+	/* stylelint-disable declaration-no-important */
 	ul,
 	li {
-		/* Use !important to override Jetpack !important */
-		/* stylelint-disable declaration-no-important */
-		margin: 0 !important;
-		/* stylelint-enable */
-	}
 
-	ul {
-		display: flex;
-		justify-content: space-between;
+		margin: 0 !important;
 	}
 
 	li {
-		flex: 0 0 auto;
-		width: calc( ( 100% - ( 3 * #{spacer(0.5)} ) ) / 4 );
+		padding: 0 !important;
+		margin-right: spacer(0.25) !important;
+
+		&:last-child {
+			margin: 0 !important;
+		}
 	}
+
+	@include breakpoints(small) {
+		ul {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		li {
+			flex: 0 0 auto;
+			width: calc( ( 100% - ( 3 * #{spacer(0.5)} ) ) / 4 );
+			margin: 0 !important;
+		}
+	}
+	/* stylelint-enable */
 
 	a {
 		display: block;
