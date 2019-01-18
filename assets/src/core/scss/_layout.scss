@@ -12,7 +12,6 @@
 
 @mixin wrapper($max-width: $width--site, $gutter: spacer(1)) {
 	@include center-margins();
-	max-width: calc(#{$max-width} + (2 * #{$gutter}));
 	padding-left: $gutter;
 	padding-right: $gutter;
 	width: 100%;
