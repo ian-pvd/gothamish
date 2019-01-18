@@ -12,10 +12,10 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'post-css' => 'post.617e2c.css',
-		'post-js' => 'post.617e2c.js',
-		'site-css' => 'site.617e2c.css',
-		'site-js' => 'site.617e2c.js',
+		'post-css' => 'post.d090f5.css',
+		'post-js' => 'post.d090f5.js',
+		'site-css' => 'site.d090f5.css',
+		'site-js' => 'site.d090f5.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
