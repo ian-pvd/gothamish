@@ -1,0 +1,15 @@
+/**
+ * Post Footer
+ */
+
+.entry-footer {
+	//idk
+}
+
+.entry-footer__digest-subscribe {
+	border-bottom: $border--hr-light;
+	border-top: $border--hr-light;
+	margin-bottom: spacer(1);
+	padding: spacer(1) 0;
+	font-size: rem(14);
+}

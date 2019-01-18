@@ -235,3 +235,40 @@ if ( ! function_exists( 'gotham_posted_in' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
+	/**
+	 * Displays a CTA to subscribe to the weekly food emails.
+	 *
+	 * TODO: Make this text editable via the admin.
+	 *
+	 * Source: Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. <a href="https://gothamist.com/newsletter/index.php?weekly=1">Subscribe Today!</a>
+	 */
+	function gotham_digest_subscribe() {
+		// Get a list of post categories.
+		$post_categories = get_the_category();
+
+		// Loop through the categories.
+		foreach ( $post_categories as $category ) {
+			// If we find the food category...
+			if ( 'food' === $category->slug ) {
+				// Print the subscribe CTA.
+				echo '<div class="entry-footer__digest-subscribe">';
+
+				printf(
+					/* translators: %s: Subscribe Link */
+					esc_html__( 'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. %s', 'gotham' ),
+					sprintf(
+						'<a href="%2$s">%1$s</a>',
+						esc_html__( 'Subscribe Today!', 'gotham' ),
+						esc_url( '/newsletter' )
+					)
+				);
+
+				echo '</div>';
+				// And then stop looking.
+				break;
+			}
+		}
+	}
+endif;
