@@ -2,6 +2,32 @@
  * WP Content Styles
  */
 
+/* Images & Figures */
+.wp-block-image {
+	.alignleft,
+	.alignright {
+		max-width: 60%;
+		margin-bottom: spacer(0.5);
+	}
+
+	.aligncenter,
+	&.alignwide,
+	&.alignfull {
+		margin-bottom: spacer(1);
+	}
+
+	figcaption {
+		@include figure-caption();
+		margin-bottom: 0;
+	}
+}
+
+/* Inline Text & Blocks */
+a {
+	font-weight: 600;
+	letter-spacing: letter-spacing(-12.5);
+}
+
 blockquote,
 cite,
 dfn,
@@ -10,20 +36,231 @@ i {
 	font-style: italic;
 }
 
-blockquote {
-	border-bottom: 3px solid darken($color--background, 10%);
-	border-top: 3px solid darken($color--background, 10%);
-	padding: spacer(0.5) 0;
+blockquote,
+.wp-block-quote {
+	border-left: 2px solid $color--text;
+	margin-left: spacer(1);
+	padding: spacer(0.25) spacer(1);
+
+	p {
+		margin-bottom: spacer(0.5);
+
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	cite {
+		display: block;
+		margin-top: spacer(0.5);
+		text-align: right;
+
+		&::before {
+			content: '—';
+			margin-right: spacer(0.25);
+		}
+	}
+
+	&.is-style-large {
+		border-bottom: $border--hr-light;
+		border-left: none;
+		border-top: $border--hr-light;
+		margin: 0 0 spacer(1);
+		padding: spacer(1);
+
+		p {
+			font-size: 20px;
+		}
+	}
 }
 
-pre {
-	background-color: darken($color--background, 10%);
+.wp-block-pullquote {
+	width: 100%;
+	display: block;
+	float: none;
+	padding: spacer(1.5) 0 0;
+
+	&.alignright,
+	&.alignleft {
+		max-width: none;
+		width: 50%;
+	}
+
+	&.alignright {
+		float: right;
+		margin-left: spacer(1.5);
+	}
+
+	&.alignleft {
+		float: left;
+		margin-right: spacer(1.5);
+	}
+
+	&.alignfull {
+		padding: spacer(1);
+	}
+
+	blockquote {
+		border-left: none;
+		margin: 0;
+	}
+
+	p {
+		font: italic #{rem(24)}/1.5 font-family(serif);
+	}
+}
+
+pre,
+.wp-block-preformatted {
+	background-color: fade-out($color--background, 0.75);
 	font: $font--mono;
 	max-width: 100%;
 	overflow: auto;
 	padding: spacer(0.5) spacer(1);
 }
 
+/* Lists */
+ul,
+ol {
+	ul,
+	ol {
+		padding-top: spacer(0.25);
+
+		ul {
+			list-style: square inside;
+		}
+
+		ol {
+			list-style: lower-roman inside;
+		}
+	}
+
+	ul {
+		list-style: circle inside;
+	}
+
+	ol {
+		list-style: lower-alpha inside;
+
+	}
+
+	li {
+		line-height: 1.5;
+		margin-bottom: spacer(0.5);
+	}
+}
+
+/* Dividers */
+hr,
+.wp-block-separator {
+	@include center-margins();
+	width: 50%;
+
+	&.is-style-wide {
+		width: 100%;
+	}
+}
+
+/* Media */
+.wp-block-audio {
+	border-top: $border--hr-light;
+	padding-top: spacer(1.5);
+}
+
+audio {
+	height: rem(48);
+}
+
+.wp-block-audio,
+.wp-block-video {
+	figcaption {
+		@include figure-caption();
+		font-style: normal;
+	}
+}
+
+/* WP Embeds */
+.wp-block-embed__wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Galleries */
+.wp-block-gallery {
+	@include center-margins();
+
+	&.columns-3 {
+		@include grid(3);
+
+		li {
+			width: 100%;
+			margin: 0;
+		}
+	}
+}
+
+/* Tables */
+table {
+	border: $border--hr-light;
+	border-collapse: collapse;
+
+	th,
+	td {
+		border: $border--hr-light;
+		padding: spacer(0.25) spacer(0.5);
+	}
+
+	th {
+		background: fade-out($color--background, 0.875);
+	}
+}
+
+/* WP Gutenberg Blocks */
+.wp-block-subhead {
+	color: color(grey);
+	font-size: 1.125rem;
+	font-weight: 500;
+	opacity: 1;
+	text-indent: 1em;
+}
+
+.wp-block-verse {
+	background: fade-out($color--background, 0.875);
+	font: $font--body;
+	letter-spacing: letter-spacing(25);
+}
+
+.has-drop-cap:not(:focus)::first-letter {
+	font-size: 4rem;
+	line-height: 1;
+	margin: 0 spacer(0.5) 0 0;
+}
+
+big,
+.has-large-font-size {
+	font-size: rem(24);
+	line-height: 1.5;
+}
+
+.has-huge-font-size {
+	font-size: rem(32);
+	line-height: calc(4 / 3);
+}
+
+.has-background {
+	padding: spacer(1);
+
+	&[class*='dark'] {
+		color: color(white);
+	}
+
+	&[class*='dark-gray'] {
+		background: $color--secondary;
+	}
+}
+
+/* Everything Else */
 code,
 kbd,
 tt,
@@ -42,8 +279,4 @@ mark,
 ins {
 	background-color: darken($color--background, 10%);
 	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
 }

@@ -77,10 +77,11 @@
 }
 
 // Clear a float
-@mixin clearfix() {
+@mixin clear-float() {
 	&::after {
 		clear: both;
 		content: '';
+		display: block;
 	}
 }
 
@@ -106,4 +107,15 @@
 			transform: translateY(-50%);
 		}
 	}
+}
+
+// Default Image Caption Styles
+@mixin figure-caption() {
+	border-bottom: $border--hr-light;
+	color: color(grey-dark);
+	font-size: rem(12);
+	font-style: italic;
+	line-height: calc(4em / 3);
+	margin-top: spacer(1);
+	padding-bottom: spacer(1);
 }

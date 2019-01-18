@@ -3,6 +3,7 @@
  */
 
 .entry-content {
+	@include clear-float();
 	margin-bottom: spacer(1);
 
 	> * {
