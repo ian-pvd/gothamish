@@ -123,10 +123,12 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 			?>
 
 			<figure class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<div class="post-thumbnail__frame">
+					<?php the_post_thumbnail(); ?>
+				</div>
 
 				<?php if ( get_the_post_thumbnail_caption() ) : ?>
-				<figcaption><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
+				<figcaption class="post-thumbnail__caption"><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
 				<?php endif; ?>
 			</figure><!-- .post-thumbnail -->
 
@@ -134,11 +136,16 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
+			the_post_thumbnail(
+				'post-thumbnail',
+				[
+					'alt' => the_title_attribute(
+						[
+							'echo' => false,
+						]
+					),
+				]
+			);
 			?>
 		</a>
 

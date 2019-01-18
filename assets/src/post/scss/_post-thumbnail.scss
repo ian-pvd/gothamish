@@ -5,10 +5,23 @@
 .post-thumbnail {
 	margin-bottom: spacer(1);
 	display: block;
+}
 
-	figcaption {
-		font-size: rem(12);
-		font-style: italic;
-		margin-top: spacer(1);
+.post-thumbnail__frame {
+	@include aspect-ratio();
+
+	> img {
+		@include absolute-pinned();
+		@include image-fill();
 	}
+}
+
+.post-thumbnail__caption {
+	border-bottom: $border--hr-light;
+	color: color(grey-dark);
+	font-size: rem(12);
+	font-style: italic;
+	line-height: calc(4em / 3);
+	margin-top: spacer(1);
+	padding-bottom: spacer(1);
 }
