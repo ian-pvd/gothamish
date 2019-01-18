@@ -16,9 +16,6 @@
 	@if ($max-width != 100%) {
 		max-width: calc(#{$max-width} + (2 * #{$gutter}));
 	}
-	@else {
-		max-width: $max-width;
-	}
 
 	padding-left: $gutter;
 	padding-right: $gutter;
