@@ -12,49 +12,26 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
 	function gotham_posted_on() {
-		echo '<div class="entry-date">';
+		echo '<span class="entry-date">';
 
-		$time_string = '<time class="entry-date__published entry-date__updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string    = '<time class="entry-date__published" datetime="%1$s">%2$s</time>';
-			$updated_string = '<time class="entry-date__updated" datetime="%1$s">%2$s</time>';
-		}
+		$time_string = '<time class="entry-date__published entry-date__updated" datetime="%1$s">%2$s at %3$s</time>';
 
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() )
+			esc_html( get_the_date() ),
+			esc_html( get_the_time() )
 		);
-
-		if ( isset( $updated_string ) ) {
-			$updated_string = sprintf(
-				$updated_string,
-				esc_attr( get_the_modified_date( DATE_W3C ) ),
-				esc_html( get_the_modified_date() )
-			);
-		}
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'Posted on %s', 'post date', 'gotham' ),
+			esc_html_x( 'on %s', 'post date', 'gotham' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
-		if ( isset( $updated_string ) ) {
-			$last_updated = sprintf(
-				/* translators: %s: last updated date. */
-				esc_html_x( 'Last updated %s', 'updated', 'gotham' ),
-				'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $updated_string . '</a>'
-			);
-		}
-
 		echo '<span class="entry-date__posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
 
-		if ( isset( $updated_string ) ) {
-			echo '<span class="entry-date__last-updated">' . $last_updated . '</span>'; // WPCS: XSS OK.
-		}
-
-		echo '</div>';
+		echo '</span>';
 
 	}
 endif;
@@ -219,6 +196,34 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 					);
 					break;
 				}
+			}
+		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_posted_in' ) ) :
+	/**
+	 * Returns a top level category for the post.
+	 *
+	 * TODO: Explicitly set & retrieve primary category.
+	 */
+	function gotham_posted_in() {
+		// Get a list of post categories.
+		$post_categories = get_the_category();
+
+		// Loop through the categories.
+		foreach ( $post_categories as $category ) {
+			// If we find a top level category, that isn't "uncategorized" ...
+			if ( 0 === $category->parent && 'uncategorized' !== $category->slug ) {
+				// Print the "posted in" info.
+				printf(
+					'<span>%1$s <a href="%2$s">%3$s</a></span>',
+					esc_html__( 'in', 'gotham' ),
+					esc_url( get_term_link( $category ) ),
+					esc_html( $category->name )
+				);
+				// And then stop looking.
+				break;
 			}
 		}
 	}

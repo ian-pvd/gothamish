@@ -25,8 +25,9 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				gotham_posted_on();
 				gotham_posted_by();
+				gotham_posted_in();
+				gotham_posted_on();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>

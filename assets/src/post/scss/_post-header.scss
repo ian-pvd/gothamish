@@ -40,10 +40,17 @@
 }
 
 .entry-meta {
-	display: flex;
+	color: color( grey-very-dark );
+	font-size: rem(12);
+	text-transform: uppercase;
+
+	a {
+		color: color( grey-very-dark );
+		font-weight: 700;
+	}
 
 	> * {
-		width: 50%;
+		margin-right: calc(1em / 4);
 	}
 }
 
