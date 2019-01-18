@@ -35,9 +35,7 @@ $width--content: rem(640);
 
 // Max site width
 // DEV NOTE:
-// Original 1000px (62.5rem)
-// Scaled up to 72rem
-// Plus 20px to offset original 300px sidebar
+// 72rem + 20px to offset original 300px sidebar
 $width--site: calc(72rem + #{rem(20)});
 
 // Theme Layout Vars
