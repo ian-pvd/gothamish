@@ -17,5 +17,5 @@
 }
 
 .post-thumbnail__caption {
-	@include image-caption();
+	@include figure-caption();
 }

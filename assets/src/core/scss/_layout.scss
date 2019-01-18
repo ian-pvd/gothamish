@@ -110,7 +110,7 @@
 }
 
 // Default Image Caption Styles
-@mixin image-caption() {
+@mixin figure-caption() {
 	border-bottom: $border--hr-light;
 	color: color(grey-dark);
 	font-size: rem(12);
