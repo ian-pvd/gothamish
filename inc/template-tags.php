@@ -356,3 +356,14 @@ if ( ! function_exists( 'gotham_footer_byline' ) ) :
 		echo '</div>';
 	}
 endif;
+
+if ( ! function_exists( 'gotham_jetpack_share' ) ) :
+	/**
+	 * Displays Jetpack Sharedaddy links.
+	 */
+	function gotham_jetpack_share() {
+		if ( function_exists( 'sharing_display' ) ) {
+			sharing_display( '', true );
+		}
+	}
+endif;

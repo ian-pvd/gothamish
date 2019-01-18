@@ -9,8 +9,8 @@
 .entry-footer__digest-subscribe,
 .entry-footer__donation-appeal,
 .entry-footer__contact {
-	margin-bottom: spacer(1);
 	font-size: rem(14);
+	margin-bottom: spacer(1);
 }
 
 .entry-footer__digest-subscribe {
@@ -33,6 +33,41 @@
 }
 
 .entry-footer__contact-links {
-	font-style: italic;
 	color: color(grey);
+	font-style: italic;
+}
+
+.entry-footer .sharedaddy {
+	margin-bottom: spacer(1);
+
+	.sd-title {
+		@include screen-reader-text();
+	}
+
+	ul,
+	li {
+		/* Use !important to override Jetpack !important */
+		/* stylelint-disable declaration-no-important */
+		margin: 0 !important;
+		/* stylelint-enable */
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	li {
+		flex: 0 0 auto;
+		width: calc( ( 100% - ( 3 * #{spacer(0.5)} ) ) / 4 );
+	}
+
+	a {
+		display: block;
+		width: 100%;
+	}
+
+	.share-end {
+		display: none;
+	}
 }

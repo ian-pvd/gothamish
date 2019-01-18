@@ -65,6 +65,7 @@
 		<?php gotham_digest_subscribe(); ?>
 		<?php gotham_donation_appeal(); ?>
 		<?php gotham_footer_byline(); ?>
+		<?php gotham_jetpack_share(); ?>
 		<?php gotham_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
