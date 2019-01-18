@@ -1,0 +1,23 @@
+/**
+ * Site Partners bar styles
+ */
+
+.site-network {
+	@include full-bleed();
+	background: color(grey-very-dark);
+	display: flex;
+
+	ul {
+		margin: 0;
+		list-style: none;
+	}
+
+	a {
+		background: $color--primary;
+		color: color(white);
+		display: block;
+		padding: spacer(0.5) spacer(1);
+		text-decoration: none;
+		margin-left: auto;
+	}
+}
