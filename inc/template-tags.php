@@ -414,7 +414,8 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 
 			// Donate Link
 			printf(
-				'<a class="site-network__donate" href="/donate">Support Us</a>'
+				'<a class="site-network__donate" href="/donate">%s</a>',
+				__( 'Support Us', 'gotham' )
 			);
 
 			echo '</div>';

@@ -1,10 +1,10 @@
 /**
- * Site Partners bar styles
+ * Site Network list menu bar styles
  */
 
 .site-network {
 	@include full-bleed();
-	background: color(grey-very-dark);
+	background: color(grey-very-very-dark);
 	color: color(white);
 	display: flex;
 
@@ -28,6 +28,7 @@
 
 .network-list__title {
 	margin-right: spacer(1);
+	opacity: 0.6;
 }
 
 .network-list__menu {
@@ -36,6 +37,12 @@
 	margin: 0;
 	padding: 0 spacer(1);
 	position: relative;
+
+	a,
+	&::before,
+	&::after {
+		opacity: 0.6;
+	}
 
 	&::before,
 	&::after {
@@ -66,10 +73,15 @@
 			margin: 0;
 		}
 	}
+
+	a:hover {
+		opacity: 1;
+	}
 }
 
 .site-network__donate {
 	background: $color--primary;
 	margin-left: auto;
+	margin-right: spacer(1);
 	padding: spacer(0.5) spacer(1);
 }
