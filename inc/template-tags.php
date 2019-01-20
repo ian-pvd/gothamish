@@ -387,3 +387,39 @@ if ( ! function_exists( 'gotham_jetpack_share' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'gotham_network_list' ) ) :
+	/**
+	 * Displays the site networks list if a menu is assigned
+	 */
+	function gotham_network_list() {
+		if ( has_nav_menu( 'network-list' ) ) {
+
+			echo '<div class="site-network">';
+
+			// Get theme's menu locations and their associated menus
+			$locations = get_nav_menu_locations();
+			// Get menu info object assigned to network-list theme location
+			$networks_menu = wp_get_nav_menu_object( $locations[ 'network-list' ] );
+
+			wp_nav_menu(
+				[
+					'container_class' => 'site-network__network-list network-list',
+					'menu_class'      => 'network-list__menu',
+					'menu_id'         => 'network-list__menu',
+					'theme_location'  => 'network-list',
+					'items_wrap'      => '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span><ul id="%1$s" class="%2$s">%3$s</ul>',
+				]
+			);
+
+			// Donate Link
+			printf(
+				'<a class="site-network__donate" href="/donate">Support Us</a>'
+			);
+
+			echo '</div>';
+
+		}
+	}
+endif;
+

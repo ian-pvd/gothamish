@@ -24,12 +24,7 @@
 <div id="page" class="site site--mobile-nav">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gotham' ); ?></a>
 
-	<div class="site-network">
-		<div>PVD Network
-			<ul><li>PVD LOGOS</li></ul>
-		</div>
-		<a href="">Support Us</a>
-	</div>
+	<?php gotham_network_list() ?>
 
 	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">

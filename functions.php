@@ -49,6 +49,7 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		register_nav_menus(
 			[
 				'primary-nav' => esc_html__( 'Primary Navigation', 'gotham' ),
+				'network-list' => esc_html__( 'Site Networks', 'gotham' ),
 			]
 		);
 
