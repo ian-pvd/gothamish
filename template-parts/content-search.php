@@ -30,6 +30,6 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php gotham_entry_footer(); ?>
+		<?php gotham_entry_tags(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
