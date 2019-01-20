@@ -8,6 +8,10 @@
 	color: color(white);
 	display: flex;
 
+	@include breakpoints(small) {
+		margin-bottom: spacer(2);
+	}
+
 	a {
 		color: color(white);
 		text-decoration: none;
@@ -29,6 +33,17 @@
 .network-list__title {
 	margin-right: spacer(1);
 	opacity: 0.6;
+}
+
+.site-network__donate {
+	background: $color--primary;
+	padding: spacer(0.5) spacer(1);
+	white-space: nowrap;
+
+	@include breakpoints(small) {
+		margin-left: auto;
+		margin-right: spacer(1);
+	}
 }
 
 .network-list__menu {
@@ -77,11 +92,4 @@
 	a:hover {
 		opacity: 1;
 	}
-}
-
-.site-network__donate {
-	background: $color--primary;
-	margin-left: auto;
-	margin-right: spacer(1);
-	padding: spacer(0.5) spacer(1);
 }

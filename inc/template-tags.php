@@ -390,32 +390,38 @@ endif;
 
 if ( ! function_exists( 'gotham_network_list' ) ) :
 	/**
-	 * Displays the site networks list if a menu is assigned
+	 * Displays the site networks list if a menu is assigned.
 	 */
 	function gotham_network_list() {
 		if ( has_nav_menu( 'network-list' ) ) {
 
 			echo '<div class="site-network">';
 
-			// Get theme's menu locations and their associated menus
+			// Donate Link
+			printf(
+				'<a class="site-network__donate" href="/donate">%s</a>',
+				__( 'Support Us', 'gotham' )
+			);
+
+			// Get theme's menu locations and their associated menus.
 			$locations = get_nav_menu_locations();
-			// Get menu info object assigned to network-list theme location
+			// Get menu info object assigned to network-list theme location.
 			$networks_menu = wp_get_nav_menu_object( $locations[ 'network-list' ] );
 
+
+			// Title and mobile toggle markup to display before network list menu.
+			$menu_title_markup = '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span>';
+			$menu_toggle_markup = '<button id="network-list-toggle" class="network-list__menu-toggle menu-toggle" aria-controls="netowrk-list" aria-expanded="false">' . __( 'View Networks', 'gotham' ) . '</button>';
+
+			// Display the menu.
 			wp_nav_menu(
 				[
 					'container_class' => 'site-network__network-list network-list',
 					'menu_class'      => 'network-list__menu',
 					'menu_id'         => 'network-list__menu',
 					'theme_location'  => 'network-list',
-					'items_wrap'      => '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span><ul id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'      => $menu_title_markup . $menu_toggle_markup . '<ul id="%1$s" class="%2$s">%3$s</ul>',
 				]
-			);
-
-			// Donate Link
-			printf(
-				'<a class="site-network__donate" href="/donate">%s</a>',
-				__( 'Support Us', 'gotham' )
 			);
 
 			echo '</div>';
