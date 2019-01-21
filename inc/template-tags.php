@@ -395,7 +395,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 	function gotham_network_list() {
 		if ( has_nav_menu( 'network-list' ) ) {
 
-			echo '<div class="site-network">';
+			echo '<div id="site-network-bar" class="site-network">';
 
 			// Donate Link
 			printf(
@@ -420,7 +420,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 					'menu_class'      => 'network-list__menu',
 					'menu_id'         => 'network-list__menu',
 					'theme_location'  => 'network-list',
-					'items_wrap'      => $menu_title_markup . $menu_toggle_markup . '<ul id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'      => '<div class="network-list__wrapper">' . $menu_title_markup . $menu_toggle_markup . '</div><ul id="%1$s" class="%2$s">%3$s</ul>',
 				]
 			);
 

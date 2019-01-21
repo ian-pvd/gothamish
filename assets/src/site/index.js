@@ -4,6 +4,7 @@
 
 // Global Scripts
 import toggleMobileNav from './js/toggleMobileNav';
+import toggleNetworkList from './js/toggleNetworkList';
 import loadWebFonts from './js/webFontLoader';
 
 // Global Styles
@@ -17,5 +18,6 @@ if (module.hot) {
 // Enquue Site JS Modules
 document.addEventListener('DOMContentLoaded', () => {
   toggleMobileNav();
+  toggleNetworkList();
   loadWebFonts();
 });

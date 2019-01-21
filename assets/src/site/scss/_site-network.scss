@@ -7,9 +7,12 @@
 	background: color(grey-very-very-dark);
 	color: color(white);
 	display: flex;
+	z-index: z-index(notice);
+	position: relative;
 
 	@include breakpoints(small) {
 		margin-bottom: spacer(2);
+
 	}
 
 	a {
@@ -18,24 +21,29 @@
 	}
 }
 
+.site-network__donate,
 .site-network__network-list,
-.network-list__menu,
-.site-network__donate {
-	align-items: center;
+.network-list__wrapper,
+.network-list__menu {
 	display: flex;
 	line-height: 1;
-}
 
-.site-network__network-list {
-	margin-left: spacer(1);
-}
-
-.network-list__title {
-	margin-right: spacer(1);
-	opacity: 0.6;
+	@include breakpoints(small) {
+		align-items: center;
+	}
 }
 
 .site-network__donate {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: spacer(2);
+	align-items: center;
+
+	.toggle__network-list--active & {
+		height: spacer(3);
+	}
+
 	background: $color--primary;
 	padding: spacer(0.5) spacer(1);
 	white-space: nowrap;
@@ -46,12 +54,107 @@
 	}
 }
 
+.site-network__network-list {
+	margin: 0;
+	width: 100%;
+	flex-direction: column;
+
+	@include breakpoints(small) {
+		margin: 0 0 0 spacer(1);
+		flex-direction: row;
+	}
+}
+
+.network-list__wrapper {
+	margin-left: auto;
+	height: spacer(2);
+	align-items: center;
+
+	.toggle__network-list--active & {
+		height: spacer(3);
+	}
+}
+
+.network-list__title {
+	margin: 0 spacer(0.5) 0 auto;
+	opacity: 0.6;
+}
+
+.network-list__menu-toggle {
+	@include hide-text();
+	@include reset-button();
+	background-color: $color--interface;
+	font-size: 2rem; // Affects mask-size scaling
+	height: $width--menu-toggle;
+	margin: 0 spacer(1) 0 0;
+	mask: url(../img/icon-list-open.svg) no-repeat center;
+	mask-size: contain;
+	width: $width--menu-toggle;
+
+	&[aria-expanded='true'] {
+		mask: url(../img/icon-list-close.svg) no-repeat center;
+	}
+
+	@include breakpoints(large) {
+		display: none;
+	}
+}
+
 .network-list__menu {
-	height: spacer(3);
 	list-style: none;
 	margin: 0;
-	padding: 0 spacer(1);
-	position: relative;
+	width: 100%;
+	flex-direction: column;
+	height: 0;
+	max-height: 0;
+	overflow: hidden;
+
+	.toggle__network-list--active & {
+		height: auto;
+		max-height: none;
+		overflow: visible;
+	}
+
+	@include breakpoints(small) {
+		height: spacer(3);
+		padding: 0 spacer(1);
+		position: relative;
+		flex-direction: row;
+
+		&::before,
+		&::after {
+			@include pseudo-block;
+			border: 1px solid white;
+			height: spacer(1.75);
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 0.25em;
+		}
+
+		&::before {
+			border-right: none;
+			left: 0;
+		}
+
+		&::after {
+			border-left: none;
+			right: 0;
+		}
+	}
+
+	li {
+		border-top: 1px solid;
+
+		@include breakpoints(small) {
+			font-size: rem(14);
+			margin-right: spacer(1);
+
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
 
 	a,
 	&::before,
@@ -59,37 +162,13 @@
 		opacity: 0.6;
 	}
 
-	&::before,
-	&::after {
-		@include pseudo-block;
-		border: 1px solid white;
-		height: spacer(1.75);
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
-		width: 0.25em;
+	a {
+		display: block;
+		padding: spacer(1);
 	}
 
-	&::before {
-		border-right: none;
-		left: 0;
-	}
-
-	&::after {
-		border-left: none;
-		right: 0;
-	}
-
-	li {
-		font-size: rem(14);
-		margin-right: spacer(1);
-
-		&:last-child {
-			margin: 0;
-		}
-	}
-
-	a:hover {
+	a:hover,
+	a:active {
 		opacity: 1;
 	}
 }
