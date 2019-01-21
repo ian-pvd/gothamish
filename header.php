@@ -24,7 +24,11 @@
 <div id="page" class="site site--mobile-nav">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gotham' ); ?></a>
 
-	<?php gotham_network_list() ?>
+	<?php
+	if ( has_nav_menu( 'network-list' ) ) {
+		gotham_network_list();
+	}
+	?>
 
 	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">

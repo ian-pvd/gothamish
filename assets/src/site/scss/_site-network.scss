@@ -10,10 +10,10 @@ $height--networks-open: spacer(3);
 	background: color(grey-very-very-dark);
 	color: color(white);
 	display: flex;
-	z-index: z-index(notice);
 	position: relative;
+	z-index: z-index(notice);
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		margin-bottom: spacer(2);
 	}
 
@@ -29,7 +29,7 @@ $height--networks-open: spacer(3);
 	display: flex;
 	line-height: 1;
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		align-items: center;
 	}
 }
@@ -42,14 +42,14 @@ $height--networks-open: spacer(3);
 	padding: spacer(0.5) spacer(1);
 	position: absolute;
 	top: 0;
-	white-space: nowrap;
 	transition: height 250ms;
+	white-space: nowrap;
 
 	.toggle__network-list--active & {
 		height: $height--networks-open;
 	}
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		height: $height--networks-open;
 		margin-left: auto;
 		margin-right: spacer(1);
@@ -63,7 +63,7 @@ $height--networks-open: spacer(3);
 	margin: 0;
 	width: 100%;
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		align-items: center;
 		display: flex;
 		flex-direction: row;
@@ -82,7 +82,7 @@ $height--networks-open: spacer(3);
 		height: $height--networks-open;
 	}
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		margin: 0;
 		transition: none;
 	}
@@ -92,7 +92,7 @@ $height--networks-open: spacer(3);
 	margin: 0 spacer(0.5) 0 auto;
 	opacity: 0.6;
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		margin: 0 spacer(1) 0 0;
 	}
 }
@@ -112,7 +112,7 @@ $height--networks-open: spacer(3);
 		mask: url(../img/icon-list-close.svg) no-repeat center;
 	}
 
-	@include breakpoints(large) {
+	@include breakpoints(medium) {
 		display: none;
 	}
 }
@@ -130,12 +130,12 @@ $height--networks-open: spacer(3);
 		max-height: none;
 	}
 
-	@include breakpoints(small) {
+	@include breakpoints(medium) {
 		flex-direction: row;
 		height: spacer(3);
+		max-height: none;
 		padding: 0 spacer(1);
 		position: relative;
-		max-height: none;
 		width: auto;
 
 		&::before,
@@ -163,7 +163,7 @@ $height--networks-open: spacer(3);
 	li {
 		border-top: 1px solid color(white);
 
-		@include breakpoints(small) {
+		@include breakpoints(medium) {
 			border: none;
 			font-size: rem(14);
 			margin-right: spacer(1);
@@ -183,7 +183,7 @@ $height--networks-open: spacer(3);
 	a {
 		display: block;
 
-		@include breakpoints(none, small) {
+		@include breakpoints(none, medium) {
 			padding: spacer(1);
 		}
 	}
