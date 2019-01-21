@@ -427,3 +427,12 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 	}
 endif;
 
+/**
+ * Dev placeholder function for displaying ad blocks.
+ * Replace this with AdSense or DFP or whatever.
+ *
+ * @param  [string] $ad_size Ad slot size in pixels.
+ */
+function ad_placeholder( $ad_size ) {
+	echo '<div class="ad ad-placeholder ad--' . esc_attr( $ad_size ) . '">Advertisement ' . esc_html( $ad_size ) . '</div>';
+}
