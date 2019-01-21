@@ -395,22 +395,21 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 	function gotham_network_list() {
 		echo '<div id="site-network-bar" class="site-network">';
 
-		// Donate Link
+		// Donate Link.
 		printf(
 			'<a class="site-network__donate" href="/donate">%s</a>',
-			__( 'Support Us', 'gotham' )
+			esc_html__( 'Support Us', 'gotham' )
 		);
 
 		// Get theme's menu locations and their associated menus.
 		$locations = get_nav_menu_locations();
 		// Get menu info object assigned to network-list theme location.
-		$networks_menu = wp_get_nav_menu_object( $locations[ 'network-list' ] );
-
+		$networks_menu = wp_get_nav_menu_object( $locations['network-list'] );
 
 		// Title and mobile toggle markup to display before network list menu.
-		$menu_title_markup = '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span>';
+		$menu_title_markup  = '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span>';
 		$menu_toggle_markup = '<button id="network-list-toggle" class="network-list__menu-toggle menu-toggle" aria-controls="netowrk-list" aria-expanded="false">' . __( 'View Networks', 'gotham' ) . '</button>';
-		// Menu prefix markup template
+		// Menu prefix markup template.
 		$menu_prefix_markup = '<div class="network-list__wrapper">' . $menu_title_markup . $menu_toggle_markup . '</div>';
 
 		// Display the menu.
