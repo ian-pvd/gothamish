@@ -2,6 +2,9 @@
  * Site Network list menu bar styles
  */
 
+$height--networks-closed: spacer(2);
+$height--networks-open: spacer(3);
+
 .site-network {
 	@include full-bleed();
 	background: color(grey-very-very-dark);
@@ -12,7 +15,6 @@
 
 	@include breakpoints(small) {
 		margin-bottom: spacer(2);
-
 	}
 
 	a {
@@ -22,7 +24,6 @@
 }
 
 .site-network__donate,
-.site-network__network-list,
 .network-list__wrapper,
 .network-list__menu {
 	display: flex;
@@ -34,50 +35,66 @@
 }
 
 .site-network__donate {
+	align-items: center;
+	background: $color--primary;
+	height: $height--networks-closed;
+	left: 0;
+	padding: spacer(0.5) spacer(1);
 	position: absolute;
 	top: 0;
-	left: 0;
-	height: spacer(2);
-	align-items: center;
+	white-space: nowrap;
+	transition: height 250ms;
 
 	.toggle__network-list--active & {
-		height: spacer(3);
+		height: $height--networks-open;
 	}
 
-	background: $color--primary;
-	padding: spacer(0.5) spacer(1);
-	white-space: nowrap;
-
 	@include breakpoints(small) {
+		height: $height--networks-open;
 		margin-left: auto;
 		margin-right: spacer(1);
+		position: static;
+		transition: none;
 	}
 }
 
 .site-network__network-list {
+	flex-direction: column;
 	margin: 0;
 	width: 100%;
-	flex-direction: column;
 
 	@include breakpoints(small) {
-		margin: 0 0 0 spacer(1);
+		align-items: center;
+		display: flex;
 		flex-direction: row;
+		margin: 0 0 0 spacer(1);
+		order: -1;
 	}
 }
 
 .network-list__wrapper {
-	margin-left: auto;
-	height: spacer(2);
 	align-items: center;
+	height: $height--networks-closed;
+	margin-left: auto;
+	transition: height 250ms;
 
 	.toggle__network-list--active & {
-		height: spacer(3);
+		height: $height--networks-open;
+	}
+
+	@include breakpoints(small) {
+		margin: 0;
+		transition: none;
 	}
 }
 
 .network-list__title {
 	margin: 0 spacer(0.5) 0 auto;
 	opacity: 0.6;
+
+	@include breakpoints(small) {
+		margin: 0 spacer(1) 0 0;
+	}
 }
 
 .network-list__menu-toggle {
@@ -101,30 +118,30 @@
 }
 
 .network-list__menu {
+	flex-direction: column;
 	list-style: none;
 	margin: 0;
-	width: 100%;
-	flex-direction: column;
-	height: 0;
 	max-height: 0;
 	overflow: hidden;
+	transition: max-height 250ms;
+	width: 100%;
 
 	.toggle__network-list--active & {
-		height: auto;
 		max-height: none;
-		overflow: visible;
 	}
 
 	@include breakpoints(small) {
+		flex-direction: row;
 		height: spacer(3);
 		padding: 0 spacer(1);
 		position: relative;
-		flex-direction: row;
+		max-height: none;
+		width: auto;
 
 		&::before,
 		&::after {
 			@include pseudo-block;
-			border: 1px solid white;
+			border: 1px solid color(white);
 			height: spacer(1.75);
 			position: absolute;
 			top: 50%;
@@ -144,9 +161,10 @@
 	}
 
 	li {
-		border-top: 1px solid;
+		border-top: 1px solid color(white);
 
 		@include breakpoints(small) {
+			border: none;
 			font-size: rem(14);
 			margin-right: spacer(1);
 
@@ -164,7 +182,10 @@
 
 	a {
 		display: block;
-		padding: spacer(1);
+
+		@include breakpoints(none, small) {
+			padding: spacer(1);
+		}
 	}
 
 	a:hover,
