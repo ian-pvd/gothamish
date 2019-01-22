@@ -31,10 +31,12 @@
 	?>
 
 	<?php
-		ad_slot(
+		// Site Header Leaderboard Ad Slot.
+		gotham_ad_slot(
 			[
-				'mobile'  => '300x50',
-				'desktop' => '640x640',
+				'mobile'  => '320x50',
+				'tablet'  => '468x60',
+				'desktop' => '970x90',
 			]
 		);
 		?>
