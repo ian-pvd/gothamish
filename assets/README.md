@@ -9,7 +9,7 @@ This theme makes use of:
 
 ## Developer Quickstart
 
-To begin making changes to this theme's styles and scripts, `cd` into the theme directory and run `npm i` to being installing the necessary dependencies. Once the install has completed, you can compile the site's assets using:
+To begin making changes to this theme's styles and scripts, `cd` into the theme directory and run `npm i` to begin installing the necessary dependencies. Once the install has completed, you can compile the site's assets using:
 - `npm run build` to rebuild the site's assets from scratch for production
 - `npm run watch` to watch for changes in the `./assets` folder and update the site's assets in your development environment using webpack livereload. 
 
@@ -19,21 +19,23 @@ This theme's front end files are all included within the `./assets` directory an
 
 **config** –  The configurations folder contains the webpack, asset version and stylelint configurations.
 
-**src** – The source folder contains the eatable files which will be compiled by webpack to generate your front-end theme styles and scripts. 
+**src** – The source folder contains the editable files which will be compiled by webpack to generate your front-end theme styles and scripts. 
 
 **dist** – This folder contains the compiled assets that webpack has built from the contents of your `src` folder. You should not make changes to these files directly, they are minified and not human readable, and will be erased and rebuild each time the production build runs.
 
 ## Webpack
 
-@ TODO — Detail webpack config settings.
-See: `./config/webpack.config.js`
+*@ TODO — Detail webpack config settings. (it's a lot)
+See: `./config/webpack.config.js`*
 
 ## Source Components & Entry Points
 
 Each theme entry point has its own folder, and each folder contains an `index.js` file which imports the component styles and scripts.
 
 Component **scripts** are stored in the `js/` folder for each component, and should be written as module exports.
+
 Component **styles** can be found in the `scss/` folder, and are imported via an `index.scss` file. Each `index.scss` file should begin with importing the SCSS theme core files ([see below](#scss-theme-core)) to allow access to variables, theme options and mixins.
+
 Component **images** for each component should be added to an `img/` folder.
 
 ### SCSS Theme Core
@@ -47,7 +49,7 @@ The styles for this theme are written in SCSS and leverage SCSS mixins, function
 * Layout – Reusable layout style mixins.
 * Grid – A mixin for setting grid layouts.
 * Z-Index – Default z-index values and a z-index shortcut mixin.
-* Typography – Sets 3 default named font families and includes a font picker mixin.
+* Typography – Sets default named font families and includes a font picker mixin.
 
 ### SCSS Theme Variables & Options
 
@@ -67,7 +69,7 @@ $colors: map-merge($colors, $custom-colors);
 
 These are lean and reusable SCSS for styling component markup used throughout the site. For example, post grids or newsletter signup forms which use the same markup but are displayed in different entry points.
 
-Module files should be imported before entry point files so that they can be further customized for each view if necessary. For example:
+Module files should always be imported before component files so that they can be further customized for each entry point if necessary. For example:
 ```scss
 // Load Theme Core
 @import '../../core/scss/index.scss';
