@@ -35,3 +35,37 @@ function gotham_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'gotham_pingback_header' );
+
+/**
+ * Customize Gutenberg supported features
+ */
+function gotham_setup_editor_features() {
+	add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => __( 'Red', 'gotham' ),
+				'slug'  => 'red',
+				'color' => '#900',
+			],
+			[
+				'name'  => __( 'Dark Gray', 'gotham' ),
+				'slug'  => 'gray-dark',
+				'color' => '#333',
+			],
+			[
+				'name'  => __( 'Light Gray', 'gotham' ),
+				'slug'  => 'gray-light',
+				'color' => '#CCC',
+			],
+			[
+				'name'  => __( 'Yellow', 'gotham' ),
+				'slug'  => 'yellow',
+				'color' => '#FFFF66CC',
+			],
+		]
+	);
+
+	add_theme_support( 'disable-custom-colors' );
+}
+add_action( 'after_setup_theme', 'gotham_setup_editor_features' );
