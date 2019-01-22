@@ -251,12 +251,25 @@ big,
 .has-background {
 	padding: spacer(1);
 
-	&[class*='dark'] {
+	&.has-red-background-color,
+	&.has-gray-dark-background-color {
 		color: color(white);
 	}
 
-	&[class*='dark-gray'] {
+	&.has-red-background-color {
+		background: $color--primary;
+	}
+
+	&.has-gray-dark-background-color {
 		background: $color--secondary;
+	}
+
+	&.has-gray-light-background-color {
+		background: color(grey-very-light);
+	}
+
+	&.has-yellow-background-color {
+		background: $color--appeal;
 	}
 }
 
