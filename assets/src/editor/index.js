@@ -2,5 +2,5 @@
  * WP Editor Entry Point
  */
 
-// Editor Styles
+// Editor Preview Styles
 import './scss/index.scss';
