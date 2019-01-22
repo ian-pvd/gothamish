@@ -30,6 +30,17 @@
 	}
 	?>
 
+	<?php
+		// Site Header Leaderboard Ad Slot.
+		gotham_ad_slot(
+			[
+				'mobile'  => '320x50',
+				'tablet'  => '468x60',
+				'desktop' => '970x90',
+			]
+		);
+		?>
+
 	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">
 			<div class="site-header__branding">

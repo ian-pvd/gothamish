@@ -426,4 +426,3 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 		echo '</div>';
 	}
 endif;
-
