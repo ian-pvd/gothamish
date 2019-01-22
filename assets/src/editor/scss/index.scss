@@ -7,5 +7,13 @@
 // Load Theme Core
 @import '../../core/scss/index.scss';
 
+// Reset body font display in editor
+* {
+	font: $font--body;
+}
+
+// Editor Styles
+@import '../../site/scss/_site-defaults.scss';
+
 // Editor Styles
 @import '../../post/scss/_wp-content.scss';

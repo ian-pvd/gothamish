@@ -1,0 +1,79 @@
+/**
+ * Site form default styles
+ */
+
+/* Forms, Buttons & Inputs */
+
+// Buttons & Inputs
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color--text;
+	font: $font--body;
+}
+
+button,
+input,
+textarea {
+	border-radius: rem(4);
+	border: 1px solid $color--text;
+}
+
+button,
+input {
+	height: 1.75rem;
+	line-height: 1;
+}
+
+// Button & Input Styles
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+	background: $color--background;
+	font-size: 0.75rem;
+	padding: rem(4) rem(16) rem(4);
+
+	&:hover {
+		border-color: $color--highlight;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color--highlight;
+	}
+}
+
+// Input styles
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='password'],
+input[type='search'],
+input[type='number'],
+input[type='tel'],
+input[type='range'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='color'],
+textarea {
+	padding: rem(4);
+
+	&:focus {
+		color: $color--highlight;
+	}
+}
+
+select {
+	border: 1px solid $color--text;
+}
+
+textarea {
+	width: 100%;
+}
