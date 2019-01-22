@@ -440,23 +440,31 @@ function ad_slot( $ad_size = '300x250' ) {
 	}
 
 	foreach ( $ad_size as $slot => $dimensions ) {
-		// Is ad slot for a specific screen size?
-		$ad_slot = null;
+		// Convert size string into an array of valid integers.
+		$px_size = explode( 'x', $dimensions );
 
-		if ( ! is_int( $slot ) ) {
-			$ad_slot = 'ad-slot--' . $slot;
-		}
+		// If there are two values, ensure they're valid numbers.
+		if ( is_numeric( $px_size[0] ) && is_numeric( $px_size[1] ) ) {
+			$px_size[0] = (int) $px_size[0];
+			$px_size[1] = (int) $px_size[1];
 
-		// Ad dimension variables.
-		$px_size    = explode( 'x', $dimensions );
-		$px_size[0] = (int) $px_size[0];
-		$px_size[1] = (int) $px_size[1];
-		if ( is_int( $px_size[0] ) && is_int( $px_size[1] ) ) {
-			$px_size = 'style="width:' . $px_size[0] . 'px;height:' . $px_size[1] . 'px;"';
+			// If numbers are greater than zero, set up ad attributes.
+			if ( ( 0 < $px_size[0] ) && ( 0 < $px_size[1] ) ) {
+				// Display size in px.
+				$px_size = 'width:' . $px_size[0] . 'px;height:' . $px_size[1] . 'px;';
+
+				// Is ad slot for a specific screen size?
+				$ad_slot = null;
+
+				if ( ! is_int( $slot ) ) {
+					$ad_slot = 'ad-slot--' . $slot;
+				}
+
+				// Display the ad.
+				echo '<div class="ad ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" style="' . esc_attr( $px_size ) . '"><span>Advertisement ' . esc_html( $dimensions ) . '</span><img src="' . esc_url( 'https://source.unsplash.com/random/' . $dimensions ) . '" /></div>';
+			}
 		} else {
-			$px_size = null;
+			echo '<!-- Invalid Ad Size: ' . esc_html( $dimensions ) . ' -->';
 		}
-
-		echo '<div class="ad ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" ' . $px_size . '>Advertisement ' . esc_html( $dimensions ) . '</div>';
 	}
 }

@@ -30,7 +30,14 @@
 	}
 	?>
 
-	<?php ad_slot( 'facex90' ); ?>
+	<?php
+		ad_slot(
+			[
+				'mobile'  => '300x50',
+				'desktop' => '640x640',
+			]
+		);
+		?>
 
 	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">
