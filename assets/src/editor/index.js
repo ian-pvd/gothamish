@@ -1,5 +1,5 @@
 /**
- * Editor Entry Point
+ * WP Editor Entry Point
  */
 
 // Editor Styles
