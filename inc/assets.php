@@ -14,7 +14,7 @@ function gotham_enqueue_assets() {
 			'webpack-dev',
 			'https://localhost:8080/dist/site.js',
 			[],
-			null,
+			'1.0',
 			false
 		);
 	} else {
@@ -28,6 +28,18 @@ function gotham_enqueue_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'gotham_enqueue_assets' );
+
+/**
+ * Enqueues WP content styles in the editor
+ */
+function gotham_enqueue_editor_styles() {
+	// Add theme support for editor styles.
+	add_theme_support( 'editor-styles' );
+
+	// Enqueue wp content styles in the editor.
+	add_editor_style( GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'editor-css' ) );
+}
+add_action( 'after_setup_theme', 'gotham_enqueue_editor_styles' );
 
 /**
  * Removes WP scripts
