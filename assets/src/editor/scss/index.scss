@@ -1,0 +1,11 @@
+/**
+ * Editor Styles
+ *
+ * WP content styles for Gutenberg editor previews
+ */
+
+// Load Theme Core
+@import '../../core/scss/index.scss';
+
+// Editor Styles
+@import '../../post/scss/_wp-content.scss';
