@@ -30,7 +30,7 @@
 	}
 	?>
 
-	<?php ad_placeholder( '970x90' ); ?>
+	<?php ad_slot( 'facex90' ); ?>
 
 	<header id="masthead" class="site-header">
 		<div class="site-header__wrapper">

@@ -433,6 +433,30 @@ endif;
  *
  * @param  [string] $ad_size Ad slot size in pixels.
  */
-function ad_placeholder( $ad_size ) {
-	echo '<div class="ad ad-placeholder ad--' . esc_attr( $ad_size ) . '">Advertisement ' . esc_html( $ad_size ) . '</div>';
+function ad_slot( $ad_size = '300x250' ) {
+	// Place single ad size for loop output.
+	if ( ! is_array( $ad_size ) ) {
+		$ad_size = [ $ad_size ];
+	}
+
+	foreach ( $ad_size as $slot => $dimensions ) {
+		// Is ad slot for a specific screen size?
+		$ad_slot = null;
+
+		if ( ! is_int( $slot ) ) {
+			$ad_slot = 'ad-slot--' . $slot;
+		}
+
+		// Ad dimension variables.
+		$px_size    = explode( 'x', $dimensions );
+		$px_size[0] = (int) $px_size[0];
+		$px_size[1] = (int) $px_size[1];
+		if ( is_int( $px_size[0] ) && is_int( $px_size[1] ) ) {
+			$px_size = 'style="width:' . $px_size[0] . 'px;height:' . $px_size[1] . 'px;"';
+		} else {
+			$px_size = null;
+		}
+
+		echo '<div class="ad ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" ' . $px_size . '>Advertisement ' . esc_html( $dimensions ) . '</div>';
+	}
 }
