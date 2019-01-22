@@ -195,6 +195,7 @@ require_once GOTHAM_PATH . '/inc/comments/index.php';
  * Gothamish: Load Custom Featured Image Options
  *
  * To enable, require '/inc/featured-image/index.php'
+ */
 
 /**
  * Gothamish: Load Social Links Module

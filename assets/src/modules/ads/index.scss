@@ -24,11 +24,11 @@
 
 	.ad__text {
 		@include absolute-pinned();
-		z-index: 10;
-		display: flex;
-		justify-content: center;
 		align-items: center;
 		background: fade-out( color(grey-very-very-light), 0.5 );
+		display: flex;
+		justify-content: center;
+		z-index: z-index(first);
 	}
 
 	.ad__image {
