@@ -147,30 +147,29 @@
 	max-width: rem(240);
 	min-width: rem(160);
 	position: relative;
-	width: 100%;
-	color: black;
+	width: calc( 100% + #{spacer(2)} );
 
 	.search-field {
 		@include absolute-pinned();
-		border: 2px solid $color--interface;
 		border-radius: 0;
+		border: 2px solid $color--interface;
+		font-size: rem(14);
+		padding-right: 32px;
 
 		&::placeholder {
 			color: color(grey-very-very-light);
-			font-size: rem(14);
 		}
 	}
 
 	.search-submit {
 		@include reset-button;
 		@include hide-text;
-		background: red;
-		height: 100%;
-		width: rem(32);
-		position: absolute;
-		top: 0;
-		right: 0;
 		background: url('../img/icon-search.svg') center no-repeat;
 		background-size: rem(16) rem(16);
+		height: rem(28);
+		position: absolute;
+		right: 2px;
+		top: 2px;
+		width: rem(28);
 	}
 }
