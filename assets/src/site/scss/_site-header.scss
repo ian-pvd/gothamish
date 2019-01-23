@@ -22,6 +22,7 @@
 
 	@include breakpoints(large) {
 		flex-wrap: wrap;
+		position: relative;
 	}
 }
 
@@ -33,6 +34,8 @@
 	position: relative;
 
 	@include breakpoints(large) {
+		height: $height--site-header;
+		justify-content: flex-end;
 		order: 1;
 
 		&::after {
@@ -76,13 +79,13 @@
 	}
 
 	@include breakpoints(large) {
-		.custom-logo-link + & {
-			display: none;
-		}
-
 		@include center-margins();
 		background: $color--page;
 		padding: spacer(0.5) spacer(1);
+
+		.custom-logo-link + & {
+			display: none;
+		}
 	}
 }
 
@@ -93,30 +96,41 @@
 	max-height: 100%;
 
 	@include breakpoints(large) {
-		display: none;
-		flex: 1 1 auto;
-		width: 100%;
-		height: auto;
+		left: spacer(1);
+		position: absolute;
+		top: 0;
+	}
+}
+
+.site-header__utilities {
+	display: none;
+
+	@include breakpoints(large) {
+		align-items: flex-end;
+		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		position: absolute;
+		right: spacer(1);
 	}
 }
 
 .site-header__social-links {
-	display: none;
-
-	@include breakpoints(large) {
-		display: block;
-		margin-left: auto;
-	}
+	margin-bottom: spacer(0.5);
 }
 
 /* Customize social links module styles */
 .social-links {
 	a {
+		font-family: font-family(headers);
+		letter-spacing: letter-spacing(50);
+		text-transform: uppercase;
+
 		/* Allow extra specificity for module overrides */
 		/* stylelint-disable selector-max-specificity */
 		&[href]:hover {
 			background: color(grey-dark);
-			color: color(white);
+			color: $color--text-alt;
 
 			span {
 				background: color(white);
@@ -129,5 +143,39 @@
 			}
 		}
 		/* stylelint enable */
+	}
+}
+
+.site-header {
+	.search-form {
+		height: rem(32);
+		max-width: rem(240);
+		min-width: rem(160);
+		position: relative;
+		width: calc( 100% + #{spacer(2)} );
+	}
+
+	.search-field {
+		@include absolute-pinned();
+		border-radius: 0;
+		border: 2px solid $color--interface;
+		font-size: rem(14);
+		padding-right: spacer(2);
+
+		&::placeholder {
+			color: color(grey-very-very-light);
+		}
+	}
+
+	.search-submit {
+		@include reset-button;
+		@include hide-text;
+		background: url('../img/icon-search.svg') center no-repeat;
+		background-size: rem(16) rem(16);
+		height: rem(28);
+		position: absolute;
+		right: rem(2);
+		top: rem(2);
+		width: rem(28);
 	}
 }

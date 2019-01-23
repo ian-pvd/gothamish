@@ -4,7 +4,7 @@
  * Enables slide out mobile nav menu and toggle button interactivity.
  */
 
-const toggleMobileMenu = (menuID, wrapperID) => {
+const toggleMenuDisplay = (menuID, wrapperID) => {
   const menuToggle = document.getElementById(`${menuID}-toggle`);
   const pageWrapper = document.getElementById(wrapperID);
 
@@ -20,4 +20,4 @@ const toggleMobileMenu = (menuID, wrapperID) => {
   }
 };
 
-export default toggleMobileMenu;
+export default toggleMenuDisplay;

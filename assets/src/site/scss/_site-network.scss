@@ -8,7 +8,7 @@ $height--networks-open: spacer(3);
 .site-network {
 	@include full-bleed();
 	background: color(grey-very-very-dark);
-	color: color(white);
+	color: $color--text-alt;
 	display: flex;
 	position: relative;
 	z-index: z-index(notice);
@@ -18,7 +18,7 @@ $height--networks-open: spacer(3);
 	}
 
 	a {
-		color: color(white);
+		color: $color--text-alt;
 		text-decoration: none;
 	}
 }

@@ -20,6 +20,7 @@ $color--secondary: color(grey-very-very-dark);
 $color--tertiary: color(yellow-dark);
 $color--appeal: fade-out( color(yellow), 0.2 );
 $color--text: color(black);
+$color--text-alt: color(white);
 
 /* Default Project Fonts */
 /* see `./_typography.scss` */
@@ -38,8 +39,8 @@ $width--content: rem(640);
 $width--site: 64rem;
 
 // Theme Layout Vars
-$height--site-header-content: rem(64);
-$height--site-header: rem(96);
+$height--site-header-content: rem(96);
+$height--site-header: rem(104);
 $margin-bottom--site-header: spacer(1);
 $width--mobile-menu: rem(256);
 $width--menu-toggle: rem(24);
