@@ -70,6 +70,9 @@
 			<nav id="site-navigation" class="site-header__navigation main-navigation">
 				<button id="main-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gotham' ); ?></button>
 				<?php
+				// Add search bar to nav before menu.
+				$menu_prefix_markup = get_search_form( false );
+
 				// Check for social links to add to nav after menu.
 				$menu_suffix_markup = null;
 				if ( has_nav_menu( 'social-links' ) ) {
@@ -82,7 +85,7 @@
 						'menu_class'      => 'primary-nav__menu',
 						'menu_id'         => 'primary-nav__menu',
 						'theme_location'  => 'primary-nav',
-						'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>' . $menu_suffix_markup,
+						'items_wrap'      => $menu_prefix_markup . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $menu_suffix_markup,
 					]
 				);
 				?>

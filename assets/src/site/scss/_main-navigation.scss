@@ -123,6 +123,36 @@
 			padding: 0;
 		}
 	}
+
+	.search-form {
+		width: 100%;
+		max-width: none;
+		height: 48px;
+
+		@include breakpoints(large) {
+			display: none;
+		}
+
+		.search-field {
+			width: 100%;
+			border: none;
+			border-bottom: 2px solid $color--interface;
+			padding: spacer(1);
+			padding-right: spacer(3);
+
+			&::placeholder {
+				color: color(grey-very-light);
+			}
+		}
+
+		.search-submit {
+			background-size: rem(20) rem(20);
+			height: rem(40);
+			right: rem(4);
+			top: rem(4);
+			width: rem(40);
+		}
+	}
 }
 
 /* Top Level Main Navigation Option */
