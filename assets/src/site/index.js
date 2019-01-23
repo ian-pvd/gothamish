@@ -16,7 +16,7 @@ if (module.hot) {
 
 // Enquue Site JS Modules
 document.addEventListener('DOMContentLoaded', () => {
-  toggleMobileMenu('mobile-nav', 'page');
+  toggleMobileMenu('main-nav', 'page');
   toggleMobileMenu('network-list', 'site-network-bar');
   loadWebFonts();
 });

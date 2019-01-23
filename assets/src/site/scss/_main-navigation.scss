@@ -5,7 +5,7 @@
 .site--mobile-nav {
 	transition: transform 250ms;
 
-	&.toggle__mobile-nav--active {
+	&.toggle__main-nav--active {
 		transform: translate3d(-$width--mobile-menu, 0, 0);
 		transition: transform 250ms;
 
@@ -74,7 +74,7 @@
 			border: $border--hr-light;
 			display: none;
 
-			.toggle__mobile-nav--active & {
+			.toggle__main-nav--active & {
 				display: block;
 			}
 		}
