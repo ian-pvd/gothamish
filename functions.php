@@ -45,10 +45,10 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		// This theme uses wp_nav_menu() in several locations.
 		register_nav_menus(
 			[
-				'primary-nav' => esc_html__( 'Primary Navigation', 'gotham' ),
+				'primary-nav'  => esc_html__( 'Primary Navigation', 'gotham' ),
 				'network-list' => esc_html__( 'Site Networks', 'gotham' ),
 			]
 		);
