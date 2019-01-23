@@ -5,8 +5,10 @@
 // Load Theme Core
 @import '../../core/scss/index.scss';
 
+// Import Modules
+@import '../../modules/widgets/_ads.scss';
+
 // Import Post Styles
-// @import 'post';
 @import 'post-header';
 @import 'post-thumbnail';
 @import 'post-content';
