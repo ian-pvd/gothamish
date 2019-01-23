@@ -57,27 +57,24 @@
 
 	@include breakpoints(large) {
 		background: white;
+		border: $border--hr-light;
+		display: none;
 		left: 0;
 		min-width: $width--mobile-menu;
 		right: auto;
 		top: calc(#{1.5 * $width--menu-toggle} + #{spacer(0.5)});
 		transform: none;
 		width: auto;
+
+		.toggle__main-nav--active & {
+			display: block;
+		}
 	}
 
 	> ul,
 	.primary-nav__menu {
 		list-style: none;
 		margin: 0;
-
-		@include breakpoints(large) {
-			border: $border--hr-light;
-			display: none;
-
-			.toggle__main-nav--active & {
-				display: block;
-			}
-		}
 
 		> li {
 			border-bottom: $border--hr-light;
@@ -104,6 +101,26 @@
 					color: $color--text-alt;
 				}
 			}
+		}
+	}
+
+	.social-links {
+		@include breakpoints(large) {
+			display: flex;
+			flex-direction: row;
+		}
+
+		li {
+			flex: 1 0 auto;
+			width: 20%;
+			border: none;
+		}
+
+		a {
+			max-width: 100%;
+			height: 64px;
+			color: $color--text-alt;
+			padding: 0;
 		}
 	}
 }
