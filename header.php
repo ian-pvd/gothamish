@@ -81,11 +81,18 @@
 				?>
 			</nav><!-- #site-navigation -->
 
-			<?php if ( has_nav_menu( 'social-links' ) ) : ?>
-			<div class="site-header__social-links">
-				<?php gotham_social_links(); ?>
+			<div class="site-header__utilities">
+
+				<?php if ( has_nav_menu( 'social-links' ) ) : ?>
+				<div class="site-header__social-links">
+					<?php gotham_social_links(); ?>
+				</div>
+				<?php endif; ?>
+
+				<div class="site-header__search-form">
+				<?php get_search_form(); ?>
+				</div>
 			</div>
-			<?php endif; ?>
 		</div>
 	</header><!-- #masthead -->
 
