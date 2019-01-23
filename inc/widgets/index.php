@@ -6,11 +6,11 @@
  */
 
 /**
- *	Register widget areas
+ * Register widget areas
  */
 require_once GOTHAM_PATH . '/inc/widgets/register-widget-areas.php';
 
 /**
- *	Register Custom Widget
+ * Register Custom Widget
  */
-require_once GOTHAM_PATH . '/inc/widgets/class-wip-widget.php';
+require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-ads-widget.php';
