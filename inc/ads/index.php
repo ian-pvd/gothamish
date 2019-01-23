@@ -11,14 +11,19 @@
  *
  * @param  [string] $ad_size Ad slot size in pixels.
  */
-function gotham_ad_slot( $ad_size = '300x250' ) {
+function gotham_ad_slot( $ad_position = null, $ad_size = '300x250' ) {
+	// If named ad position value set.
+	if ( isset( $ad_position ) ) {
+		$ad_position = 'ad-position--' . $ad_position;
+	}
+
 	// Place single ad size for loop output.
 	if ( ! is_array( $ad_size ) ) {
 		$ad_size = [ $ad_size ];
 	}
 
 	// Open the ad display container.
-	echo '<div class="ad">';
+	echo '<div class="ad ' . esc_attr( $ad_position ) . '">';
 
 	foreach ( $ad_size as $slot => $dimensions ) {
 		// Convert size string into an array of valid integers.

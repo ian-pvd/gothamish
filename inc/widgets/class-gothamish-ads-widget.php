@@ -30,17 +30,23 @@ class Gothamish_Ads_Widget extends WP_Widget {
 	 * @param array $instance The current widget instance.
 	 */
 	public function widget( $args, $instance ) {
+		// Ad position generic value.
+		$ad_position = 'sidebar';
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+
+			// White title is set, set ad position value.
+			$ad_position = sanitize_title( $instance['title'] );
 		}
 
 		// Widget Contents.
 		if ( '0' !== $instance['ad_size'] ) {
-			gotham_ad_slot( $instance['ad_size'] );
+			gotham_ad_slot( $ad_position, $instance['ad_size'] );
 		} else {
-			gotham_ad_slot();
+			gotham_ad_slot( $ad_position );
 		}
 
 		echo $args['after_widget'];

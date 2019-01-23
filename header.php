@@ -33,6 +33,7 @@
 	<?php
 		// Site Header Leaderboard Ad Slot.
 		gotham_ad_slot(
+			'site-header',
 			[
 				'mobile'  => '320x50',
 				'tablet'  => '468x60',
