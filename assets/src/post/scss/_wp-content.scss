@@ -256,7 +256,7 @@ big,
 
 	&.has-red-background-color,
 	&.has-gray-dark-background-color {
-		color: color(white);
+		color: $color--text-alt;
 	}
 
 	&.has-red-background-color {
