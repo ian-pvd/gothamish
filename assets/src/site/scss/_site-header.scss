@@ -34,6 +34,8 @@
 	position: relative;
 
 	@include breakpoints(large) {
+		height: $height--site-header;
+		justify-content: flex-end;
 		order: 1;
 
 		&::after {
@@ -77,13 +79,13 @@
 	}
 
 	@include breakpoints(large) {
-		.custom-logo-link + & {
-			display: none;
-		}
-
 		@include center-margins();
 		background: $color--page;
 		padding: spacer(0.5) spacer(1);
+
+		.custom-logo-link + & {
+			display: none;
+		}
 	}
 }
 
@@ -102,12 +104,14 @@
 
 .site-header__utilities {
 	display: none;
-	margin-left: auto;
-	flex-direction: column;
-	align-items: flex-end;
 
 	@include breakpoints(large) {
+		align-items: flex-end;
 		display: flex;
+		flex-direction: column;
+		margin-left: auto;
+		position: absolute;
+		right: spacer(1);
 	}
 }
 
