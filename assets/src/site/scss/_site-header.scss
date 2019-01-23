@@ -147,12 +147,15 @@
 }
 
 .site-header {
+	.site-header__search-form {
+		width: calc( 100% + #{spacer(2)} );
+	}
+
 	.search-form {
 		height: rem(32);
 		max-width: rem(240);
 		min-width: rem(160);
 		position: relative;
-		width: calc( 100% + #{spacer(2)} );
 	}
 
 	.search-field {
