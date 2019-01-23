@@ -3,7 +3,7 @@
  */
 
 // Global Scripts
-import toggleMobileMenu from './js/toggleMobileMenu';
+import toggleMenuDisplay from './js/toggleMenuDisplay';
 import loadWebFonts from './js/webFontLoader';
 
 // Global Styles
@@ -16,7 +16,7 @@ if (module.hot) {
 
 // Enquue Site JS Modules
 document.addEventListener('DOMContentLoaded', () => {
-  toggleMobileMenu('main-nav', 'page');
-  toggleMobileMenu('network-list', 'site-network-bar');
+  toggleMenuDisplay('main-nav', 'page');
+  toggleMenuDisplay('network-list', 'site-network-bar');
   loadWebFonts();
 });
