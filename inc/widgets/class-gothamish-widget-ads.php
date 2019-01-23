@@ -1,6 +1,6 @@
 <?php
 /**
- * Widget API: Gothamish_Ads_Widget class
+ * Widget API: Gothamish_Widget_Ads class
  *
  * @package Gothamish
  */
@@ -10,14 +10,14 @@
  *
  * @see WP_Widget
  */
-class Gothamish_Ads_Widget extends WP_Widget {
+class Gothamish_Widget_Ads extends WP_Widget {
 
 	/**
 	 * Sets up the widgets name etc
 	 */
 	public function __construct() {
 		$widget_args = [
-			'classname'   => 'gotham_ads_widget',
+			'classname'   => 'widget--gotham-ads',
 			'description' => 'Gothamish Ads widget.',
 		];
 		parent::__construct( 'gotham_ads_widget', __( 'Ads Widget', 'gotham' ), $widget_args );
@@ -108,6 +108,6 @@ class Gothamish_Ads_Widget extends WP_Widget {
 add_action(
 	'widgets_init',
 	function() {
-		register_widget( 'Gothamish_Ads_Widget' );
+		register_widget( 'Gothamish_Widget_Ads' );
 	}
 );

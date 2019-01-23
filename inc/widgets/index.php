@@ -11,6 +11,6 @@
 require_once GOTHAM_PATH . '/inc/widgets/register-widget-areas.php';
 
 /**
- * Register Custom Widget
+ * Register Ads Widget
  */
 require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-ads-widget.php';
