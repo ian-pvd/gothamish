@@ -67,7 +67,7 @@
 				?>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="site-header__navigation main-navigation main-navigation--priority-nav">
+			<nav id="site-navigation" class="site-header__navigation main-navigation">
 				<button id="mobile-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gotham' ); ?></button>
 				<?php
 				wp_nav_menu(

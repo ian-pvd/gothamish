@@ -22,6 +22,7 @@
 
 	@include breakpoints(large) {
 		flex-wrap: wrap;
+		position: relative;
 	}
 }
 
@@ -93,10 +94,9 @@
 	max-height: 100%;
 
 	@include breakpoints(large) {
-		display: none;
-		flex: 1 1 auto;
-		width: 100%;
-		height: auto;
+		left: spacer(1);
+		position: absolute;
+		top: 0;
 	}
 }
 
@@ -126,7 +126,7 @@
 		/* stylelint-disable selector-max-specificity */
 		&[href]:hover {
 			background: color(grey-dark);
-			color: color(white);
+			color: $color--text-alt;
 
 			span {
 				background: color(white);
