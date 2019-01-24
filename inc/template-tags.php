@@ -178,10 +178,25 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 	 * Displays a special taxonomy banner for posts.
 	 *
 	 * If a post has a specific tag, display a banner above the post header.
+	 * Or you may call the function to display a specific tag banner.
+	 *
+	 * @param  string $tag The tag of the banner to display. Default null.
 	 */
-	function gotham_post_banner() {
-		// Get a list of the post tags.
-		$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+	function gotham_post_banner( $tag = null ) {
+		// If a specific tag banner is to be displayed.
+		if ( isset( $tag ) ) {
+			// Get that tag object.
+			$tag = get_term_by( 'slug', $tag, 'post_tag' );
+
+			// If a tag was found...
+			if ( $tag ) {
+				// Put it into its own array.
+				$post_tags = [ $tag ];
+			}
+		} else {
+			// Get a list of the post tags.
+			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+		}
 
 		// If list isn't empty...
 		if ( ! empty( $post_tags ) ) {
@@ -385,5 +400,44 @@ if ( ! function_exists( 'gotham_jetpack_share' ) ) :
 		if ( function_exists( 'sharing_display' ) ) {
 			sharing_display( '', true );
 		}
+	}
+endif;
+
+if ( ! function_exists( 'gotham_network_list' ) ) :
+	/**
+	 * Displays the site networks list if a menu is assigned.
+	 */
+	function gotham_network_list() {
+		echo '<div id="site-network-bar" class="site-network">';
+
+		// Donate Link.
+		printf(
+			'<a class="site-network__donate" href="/donate">%s</a>',
+			esc_html__( 'Support Us', 'gotham' )
+		);
+
+		// Get theme's menu locations and their associated menus.
+		$locations = get_nav_menu_locations();
+		// Get menu info object assigned to network-list theme location.
+		$networks_menu = wp_get_nav_menu_object( $locations['network-list'] );
+
+		// Title and mobile toggle markup to display before network list menu.
+		$menu_title_markup  = '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span>';
+		$menu_toggle_markup = '<button id="network-list-toggle" class="network-list__menu-toggle menu-toggle" aria-controls="netowrk-list" aria-expanded="false">' . __( 'View Networks', 'gotham' ) . '</button>';
+		// Menu prefix markup template.
+		$menu_prefix_markup = '<div class="network-list__wrapper">' . $menu_title_markup . $menu_toggle_markup . '</div>';
+
+		// Display the menu.
+		wp_nav_menu(
+			[
+				'container_class' => 'site-network__network-list network-list',
+				'menu_class'      => 'network-list__menu',
+				'menu_id'         => 'network-list__menu',
+				'theme_location'  => 'network-list',
+				'items_wrap'      => $menu_prefix_markup . '<ul id="%1$s" class="%2$s">%3$s</ul>',
+			]
+		);
+
+		echo '</div>';
 	}
 endif;

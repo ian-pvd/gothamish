@@ -4,7 +4,7 @@ Contributors: ian_pvd
 Tags: custom-background, custom-logo, custom-menu, featured-images, translation-ready
 
 Requires at least: 4.5
-Tested up to: 4.8
+Tested up to: 5.0
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -26,6 +26,12 @@ Gothamish is a WordPress news theme about New York.
 Gothamish includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 0.2.0 - Jan 23 2019 =
+* Site Sidebar
+
+= 0.1.0 - Jan 22 2019 =
+* Site Header
 
 = 0.0.0 - Jan 10 2019 =
 * Git Init

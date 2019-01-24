@@ -1,0 +1,78 @@
+/**
+ * Gothamish Ad Slot styles
+ */
+
+.ad {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.ad-position--site-header {
+	@include full-bleed();
+	margin-bottom: spacer(1);
+	margin-top: spacer(1);
+
+	@include breakpoints(medium) {
+		margin-top: spacer(-1);
+	}
+}
+
+.ad-slot {
+	background: color(grey-very-light);
+	color: color(grey-very-dark);
+	display: none;
+	outline: 1px solid fade-out( color(grey-light), 0.5 );
+	position: relative;
+
+	.ad__text {
+		@include absolute-pinned();
+		align-items: center;
+		background: fade-out( color(grey-very-very-light), 0.5 );
+		display: flex;
+		justify-content: center;
+		z-index: z-index(first);
+	}
+
+	.ad__image {
+		@include absolute-center();
+		position: absolute;
+	}
+
+	&:hover {
+		outline: none;
+
+		.ad__text {
+			display: none;
+		}
+	}
+
+	// Responsive ad slot displays
+	&.ad-slot--all {
+		display: flex;
+	}
+
+	&.ad-slot--mobile {
+		display: none;
+
+		@include breakpoints(none,small) {
+			display: flex;
+		}
+	}
+
+	&.ad-slot--tablet {
+		display: none;
+
+		@include breakpoints(small, large) {
+			display: flex;
+		}
+	}
+
+	&.ad-slot--desktop {
+		display: none;
+
+		@include breakpoints(large) {
+			display: flex;
+		}
+	}
+}

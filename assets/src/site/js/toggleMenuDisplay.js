@@ -4,13 +4,13 @@
  * Enables slide out mobile nav menu and toggle button interactivity.
  */
 
-const toggleMobileNav = () => {
-  const menuToggle = document.getElementById('mobile-nav-toggle');
-  const pageWrapper = document.getElementById('page');
+const toggleMenuDisplay = (menuID, wrapperID) => {
+  const menuToggle = document.getElementById(`${menuID}-toggle`);
+  const pageWrapper = document.getElementById(wrapperID);
 
   if ((menuToggle) && (pageWrapper)) {
     menuToggle.addEventListener('click', (e) => {
-      pageWrapper.classList.toggle('toggle__mobile-nav--active');
+      pageWrapper.classList.toggle(`toggle__${menuID}--active`);
       menuToggle.setAttribute(
         'aria-expanded',
         `${'true' !== menuToggle.getAttribute('aria-expanded')}`
@@ -20,4 +20,4 @@ const toggleMobileNav = () => {
   }
 };
 
-export default toggleMobileNav;
+export default toggleMenuDisplay;

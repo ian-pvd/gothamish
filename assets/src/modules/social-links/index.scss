@@ -33,7 +33,7 @@ $colors: map-merge($colors, $social-colors);
 	a {
 		align-items: center;
 		background-color: $color--primary;
-		color: color(white);
+		color: $color--text-alt;
 		display: flex;
 		font-size: rem(12);
 		height: rem(32);

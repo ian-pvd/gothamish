@@ -9,7 +9,7 @@
 
 .post__banner {
 	background: $color--primary;
-	color: color(white);
+	color: $color--text-alt;
 	display: block;
 	font-family: font-family(logotype);
 	letter-spacing: letter-spacing(50);
@@ -19,9 +19,13 @@
 	text-decoration: none;
 	text-transform: uppercase;
 
+	&.post__banner--gothamish-films {
+		background: color( black );
+	}
+
 	&:hover,
 	&:visited {
-		color: color(white);
+		color: $color--text-alt;
 	}
 
 	.site-logotype {

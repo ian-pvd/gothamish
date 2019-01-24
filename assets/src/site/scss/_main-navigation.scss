@@ -5,12 +5,13 @@
 .site--mobile-nav {
 	transition: transform 250ms;
 
-	&.toggle__mobile-nav--active {
+	&.toggle__main-nav--active {
 		transform: translate3d(-$width--mobile-menu, 0, 0);
 		transition: transform 250ms;
 
 		@include breakpoints(large) {
 			transform: none;
+			transition: none;
 		}
 	}
 }
@@ -21,6 +22,7 @@
 
 	@include breakpoints(large) {
 		font-size: rem(20);
+		overflow: visible;
 	}
 }
 
@@ -40,7 +42,8 @@
 	}
 
 	@include breakpoints(large) {
-		display: none;
+		height: #{1.5 * $width--menu-toggle};
+		width: #{1.5 * $width--menu-toggle};
 	}
 }
 
@@ -53,13 +56,19 @@
 	width: $width--mobile-menu;
 
 	@include breakpoints(large) {
-		align-items: center;
-		display: flex;
-		height: 100%;
-		margin-left: auto;
-		position: relative;
+		background: white;
+		border: $border--hr-light;
+		display: none;
+		left: 0;
+		min-width: $width--mobile-menu;
+		right: auto;
+		top: calc(#{1.5 * $width--menu-toggle} + #{spacer(0.5)});
 		transform: none;
 		width: auto;
+
+		.toggle__main-nav--active & {
+			display: block;
+		}
 	}
 
 	> ul,
@@ -67,45 +76,81 @@
 		list-style: none;
 		margin: 0;
 
-		@include breakpoints(large) {
-			align-items: flex-start;
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: flex-end;
-		}
-
 		> li {
 			border-bottom: $border--hr-light;
 			color: $color--text;
 
 			@include breakpoints(large) {
-				align-items: center;
-				border-bottom: none;
-				display: flex;
-				margin: 0 0 0 spacer(1);
-				white-space: nowrap;
-
-				&:first-of-type {
-					margin-bottom: spacer(1);
-					margin-left: 0;
-				}
-
-				&:last-of-type {
-					margin-bottom: 0;
+				&:last-child {
+					border-bottom: none;
 				}
 			}
 		}
 
 		a {
-			display: flex;
-			padding: 1em;
-			text-decoration: none;
 			color: inherit;
+			display: flex;
+			padding: spacer(1);
+			text-decoration: none;
 
 			@include breakpoints(large) {
-				@include link-hover;
-				padding: 0;
+				padding: spacer(1.5) spacer(2);
+
+				&:hover {
+					background: $color--primary;
+					color: $color--text-alt;
+				}
 			}
+		}
+	}
+
+	.social-links {
+		@include breakpoints(large) {
+			display: flex;
+			flex-direction: row;
+		}
+
+		li {
+			flex: 1 0 auto;
+			width: 20%;
+			border: none;
+		}
+
+		a {
+			max-width: 100%;
+			height: 64px;
+			color: $color--text-alt;
+			padding: 0;
+		}
+	}
+
+	.search-form {
+		width: 100%;
+		max-width: none;
+		height: 48px;
+
+		@include breakpoints(large) {
+			display: none;
+		}
+
+		.search-field {
+			width: 100%;
+			border: none;
+			border-bottom: 2px solid $color--interface;
+			padding: spacer(1);
+			padding-right: spacer(3);
+
+			&::placeholder {
+				color: color(grey-very-light);
+			}
+		}
+
+		.search-submit {
+			background-size: rem(20) rem(20);
+			height: rem(40);
+			right: rem(4);
+			top: rem(4);
+			width: rem(40);
 		}
 	}
 }
