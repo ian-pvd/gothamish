@@ -2,6 +2,8 @@
 
 Gothamish is a WordPress news theme about New York.
 
+![Gothamish Theme Preview](https://ian.pvdindustrial.com/wp-content/uploads/2019/01/gothamish_single-post-768x2179.png)
+
 Gothamish is built on PVD Industrial's [roundhouse](https://github.com/ian-pvd/roundhouse) theme.
 
 ## Features
