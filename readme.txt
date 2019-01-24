@@ -27,6 +27,9 @@ Gothamish includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+= 0.2.0 - Jan 23 2019 =
+* Site Sidebar
+
 = 0.1.0 - Jan 22 2019 =
 * Site Header
 
