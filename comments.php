@@ -20,13 +20,22 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
-
+<div id="comments" class="comments comments-area">
 	<?php
-	// You can start editing here -- including this comment!
+	// Comments Form.
+	comment_form(
+		[
+			'title_reply'          => __( 'Comments', 'gotham' ),
+			'title_reply_before'   => '<h3 id="reply-title" class="comments-respond__title">',
+			'comment_notes_before' => '',
+			'comment_field'        => '<p class="comment-form__comment"><textarea id="comment" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>',
+		]
+	);
+
+	// Comments List.
 	if ( have_comments() ) :
 		?>
-		<h2 class="comments-title">
+		<h2 class="comments__title">
 			<?php
 			$gotham_comment_count = get_comments_number();
 			if ( '1' === $gotham_comment_count ) {
@@ -48,12 +57,14 @@ if ( post_password_required() ) {
 
 		<?php the_comments_navigation(); ?>
 
-		<ol class="comment-list">
+		<ol class="comments__list">
 			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+			wp_list_comments(
+				[
+					'style'       => 'ol',
+					'avatar_size' => 64,
+				]
+			);
 			?>
 		</ol><!-- .comment-list -->
 
@@ -63,13 +74,13 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'gotham' ); ?></p>
+			<p class="comments__none"><?php esc_html_e( 'Comments are closed.', 'gotham' ); ?></p>
 			<?php
 		endif;
 
 	endif; // Check for have_comments().
 
-	comment_form();
+
 	?>
 
 </div><!-- #comments -->

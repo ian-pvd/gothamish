@@ -40,5 +40,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_sidebar( 'sidebar-single' );
 get_footer();
