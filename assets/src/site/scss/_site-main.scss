@@ -42,14 +42,14 @@
 .widget-area {
 	flex: 0 0 auto;
 	margin: spacer(2) auto;
-	width: rem(300);
+	width: $width--sidebar;
 
 	@include breakpoints(medium) {
 		margin: 0 0 spacer(1) spacer(1);
 	}
 
 	.widget {
-		max-width: rem(300);
+		max-width: $width--sidebar;
 		width: 100%;
 
 		* {

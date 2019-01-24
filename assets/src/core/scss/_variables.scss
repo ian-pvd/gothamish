@@ -35,8 +35,11 @@ $font--interface: #{rem(20)}/1 font-family(headers);
 // Max content width
 $width--content: rem(640);
 
-// Max site width
-$width--site: 64rem;
+// Max sidebar width
+$width--sidebar: rem(300);
+
+// Max site width (content + sidebar + gutters)
+$width--site: calc(#{$width--content} + #{$width--sidebar} + #{spacer(4)});
 
 // Theme Layout Vars
 $height--site-header-content: rem(96);
