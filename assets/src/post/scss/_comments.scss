@@ -21,8 +21,8 @@
 
 	> * {
 		flex: 0 0 auto;
-		width: calc((100% - #{spacer(1)}) / 2);
 		margin: 0 0 spacer(1);
+		width: calc((100% - #{spacer(1)}) / 2);
 	}
 
 	label {
@@ -45,8 +45,8 @@
 
 	input[type='submit'] {
 		background: color(grey-very-dark);
-		color: $color--text-alt;
 		border: none;
+		color: $color--text-alt;
 		min-width: 50%;
 	}
 }
@@ -71,9 +71,12 @@
 			}
 		}
 	}
+}
 
+.comment,
+.pingback {
 	.comment-body {
-		margin-bottom: spacer(0.5);
+		margin-bottom: spacer(1);
 	}
 
 	.comment-meta,
@@ -101,8 +104,11 @@
 	.comment-meta {
 		flex-direction: column;
 	}
+}
 
+.comment {
 	.comment-author {
+		line-height: 1;
 		margin-left: spacer(-3);
 
 		@include breakpoints(medium) {
@@ -111,8 +117,8 @@
 
 		.avatar {
 			height: spacer(2);
-			width: spacer(2);
 			margin-right: spacer(1);
+			width: spacer(2);
 
 			@include breakpoints(medium) {
 				height: spacer(3);
@@ -126,10 +132,24 @@
 	}
 
 	.comment-metadata {
+		line-height: 1;
+		margin-bottom: spacer(0.5);
 		margin-top: spacer(-0.5);
 
 		@include breakpoints(medium) {
 			margin-top: spacer(-1.5);
 		}
+	}
+}
+
+.pingback {
+	margin-left: spacer(-3);
+
+	@include breakpoints(medium) {
+		margin-left: spacer(-4);
+	}
+
+	.comment-author {
+		display: inline-block;
 	}
 }
