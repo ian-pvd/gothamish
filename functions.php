@@ -44,6 +44,11 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+		set_post_thumbnail_size( 1280, 854 );
+
+		// Add custom thumbnail sizes for theme.
+		add_image_size( 'stamp', 100, 100 );
+		add_image_size( 'tout', 640, 427 );
 
 		// This theme uses wp_nav_menu() in several locations.
 		register_nav_menus(
@@ -85,9 +90,6 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-
-		// Add theme suppot for post thumbnails.
-		add_theme_support( 'post-thumbnails' );
 	}
 endif;
 add_action( 'after_setup_theme', 'gotham_setup' );
