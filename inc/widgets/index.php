@@ -19,3 +19,8 @@ require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-ads.php';
  * Register Custom Recent Posts Widget
  */
 require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-recent-posts.php';
+
+/**
+ * Register Special Tag Widget
+ */
+require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-films.php';

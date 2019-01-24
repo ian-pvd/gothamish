@@ -19,6 +19,10 @@
 	text-decoration: none;
 	text-transform: uppercase;
 
+	&.post__banner--gothamish-films {
+		background: color( black );
+	}
+
 	&:hover,
 	&:visited {
 		color: $color--text-alt;
