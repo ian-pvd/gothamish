@@ -1,14 +1,16 @@
 /**
- * Recent Posts Widget Styles
+ * Post Tout List Widget Styles
  */
 
-.recent-posts__list {
-	list-style: none;
-	margin: 0 auto;
-}
+.widget {
+	.posts-list {
+		list-style: none;
+		margin: 0 auto;
+	}
 
-.recent-posts__list-item {
-	margin-bottom: spacer(1);
+	.posts-list__item {
+		margin-bottom: spacer(1);
+	}
 }
 
 .post--tout {

@@ -65,11 +65,11 @@ class Gothamish_Widget_Recent_Posts extends WP_Widget_Recent_Posts {
 		}
 		?>
 
-		<ul class="recent-posts__list">
+		<ul class="posts-list">
 			<?php while ( $recent_posts->have_posts() ) :
 				$recent_posts->the_post();
 				?>
-				<li class="recent-posts__list-item">
+				<li class="posts-list__item">
 					<?php get_template_part( 'template-parts/content', 'tout' ); ?>
 				</li>
 			<?php endwhile; ?>

@@ -21,6 +21,11 @@ require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-ads.php';
 require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-recent-posts.php';
 
 /**
- * Register Special Tag Widget
+ * Register Gothamish Films Widget
  */
 require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-films.php';
+
+/**
+ * Register Best of Gothamish Widget
+ */
+require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-best-of.php';
