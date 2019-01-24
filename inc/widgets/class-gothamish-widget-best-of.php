@@ -85,7 +85,8 @@ class Gothamish_Widget_Best_Of extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 
 		// Widget field values.
-		$title = isset( $instance['title'] ) ? $instance['title'] : '';
+		$title  = isset( $instance['title'] ) ? $instance['title'] : '';
+		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 3;
 
 		?>
 		<p>
@@ -95,6 +96,9 @@ class Gothamish_Widget_Best_Of extends WP_Widget {
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
+
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'gotham' ); ?></label>
+		<input class="tiny-text" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		<?php
 	}
 

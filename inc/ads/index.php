@@ -29,7 +29,7 @@ function gotham_ad_slot( $ad_position = null, $ad_size = '300x250' ) {
 		// Convert size string into an array of valid integers.
 		$px_size = explode( 'x', $dimensions );
 
-		// If there are two values, ensure they're valid numbers.
+		// Ensure there are two values, and they're valid numbers.
 		if ( isset( $px_size[0] ) && is_numeric( $px_size[0] ) && isset( $px_size[1] ) && is_numeric( $px_size[1] ) ) {
 			$px_size[0] = (int) $px_size[0];
 			$px_size[1] = (int) $px_size[1];

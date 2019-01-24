@@ -47,7 +47,7 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		set_post_thumbnail_size( 1280, 854 );
 
 		// Add custom thumbnail sizes for theme.
-		add_image_size( 'stamp', 100, 100 );
+		add_image_size( 'stamp', 200, 200 );
 		add_image_size( 'tout', 640, 427 );
 
 		// This theme uses wp_nav_menu() in several locations.

@@ -178,7 +178,7 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 	 * Displays a special taxonomy banner for posts.
 	 *
 	 * If a post has a specific tag, display a banner above the post header.
-	 * Or you may call the function for to display a specific tag banner.
+	 * Or you may call the function to display a specific tag banner.
 	 *
 	 * @param  string $tag The tag of the banner to display. Default null.
 	 */
