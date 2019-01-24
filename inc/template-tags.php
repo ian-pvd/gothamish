@@ -178,10 +178,25 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 	 * Displays a special taxonomy banner for posts.
 	 *
 	 * If a post has a specific tag, display a banner above the post header.
+	 * Or you may call the function to display a specific tag banner.
+	 *
+	 * @param  string $tag The tag of the banner to display. Default null.
 	 */
-	function gotham_post_banner() {
-		// Get a list of the post tags.
-		$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+	function gotham_post_banner( $tag = null ) {
+		// If a specific tag banner is to be displayed.
+		if ( isset( $tag ) ) {
+			// Get that tag object.
+			$tag = get_term_by( 'slug', $tag, 'post_tag' );
+
+			// If a tag was found...
+			if ( $tag ) {
+				// Put it into its own array.
+				$post_tags = [ $tag ];
+			}
+		} else {
+			// Get a list of the post tags.
+			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+		}
 
 		// If list isn't empty...
 		if ( ! empty( $post_tags ) ) {
