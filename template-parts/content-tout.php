@@ -7,11 +7,12 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-	</header><!-- .entry-header -->
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post--tout' ); ?>>
+	<a class="post__link-wrapper" href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark">
+		<header class="post__header">
+			<?php the_title( sprintf( '<h3 class="post__title">', '</h3>' ) ); ?>
+		</header><!-- .post__header -->
 
-	<?php the_post_thumbnail(); ?>
-
+		<?php the_post_thumbnail( 'tout' ); ?>
+	</a>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -1,0 +1,50 @@
+/**
+ * Recent Posts Widget Styles
+ */
+
+.recent-posts__list {
+	list-style: none;
+	margin: 0 auto;
+}
+
+.recent-posts__list-item {
+	margin-bottom: spacer(1);
+}
+
+.post--tout {
+	background: $color--secondary;
+
+	&.has-post-thumbnail {
+		height: 0;
+		overflow: hidden;
+		padding-top: calc((2/3) * 100%);
+		position: relative;
+
+		img {
+			height: auto;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+		}
+
+		.post__title {
+			background: linear-gradient( transparent, rgba(0,0,0,0.5), rgba(0,0,0,0.75) );
+			bottom: 0;
+			position: absolute;
+			z-index: z-index(first);
+		}
+	}
+
+	.post__link-wrapper {
+		display: block;
+		text-decoration: none;
+	}
+
+	.post__title {
+		color: $color--text-alt;
+		font-size: rem(20);
+		padding: spacer(0.5) spacer(1);
+		width: 100%;
+	}
+}

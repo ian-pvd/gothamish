@@ -6,13 +6,14 @@
 @import '../../core/scss/index.scss';
 
 // Import Modules
-@import '../../modules/widgets/_widgets.scss';
 @import '../../modules/widgets/_ads.scss';
+@import '../../modules/widgets/_recent-posts.scss';
 
 // Import Post Styles
 @import 'post-header';
 @import 'post-thumbnail';
 @import 'post-content';
+@import 'post-sidebar';
 @import 'post-footer';
 
 // WordPress Content Styles
