@@ -97,9 +97,10 @@
 	display: flex;
 	flex-wrap: wrap;
 	list-style: none;
-	margin: 0;
+	margin: 0 0 spacer(-0.5);
 
 	li {
+		margin-bottom: spacer(0.5);
 		margin-right: spacer(1);
 
 		a {
