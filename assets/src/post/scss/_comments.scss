@@ -1,0 +1,160 @@
+/**
+ * Post Comments
+ */
+.comments {
+	margin-bottom: spacer(2);
+}
+
+.comments-respond__title,
+.comments__title {
+	@include section-header();
+}
+
+.comment-form {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.comment-form__comment {
+		width: 100%;
+	}
+
+	> * {
+		flex: 0 0 auto;
+		margin: 0 0 spacer(1);
+		width: calc((100% - #{spacer(1)}) / 2);
+	}
+
+	label {
+		font-size: rem(14);
+	}
+
+	input[type='text'],
+	input[type='email'],
+	input[type='url'],
+	textarea {
+		border: 2px solid $color--interface;
+		width: 100%;
+	}
+
+	.form-submit {
+		align-items: flex-end;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	input[type='submit'] {
+		background: color(grey-very-dark);
+		border: none;
+		color: $color--text-alt;
+		min-width: 50%;
+	}
+}
+
+.comments__list {
+	list-style: none;
+	margin: 0;
+
+	.children {
+		list-style: none;
+		margin: 0;
+	}
+
+	li {
+		&.depth-1,
+		&.depth-2,
+		&.depth-3 {
+			padding-left: spacer(3);
+
+			@include breakpoints(medium) {
+				padding-left: spacer(4);
+			}
+		}
+	}
+}
+
+.comment,
+.pingback {
+	.comment-body {
+		margin-bottom: spacer(1);
+	}
+
+	.comment-meta,
+	.comment-author {
+		display: flex;
+	}
+
+	.comment-author,
+	.comment-metadata,
+	.reply {
+		a {
+			@include link-hover();
+		}
+	}
+
+	.comment-metadata,
+	.reply {
+		font-size: rem(14);
+
+		a {
+			color: color(grey);
+		}
+	}
+
+	.comment-meta {
+		flex-direction: column;
+	}
+}
+
+.comment {
+	.comment-author {
+		line-height: 1;
+		margin-left: spacer(-3);
+
+		@include breakpoints(medium) {
+			margin-left: spacer(-4);
+		}
+
+		.avatar {
+			height: spacer(2);
+			margin-right: spacer(1);
+			width: spacer(2);
+
+			@include breakpoints(medium) {
+				height: spacer(3);
+				width: spacer(3);
+			}
+		}
+
+		.fn {
+			margin-right: spacer(0.5);
+		}
+	}
+
+	.comment-metadata {
+		line-height: 1;
+		margin-bottom: spacer(0.5);
+		margin-top: spacer(-0.5);
+
+		@include breakpoints(medium) {
+			margin-top: spacer(-1.5);
+		}
+	}
+}
+
+.pingback {
+	margin-left: spacer(-3);
+
+	@include breakpoints(medium) {
+		margin-left: spacer(-4);
+	}
+
+	.comment-author {
+		display: inline-block;
+	}
+}
+
+.comments__none {
+	@include section-header();
+	margin-bottom: 0;
+}

@@ -42,3 +42,12 @@ $font-families: (
 		}
 	}
 }
+
+@mixin section-header() {
+	background: $color--primary;
+	color: $color--text-alt;
+	display: inline-block;
+	font: 500 #{rem(20)}/1 font-family(headers);
+	margin-bottom: spacer(1);
+	padding: spacer(0.5) spacer(2) spacer(0.5) spacer(1);
+}

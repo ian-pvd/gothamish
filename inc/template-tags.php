@@ -289,7 +289,7 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 					'<div class="entry-footer__digest-subscribe">' .
 					/* translators: %s: Subscribe Link */
 					esc_html__(
-						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamist Weekly Digest. %s',
+						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamish Weekly Digest. %s',
 						'gotham'
 					) . '</div>',
 					sprintf(
@@ -383,8 +383,8 @@ if ( ! function_exists( 'gotham_footer_byline' ) ) :
 			),
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
-				esc_html( 'tips@gothamist.com' ),
-				esc_url( 'mailto:tips@gothamist.com' )
+				esc_html( 'tips@gothamish.com' ),
+				esc_url( 'mailto:tips@gothamish.com' )
 			)
 		);
 

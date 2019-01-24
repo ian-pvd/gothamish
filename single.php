@@ -17,9 +17,16 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content', 'single' );
 
-			the_post_navigation();
+			gotham_ad_slot(
+				'post-footer',
+				[
+					'mobile'  => '300x600',
+					'tablet'  => '336x280',
+					'desktop' => '336x280',
+				]
+			);
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -33,5 +40,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_sidebar( 'sidebar-single' );
 get_footer();

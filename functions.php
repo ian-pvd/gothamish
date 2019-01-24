@@ -171,11 +171,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Gothamish: Disable & Customize Comments
- */
-require_once GOTHAM_PATH . '/inc/comments/index.php';
-
-/**
  * Gothamish: Load Custom Featured Image Options
  *
  * To enable, require '/inc/featured-image/index.php'
