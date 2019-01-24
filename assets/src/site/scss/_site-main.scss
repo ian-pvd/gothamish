@@ -25,11 +25,12 @@
 }
 
 .content-area {
-	width: 100%;
 	max-width: $width--content;
+	width: 100%;
 
 	@include breakpoints(medium) {
 		flex: 1 1 auto;
+		min-width: 0;
 	}
 }
 
@@ -40,16 +41,15 @@
 
 .widget-area {
 	flex: 0 0 auto;
-	margin-top: spacer(1);
-	width: rem(320);
+	margin: spacer(2) auto;
+	width: rem(300);
 
 	@include breakpoints(medium) {
-		margin-left: spacer(1);
-		margin-top: 0;
+		margin: 0 0 spacer(1) spacer(1);
 	}
 
 	.widget {
-		max-width: 320px;
+		max-width: rem(300);
 		width: 100%;
 
 		* {
