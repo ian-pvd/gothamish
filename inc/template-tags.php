@@ -263,7 +263,7 @@ if ( ! function_exists( 'gotham_posted_in' ) ) :
 			if ( 0 === $category->parent && 'uncategorized' !== $category->slug ) {
 				// Print the "posted in" info.
 				printf(
-					'<span>%1$s <a href="%2$s">%3$s</a></span>',
+					'<span class="entry-category">%1$s <a href="%2$s">%3$s</a></span>',
 					esc_html__( 'in', 'gotham' ),
 					esc_url( get_term_link( $category ) ),
 					esc_html( $category->name )

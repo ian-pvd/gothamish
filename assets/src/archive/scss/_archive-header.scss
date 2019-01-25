@@ -13,8 +13,13 @@
 }
 
 .page__title {
-	margin-bottom: spacer(1);
 	line-height: 1;
+
+	&.page__title--category {
+		@include section-header();
+		margin-bottom: 0;
+		font-size: rem(24);
+	}
 
 	.tag__banner + & {
 		display: none;
@@ -22,9 +27,5 @@
 }
 
 .page__description {
-	margin-bottom: 0;
-
-	.tag__banner + & {
-		margin-top: spacer(0.5);
-	}
+	margin: spacer(1) 0 0;
 }

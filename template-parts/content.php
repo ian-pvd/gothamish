@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'post--list' ); ?>>
 	<?php
 		gotham_tag_banner();
 	?>
@@ -35,37 +35,8 @@
 
 	<?php gotham_post_thumbnail(); ?>
 
-	<div class="entry-content wp-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'gotham' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				get_the_title()
-			)
-		);
+	<div class="entry-excerpt wp-content">
+		<?php the_excerpt(); ?>
+	</div><!-- .entry-excerpt -->
 
-		wp_link_pages(
-			[
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gotham' ),
-				'after'  => '</div>',
-			]
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php gotham_digest_subscribe(); ?>
-		<?php gotham_donation_appeal(); ?>
-		<?php gotham_footer_byline(); ?>
-		<?php gotham_jetpack_share(); ?>
-		<?php gotham_entry_tags(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

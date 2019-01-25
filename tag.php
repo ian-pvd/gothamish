@@ -1,8 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The template for displaying tag archive pages
  *
  * @package Gothamish
  */
@@ -30,7 +28,7 @@ get_header();
 				</h1>
 
 				<?php the_archive_description( '<div class="page__description">', '</div>' ); ?>
-			</header><!-- .page-header -->
+			</header><!-- .page__header -->
 
 			<div class="post-list post-list--stamp">
 			<?php
@@ -53,7 +51,7 @@ get_header();
 			endif;
 			?>
 
-			</div><!-- .post-area -->
+			</div><!-- .post-list -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
