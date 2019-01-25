@@ -1,0 +1,73 @@
+/**
+ * Post List Styles
+ *
+ * Post Title Link, Featured image, post meta & excerpt.
+ */
+
+.post--list {
+	padding-bottom: spacer(2);
+	border-bottom: $border--hr-light;
+
+	&:last-of-type {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
+	.post-thumbnail,
+	.entry-header {
+		margin-bottom: spacer(1);
+	}
+
+	.entry-title {
+		margin-bottom: spacer(0.5);
+		font-size: rem(28);
+
+		a {
+			@include link-hover();
+			color: color(black);
+
+			&:hover {
+				color: $color--primary;
+			}
+		}
+	}
+
+	.entry-meta {
+		display: none;
+
+		@include breakpoints(small, medium) {
+			display: block;
+		}
+
+		@include breakpoints(large) {
+			display: block;
+		}
+	}
+
+	.entry-category {
+		display: none;
+	}
+
+	.entry-excerpt {
+		display: none;
+
+		@include breakpoints(small, medium) {
+			display: block;
+		}
+
+		@include breakpoints(large) {
+			display: block;
+		}
+	}
+
+	.read-more {
+		@include link-hover();
+		font-size: rem(14);
+		color: $color--text;
+
+		&:hover {
+			color: $color--primary;
+		}
+	}
+}

@@ -47,7 +47,7 @@ class Gothamish_Widget_Films extends WP_Widget {
 		echo $args['before_widget'];
 
 		// Output special title banner.
-		gotham_post_banner( 'gothamish-films' );
+		gotham_tag_banner( 'gothamish-films' );
 
 		// Widget contents, loop of 1 films post.
 		while ( $films_post->have_posts() ) :

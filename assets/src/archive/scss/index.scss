@@ -1,0 +1,14 @@
+/**
+ * Archive Styles
+ */
+
+// Load Theme Core
+@import '../../core/scss/index.scss';
+
+// Import Modules
+@import '../../modules/post-lists/_list.scss';
+@import '../../modules/post-lists/_stamps.scss';
+
+// Import Archive Styles
+@import 'archive-header';
+@import 'archive-footer';

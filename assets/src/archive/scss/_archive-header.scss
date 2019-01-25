@@ -1,0 +1,35 @@
+/**
+ * Archive Header styles
+ */
+
+.page__header {
+	padding-bottom: spacer(2);
+	margin-bottom: spacer(2);
+	border-bottom: $border--page;
+}
+
+.page__header--archive .tag__banner {
+	margin-bottom: 0;
+}
+
+.page__title {
+	line-height: 1;
+
+	&.page__title--category {
+		@include section-header();
+		margin-bottom: 0;
+		font-size: rem(24);
+	}
+
+	.tag__banner + & {
+		display: none;
+	}
+}
+
+.page__description {
+	margin: spacer(1) 0 0;
+}
+
+.post-list {
+	margin-bottom: spacer(2);
+}

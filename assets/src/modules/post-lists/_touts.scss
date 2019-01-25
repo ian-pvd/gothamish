@@ -1,17 +1,8 @@
 /**
- * Post Tout List Widget Styles
+ * Tout Post List
+ *
+ * Featured image overlayed with the post title.
  */
-
-.widget {
-	.posts-list {
-		list-style: none;
-		margin: 0 auto;
-	}
-
-	.posts-list__item {
-		margin-bottom: spacer(1);
-	}
-}
 
 .post--tout {
 	background: $color--secondary;
@@ -23,11 +14,8 @@
 		position: relative;
 
 		img {
-			height: auto;
-			position: absolute;
-			top: 50%;
-			transform: translateY(-50%);
-			width: 100%;
+			@include absolute-pinned();
+			@include image-fill();
 		}
 
 		.post__title {

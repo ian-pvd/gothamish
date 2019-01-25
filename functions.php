@@ -190,3 +190,8 @@ require_once GOTHAM_PATH . '/inc/ads/index.php';
  * Gothamish: Load Widgets Module
  */
 require_once GOTHAM_PATH . '/inc/widgets/index.php';
+
+/**
+ * Gothamish: Load Custom Excerpts
+ */
+require_once GOTHAM_PATH . '/inc/excerpts/index.php';

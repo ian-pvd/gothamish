@@ -1,0 +1,30 @@
+/**
+ * Special Taxonomy Tag Banner Styles
+ */
+
+.tag__banner {
+	background: $color--primary;
+	color: $color--text-alt;
+	display: block;
+	font-family: font-family(logotype);
+	letter-spacing: letter-spacing(50);
+	margin-bottom: spacer(1);
+	padding: spacer(0.5) spacer(1);
+	text-align: right;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&.tag__banner--gothamish-films {
+		background: color( black );
+	}
+
+	&:hover,
+	&:visited,
+	&:active {
+		color: $color--text-alt;
+	}
+
+	.site-logotype {
+		font-size: 1.25em;
+	}
+}
