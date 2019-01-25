@@ -1,0 +1,77 @@
+/**
+ * Stamp Post List
+ *
+ * Featured image square, next to post title, meta & excerpt.
+ */
+
+.post--stamp {
+	display: flex;
+	padding-bottom: spacer(2);
+	border-bottom: $border--hr-light;
+
+	.post-thumbnail {
+		flex: 0 0 auto;
+		margin: 0 spacer(1) 0 0;
+		width: rem(100);
+
+		@include breakpoints(large) {
+			width: rem(150);
+		}
+	}
+
+	.post-thumbnail__link {
+		@include intrinsic-image(1,1);
+		background: $color--interface url('../../site/img/gothamish-logo.svg') center no-repeat;
+		background-size: 50%;
+
+		img {
+			@include image-fill();
+		}
+	}
+
+	.entry-header {
+		margin-bottom: spacer(0.5);
+
+		@include breakpoints(large) {
+			margin-bottom: spacer(1);
+		}
+	}
+
+	.entry-title {
+		margin-bottom: spacer(0.5);
+		font-size: rem(20);
+
+		a {
+			@include link-hover();
+			color: color(black);
+
+			&:hover {
+				color: $color--primary;
+			}
+		}
+
+		@include breakpoints(medium) {
+			font-size: rem(24);
+		}
+	}
+
+	.entry-meta {
+		display: none;
+
+		@include breakpoints(large) {
+			display: block;
+		}
+	}
+
+	.entry-excerpt {
+		display: none;
+
+		@include breakpoints(small, medium) {
+			display: block;
+		}
+
+		@include breakpoints(large) {
+			display: block;
+		}
+	}
+}

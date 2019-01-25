@@ -99,6 +99,7 @@
 
 // Makes an image frame at a width & height ratio
 @mixin intrinsic-image($width, $height, $vertical-align: middle) {
+	display: block;
 	height: 0;
 	overflow: hidden;
 	padding-top: calc((#{$height}/#{$width}) * 100%);

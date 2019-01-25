@@ -19,7 +19,8 @@
 	}
 
 	&:hover,
-	&:visited {
+	&:visited,
+	&:active {
 		color: $color--text-alt;
 	}
 
