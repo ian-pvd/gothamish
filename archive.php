@@ -14,9 +14,7 @@ get_header();
 		<main id="main" class="site-main">
 
 			<header class="page__header page__header--archive">
-				<h1 class="page__title page__title--category">
-					<?php single_cat_title( '', true ); ?>
-				</h1>
+				<?php the_archive_title( '<h1 class="page__title page__title--category">', '</h1>' ); ?>
 
 				<?php the_archive_description( '<div class="page__description">', '</div>' ); ?>
 			</header><!-- .page-header -->
