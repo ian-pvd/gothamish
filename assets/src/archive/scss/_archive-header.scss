@@ -2,6 +2,29 @@
  * Archive Header styles
  */
 
-.page__title--archive {
+.page__header {
+	padding-bottom: spacer(2);
 	margin-bottom: spacer(2);
+	border-bottom: $border--page;
+}
+
+.page__header--archive .post__banner {
+	margin-bottom: 0;
+}
+
+.page__title {
+	margin-bottom: spacer(1);
+	line-height: 1;
+
+	.post__banner + & {
+		display: none;
+	}
+}
+
+.page__description {
+	margin-bottom: 0;
+
+	.post__banner + & {
+		margin-top: spacer(0.5);
+	}
 }

@@ -33,7 +33,7 @@
 	input[type='email'],
 	input[type='url'],
 	textarea {
-		border: 2px solid $color--interface;
+		border: $border--page;
 		width: 100%;
 	}
 
