@@ -50,7 +50,7 @@
 			}
 		}
 
-		@include breakpoints(medium) {
+		@include breakpoints(small) {
 			font-size: rem(24);
 		}
 	}
@@ -58,7 +58,11 @@
 	.entry-meta {
 		display: none;
 
-		@include breakpoints(large) {
+		@include breakpoints(none, small) {
+			display: block;
+		}
+
+		@include breakpoints(medium) {
 			display: block;
 		}
 	}
@@ -72,6 +76,16 @@
 
 		@include breakpoints(large) {
 			display: block;
+		}
+	}
+
+	.read-more {
+		@include link-hover();
+		font-size: rem(14);
+		color: $color--text;
+
+		&:hover {
+			color: $color--primary;
 		}
 	}
 }
