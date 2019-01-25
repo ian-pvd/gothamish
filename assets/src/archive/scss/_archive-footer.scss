@@ -1,0 +1,31 @@
+/**
+ * Archive Footer styles
+ */
+
+.pagination {
+	padding-top: spacer(2);
+	border-top: $border--page;
+
+	.nav-links {
+		display: flex;
+		justify-content: center;
+	}
+
+	a {
+		text-decoration: none;
+		color: $color--text;
+
+		&:hover {
+			color: $color--primary;
+		}
+	}
+
+	.page-numbers {
+		margin: 0 spacer(0.25);
+		font-weight: 700;
+	}
+
+	.current {
+		color: $color--primary;
+	}
+}

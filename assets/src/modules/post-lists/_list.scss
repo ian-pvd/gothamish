@@ -8,6 +8,12 @@
 	padding-bottom: spacer(2);
 	border-bottom: $border--hr-light;
 
+	&:last-of-type {
+		margin-bottom: 0;
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+
 	.post-thumbnail,
 	.entry-header {
 		margin-bottom: spacer(1);

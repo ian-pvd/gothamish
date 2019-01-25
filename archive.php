@@ -34,8 +34,6 @@ get_header();
 
 				endwhile;
 
-				the_posts_navigation();
-
 			else :
 
 				get_template_part( 'template-parts/content', 'none' );
@@ -44,6 +42,8 @@ get_header();
 			?>
 
 			</div><!-- .post-area -->
+
+			<?php the_posts_pagination(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
