@@ -17,7 +17,7 @@ get_header();
 		<main id="main" class="site-main">
 
 			<header class="page__header page__header--archive">
-				<?php gotham_post_banner( $tag_archive->slug ); ?>
+				<?php gotham_tag_banner( $tag_archive->slug ); ?>
 
 				<h1 class="page__title">
 				<?php

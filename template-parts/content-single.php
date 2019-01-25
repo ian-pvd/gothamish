@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post--single' ); ?>>
 	<?php
-		gotham_post_banner();
+		gotham_tag_banner();
 	?>
 	<header class="entry-header">
 		<?php

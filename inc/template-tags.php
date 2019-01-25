@@ -173,16 +173,17 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'gotham_post_banner' ) ) :
+if ( ! function_exists( 'gotham_tag_banner' ) ) :
 	/**
-	 * Displays a special taxonomy banner for posts.
+	 * Displays a special taxonomy banner on posts, pages or widgets.
 	 *
 	 * If a post has a specific tag, display a banner above the post header.
-	 * Or you may call the function to display a specific tag banner.
+	 * If you are viewing an archive for a specific tag, display a banner in the archive header.
+	 * Or you may call the function with a slug to display a specific tag banner.
 	 *
 	 * @param  string $tag The tag of the banner to display. Default null.
 	 */
-	function gotham_post_banner( $tag = null ) {
+	function gotham_tag_banner( $tag = null ) {
 		// If a specific tag banner is to be displayed.
 		if ( isset( $tag ) ) {
 			// Get that tag object.
@@ -227,7 +228,7 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 				if ( isset( $banner_type ) && isset( $banner_text ) ) {
 					// Display the tag.
 					printf(
-						'<a href="%3$s" class="post__banner post__banner--%1$s">%2$s</a>',
+						'<a href="%3$s" class="tag__banner tag__banner--%1$s">%2$s</a>',
 						sanitize_html_class( $banner_type ),
 						wp_kses(
 							$banner_text,

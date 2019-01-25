@@ -53,7 +53,7 @@ class Gothamish_Widget_Best_Of extends WP_Widget {
 		echo $args['before_widget'];
 
 		// Output special title banner.
-		gotham_post_banner( 'best-of' );
+		gotham_tag_banner( 'best-of' );
 		?>
 
 		<ul class="posts-list">

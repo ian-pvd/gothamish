@@ -8,7 +8,7 @@
 	border-bottom: $border--page;
 }
 
-.page__header--archive .post__banner {
+.page__header--archive .tag__banner {
 	margin-bottom: 0;
 }
 
@@ -16,7 +16,7 @@
 	margin-bottom: spacer(1);
 	line-height: 1;
 
-	.post__banner + & {
+	.tag__banner + & {
 		display: none;
 	}
 }
@@ -24,7 +24,7 @@
 .page__description {
 	margin-bottom: 0;
 
-	.post__banner + & {
+	.tag__banner + & {
 		margin-top: spacer(0.5);
 	}
 }
