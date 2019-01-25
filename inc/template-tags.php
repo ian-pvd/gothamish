@@ -132,8 +132,10 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 *
+	 * @param  string $size Image size to use.
 	 */
-	function gotham_post_thumbnail() {
+	function gotham_post_thumbnail( $size = 'post-thumbnail' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -143,7 +145,7 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 			<figure class="post-thumbnail">
 				<div class="post-thumbnail__frame">
-					<?php the_post_thumbnail(); ?>
+					<?php the_post_thumbnail( $size ); ?>
 				</div>
 
 				<?php if ( get_the_post_thumbnail_caption() ) : ?>
@@ -153,20 +155,22 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-			<?php
-			the_post_thumbnail(
-				'post-thumbnail',
-				[
-					'alt' => the_title_attribute(
+			<div class="post-thumbnail">
+				<a class="post-thumbnail__link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+					<?php
+					the_post_thumbnail(
+						$size,
 						[
-							'echo' => false,
+							'alt' => the_title_attribute(
+								[
+									'echo' => false,
+								]
+							),
 						]
-					),
-				]
-			);
-			?>
-		</a>
+					);
+					?>
+				</a>
+			</div>
 
 		<?php
 		endif; // End is_singular().
