@@ -15,19 +15,11 @@ get_header();
 		<main id="main" class="site-main">
 
 			<header class="page__header page__header--archive">
-				<?php gotham_tag_banner( $tag_archive->slug ); ?>
-
-				<h1 class="page__title">
 				<?php
-					printf(
-						'%1$s "%2$s"',
-						esc_html__( 'Articles tagged', 'gotham' ),
-						single_tag_title( '', false )
-					);
-					?>
-				</h1>
-
-				<?php the_archive_description( '<div class="page__description">', '</div>' ); ?>
+					gotham_tag_banner( $tag_archive->slug );
+					the_archive_title( '<h1 class="page__title">', '</h1>' );
+					the_archive_description( '<div class="page__description">', '</div>' );
+				?>
 			</header><!-- .page__header -->
 
 			<div class="post-list post-list--stamp">
