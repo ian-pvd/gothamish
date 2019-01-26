@@ -84,7 +84,7 @@ function gotham_get_the_archive_title() {
 		$title = sprintf( __( 'Articles tagged "%s"' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
 		/* translators: Author archive title. 1: Author name */
-		$title = sprintf( __( 'Author: %s' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		$title = sprintf( __( 'Author: %s' ), get_the_author() );
 	} elseif ( is_year() ) {
 		/* translators: Yearly archive title. 1: Year */
 		$title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
