@@ -9,14 +9,20 @@
 
 // Set up template variables.
 $title_class = 'page__title';
+$post_format = null;
 
 if ( is_category() ) {
-	$title_class .= ' page__title--category';
-}
 
-if ( is_tag() ) {
+	$title_class .= ' page__title--category';
+
+} elseif ( is_tag() ) {
+
 	// Retreive object for currently querried tag.
 	$tag_archive = get_queried_object();
+
+	// Set Post Format.
+	$post_format = 'stamp';
+
 }
 
 get_header();
@@ -45,7 +51,7 @@ get_header();
 				while ( have_posts() ) :
 					the_post();
 
-					get_template_part( 'template-parts/content' );
+					get_template_part( 'template-parts/content', $post_format );
 
 				endwhile;
 
