@@ -109,6 +109,7 @@ module.exports = (env) => {
     entry: {
       site: './assets/src/site/index.js',
       post: './assets/src/post/index.js',
+      page: './assets/src/page/index.js',
       archive: './assets/src/archive/index.js',
       editor: './assets/src/editor/index.js',
     },

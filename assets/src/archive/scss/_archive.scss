@@ -1,0 +1,26 @@
+/**
+ * Archive styles
+ */
+
+.page__header--archive {
+	.tag__banner {
+		margin-bottom: 0;
+	}
+}
+
+.page__title {
+	&.page__title--category {
+		@include section-header();
+		margin-bottom: 0;
+		font-size: rem(24);
+	}
+
+	.tag__banner + & {
+		display: none;
+	}
+}
+
+.post-list {
+	margin-bottom: spacer(2);
+}
+

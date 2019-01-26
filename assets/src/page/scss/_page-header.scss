@@ -1,0 +1,17 @@
+/**
+ * Page Header styles
+ */
+
+.page__header {
+	padding-bottom: spacer(2);
+	margin-bottom: spacer(2);
+	border-bottom: $border--page;
+}
+
+.page__title {
+	line-height: 1;
+}
+
+.page__description {
+	margin: spacer(1) 0 0;
+}
