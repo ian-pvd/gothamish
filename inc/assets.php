@@ -33,7 +33,7 @@ function gotham_enqueue_assets() {
 		}
 
 		/* Archive Scripts & Styles */
-		if ( is_archive() ) {
+		if ( is_archive() || is_home() ) {
 			wp_enqueue_script( 'gotham-archive-js', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'archive-js' ), [], '1.0', true );
 			wp_enqueue_style( 'gotham-archive-css', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'archive-css' ), [], '1.0' );
 		}
