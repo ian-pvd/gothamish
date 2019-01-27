@@ -456,7 +456,7 @@ if ( ! function_exists( 'gotham_post_media_icon' ) ) :
 	function gotham_post_media_icon( $media = null ) {
 		// If a specific media icon is to be displayed.
 		if ( isset( $media ) ) {
-			// Specific Media Icon.
+			// TODO: Specific Media Icon.
 		} else {
 			// Get a list of the post tags.
 			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
@@ -483,8 +483,10 @@ if ( ! function_exists( 'gotham_post_media_icon' ) ) :
 				if ( isset( $media_type ) ) {
 					// Display the tag.
 					printf(
-						'<span class="post-media post-media--%1$s">%2$s</span>',
+						'<span class="post-media post-media--%1$s" title="%2$s">%3$s %4$s</span>',
 						esc_attr( $media_type ),
+						esc_attr( __( 'Post Media: ', 'gotham' ) . $media_title ),
+						esc_html__( 'Post Media:', 'gotham' ),
 						esc_html( $media_title )
 					);
 					break;
