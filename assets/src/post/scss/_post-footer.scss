@@ -54,33 +54,34 @@
 
 	/* Use !important to override Jetpack !important */
 	/* stylelint-disable declaration-no-important */
+
 	ul,
 	li {
 
 		margin: 0 !important;
 	}
 
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@include breakpoints(small) {
+			flex-wrap: none;
+		}
+	}
+
 	li {
+		flex: 0 0 auto;
 		padding: 0 !important;
-		margin-right: spacer(0.25) !important;
+		margin: 0 0 spacer(0.5) !important;
+		width: calc( ( 100% - ( #{spacer(0.5)} ) ) / 2 );
 
-		&:last-child {
-			margin: 0 !important;
-		}
-	}
-
-	@include breakpoints(small) {
-		ul {
-			display: flex;
-			justify-content: space-between;
-		}
-
-		li {
-			flex: 0 0 auto;
+		@include breakpoints(small) {
 			width: calc( ( 100% - ( 3 * #{spacer(0.5)} ) ) / 4 );
-			margin: 0 !important;
 		}
 	}
+
 	/* stylelint-enable */
 
 	a {
