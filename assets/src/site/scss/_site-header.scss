@@ -161,7 +161,7 @@
 	.search-field {
 		@include absolute-pinned();
 		border-radius: 0;
-		border: 2px solid $color--interface;
+		border: $border--page;
 		font-size: rem(14);
 		padding-right: spacer(2);
 

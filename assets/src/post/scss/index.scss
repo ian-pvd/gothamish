@@ -7,11 +7,13 @@
 
 // Import Modules
 @import '../../modules/widgets/_ads.scss';
-@import '../../modules/widgets/_post-touts.scss';
+@import '../../modules/widgets/_post-list.scss';
+@import '../../modules/post-lists/_touts.scss';
 
 // Import Post Styles
 @import 'post-single';
 @import 'post-header';
+@import 'tag-banner';
 @import 'post-thumbnail';
 @import 'post-content';
 @import 'post-sidebar';

@@ -132,8 +132,10 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 *
+	 * @param  string $size Image size to use.
 	 */
-	function gotham_post_thumbnail() {
+	function gotham_post_thumbnail( $size = 'post-thumbnail' ) {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
 		}
@@ -143,7 +145,7 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 			<figure class="post-thumbnail">
 				<div class="post-thumbnail__frame">
-					<?php the_post_thumbnail(); ?>
+					<?php the_post_thumbnail( $size ); ?>
 				</div>
 
 				<?php if ( get_the_post_thumbnail_caption() ) : ?>
@@ -153,36 +155,39 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 
 		<?php else : ?>
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-			<?php
-			the_post_thumbnail(
-				'post-thumbnail',
-				[
-					'alt' => the_title_attribute(
+			<div class="post-thumbnail">
+				<a class="post-thumbnail__link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+					<?php
+					the_post_thumbnail(
+						$size,
 						[
-							'echo' => false,
+							'alt' => the_title_attribute(
+								[
+									'echo' => false,
+								]
+							),
 						]
-					),
-				]
-			);
-			?>
-		</a>
+					);
+					?>
+				</a>
+			</div>
 
 		<?php
 		endif; // End is_singular().
 	}
 endif;
 
-if ( ! function_exists( 'gotham_post_banner' ) ) :
+if ( ! function_exists( 'gotham_tag_banner' ) ) :
 	/**
-	 * Displays a special taxonomy banner for posts.
+	 * Displays a special taxonomy banner on posts, pages or widgets.
 	 *
 	 * If a post has a specific tag, display a banner above the post header.
-	 * Or you may call the function to display a specific tag banner.
+	 * If you are viewing an archive for a specific tag, display a banner in the archive header.
+	 * Or you may call the function with a slug to display a specific tag banner.
 	 *
 	 * @param  string $tag The tag of the banner to display. Default null.
 	 */
-	function gotham_post_banner( $tag = null ) {
+	function gotham_tag_banner( $tag = null ) {
 		// If a specific tag banner is to be displayed.
 		if ( isset( $tag ) ) {
 			// Get that tag object.
@@ -227,7 +232,7 @@ if ( ! function_exists( 'gotham_post_banner' ) ) :
 				if ( isset( $banner_type ) && isset( $banner_text ) ) {
 					// Display the tag.
 					printf(
-						'<a href="%3$s" class="post__banner post__banner--%1$s">%2$s</a>',
+						'<a href="%3$s" class="tag__banner tag__banner--%1$s">%2$s</a>',
 						sanitize_html_class( $banner_type ),
 						wp_kses(
 							$banner_text,
@@ -258,7 +263,7 @@ if ( ! function_exists( 'gotham_posted_in' ) ) :
 			if ( 0 === $category->parent && 'uncategorized' !== $category->slug ) {
 				// Print the "posted in" info.
 				printf(
-					'<span>%1$s <a href="%2$s">%3$s</a></span>',
+					'<span class="entry-category">%1$s <a href="%2$s">%3$s</a></span>',
 					esc_html__( 'in', 'gotham' ),
 					esc_url( get_term_link( $category ) ),
 					esc_html( $category->name )

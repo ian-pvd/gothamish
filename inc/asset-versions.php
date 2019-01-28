@@ -12,12 +12,14 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'editor-css' => 'editor.a28d03.css',
-		'editor-js' => 'editor.a28d03.js',
-		'post-css' => 'post.a28d03.css',
-		'post-js' => 'post.a28d03.js',
-		'site-css' => 'site.a28d03.css',
-		'site-js' => 'site.a28d03.js',
+		'archive-css' => 'archive.6a9025.css',
+		'archive-js' => 'archive.6a9025.js',
+		'editor-css' => 'editor.6a9025.css',
+		'editor-js' => 'editor.6a9025.js',
+		'post-css' => 'post.6a9025.css',
+		'post-js' => 'post.6a9025.js',
+		'site-css' => 'site.6a9025.css',
+		'site-js' => 'site.6a9025.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
