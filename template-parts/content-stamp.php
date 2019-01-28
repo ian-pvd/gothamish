@@ -14,6 +14,10 @@
 	<div class="post-thumbnail">
 		<a class="post-thumbnail__link" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 		<?php
+		// Post Media Icon.
+		gotham_post_media_icon();
+
+		// Stamp sized post thumbnail.
 		if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
 				'stamp',

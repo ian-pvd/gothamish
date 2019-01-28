@@ -7,6 +7,24 @@
  * @package Gothamish
  */
 
+// Set up template variables.
+$title_class = 'page__title';
+$post_format = null;
+
+if ( is_category() ) {
+
+	$title_class .= ' page__title--category';
+
+} elseif ( is_tag() ) {
+
+	// Retreive object for currently querried tag.
+	$tag_archive = get_queried_object();
+
+	// Set Post Format.
+	$post_format = 'stamp';
+
+}
+
 get_header();
 ?>
 
@@ -14,11 +32,14 @@ get_header();
 		<main id="main" class="site-main">
 
 			<header class="page__header page__header--archive">
-				<h1 class="page__title page__title--category">
-					<?php single_cat_title( '', true ); ?>
-				</h1>
+				<?php
+				if ( is_tag() ) {
+					gotham_tag_banner( $tag_archive->slug );
+				}
 
-				<?php the_archive_description( '<div class="page__description">', '</div>' ); ?>
+				the_archive_title( '<h1 class=" ' . $title_class . ' ">', '</h1>' );
+				the_archive_description( '<div class="page__description">', '</div>' );
+				?>
 			</header><!-- .page-header -->
 
 			<div class="post-list">
@@ -30,7 +51,7 @@ get_header();
 				while ( have_posts() ) :
 					the_post();
 
-					get_template_part( 'template-parts/content' );
+					get_template_part( 'template-parts/content', $post_format );
 
 				endwhile;
 

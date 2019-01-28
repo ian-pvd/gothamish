@@ -446,3 +446,59 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 		echo '</div>';
 	}
 endif;
+
+if ( ! function_exists( 'gotham_post_media_icon' ) ) :
+	/**
+	 * Displays an icon for post media.
+	 *
+	 * @param  string $media The media type to display. Default null.
+	 */
+	function gotham_post_media_icon( $media = null ) {
+		// If a specific media icon is to be displayed.
+		if ( isset( $media ) ) {
+			// Get that tag object.
+			$media = get_term_by( 'slug', $media, 'post_tag' );
+
+			// If a tag was found...
+			if ( $media ) {
+				// Put it into its own array.
+				$post_tags = [ $media ];
+			}
+		} else {
+			// Get a list of the post tags.
+			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
+		}
+
+		// If list isn't empty...
+		if ( ! empty( $post_tags ) ) {
+
+			// Loop through the list.
+			foreach ( $post_tags as $tag ) {
+				// Check for specific post tags.
+				switch ( $tag->slug ) {
+					case 'video':
+						$media_type  = $tag->slug;
+						$media_title = $tag->name;
+						break;
+					case 'photo-gallery':
+						$media_type  = $tag->slug;
+						$media_title = $tag->name;
+						break;
+				}
+
+				// If a matching tag was found, stop searching.
+				if ( isset( $media_type ) ) {
+					// Display the tag.
+					printf(
+						'<span class="post-media post-media--%1$s" title="%2$s">%3$s %4$s</span>',
+						esc_attr( $media_type ),
+						esc_attr( __( 'Post Media: ', 'gotham' ) . $media_title ),
+						esc_html__( 'Post Media:', 'gotham' ),
+						esc_html( $media_title )
+					);
+					break;
+				}
+			}
+		}
+	}
+endif;
