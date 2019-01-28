@@ -1,0 +1,28 @@
+/**
+ * Post Media icon styles
+ */
+
+.post-media {
+	@include hide-text();
+	background-color: fade-out(color(white), 0.25);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	border-radius: spacer(0.25);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+	display: block;
+	height: rem(24);
+	left: spacer(0.5);
+	position: absolute;
+	top: spacer(0.5);
+	width: rem(24);
+	z-index: z-index(front);
+
+	&.post-media--video {
+		background-image: url('../../modules/post-lists/icon-video.svg');
+	}
+
+	&.post-media--photo-gallery {
+		background-image: url('../../modules/post-lists/icon-photo-gallery.svg');
+	}
+}
