@@ -2,7 +2,8 @@
 
 Gothamish is a WordPress news theme about New York.
 
-![Gothamish Theme Preview](https://ian.pvdindustrial.com/wp-content/uploads/2019/01/gothamish_single-post-768x2179.png)
+![Gothamish Theme Preview](https://gothamish.press/wp-content/uploads/2019/01/gothamish-preview.png)
+[View Full Preview](https://gothamish.press/wp-content/uploads/2019/01/gothamish-preview-full.png)
 
 Gothamish is built on PVD Industrial's [roundhouse](https://github.com/ian-pvd/roundhouse) theme.
 
@@ -33,3 +34,6 @@ This theme contains modifier styles which can be enabled or disabled to change v
 
 ## Development
 This theme front-end is built with SCSS and modern JavaScript, and is compiled using webpack. For more information, please see the [Theme Development Readme](./assets/README.md).
+
+## License
+Gothamish is licensed under the [GNU General Public License v2.0](https://github.com/ian-pvd/gothamish/blob/master/LICENSE).
