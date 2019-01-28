@@ -456,7 +456,14 @@ if ( ! function_exists( 'gotham_post_media_icon' ) ) :
 	function gotham_post_media_icon( $media = null ) {
 		// If a specific media icon is to be displayed.
 		if ( isset( $media ) ) {
-			// TODO: Specific Media Icon.
+			// Get that tag object.
+			$media = get_term_by( 'slug', $media, 'post_tag' );
+
+			// If a tag was found...
+			if ( $media ) {
+				// Put it into its own array.
+				$post_tags = [ $media ];
+			}
 		} else {
 			// Get a list of the post tags.
 			$post_tags = get_the_terms( get_the_ID(), 'post_tag' );
