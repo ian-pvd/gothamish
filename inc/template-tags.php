@@ -226,6 +226,14 @@ if ( ! function_exists( 'gotham_tag_banner' ) ) :
 						);
 						$banner_link = get_term_link( $tag );
 						break;
+					case 'long-form':
+						$banner_type = $tag->slug;
+						$banner_text = __(
+							'Long Form on <span class="site-logotype"><span>Gotham</span>ish</span>',
+							'gotham'
+						);
+						$banner_link = get_term_link( $tag );
+						break;
 				}
 
 				// If a matching tag was found, stop searching.
