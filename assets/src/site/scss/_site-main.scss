@@ -27,10 +27,12 @@
 .content-area {
 	max-width: $width--content;
 	width: 100%;
+	border-bottom: $border--page;
 
 	@include breakpoints(medium) {
 		flex: 1 1 auto;
 		min-width: 0;
+		border: none;
 	}
 }
 
