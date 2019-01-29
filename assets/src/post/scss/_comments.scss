@@ -13,16 +13,27 @@
 .comment-form {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 
-	.comment-form__comment {
-		width: 100%;
+	@include breakpoints(small) {
+		justify-content: space-between;
 	}
 
 	> * {
 		flex: 0 0 auto;
-		margin: 0 0 spacer(1);
-		width: calc((100% - #{spacer(1)}) / 2);
+		width: 100%;
+		margin: 0 0 spacer(0.5);
+
+		@include breakpoints(small) {
+			width: calc((100% - #{spacer(1)}) / 2);
+
+			&:nth-last-child(-n+2) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.comment-form__comment {
+		width: 100%;
 	}
 
 	label {
@@ -41,6 +52,10 @@
 		align-items: flex-end;
 		display: flex;
 		justify-content: flex-end;
+
+		@include breakpoints(none, small) {
+			margin: spacer(0.5) 0 0;
+		}
 	}
 
 	input[type='submit'] {
@@ -49,6 +64,10 @@
 		color: $color--text-alt;
 		min-width: 50%;
 	}
+}
+
+.comments__title {
+	margin-top: spacer(2);
 }
 
 .comments__list {
