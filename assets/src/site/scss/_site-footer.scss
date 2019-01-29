@@ -4,7 +4,11 @@
 
 .site-footer {
 	margin-top: auto;
-	padding: spacer(1) 0;
+	padding: 0;
+
+	@include breakpoints(small) {
+		padding: spacer(1) 0 0;
+	}
 }
 
 .site-footer__wrapper {
@@ -13,27 +17,6 @@
 	margin-bottom: spacer(1);
 	text-align: center;
 	width: 100%;
-}
-
-.site-info {
-	font: $font--interface;
-	font-size: rem(14);
-	text-align: center;
-	display: block;
-	margin-bottom: spacer(0.5);
-
-	@include breakpoints(small) {
-		display: inline-block;
-	}
-
-	a {
-		@include link-hover;
-		color: $color--text;
-
-		&:hover {
-			color: color(red);
-		}
-	}
 }
 
 .footer-utilities__menu {
@@ -60,6 +43,27 @@
 
 		&:last-child::after {
 			display: none;
+		}
+	}
+}
+
+.site-info {
+	font: $font--interface;
+	font-size: rem(14);
+	text-align: center;
+	display: block;
+	margin-bottom: spacer(0.5);
+
+	@include breakpoints(small) {
+		display: inline-block;
+	}
+
+	a {
+		@include link-hover;
+		color: $color--text;
+
+		&:hover {
+			color: color(red);
 		}
 	}
 }
