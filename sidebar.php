@@ -1,8 +1,6 @@
 <?php
 /**
- * The sidebar containing the main widget area
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * The sidebar containing the widget area for posts
  *
  * @package Gothamish
  */
