@@ -52,6 +52,7 @@
 		line-height: 1.25;
 
 		&::after {
+			color: color(grey);
 			content: '/';
 			display: inline-block;
 			padding: 0 spacer(0.5);
