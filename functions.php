@@ -53,8 +53,10 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		// This theme uses wp_nav_menu() in several locations.
 		register_nav_menus(
 			[
-				'primary-nav'  => esc_html__( 'Primary Navigation', 'gotham' ),
 				'network-list' => esc_html__( 'Site Networks', 'gotham' ),
+				'primary-nav'  => esc_html__( 'Primary Navigation', 'gotham' ),
+				'quick-links'  => esc_html__( 'Home Header Quick Links', 'gotham' ),
+				'utilities'    => esc_html__( 'Footer Utilities', 'gotham' ),
 			]
 		);
 
