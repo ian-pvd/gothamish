@@ -15,7 +15,11 @@
 	text-transform: uppercase;
 
 	&.tag__banner--gothamish-films {
-		background: color( black );
+		background: color(black);
+	}
+
+	&.tag__banner--long-form {
+		background: color(grey-very-dark);
 	}
 
 	&:hover,
