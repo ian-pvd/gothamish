@@ -26,20 +26,18 @@
 				<a href="<?php echo esc_url( get_site_url() . '/terms' ); ?>"><?php esc_html_e( 'Terms of Use', 'gotham' ); ?></a> &amp;
 				<a href="<?php echo esc_url( get_site_url() . '/privacy' ); ?>"><?php esc_html_e( 'Privacy Policy', 'gotham' ); ?></a>
 			</div>
-			<?php if ( has_nav_menu( 'utilities' ) ) : ?>
-				<div class="site-footer__utilities">
-					<?php
-					wp_nav_menu(
-						[
-							'container_class' => 'site-footer__utilities-menu footer-utilities',
-							'menu_class'      => 'footer-utilities__menu',
-							'menu_id'         => 'footer-utilities__menu',
-							'theme_location'  => 'footer-utilities',
-						]
-					);
-					?>
-				</div>
-			<?php endif; ?>
+			<?php
+			if ( has_nav_menu( 'utilities' ) ) :
+				wp_nav_menu(
+					[
+						'container_class' => 'site-footer__utilities-menu footer-utilities',
+						'menu_class'      => 'footer-utilities__menu',
+						'menu_id'         => 'footer-utilities__menu',
+						'theme_location'  => 'utilities',
+					]
+				);
+			endif;
+			?>
 		</div><!-- .site-footer__wrapper -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

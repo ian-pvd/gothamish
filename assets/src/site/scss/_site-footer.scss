@@ -10,6 +10,7 @@
 .site-footer__wrapper {
 	@include wrapper;
 	line-height: 1;
+	margin-bottom: spacer(1);
 	text-align: center;
 	width: 100%;
 }
@@ -18,10 +19,11 @@
 	font: $font--interface;
 	font-size: rem(14);
 	text-align: center;
-	display: inline;
+	display: block;
+	margin-bottom: spacer(0.5);
 
 	@include breakpoints(small) {
-		font-size: rem(12);
+		display: inline-block;
 	}
 
 	a {
@@ -30,6 +32,33 @@
 
 		&:hover {
 			color: color(red);
+		}
+	}
+}
+
+.footer-utilities__menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	list-style: none;
+	margin: 0 0 spacer(1);
+	padding: 0 spacer(0.5);
+
+	@include breakpoints(small) {
+		font-size: rem(14);
+	}
+
+	li {
+		line-height: 1.25;
+
+		&::after {
+			content: '/';
+			display: inline-block;
+			padding: 0 spacer(0.5);
+		}
+
+		&:last-child::after {
+			display: none;
 		}
 	}
 }
