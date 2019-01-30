@@ -510,3 +510,14 @@ if ( ! function_exists( 'gotham_post_media_icon' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'gotham_logotype' ) ) :
+	/**
+	 * Returns a filtered string containing the site name to be styled.
+	 *
+	 * @return string Formatted site title.
+	 */
+	function gotham_logotype() {
+		return '<span class="site-logotype"><span>Gotham</span>ish</span>';
+	}
+endif;

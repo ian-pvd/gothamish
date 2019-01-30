@@ -1,0 +1,92 @@
+/**
+ * Subscribe Widget Styles
+ *
+ * The subscribe widget is intended to be customizable and able to accept
+ * form markup from Jetpack, MailChimp or other mailing list providers.
+ * These styles are intended to be as generic as possible to accomidate
+ * different markup by applying styles to element selectors.
+ */
+
+.widget--gotham-subscribe {
+	.widget__title {
+		display: none;
+	}
+
+	/* stylelint-disable selector-max-specificity */
+
+	.widget__wrapper {
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 250px;
+		padding: spacer(1);
+		position: relative;
+
+		&::before {
+			@include pseudo-block(100%,100%);
+			@include absolute-pinned();
+			background: fade-out(color(black),0.5);
+		}
+
+		> * {
+			color: $color--text-alt;
+			font-size: rem(10);
+			font-weight: 500;
+			position: relative;
+			text-align: center;
+		}
+
+		.widget__site-logo {
+			font-size: rem(36);
+			margin: spacer(1) auto;
+		}
+
+		form {
+			margin-bottom: spacer(2);
+		}
+
+		h2 {
+			font-family: font-family(sans-serif);
+			font-size: rem(18);
+			font-weight: 500;
+			margin-bottom: spacer(0.5);
+		}
+
+		label {
+			display: block;
+			font-size: rem(12);
+			margin-top: spacer(0.5);
+		}
+
+		input {
+			margin: spacer(0.25) 0;
+			max-width: 75%;
+			width: 100%;
+		}
+
+		input[type='text'],
+		input[type='email'] {
+			background: fade-out(color(white), 0.667);
+			border: $border--page;
+			font-size: rem(14);
+			height: rem(32);
+			margin-bottom: spacer(0.5);
+
+			&:focus {
+				background: fade-out(color(white), 0.333);
+			}
+		}
+
+		input[type='submit'] {
+			background: $color--primary;
+			border: none;
+			color: $color--text-alt;
+			margin-top: spacer(0.5);
+		}
+	}
+
+	/* stylelint-enable */
+}
