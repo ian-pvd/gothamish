@@ -30,9 +30,10 @@
 	border-bottom: $border--page;
 
 	@include breakpoints(medium) {
-		flex: 1 1 auto;
-		min-width: 0;
 		border: none;
+		flex: 1 1 auto;
+		margin-bottom: spacer(2);
+		min-width: 0;
 	}
 }
 
@@ -47,7 +48,7 @@
 	width: $width--sidebar;
 
 	@include breakpoints(medium) {
-		margin: 0 0 spacer(1) spacer(1);
+		margin: 0 0 spacer(2) spacer(1);
 	}
 
 	.widget {

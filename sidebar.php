@@ -2,16 +2,20 @@
 /**
  * The sidebar containing the main widget area
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package Gothamish
  */
 
-if ( ! is_active_sidebar( 'sidebar-single' ) ) {
+$sidebar = 'sidebar-single';
+
+if ( is_page() ) {
+	$sidebar = 'sidebar-page';
+}
+
+if ( ! is_active_sidebar( $sidebar ) ) {
 	return;
 }
 ?>
 
-<aside id="secondary" class="widget-area widget-area--sidebar-single">
-	<?php dynamic_sidebar( 'sidebar-single' ); ?>
+<aside id="secondary" class="widget-area widget-area--<?php echo esc_attr( $sidebar ); ?>">
+	<?php dynamic_sidebar( $sidebar ); ?>
 </aside><!-- #secondary -->

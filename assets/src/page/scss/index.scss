@@ -5,5 +5,8 @@
 // Load Theme Core
 @import '../../core/scss/index.scss';
 
+// Import Modules
+@import '../../modules/widgets/_subscribe.scss';
+
 // Import Page Styles
 @import 'page-header';
