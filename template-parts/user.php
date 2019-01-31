@@ -71,7 +71,7 @@ $social_links = [
 				<li class="user__social-link-item user__social-link-item--<?php echo esc_attr( $social ); ?>"><a href="<?php echo esc_url( $value['link'] ); ?>"><?php echo esc_html( $value['name'] ); ?></a></li>
 					<?php
 				endif;
-				endforeach;
+			endforeach;
 			?>
 		</ul>
 	</main>
