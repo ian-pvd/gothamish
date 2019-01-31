@@ -521,3 +521,63 @@ if ( ! function_exists( 'gotham_logotype' ) ) :
 		return '<span class="site-logotype"><span>Gotham</span>ish</span>';
 	}
 endif;
+
+if ( ! function_exists( 'gotham_staff_list' ) ) :
+	/**
+	 * Prints a list of users by user type.
+	 *
+	 * @param  array $args Query options.
+	 */
+	function gotham_staff_list( $args = [] ) {
+		// Use Staff global.
+		global $staff;
+
+		// User query args.
+		$args = [
+			'blog_id'    => $GLOBALS['blog_id'],
+			'role'       => array_key_exists( 'role', $args ) ? $args['role'] : '',
+			'orderby'    => 'registered',
+			'order'      => 'ASC',
+			// NOTE: Only user accounts with first & last names set will
+			// display, this is to prevent internal / utility accounts from
+			// showing up in the authors list.
+			'meta_query' => [
+				'relation' => 'AND',
+				[
+					'key'     => 'first_name',
+					'value'   => '',
+					'compare' => '!=',
+				],
+				[
+					'key'     => 'last_name',
+					'value'   => '',
+					'compare' => '!=',
+				],
+			],
+		];
+
+		// Set key for each user group query.
+		$cache_key = ( ! empty( $args['role'] ) ) ? 'user_query_' . $args['role'] : 'user_query';
+		// Check for existing results.
+		if ( ! $user_results = get_transient( $cache_key ) ) {
+			// Query list of users.
+			$user_results = new WP_User_Query( $args );
+
+			// Shift results object value.
+			$user_results = $user_results->get_results();
+
+			// Stash results.
+			set_transient( $cache_key, $user_results, 24 * HOUR_IN_SECONDS );
+		}
+
+		if ( ! empty( $user_results ) ) {
+			echo '<ul class="staff-list">';
+			foreach ( $user_results as $staff ) :
+				echo '<li class="staff-list__item">';
+				get_template_part( 'template-parts/user' );
+				echo '</li>';
+			endforeach;
+			echo '</ul>';
+		}
+	}
+endif;

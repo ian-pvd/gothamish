@@ -6,6 +6,10 @@
  */
 
 /**
+ * Gothamish Theme Hooks.
+ */
+
+/**
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
@@ -108,3 +112,62 @@ function gotham_get_the_archive_title() {
 	return esc_html( $title );
 }
 add_filter( 'get_the_archive_title', 'gotham_get_the_archive_title' );
+
+/**
+ * Update user social media meta fields.
+ *
+ * @param  array $fields WordPress user meta fields.
+ * @return array The updated meta fields.
+ */
+function gotham_user_social_fields( $fields ) {
+
+	// RIP AIM <3.
+	unset( $fields['aim'] );
+	unset( $fields['jabber'] );
+	unset( $fields['yim'] );
+
+	// Add current networks.
+	$fields['instagram'] = __( 'Instagram', 'gotham' );
+	$fields['twitter']   = __( 'Twitter', 'gotham' );
+
+	// Return updated fields.
+	return $fields;
+}
+add_filter( 'user_contactmethods', 'gotham_user_social_fields' );
+
+/**
+ * Gothamish Helper Functions
+ */
+
+/**
+ * Distills a url or @name down to a string handle for social network links.
+ *
+ * @param  string $social_link The user supplied social link.
+ * @return string              The filtered social link.
+ */
+function gotham_social_handle( $social_link ) {
+	// If the string is empty, don't bother.
+	if ( ! isset( $social_link ) ) {
+		return;
+	}
+
+	// Strip tags.
+	$social_link = wp_strip_all_tags( $social_link );
+
+	// Trim whitespace.
+	$social_link = trim( $social_link );
+
+	// Remove Trailing Slash.
+	$social_link = trim( $social_link, '/' );
+
+	// Break possible url up into '/' sections.
+	$social_link = explode( '/', $social_link );
+
+	// Use the last section of the URL.
+	$social_link = $social_link[ count( $social_link ) - 1 ];
+
+	// Trim the '@' character.
+	$social_link = ltrim( $social_link, '@' );
+
+	return $social_link;
+}

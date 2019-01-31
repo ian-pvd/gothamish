@@ -107,11 +107,12 @@ module.exports = (env) => {
 
   return {
     entry: {
-      site: './assets/src/site/index.js',
-      post: './assets/src/post/index.js',
-      page: './assets/src/page/index.js',
       archive: './assets/src/archive/index.js',
       editor: './assets/src/editor/index.js',
+      page: './assets/src/page/index.js',
+      post: './assets/src/post/index.js',
+      site: './assets/src/site/index.js',
+      user: './assets/src/user/index.js',
     },
     output: {
       path: path.join(__dirname, '../dist/'),
