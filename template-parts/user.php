@@ -33,11 +33,11 @@ $social_links = [
 	],
 	'twitter'   => [
 		'name' => __( 'Twitter', 'gotham' ),
-		'link' => isset( $user_meta['twitter'][0] ) ? 'https://twitter.com/' . $user_meta['twitter'][0] : null,
+		'link' => isset( $user_meta['twitter'][0] ) ? 'https://twitter.com/' . gotham_social_handle( $user_meta['twitter'][0] ) : null,
 	],
 	'instagram' => [
 		'name' => __( 'Instagram', 'gotham' ),
-		'link' => isset( $user_meta['instagram'][0] ) ? 'https://instagram.com/' . $user_meta['instagram'][0] : null,
+		'link' => isset( $user_meta['instagram'][0] ) ? 'https://instagram.com/' . gotham_social_handle( $user_meta['instagram'][0] ) : null,
 	],
 ];
 ?>
@@ -71,7 +71,7 @@ $social_links = [
 				<li class="user__social-link-item user__social-link-item--<?php echo esc_attr( $social ); ?>"><a href="<?php echo esc_url( $value['link'] ); ?>"><?php echo esc_html( $value['name'] ); ?></a></li>
 					<?php
 				endif;
-				endforeach;
+			endforeach;
 			?>
 		</ul>
 	</main>

@@ -12,13 +12,13 @@
 // Default staff sections.
 $staff_groups = [
 	'editor'      => [
-		'title' => 'Editors',
+		'title' => __( 'Editors', 'gotham' ),
 	],
 	'author'      => [
-		'title' => 'Authors',
+		'title' => __( 'Authors', 'gotham' ),
 	],
 	'contributor' => [
-		'title' => 'Contributors',
+		'title' => __( 'Contributors', 'gotham' ),
 	],
 ];
 
@@ -47,22 +47,35 @@ get_header();
 			get_template_part( 'template-parts/content', 'page' );
 
 			// If there are authors, editors or contributors to display.
-			if ( ! empty( $staff_groups ) ) {
+			if ( ! empty( $staff_groups ) ) :
+				?>
 
-				echo '<div class="staff">';
+			<div class="staff">
 
-				foreach ( $staff_groups as $group => $value ) {
+				<?php
+				foreach ( $staff_groups as $group => $value ) :
 					// Start the staff page list wrapper.
-					echo '<div class="staff-group staff-group--' . esc_attr( $group ) . '">';
-					echo '<h2 class="staff-group__role-title">' . esc_html( $value['title'] ) . '</h2>';
-					// Output the list.
-					gotham_staff_list( [ 'role' => $group ] );
-					// Close the list wrapper.
-					echo '</div>';
-				}
+					?>
 
-				echo '</div>';
-			}
+					<div class="staff-group staff-group--<?php echo esc_attr( $group ); ?>">
+						<h2 class="staff-group__role-title"><?php echo esc_html( $value['title'] ); ?></h2>
+
+						<?php
+						// Output the list.
+						gotham_staff_list( [ 'role' => $group ] );
+						// Close the list wrapper.
+						?>
+
+					</div>
+
+					<?php
+				endforeach;
+				?>
+
+			</div>
+
+				<?php
+			endif;
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
