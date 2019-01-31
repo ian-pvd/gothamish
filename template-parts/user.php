@@ -33,9 +33,9 @@ $social_links = [
 ];
 ?>
 
-<article class="user user--<?php echo esc_attr( $staff->ID ); ?>">
+<article class="user user--<?php echo esc_attr( $user_data->user_nicename ); ?>">
 	<figure class="user__portrait">
-		<img src="<?php echo esc_url( get_avatar_url( $staff->ID ) ); ?>" />
+		<img src="<?php echo esc_url( get_avatar_url( $staff->ID, [ 'size' => 300 ] ) ); ?>" />
 	</figure>
 	<main class="user__info">
 		<?php if ( is_archive() ) : ?>
