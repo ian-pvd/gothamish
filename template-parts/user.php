@@ -11,8 +11,18 @@ global $staff;
 $user_data = get_userdata( $staff->ID );
 $user_meta = get_user_meta( $staff->ID );
 
+// Author Posts Link.
+$author_link = get_author_posts_url( $staff->ID );
+
+// Staff Photo URL.
+$staff_photo = get_avatar_url( $staff->ID, [ 'size' => 300 ] );
+
 // Build social media links array.
 $social_links = [
+	'articles'  => [
+		'name' => __( 'Articles', 'gotham' ),
+		'link' => $author_link,
+	],
 	'email'     => [
 		'name' => __( 'Email', 'gotham' ),
 		'link' => 'mailto:' . $user_data->user_email,
@@ -25,7 +35,6 @@ $social_links = [
 		'name' => __( 'Twitter', 'gotham' ),
 		'link' => isset( $user_meta['twitter'][0] ) ? 'https://twitter.com/' . $user_meta['twitter'][0] : null,
 	],
-
 	'instagram' => [
 		'name' => __( 'Instagram', 'gotham' ),
 		'link' => isset( $user_meta['instagram'][0] ) ? 'https://instagram.com/' . $user_meta['instagram'][0] : null,
@@ -35,13 +44,17 @@ $social_links = [
 
 <article class="user user--<?php echo esc_attr( $user_data->user_nicename ); ?>">
 	<figure class="user__portrait">
-		<img src="<?php echo esc_url( get_avatar_url( $staff->ID, [ 'size' => 300 ] ) ); ?>" />
+		<?php if ( is_archive() ) : ?>
+			<img src="<?php echo esc_url( $staff_photo ); ?>" />
+		<?php else : ?>
+			<a href="<?php echo esc_url( $author_link ) ?>"><img src="<?php echo esc_url( $staff_photo ); ?>" /></a>
+		<?php endif; ?>
 	</figure>
 	<main class="user__info">
 		<?php if ( is_archive() ) : ?>
 			<h2 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h2>
 		<?php else : ?>
-			<h3 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h3>
+			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ) ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $user_meta['description'][0] ) ) : ?>
