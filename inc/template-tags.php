@@ -536,6 +536,8 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 		$args = [
 			'blog_id' => $GLOBALS['blog_id'],
 			'role'    => array_key_exists( 'role', $args ) ? $args['role'] : '',
+			'orderby' => 'registered',
+			'order'   => 'ASC',
 		];
 
 		// Query list of users.
@@ -544,7 +546,7 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 		if ( ! empty( $staff_list->get_results() ) ) {
 			echo '<ul class="staff-list">';
 			foreach ( $staff_list->get_results() as $staff ) :
-				echo '<li class="staff_list__item">';
+				echo '<li class="staff-list__item">';
 				get_template_part( 'template-parts/user' );
 				echo '</li>';
 			endforeach;
