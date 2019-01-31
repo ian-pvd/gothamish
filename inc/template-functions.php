@@ -108,3 +108,25 @@ function gotham_get_the_archive_title() {
 	return esc_html( $title );
 }
 add_filter( 'get_the_archive_title', 'gotham_get_the_archive_title' );
+
+/**
+ * Update user social media meta fields.
+ *
+ * @param  array $fields WordPress user meta fields.
+ * @return array The updated meta fields.
+ */
+function gotham_user_social_fields( $fields ) {
+
+	// RIP AIM <3.
+	unset( $fields['aim'] );
+	unset( $fields['jabber'] );
+	unset( $fields['yim'] );
+
+	// Add current networks.
+	$fields['instagram'] = __( 'Instagram', 'gotham' );
+	$fields['twitter']   = __( 'Twitter', 'gotham' );
+
+	// Return updated fields.
+	return $fields;
+}
+add_filter( 'user_contactmethods', 'gotham_user_social_fields' );

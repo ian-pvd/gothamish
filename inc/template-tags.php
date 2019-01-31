@@ -521,3 +521,32 @@ if ( ! function_exists( 'gotham_logotype' ) ) :
 		return '<span class="site-logotype"><span>Gotham</span>ish</span>';
 	}
 endif;
+
+if ( ! function_exists( 'gotham_staff_list' ) ) :
+	/**
+	 * Prints a list of users by user type.
+	 *
+	 * @param  array $args Query options.
+	 */
+	function gotham_staff_list( $args = [] ) {
+		// Use Staff global.
+		global $staff;
+
+		// User query args.
+		$args = [
+			'blog_id' => $GLOBALS['blog_id'],
+			'role'    => array_key_exists( 'role', $args ) ? $args['role'] : '',
+		];
+
+		// Query list of users.
+		$staff_list = new WP_User_Query( $args );
+
+		if ( ! empty( $staff_list->get_results() ) ) {
+			foreach ( $staff_list->get_results() as $staff ) :
+				echo '<li class="staff__list-item">';
+				get_template_part( 'template-parts/user' );
+				echo '</li>';
+			endforeach;
+		}
+	}
+endif;
