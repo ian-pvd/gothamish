@@ -534,10 +534,26 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 
 		// User query args.
 		$args = [
-			'blog_id' => $GLOBALS['blog_id'],
-			'role'    => array_key_exists( 'role', $args ) ? $args['role'] : '',
-			'orderby' => 'registered',
-			'order'   => 'ASC',
+			'blog_id'    => $GLOBALS['blog_id'],
+			'role'       => array_key_exists( 'role', $args ) ? $args['role'] : '',
+			'orderby'    => 'registered',
+			'order'      => 'ASC',
+			// NOTE: Only user accounts with first & last names set will
+			// display, this is to prevent internal / utility accounts from
+			// showing up in the authors list.
+			'meta_query' => [
+				'relation' => 'AND',
+				[
+					'key'     => 'first_name',
+					'value'   => '',
+					'compare' => '!=',
+				],
+				[
+					'key'     => 'last_name',
+					'value'   => '',
+					'compare' => '!=',
+				],
+			],
 		];
 
 		// Query list of users.

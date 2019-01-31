@@ -1,19 +1,16 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying a list of authors.
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * NOTE: User accounts must be part of the Editor, Author or Contributor
+ * roles to be displayed. Admin accounts have been deliberately excluded
+ * from displaying on the front end.
  *
  * @package Gothamish
  */
 
-// Staff sections.
-$staff_roles = [
+// Default staff sections.
+$staff_groups = [
 	'editor'      => [
 		'title' => 'Editors',
 	],
@@ -24,6 +21,17 @@ $staff_roles = [
 		'title' => 'Contributors',
 	],
 ];
+
+// Get a staff count to ensure there are users for each role.
+$staff_count = count_users();
+// Filter the default staff groups.
+foreach ( $staff_groups as $group => $value ) {
+	// If a group has no members, it wont be in the staff count array.
+	if ( ! isset( $staff_count['avail_roles'][ $group ] ) ) {
+		// So remove it from the staff group array.
+		unset( $staff_groups[ $group ] );
+	}
+}
 
 get_header();
 ?>
@@ -38,19 +46,23 @@ get_header();
 			// Display any introductory page content for the staff page.
 			get_template_part( 'template-parts/content', 'page' );
 
-			echo '<div class="staff">';
+			// If there are authors, editors or contributors to display.
+			if ( ! empty( $staff_groups ) ) {
 
-			foreach ( $staff_roles as $staff_role => $value ) {
-				// Start the staff page list wrapper.
-				echo '<div class="staff-group staff-group--' . esc_attr( $staff_role ) . '">';
-				echo '<h2 class="staff-group__role-title">' . esc_html( $value['title'] ) . '</h2>';
-				// Output the list.
-				gotham_staff_list( [ 'role' => $staff_role ] );
-				// Close the list wrapper.
+				echo '<div class="staff">';
+
+				foreach ( $staff_groups as $group => $value ) {
+					// Start the staff page list wrapper.
+					echo '<div class="staff-group staff-group--' . esc_attr( $group ) . '">';
+					echo '<h2 class="staff-group__role-title">' . esc_html( $value['title'] ) . '</h2>';
+					// Output the list.
+					gotham_staff_list( [ 'role' => $group ] );
+					// Close the list wrapper.
+					echo '</div>';
+				}
+
 				echo '</div>';
 			}
-
-			echo '</div>';
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

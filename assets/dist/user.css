@@ -71,6 +71,9 @@
 /**
  * User list (Staff) styles
  */
+.content-area--staff .page {
+  margin-bottom: 2rem; }
+
 .staff {
   margin-bottom: 2rem; }
 
@@ -94,7 +97,7 @@
   border-bottom: 1px solid #CCC;
   margin-bottom: 2rem;
   padding-bottom: 2rem; }
-  .staff-list__item:last-child {
+  .staff-group:last-child .staff-list__item:last-child {
     border: none;
     margin: 0;
     padding: 0; }
@@ -104,20 +107,28 @@
 
 .user__portrait {
   flex: 0 0 auto;
-  width: 150px;
-  margin-right: 1rem; }
+  margin-right: 1rem;
+  width: 6.25rem; }
+
+.user__name a {
+  text-decoration: none;
+  color: #1A1A1A; }
+  .user__name a:hover {
+    text-decoration: underline; }
+  .user__name a:hover {
+    color: #A00; }
 
 .user__bio {
   margin-bottom: 0.5rem; }
 
 .user__social-links {
+  display: flex;
   list-style: none;
-  margin: 0;
-  display: flex; }
+  margin: 0; }
 
 .user__social-link-item::after {
-  margin: 0 0.333rem;
-  content: '-'; }
+  content: '-';
+  margin: 0 0.333rem; }
 
 .user__social-link-item:last-child::after {
   display: none; }

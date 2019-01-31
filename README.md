@@ -26,6 +26,9 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 1. Create a "Privacy Policy" page at `/privacy`.
 2. Create a "Terms & Conditions" page at `/terms`.
 3. Create a "Support Us" page at `/donate`.
+4. Create a "Staff" page at `/staff`.
+    - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
+    - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
 
 ## Style & Layout Options
 This theme contains modifier styles which can be enabled or disabled to change various component layouts.
