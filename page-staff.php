@@ -12,6 +12,19 @@
  * @package Gothamish
  */
 
+// Staff sections.
+$staff_roles = [
+	'editor'      => [
+		'title' => 'Editors',
+	],
+	'author'      => [
+		'title' => 'Authors',
+	],
+	'contributor' => [
+		'title' => 'Contributors',
+	],
+];
+
 get_header();
 ?>
 
@@ -25,12 +38,18 @@ get_header();
 			// Display any introductory page content for the staff page.
 			get_template_part( 'template-parts/content', 'page' );
 
-			// Start the staff page list wrapper.
-			echo '<div class="staff-list">';
-			echo '<h2>Editors</h2>';
-			// Output the list.
-			gotham_staff_list( [ 'role' => 'Editor' ] );
-			// Close the list wrapper.
+			echo '<div class="staff">';
+
+			foreach ( $staff_roles as $staff_role => $value ) {
+				// Start the staff page list wrapper.
+				echo '<div class="staff-group staff-group--' . esc_attr( $staff_role ) . '">';
+				echo '<h2 class="staff-group__role-title">' . esc_html( $value['title'] ) . '</h2>';
+				// Output the list.
+				gotham_staff_list( [ 'role' => $staff_role ] );
+				// Close the list wrapper.
+				echo '</div>';
+			}
+
 			echo '</div>';
 
 			// If comments are open or we have at least one comment, load up the comment template.

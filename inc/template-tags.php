@@ -542,11 +542,13 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 		$staff_list = new WP_User_Query( $args );
 
 		if ( ! empty( $staff_list->get_results() ) ) {
+			echo '<ul class="staff-list">';
 			foreach ( $staff_list->get_results() as $staff ) :
-				echo '<li class="staff__list-item">';
+				echo '<li class="staff_list__item">';
 				get_template_part( 'template-parts/user' );
 				echo '</li>';
 			endforeach;
+			echo '</ul>';
 		}
 	}
 endif;
