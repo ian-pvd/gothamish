@@ -556,12 +556,23 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 			],
 		];
 
-		// Query list of users.
-		$staff_list = new WP_User_Query( $args );
+		// Set key for each user group query.
+		$cache_key = ( ! empty( $args['role'] ) ) ? 'user_query_' . $args['role'] : 'user_query';
+		// Check for existing results.
+		if ( ! $user_results = get_transient( $cache_key ) ) {
+			// Query list of users.
+			$user_results = new WP_User_Query( $args );
 
-		if ( ! empty( $staff_list->get_results() ) ) {
+			// Shift results object value.
+			$user_results = $user_results->get_results();
+
+			// Stash results.
+			set_transient( $cache_key, $user_results, 24 * HOUR_IN_SECONDS );
+		}
+
+		if ( ! empty( $user_results ) ) {
 			echo '<ul class="staff-list">';
-			foreach ( $staff_list->get_results() as $staff ) :
+			foreach ( $user_results as $staff ) :
 				echo '<li class="staff-list__item">';
 				get_template_part( 'template-parts/user' );
 				echo '</li>';
