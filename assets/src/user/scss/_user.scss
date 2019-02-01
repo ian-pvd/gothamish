@@ -1,7 +1,92 @@
 /**
- * User styles
+ * User profile styles
  */
 
+.page__header--author:last-child {
+	border: none;
+}
+
 .user {
-	// idk
+	display: flex;
+
+	@include breakpoints(none, small) {
+		flex-direction: column;
+	}
+}
+
+.user__portrait {
+	flex: 0 0 auto;
+	margin-bottom: spacer(1);
+	width: 100%;
+
+	@include breakpoints(small) {
+		margin: 0 spacer(1) 0 0;
+		width: rem(150);
+	}
+
+	@include breakpoints(large) {
+		flex: 0 0 auto;
+		width: rem(200);
+	}
+
+	img {
+		@include breakpoints(none, small) {
+			margin: 0 auto;
+			max-width: rem(300);
+			width: 100%;
+		}
+	}
+}
+
+.user__name {
+	clear: none;
+
+	a {
+		@include link-hover();
+		color: $color--text;
+
+		&:hover {
+			color: $color--primary;
+		}
+	}
+}
+
+.user__title {
+	align-items: top;
+	color: $color--primary;
+	display: flex;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&::before {
+		@include pseudo-block();
+		background: $color--primary;
+		flex: 0 0 auto;
+		margin-right: spacer(0.5);
+		margin-top: calc(1em / 3);
+	}
+}
+
+.user__bio {
+	margin-bottom: spacer(0.5);
+}
+
+.user__social-links {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+}
+
+.user__social-link-item {
+	&::after {
+		content: '-';
+		margin: 0 spacer(0.333);
+	}
+
+	&:last-child {
+		&::after {
+			display: none;
+		}
+	}
 }

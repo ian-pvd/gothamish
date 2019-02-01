@@ -7,6 +7,10 @@
 
 global $staff;
 
+if ( empty( $staff->ID ) && is_author() ) {
+	$staff = get_queried_object();
+}
+
 // Get user account data and user meta info.
 $user_data = get_userdata( $staff->ID );
 $user_meta = get_user_meta( $staff->ID );
@@ -32,7 +36,7 @@ $social_links = [
 			),
 			count_user_posts( $staff->ID )
 		),
-		'link' => count_user_posts( $staff->ID ) > 0 ? $author_link : '',
+		'link' => ( count_user_posts( $staff->ID ) > 0 && ! is_author() ) ? $author_link : '',
 	],
 	'email'     => [
 		'name' => __( 'Email', 'gotham' ),
@@ -55,15 +59,15 @@ $social_links = [
 
 <article class="user user--<?php echo esc_attr( $user_data->user_nicename ); ?>">
 	<figure class="user__portrait">
-		<?php if ( is_archive() ) : ?>
+		<?php if ( is_author() ) : ?>
 			<img src="<?php echo esc_url( $staff_photo ); ?>" />
 		<?php else : ?>
 			<a href="<?php echo esc_url( $author_link ); ?>"><img src="<?php echo esc_url( $staff_photo ); ?>" /></a>
 		<?php endif; ?>
 	</figure>
 	<main class="user__info">
-		<?php if ( is_archive() ) : ?>
-			<h2 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h2>
+		<?php if ( is_author() ) : ?>
+			<h1 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h1>
 		<?php else : ?>
 			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ); ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
 		<?php endif; ?>
