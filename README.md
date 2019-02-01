@@ -19,7 +19,7 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 ## Theme Setup
 **Menus:**
 1. Create and assign a main navigation menu for the Primary Navigation location.
-2. (Recommended) Create menu for primary page links and assign it to the Front Page Hero Sidebar using a navigation menu widget.
+2. (Recommended) Create a menu for primary page links and assign it to the Front Page Hero Sidebar using a navigation menu widget.
 3. (Recommended) Create and assign a list of social media profile links for the Social Links location.
 2. (Optional) Create and assign a list of partner network sites for the Site Networks location.
 3. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
