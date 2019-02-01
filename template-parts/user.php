@@ -57,6 +57,12 @@ $social_links = [
 			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ) ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
 		<?php endif; ?>
 
+		<?php if ( ! empty( $user_meta['gotham_user_title'][0] ) ) : ?>
+		<div class="user__title">
+			<?php echo esc_html( $user_meta['gotham_user_title'][0] ); ?>
+		</div>
+		<?php endif; ?>
+
 		<?php if ( ! empty( $user_meta['description'][0] ) ) : ?>
 		<div class="user__bio">
 			<?php echo esc_textarea( $user_meta['description'][0] ); ?>
