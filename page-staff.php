@@ -12,7 +12,7 @@
 // Default staff sections.
 $staff_groups = [
 	'editor'      => [
-		'title' => __( 'Editors', 'gotham' ),
+		'title' => __( 'Editorial Staff', 'gotham' ),
 	],
 	'author'      => [
 		'title' => __( 'Authors', 'gotham' ),

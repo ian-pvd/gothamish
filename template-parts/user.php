@@ -20,8 +20,19 @@ $staff_photo = get_avatar_url( $staff->ID, [ 'size' => 300 ] );
 // Build social media links array.
 $social_links = [
 	'articles'  => [
-		'name' => __( 'Articles', 'gotham' ),
-		'link' => $author_link,
+		'name' => sprintf(
+			esc_html(
+				/* translators: s: article count */
+				_nx(
+					'%s Article',
+					'%s Articles',
+					count_user_posts( $staff->ID ),
+					'gotham'
+				)
+			),
+			count_user_posts( $staff->ID )
+		),
+		'link' => count_user_posts( $staff->ID ) > 0 ? $author_link : '',
 	],
 	'email'     => [
 		'name' => __( 'Email', 'gotham' ),
@@ -47,14 +58,20 @@ $social_links = [
 		<?php if ( is_archive() ) : ?>
 			<img src="<?php echo esc_url( $staff_photo ); ?>" />
 		<?php else : ?>
-			<a href="<?php echo esc_url( $author_link ) ?>"><img src="<?php echo esc_url( $staff_photo ); ?>" /></a>
+			<a href="<?php echo esc_url( $author_link ); ?>"><img src="<?php echo esc_url( $staff_photo ); ?>" /></a>
 		<?php endif; ?>
 	</figure>
 	<main class="user__info">
 		<?php if ( is_archive() ) : ?>
 			<h2 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h2>
 		<?php else : ?>
-			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ) ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
+			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ); ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $user_meta['gotham_user_title'][0] ) ) : ?>
+		<div class="user__title">
+			<?php echo esc_html( $user_meta['gotham_user_title'][0] ); ?>
+		</div>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $user_meta['description'][0] ) ) : ?>
