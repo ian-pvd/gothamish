@@ -31,8 +31,10 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 4. Create a "Staff" page at `/staff`.
     - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
+    - To display a special job title for a user (ie: Editor-in-Chief, Co-Founder), you can add it to the "Gothamish Staff Title" field.
 
 **Logotype:**
+
 To display a custom logotype using the blog name (ie: **Gotham**ish), set your blog name to a single word that ends in '-ish'. For example: **Detroit**ish, **Seattle**ish, or **Oakland**ish.
 
 ## Style & Layout Options
