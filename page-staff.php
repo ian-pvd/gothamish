@@ -6,6 +6,8 @@
  * roles to be displayed. Admin accounts have been deliberately excluded
  * from displaying on the front end.
  *
+ * Template Name: Staff Page
+ *
  * @package Gothamish
  */
 
