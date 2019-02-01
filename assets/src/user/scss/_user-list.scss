@@ -37,16 +37,32 @@
 }
 
 .user {
-	display: flex;
+	@include breakpoints(none, small) {
+		@include clear-float();
+	}
+
+	@include breakpoints(small) {
+		display: flex;
+	}
 }
 
 .user__portrait {
-	flex: 0 0 auto;
+	float: left;
 	margin-right: spacer(1);
-	width: rem(100);
+	max-width: calc(100vw / 3);
+	min-width: rem(100);
+	width: 100%;
+
+	@include breakpoints(small) {
+		flex: 0 0 auto;
+		float: none;
+		width: rem(100);
+	}
 }
 
 .user__name {
+	clear: none;
+
 	a {
 		@include link-hover();
 		color: $color--text;
@@ -58,7 +74,7 @@
 }
 
 .user__title {
-	align-items: center;
+	align-items: top;
 	color: $color--primary;
 	display: flex;
 	font-weight: 700;
@@ -67,16 +83,20 @@
 	&::before {
 		@include pseudo-block();
 		background: $color--primary;
+		flex: 0 0 auto;
 		margin-right: spacer(0.5);
+		margin-top: calc(1em / 3);
 	}
 }
 
 .user__bio {
 	margin-bottom: spacer(0.5);
+
 }
 
 .user__social-links {
 	display: flex;
+	flex-wrap: wrap;
 	list-style: none;
 	margin: 0;
 }
