@@ -58,11 +58,11 @@
 
 				if ( is_front_page() && is_home() ) :
 					?>
-					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php echo gotham_logotype(); ?></a></h1>
 					<?php
 				else :
 					?>
-					<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<p class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_html( $logo_link_title ); ?>" rel="home"><?php echo gotham_logotype(); ?></a></p>
 					<?php
 				endif;
 				?>
