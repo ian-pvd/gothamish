@@ -1,6 +1,6 @@
 # Gothamish
 
-Gothamish is a WordPress news theme about New York.
+Gothamish is a WordPress theme about New York.
 
 ![Gothamish Theme Preview](https://gothamish.press/wp-content/uploads/2019/01/gothamish-preview.png)
 [View Full Preview](https://gothamish.press/wp-content/uploads/2019/01/gothamish-preview-full.png)
