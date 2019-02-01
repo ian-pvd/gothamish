@@ -212,25 +212,28 @@ if ( ! function_exists( 'gotham_tag_banner' ) ) :
 				switch ( $tag->slug ) {
 					case 'best-of':
 						$banner_type = $tag->slug;
-						$banner_text = __(
-							'Best of <span class="site-logotype"><span>Gotham</span>ish</span>',
-							'gotham'
+						$banner_text = sprintf(
+							'%1$s %2$s',
+							__( 'Best of', 'gotham' ),
+							gotham_logotype()
 						);
 						$banner_link = get_term_link( $tag );
 						break;
 					case 'gothamish-films':
 						$banner_type = $tag->slug;
-						$banner_text = __(
-							'<span class="site-logotype"><span>Gotham</span>ish</span> Films',
-							'gotham'
+						$banner_text = sprintf(
+							'%1$s %2$s',
+							gotham_logotype(),
+							__( 'Films', 'gotham' )
 						);
 						$banner_link = get_term_link( $tag );
 						break;
 					case 'long-form':
 						$banner_type = $tag->slug;
-						$banner_text = __(
-							'Long Form on <span class="site-logotype"><span>Gotham</span>ish</span>',
-							'gotham'
+						$banner_text = sprintf(
+							'%1$s %2$s',
+							__( 'Long Form on', 'gotham' ),
+							gotham_logotype()
 						);
 						$banner_link = get_term_link( $tag );
 						break;
@@ -332,7 +335,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 			wp_kses(
 				/* translators: %s: Donate Link */
 				__(
-					'<span class="site-logotype"><span>Gotham</span>ish</span> is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from Gothamish. Thank you!',
+					gotham_logotype() . ' is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from %3$s. Thank you!',
 					'gotham'
 				),
 				[ 'span' => [ 'class' => [] ] ]
@@ -346,7 +349,8 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 				'<a href="%2$s">%1$s</a>',
 				esc_html__( 'making a donation today', 'gotham' ),
 				esc_url( '/donate' )
-			)
+			),
+			esc_html( get_bloginfo( 'name' ) )
 		);
 	}
 endif;
@@ -518,7 +522,16 @@ if ( ! function_exists( 'gotham_logotype' ) ) :
 	 * @return string Formatted site title.
 	 */
 	function gotham_logotype() {
-		return '<span class="site-logotype"><span>Gotham</span>ish</span>';
+		// Get blog name.
+		$logotype = get_bloginfo( 'name' );
+		// If blog name is one word and ends in -ish.
+		if ( ! strpos( $logotype, ' ' ) && ! substr_compare( $logotype, 'ish', -strlen( 'ish' ) ) ) {
+			// Wrap everything but the -ish in a span tag.
+			$logotype = explode( 'ish', $logotype );
+			$logotype = '<span>' . $logotype[0] . '</span>ish';
+		}
+		// Return logotype string.
+		return '<span class="site-logotype">' . $logotype . '</span>';
 	}
 endif;
 
