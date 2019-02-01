@@ -55,7 +55,6 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 			[
 				'network-list' => esc_html__( 'Site Networks', 'gotham' ),
 				'primary-nav'  => esc_html__( 'Primary Navigation', 'gotham' ),
-				'quick-links'  => esc_html__( 'Home Header Quick Links', 'gotham' ),
 				'utilities'    => esc_html__( 'Footer Utilities', 'gotham' ),
 			]
 		);

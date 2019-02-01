@@ -10,17 +10,10 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area content-area--front-page">
 		<main id="main" class="site-main">
 
-			<div>HERO SECTION
-				<div>POST GRID</div>
-				<div>HERO SIDEBAR
-					<div>AD PLACEHOLDER</div>
-					<div>SUBSCRIBE WIDGET</div>
-					<DIV>QUICK LINKS</DIV>
-				</div>
-			</div>
+			<?php get_template_part( 'template-parts/front', 'hero' ); ?>
 
 			<div>POSTS FEED</div>
 
