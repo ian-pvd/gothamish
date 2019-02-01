@@ -22,6 +22,7 @@
 	.entry-title {
 		margin-bottom: spacer(0.5);
 		font-size: rem(28);
+		word-wrap: break-word;
 
 		a {
 			@include link-hover();

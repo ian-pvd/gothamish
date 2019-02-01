@@ -39,7 +39,7 @@ function gotham_enqueue_assets() {
 		}
 
 		/* User List & Archive */
-		if ( is_post_type_archive( 'user' ) || is_page( 'staff' ) ) {
+		if ( is_author() || is_page( 'staff' ) ) {
 			wp_enqueue_script( 'gotham-user-js', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'user-js' ), [], '1.0', true );
 			wp_enqueue_style( 'gotham-user-css', GOTHAM_URL . '/assets/dist/' . gotham_get_asset_version( 'user-css' ), [], '1.0' );
 		}

@@ -37,7 +37,7 @@ get_header();
 					gotham_tag_banner( $tag_archive->slug );
 				}
 
-				the_archive_title( '<h1 class=" ' . $title_class . ' ">', '</h1>' );
+				the_archive_title( '<h1 class="' . $title_class . '">', '</h1>' );
 				the_archive_description( '<div class="page__description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
