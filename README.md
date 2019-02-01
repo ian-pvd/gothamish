@@ -30,6 +30,9 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
     - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
 
+==Logotype:==
+To display a custom logotype using the blog name (ie: **Gotham**ish), set your blog name to a single word that ends in '-ish'. For example: **Detroit**ish, **Seattle**ish, or **Oakland**ish.
+
 ## Style & Layout Options
 This theme contains modifier styles which can be enabled or disabled to change various component layouts.
 - Site Header Layout – Choose between the traditional centred logo/logotype, or use enable the `--logo-left` option to use a left aligned logo with a right aligned nav display.
