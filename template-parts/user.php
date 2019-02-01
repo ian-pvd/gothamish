@@ -24,8 +24,8 @@ $social_links = [
 			esc_html(
 				/* translators: s: article count */
 				_nx(
-					'%s Articles',
 					'%s Article',
+					'%s Articles',
 					count_user_posts( $staff->ID ),
 					'gotham'
 				)
