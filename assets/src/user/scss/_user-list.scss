@@ -57,6 +57,20 @@
 	}
 }
 
+.user__title {
+	align-items: center;
+	color: $color--primary;
+	display: flex;
+	font-weight: 700;
+	text-transform: uppercase;
+
+	&::before {
+		@include pseudo-block();
+		background: $color--primary;
+		margin-right: spacer(0.5);
+	}
+}
+
 .user__bio {
 	margin-bottom: spacer(0.5);
 }

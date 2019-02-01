@@ -532,34 +532,36 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 		// Use Staff global.
 		global $staff;
 
-		// User query args.
-		$args = [
-			'blog_id'    => $GLOBALS['blog_id'],
-			'role'       => array_key_exists( 'role', $args ) ? $args['role'] : '',
-			'orderby'    => 'registered',
-			'order'      => 'ASC',
-			// NOTE: Only user accounts with first & last names set will
-			// display, this is to prevent internal / utility accounts from
-			// showing up in the authors list.
-			'meta_query' => [
-				'relation' => 'AND',
-				[
-					'key'     => 'first_name',
-					'value'   => '',
-					'compare' => '!=',
-				],
-				[
-					'key'     => 'last_name',
-					'value'   => '',
-					'compare' => '!=',
-				],
-			],
-		];
-
 		// Set key for each user group query.
 		$cache_key = ( ! empty( $args['role'] ) ) ? 'user_query_' . $args['role'] : 'user_query';
 		// Check for existing results.
 		if ( ! $user_results = get_transient( $cache_key ) ) {
+
+			// User query args.
+			$args = [
+				'blog_id'    => $GLOBALS['blog_id'],
+				'role'       => array_key_exists( 'role', $args ) ? $args['role'] : '',
+				'orderby'    => 'meta_value',
+				'order'      => 'ASC',
+				'meta_key'   => 'last_name',
+				// NOTE: Only user accounts with first & last names set will
+				// display, this is to prevent internal / utility accounts from
+				// showing up in the authors list.
+				'meta_query' => [
+					'relation' => 'AND',
+					[
+						'key'     => 'first_name',
+						'value'   => '',
+						'compare' => '!=',
+					],
+					[
+						'key'     => 'last_name',
+						'value'   => '',
+						'compare' => '!=',
+					],
+				],
+			];
+
 			// Query list of users.
 			$user_results = new WP_User_Query( $args );
 
