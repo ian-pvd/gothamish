@@ -19,8 +19,10 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 ## Theme Setup
 **Menus:**
 1. Create and assign a main navigation menu for the Primary Navigation location.
+2. (Recommended) Create and assign a list of primary page links for the Home Quick Links menu location.
+3. (Recommended) Create and assign a list of social media profile links for the Social Links location.
 2. (Optional) Create and assign a list of partner network sites for the Site Networks location.
-3. (Optional) Create and assign a list of social media profile links for the Social Links location.
+3. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
 
 **Pages:**
 1. Create a "Privacy Policy" page at `/privacy`.
@@ -30,7 +32,7 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
     - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
 
-==Logotype:==
+**Logotype:**
 To display a custom logotype using the blog name (ie: **Gotham**ish), set your blog name to a single word that ends in '-ish'. For example: **Detroit**ish, **Seattle**ish, or **Oakland**ish.
 
 ## Style & Layout Options
