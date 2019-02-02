@@ -334,7 +334,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 		printf(
 			'<div class="entry-footer__donation-appeal">' .
 			wp_kses(
-				/* translators: %s: Donate Link */
+				/* translators: %1$s: site title */
 				__(
 					'%1$s is now part of %2$s, a nonprofit organization that relies on its members for support. You can help us by %3$s!  Your contribution supports more local, %4$s coverage from %5$s. Thank you!',
 					'gotham'
@@ -351,8 +351,18 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 			),
 			sprintf(
 				'<a href="%2$s" target="_blank">%1$s</a>',
-				esc_html__( 'PVD Industrial', 'gotham' ),
-				esc_url( 'https://ian.pvdind.com' )
+				esc_html(
+					gotham_get_option(
+						'site-network',
+						get_bloginfo( 'name' )
+					)
+				),
+				esc_url(
+					gotham_get_option(
+						'network-url',
+						site_url()
+					)
+				)
 			),
 			sprintf(
 				'<a href="%2$s">%1$s</a>',

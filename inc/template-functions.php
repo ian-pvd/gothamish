@@ -61,7 +61,8 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 		// An array of hardcoded theme options.
 		$theme_options = [
 			'site-network'       => 'PVD Industrial',
-			'site-city'          => 'New York',
+			'network-url'        => 'https://pvdindustrial.com',
+			'site-city'          => __( 'New York', 'gotham' ),
 			'primary-categories' => [
 				'news',
 				'arts-entertainment',
