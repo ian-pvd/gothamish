@@ -369,7 +369,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 				esc_html__( 'making a donation today', 'gotham' ),
 				esc_url( '/donate' )
 			),
-			esc_html( gotham_get_option( 'site-city', 'Brooklyn' ) ),
+			esc_html( gotham_get_option( 'site-location', 'New York' ) ),
 			esc_html( get_bloginfo( 'name' ) )
 		);
 	}

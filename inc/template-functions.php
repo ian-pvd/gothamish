@@ -60,9 +60,13 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 
 		// An array of hardcoded theme options.
 		$theme_options = [
-			'site-network'       => 'PVD Industrial',
-			'network-url'        => 'https://pvdindustrial.com',
-			'site-city'          => __( 'New York', 'gotham' ),
+			// The name of the site's parent network.
+			'site-network' => 'PVD Industrial',
+			// Site parent network URL.
+			'network-url' => 'https://pvdindustrial.com',
+			// The location the blog covers.
+			'site-location' => __( 'New York', 'gotham' ),
+			// Category slugs for the home page post feeds.
 			'primary-categories' => [
 				'news',
 				'arts-entertainment',
