@@ -305,9 +305,10 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 					'<div class="entry-footer__digest-subscribe">' .
 					/* translators: %s: Subscribe Link */
 					esc_html__(
-						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamish Weekly Digest. %s',
+						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the %1$s Weekly Digest. %2$s',
 						'gotham'
 					) . '</div>',
+					esc_html( get_bloginfo( 'name' ) ),
 					sprintf(
 						'<a href="%2$s">%1$s</a>',
 						esc_html__( 'Subscribe Today!', 'gotham' ),
@@ -335,11 +336,19 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 			wp_kses(
 				/* translators: %s: Donate Link */
 				__(
-					gotham_logotype() . ' is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from %3$s. Thank you!',
+					'%1$s is now part of %2$s, a nonprofit organization that relies on its members for support. You can help us by %3$s!  Your contribution supports more local, %4$s coverage from %5$s. Thank you!',
 					'gotham'
 				),
 				[ 'span' => [ 'class' => [] ] ]
 			) . '</div>',
+			wp_kses(
+				gotham_logotype(),
+				[
+					'span' => [
+						'class' => [],
+					],
+				]
+			),
 			sprintf(
 				'<a href="%2$s" target="_blank">%1$s</a>',
 				esc_html__( 'PVD Industrial', 'gotham' ),
@@ -350,6 +359,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 				esc_html__( 'making a donation today', 'gotham' ),
 				esc_url( '/donate' )
 			),
+			esc_html( gotham_get_option( 'site-city', 'Brooklyn' ) ),
 			esc_html( get_bloginfo( 'name' ) )
 		);
 	}
