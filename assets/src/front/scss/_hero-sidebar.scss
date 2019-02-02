@@ -3,6 +3,10 @@
  */
 
 .widget-area--front-hero {
+	@include breakpoints(medium) {
+		margin-bottom: 0;
+	}
+
 	.widget_nav_menu {
 		.widget__title {
 			display: none;
