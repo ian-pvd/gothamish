@@ -72,6 +72,8 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 				'arts-entertainment',
 				'food',
 			],
+			// Toggle display advertisments.
+			'display-ads' => false,
 		];
 
 		if ( ! empty( $theme_options[ $option ] ) ) {

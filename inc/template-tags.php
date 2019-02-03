@@ -334,7 +334,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 		printf(
 			'<div class="entry-footer__donation-appeal">' .
 			wp_kses(
-				/* translators: %1$s: site title */
+				/* translators: 1: blog name, 2: network name, 3: donate link, 4: site locale, 5: blog name */
 				__(
 					'%1$s is now part of %2$s, a nonprofit organization that relies on its members for support. You can help us by %3$s!  Your contribution supports more local, %4$s coverage from %5$s. Thank you!',
 					'gotham'

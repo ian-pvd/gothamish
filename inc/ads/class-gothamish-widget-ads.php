@@ -44,9 +44,9 @@ class Gothamish_Widget_Ads extends WP_Widget {
 
 		// Widget Contents.
 		if ( '0' !== $instance['ad_size'] ) {
-			gotham_ad_slot( $ad_position, $instance['ad_size'] );
+			gotham_display_ad( $ad_position, $instance['ad_size'] );
 		} else {
-			gotham_ad_slot( $ad_position );
+			gotham_display_ad( $ad_position );
 		}
 
 		echo $args['after_widget'];
@@ -111,3 +111,29 @@ add_action(
 		register_widget( 'Gothamish_Widget_Ads' );
 	}
 );
+
+/**
+ * Filter ad widgets from sidebars if 'display-ads' option is false.
+ *
+ * @param  array $sidebars_widgets Array of sidebars and their widgets.
+ * @return array                   Filtered sidebars array.
+ */
+function gotham_ad_widget_display_option( $sidebars_widgets ) {
+	// If ads disabled, filter widgets...
+	if ( ! gotham_get_option( 'display-ads' ) ) {
+		// Loop through sidebars to check widgets.
+		foreach ( $sidebars_widgets as $sidebar => $widgets ) {
+			// Loop through widgets to check widget type.
+			foreach ( $widgets as $key => $widget ) {
+				// If widget is an ad widget...
+				if ( 'gotham_ads_widget' === substr( $widget, 0, 17 ) ) {
+					// Remove widget from sidebar.
+					unset( $sidebars_widgets[ $sidebar ][ $key ] );
+				}
+			}
+		}
+	}
+
+	return $sidebars_widgets;
+}
+add_filter( 'sidebars_widgets', 'gotham_ad_widget_display_option' );
