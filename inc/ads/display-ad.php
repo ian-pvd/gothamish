@@ -4,7 +4,8 @@
  *
  * By default this theme calls `gotham_ad_display` to display an ad
  * placeholder. You can replace this function with a call to your favorite
- * ad provider to cuztomize ads on your site.
+ * ad provider to cuztomize ads on your site or disable it entirely via
+ * gotham_get_options.
  *
  * @package Gothamish
  */
@@ -22,15 +23,16 @@ function gotham_display_ad( $ad_position = null, $ad_size = '300x250' ) {
 		$ad_position = 'ad-position--' . $ad_position;
 	}
 
+	// Check if theme should display ads.
+	if ( ! gotham_get_option( 'display-ads' ) ) {
+		// If not, leave an HTML comment.
+		echo '<!-- ads display option disabled - ' . esc_attr( $ad_position ) . ' -->';
+		return;
+	}
+
 	// Place single ad size for loop output.
 	if ( ! is_array( $ad_size ) ) {
 		$ad_size = [ $ad_size ];
-	}
-
-	// Check if theme should display ads.
-	if ( ! gotham_get_option( 'display-ads' ) ) {
-		echo '<!-- ads display option disabled - ' . esc_attr( $ad_position ) . ' -->';
-		return;
 	}
 
 	// Open the ad display container.

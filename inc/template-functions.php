@@ -73,7 +73,7 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 				'food',
 			],
 			// Toggle display advertisments.
-			'display-ads' => false,
+			'display-ads' => true,
 		];
 
 		if ( ! empty( $theme_options[ $option ] ) ) {

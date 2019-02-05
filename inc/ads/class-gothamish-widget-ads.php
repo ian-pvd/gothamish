@@ -119,6 +119,10 @@ add_action(
  * @return array                   Filtered sidebars array.
  */
 function gotham_ad_widget_display_option( $sidebars_widgets ) {
+
+	// Set a key for the cached widgets.
+	$cache_key = 'filtered_widgets';
+
 	// If ads disabled, filter widgets...
 	if ( ! gotham_get_option( 'display-ads' ) ) {
 		// Loop through sidebars to check widgets.
