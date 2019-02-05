@@ -123,19 +123,25 @@ function gotham_ad_widget_display_option( $sidebars_widgets ) {
 	// Set a key for the cached widgets.
 	$cache_key = 'filtered_widgets';
 
-	// If ads disabled, filter widgets...
-	if ( ! gotham_get_option( 'display-ads' ) ) {
-		// Loop through sidebars to check widgets.
-		foreach ( $sidebars_widgets as $sidebar => $widgets ) {
-			// Loop through widgets to check widget type.
-			foreach ( $widgets as $key => $widget ) {
-				// If widget is an ad widget...
-				if ( 'gotham_ads_widget' === substr( $widget, 0, 17 ) ) {
-					// Remove widget from sidebar.
-					unset( $sidebars_widgets[ $sidebar ][ $key ] );
+	if ( ! $filtered_widgets = get_transient( $cache_key ) ) {
+
+		// If ads disabled, filter widgets...
+		if ( ! gotham_get_option( 'display-ads' ) ) {
+			// Loop through sidebars to check widgets.
+			foreach ( $sidebars_widgets as $sidebar => $widgets ) {
+				// Loop through widgets to check widget type.
+				foreach ( $widgets as $key => $widget ) {
+					// If widget is an ad widget...
+					if ( 'gotham_ads_widget' === substr( $widget, 0, 17 ) ) {
+						// Remove widget from sidebar.
+						unset( $sidebars_widgets[ $sidebar ][ $key ] );
+					}
 				}
 			}
 		}
+
+		// Stash the results.
+		set_transient( $cache_key, $filtered_widgets, 24 * HOUR_IN_SECONDS );
 	}
 
 	return $sidebars_widgets;
