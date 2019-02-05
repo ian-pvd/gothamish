@@ -305,9 +305,10 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 					'<div class="entry-footer__digest-subscribe">' .
 					/* translators: %s: Subscribe Link */
 					esc_html__(
-						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the Gothamish Weekly Digest. %s',
+						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the %1$s Weekly Digest. %2$s',
 						'gotham'
 					) . '</div>',
+					esc_html( get_bloginfo( 'name' ) ),
 					sprintf(
 						'<a href="%2$s">%1$s</a>',
 						esc_html__( 'Subscribe Today!', 'gotham' ),
@@ -333,23 +334,42 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 		printf(
 			'<div class="entry-footer__donation-appeal">' .
 			wp_kses(
-				/* translators: %s: Donate Link */
+				/* translators: 1: blog name, 2: network name, 3: donate link, 4: site locale, 5: blog name */
 				__(
-					gotham_logotype() . ' is now part of %1$s, a nonprofit organization that relies on its members for support. You can help us by %2$s!  Your contribution supports more local, New York coverage from %3$s. Thank you!',
+					'%1$s is now part of %2$s, a nonprofit organization that relies on its members for support. You can help us by %3$s!  Your contribution supports more local, %4$s coverage from %5$s. Thank you!',
 					'gotham'
 				),
 				[ 'span' => [ 'class' => [] ] ]
 			) . '</div>',
+			wp_kses(
+				gotham_logotype(),
+				[
+					'span' => [
+						'class' => [],
+					],
+				]
+			),
 			sprintf(
 				'<a href="%2$s" target="_blank">%1$s</a>',
-				esc_html__( 'PVD Industrial', 'gotham' ),
-				esc_url( 'https://ian.pvdind.com' )
+				esc_html(
+					gotham_get_option(
+						'site-network',
+						get_bloginfo( 'name' )
+					)
+				),
+				esc_url(
+					gotham_get_option(
+						'network-url',
+						site_url()
+					)
+				)
 			),
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
 				esc_html__( 'making a donation today', 'gotham' ),
 				esc_url( '/donate' )
 			),
+			esc_html( gotham_get_option( 'site-location', 'New York' ) ),
 			esc_html( get_bloginfo( 'name' ) )
 		);
 	}

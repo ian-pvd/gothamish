@@ -19,7 +19,7 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'single' );
 
-			gotham_ad_slot(
+			gotham_display_ad(
 				'post-footer',
 				[
 					'mobile'  => '300x600',
