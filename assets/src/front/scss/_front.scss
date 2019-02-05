@@ -17,13 +17,9 @@
 }
 
 .hero-section__featured-posts {
-	margin-bottom: spacer(2);
 	display: grid;
 	grid-gap: spacer(1);
-
-	> * {
-		@include dev-block();
-	}
+	margin-bottom: spacer(2);
 
 	@include breakpoints(small, medium) {
 		grid-template-columns: 1fr 1fr;
@@ -35,8 +31,8 @@
 
 	@include breakpoints(medium) {
 		flex: 1 0 auto;
-		max-width: 100%;
 		margin: 0 auto 0 0;
+		max-width: 100%;
 	}
 
 	@include breakpoints(large) {
@@ -44,6 +40,16 @@
 
 		.post:first-child {
 			grid-column: 1 / span 2;
+		}
+	}
+
+	.post:first-child .post__title {
+		@include breakpoints(small, medium) {
+			font-size: 1.75rem;
+		}
+
+		@include breakpoints(large) {
+			font-size: 2rem;
 		}
 	}
 }
