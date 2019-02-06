@@ -206,3 +206,8 @@ require_once GOTHAM_PATH . '/inc/excerpts/index.php';
  * Gothamish: Load Custom User & Staff Module
  */
 require_once GOTHAM_PATH . '/inc/users/index.php';
+
+/**
+ * Gothamish: Load Featured Content Module.
+ */
+require_once GOTHAM_PATH . '/inc/featured-content/index.php';
