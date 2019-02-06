@@ -44,6 +44,8 @@
 		}
 	}
 
+	/* stylelint-disable selector-max-specificity */
+	/* Trying to limit selector conditionals in tout template portable. */
 	.post:first-child .post__title {
 		@include breakpoints(small, medium) {
 			font-size: 1.75rem;
@@ -53,6 +55,7 @@
 			font-size: 2rem;
 		}
 	}
+	/* stylelint-enable */
 }
 
 .hero-section__sidebar {
