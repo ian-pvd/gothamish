@@ -2,6 +2,17 @@
  * Front Page layout styles
  */
 
+// DEV
+.site-content {
+	background: transparent;
+	padding: 1rem 0;
+
+	.content-area {
+		padding: 1rem 1rem;
+		background: white;
+	}
+}
+
 .content-area--front-page {
 	flex: 0 0 auto;
 	max-width: 100%;
