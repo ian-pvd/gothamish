@@ -67,10 +67,11 @@ function gotham_featured_posts() {
 		// Featured posts args.
 		$featured_posts = new WP_Query(
 			[
-				'no_found_rows'  => true,
-				'post__in'       => $featured_ids,
-				'posts_per_page' => 3,
-				'orderby'        => 'post__in',
+				'ignore_sticky_posts' => true,
+				'no_found_rows'       => true,
+				'orderby'             => 'post__in',
+				'post__in'            => $featured_ids,
+				'posts_per_page'      => 3,
 			]
 		);
 
