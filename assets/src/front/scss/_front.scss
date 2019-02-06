@@ -1,0 +1,67 @@
+/**
+ * Front Page layout styles
+ */
+
+.content-area--front-page {
+	flex: 0 0 auto;
+	max-width: 100%;
+	width: 100%;
+}
+
+.hero-section {
+	margin-bottom: spacer(2);
+
+	@include breakpoints(medium) {
+		display: flex;
+		margin-bottom: 0;
+	}
+}
+
+.hero-section__featured-posts {
+	display: grid;
+	grid-gap: spacer(1);
+	margin-bottom: spacer(2);
+
+	@include breakpoints(small, medium) {
+		grid-template-columns: 1fr 1fr;
+
+		.post:first-child {
+			grid-column: 1 / span 2;
+		}
+	}
+
+	@include breakpoints(medium) {
+		flex: 1 0 auto;
+		margin: 0 auto 0 0;
+		max-width: 100%;
+	}
+
+	@include breakpoints(large) {
+		grid-template-columns: 1fr 1fr;
+
+		.post:first-child {
+			grid-column: 1 / span 2;
+		}
+	}
+
+	/* stylelint-disable selector-max-specificity */
+	/* Trying to limit selector conditionals in tout template. */
+	.post:first-child .post__title {
+		@include breakpoints(small, medium) {
+			font-size: 1.75rem;
+		}
+
+		@include breakpoints(large) {
+			font-size: 2rem;
+		}
+	}
+	/* stylelint-enable */
+}
+
+.hero-section__sidebar {
+	@include breakpoints(medium) {
+		flex: 0 0 auto;
+		margin-left: spacer(1);
+		width: 300px;
+	}
+}

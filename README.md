@@ -12,17 +12,15 @@ Gothamish is built on PVD Industrial's [roundhouse](https://github.com/ian-pvd/r
 - Ad Slot Placeholders – Easily replace function calls to `inc/ads/index.php` with function calls to your favourite ad provider to monetize your sites content.
 - Partner Sites Menu – Enable the Site Networks menu to display a list of partner networks and a "Support Us" donate button at the top of the site.
 - Tag Highlight Banners – Draw attention to special content tags like "Best of" or "Films" with a post banner that displays at the top of single posts, post archives and above taxonomy widgets.
+- Highlight content at the top of the home page simply by tagging it with "featured" using Jetpack's [Featured Content](https://jetpack.com/support/featured-content/) option.
 
 ## Installation
 To start using this theme, download or clone a copy of the theme to your `wp-content/themes` directory. Once it has been added, open your site's admin panel and go to `Appearance > Themes` and click "Activate" to use the Gothamish theme.
 
 ## Theme Setup
-**Menus:**
-1. Create and assign a main navigation menu for the Primary Navigation location.
-2. (Recommended) Create and assign a list of primary page links for the Home Quick Links menu location.
-3. (Recommended) Create and assign a list of social media profile links for the Social Links location.
-2. (Optional) Create and assign a list of partner network sites for the Site Networks location.
-3. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
+**Reading Options**
+
+To use the customized home page layout, create a "Home" and "Blog" page. Under `Settings` -> `Reading`, change the "Your homepage displays" option to "A static page" and set the home page to "Home" and posts page to "Blog"
 
 **Pages:**
 1. Create a "Privacy Policy" page at `/privacy`.
@@ -32,6 +30,18 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
     - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
     - To display a special job title for a user (ie: Editor-in-Chief, Co-Founder), you can add it to the "Gothamish Staff Title" field.
+
+**Sidebars:**
+- Single Post Sidebar: The default sidebar used throughout the site on posts.
+- Page Content Sidebar: A shorter sidebar intented for shorter page content.
+- Front Page Hero Sidebar: A sidebar that's displayed at the top of the home page next to the featured content.
+
+**Menus:**
+1. Create and assign a main navigation menu for the Primary Navigation location.
+2. (Recommended) Create and assign a list of social media profile links for the Social Links location.
+3. (Recommended) Create a menu for primary page links and assign it to the Front Page Hero Sidebar using a navigation menu widget.
+4. (Optional) Create and assign a list of partner network sites for the Site Networks location.
+5. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
 
 **Logotype:**
 

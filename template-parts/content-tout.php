@@ -5,6 +5,12 @@
  * @package Gothamish
  */
 
+// Default image size for touts.
+$image_size = 'tout';
+// Reset default to use theme featured thumbnail size.
+if ( is_front_page() ) {
+	$image_size = null;
+}
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post--tout' ); ?>>
@@ -13,6 +19,6 @@
 			<?php the_title( sprintf( '<h3 class="post__title">', '</h3>' ) ); ?>
 		</header><!-- .post__header -->
 
-		<?php the_post_thumbnail( 'tout' ); ?>
+		<?php the_post_thumbnail( $image_size ); ?>
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -48,6 +48,15 @@ function gotham_jetpack_setup() {
 				],
 		]
 	);
+
+	// Add theme support for Featured Content.
+	add_theme_support(
+		'featured-content',
+		[
+			'filter'    => 'gotham_get_featured_posts',
+			'max_posts' => 3,
+		]
+	);
 }
 add_action( 'after_setup_theme', 'gotham_jetpack_setup' );
 
@@ -69,7 +78,6 @@ function gotham_infinite_scroll_render() {
  * Customize Jetpack Sharedaddy links.
  */
 function gotham_jetpack_sharing() {
-
 	remove_filter( 'the_content', 'sharing_display', 19 );
 	remove_filter( 'the_excerpt', 'sharing_display', 19 );
 
@@ -79,3 +87,11 @@ function gotham_jetpack_sharing() {
 }
 add_action( 'loop_start', 'gotham_jetpack_sharing' );
 
+/**
+ * Used to assign featured posts to a variable in a template file.
+ *
+ * @return mixed The value of the featued-content theme support filter.
+ */
+function gotham_get_featured_posts() {
+	return apply_filters( 'gotham_get_featured_posts', [] );
+}
