@@ -8,6 +8,9 @@
 /**
  * Featured posts function.
  *
+ * Looks for Jetpack featured content posts first, and if there aren't
+ * enough, backfills the results, first with sticky and then recent posts.
+ *
  * @return mixed Featured posts.
  */
 function gotham_featured_posts() {
@@ -17,41 +20,39 @@ function gotham_featured_posts() {
 	// Check for cached featured posts.
 	if ( ! $featured_posts = get_transient( $cache_key ) ) {
 
+		// Set up featued post feeder arrays.
+		$jetpack_featured = [];
+		$recent_posts     = [];
+
 		// First, check for Jetpack featured posts.
 		if ( get_theme_support( 'featured-content' ) ) {
 			// Get Featured Content from Jetpack.
 			$jetpack_featured = apply_filters( 'gotham_get_featured_posts', [] );
-		} else {
-			$jetpack_featured = [];
 		}
 
-		// Determine what to do with the results.
+		// If there are less than three featured posts...
 		if ( count( $jetpack_featured ) < 3 ) {
 
-			// Collect IDs to exclude duplicates.
-			$duplicate_ids = [];
-
-			// If no jetpack featured, or less than 3 found, check for more.
+			// Collect featured post IDs to exclude duplicates.
+			$exclude_ids = [];
+			// Loop through the featurd posts and add them to the exclude array.
 			if ( ! empty( $jetpack_featured ) ) {
 				foreach ( $jetpack_featured as $key => $post_object ) {
-					$duplicate_ids[] = $post_object->ID;
+					$exclude_ids[] = $post_object->ID;
 				}
 			}
 
-			// Featured posts args.
+			// Query for recent posts, excluding featured.
 			$recent_posts = new WP_Query(
 				[
 					'no_found_rows'  => true,
-					'post__not_in'   => $duplicate_ids,
+					'post__not_in'   => $exclude_ids,
 					'posts_per_page' => 3,
 				]
 			);
 
 			// Shift featured posts query to array.
 			$recent_posts = $recent_posts->posts;
-
-		} else {
-			$recent_posts = [];
 		}
 
 		// Merge the results down to three posts.
@@ -64,7 +65,7 @@ function gotham_featured_posts() {
 			}
 		}
 
-		// Featured posts args.
+		// New query to get final list of featured posts.
 		$featured_posts = new WP_Query(
 			[
 				'ignore_sticky_posts' => true,
@@ -75,7 +76,7 @@ function gotham_featured_posts() {
 			]
 		);
 
-		// TODO: Stash the featured posts.
+		// Now, stash the featured posts for 3hrs.
 		set_transient( $cache_key, $featured_posts, 3 * HOUR_IN_SECONDS );
 	}
 
@@ -92,6 +93,7 @@ function gotham_featured_posts() {
  * @param  int $post_id The ID of the post that was updated.
  */
 function gotham_delete_featured_posts_cache( $post_id ) {
+	// Whenever posts are saved, reset the featued posts cache.
 	delete_transient( 'featured-posts' );
 }
 add_action( 'save_post', 'gotham_delete_featured_posts_cache' );

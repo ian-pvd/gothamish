@@ -45,7 +45,7 @@
 	}
 
 	/* stylelint-disable selector-max-specificity */
-	/* Trying to limit selector conditionals in tout template portable. */
+	/* Trying to limit selector conditionals in tout template. */
 	.post:first-child .post__title {
 		@include breakpoints(small, medium) {
 			font-size: 1.75rem;
