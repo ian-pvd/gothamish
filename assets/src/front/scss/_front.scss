@@ -13,6 +13,7 @@
 
 	@include breakpoints(medium) {
 		display: flex;
+		margin-bottom: 0;
 	}
 }
 
