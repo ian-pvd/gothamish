@@ -18,5 +18,21 @@ get_header();
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+	<?php
+		// Front Page Hero Banner Ad Slot.
+		gotham_display_ad(
+			'front-hero',
+			[
+				'mobile'  => '320x50',
+				'tablet'  => '468x60',
+				'desktop' => '970x90',
+			]
+		);
+		?>
+
+	<div id="primary-feed" class="content-area content-area--post-feed">
+		POST FEED
+	</div>
+
 <?php
 get_footer();

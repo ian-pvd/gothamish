@@ -63,3 +63,21 @@ body,
 		font-weight: 700;
 	}
 }
+
+// DEV
+.page-template-front-page {
+	.site-header {
+		margin-bottom: 0;
+	}
+
+	.site-content {
+		background: transparent;
+		padding: 0;
+		display: block;
+
+		.content-area {
+			padding: 1rem 1rem;
+			background: white;
+		}
+	}
+}

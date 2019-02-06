@@ -2,21 +2,12 @@
  * Front Page layout styles
  */
 
-// DEV
-.site-content {
-	background: transparent;
-	padding: 1rem 0;
-
+.page-template-front-page {
 	.content-area {
-		padding: 1rem 1rem;
-		background: white;
+		flex: 0 0 auto;
+		max-width: 100%;
+		width: 100%;
 	}
-}
-
-.content-area--front-page {
-	flex: 0 0 auto;
-	max-width: 100%;
-	width: 100%;
 }
 
 .hero-section {
