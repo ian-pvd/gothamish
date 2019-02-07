@@ -48,6 +48,11 @@ function gotham_featured_posts() {
 					'no_found_rows'  => true,
 					'post__not_in'   => $exclude_ids,
 					'posts_per_page' => 3,
+					'meta_query' => [
+						[
+							'key' => '_thumbnail_id',
+						],
+					],
 				]
 			);
 
