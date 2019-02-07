@@ -8,7 +8,8 @@
 	justify-content: center;
 }
 
-.ad-position--site-header {
+.ad-position--site-header,
+.ad-position--front-hero {
 	@include full-bleed();
 	margin-bottom: spacer(1);
 	margin-top: spacer(1);

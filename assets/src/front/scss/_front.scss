@@ -2,14 +2,30 @@
  * Front Page layout styles
  */
 
-.content-area--front-page {
-	flex: 0 0 auto;
-	max-width: 100%;
-	width: 100%;
+// DEV
+.page-template-front-page {
+	.site-header {
+		margin-bottom: 0;
+	}
+
+	.site-content {
+		background: transparent;
+		display: block;
+		padding: 0;
+	}
+
+	.content-area {
+		background: white;
+		border: none;
+		flex: 0 0 auto;
+		max-width: 100%;
+		padding: 1rem 1rem;
+		width: 100%;
+	}
 }
 
 .hero-section {
-	margin-bottom: spacer(2);
+	margin-bottom: spacer(1);
 
 	@include breakpoints(medium) {
 		display: flex;
@@ -46,22 +62,22 @@
 
 	/* stylelint-disable selector-max-specificity */
 	/* Trying to limit selector conditionals in tout template. */
-	.post:first-child .post__title {
-		@include breakpoints(small, medium) {
-			font-size: 1.75rem;
-		}
+	@include breakpoints(small, medium) {
+		.post {
+			.post__title {
+				font-size: rem(18);
+			}
 
-		@include breakpoints(large) {
+			&:first-child .post__title {
+				font-size: 1.75rem;
+			}
+		}
+	}
+
+	@include breakpoints(large) {
+		.post:first-child .post__title {
 			font-size: 2rem;
 		}
 	}
 	/* stylelint-enable */
-}
-
-.hero-section__sidebar {
-	@include breakpoints(medium) {
-		flex: 0 0 auto;
-		margin-left: spacer(1);
-		width: 300px;
-	}
 }

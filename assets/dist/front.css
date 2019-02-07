@@ -1,0 +1,153 @@
+/**
+ * Front Page Styles
+ */
+/**
+ * Theme core styles
+ */
+/**
+ * Theme Utilities
+ */
+/* Functions */
+/* Mixins */
+/* SCSS Dev Utilities */
+/**
+ * Theme Breakpoints
+ */
+/**
+ * Core CSS Colors
+ *
+ * List of primary & secondary named colors for use in CSS.
+ */
+/**
+ * Layout Utilities
+ */
+/* Mixins */
+/**
+ * Grid Utilities
+ */
+/* Mixins */
+/**
+ *  Core Z-Index Utility
+ */
+/**
+ * Typography Utilities
+ */
+/* Named Font Families */
+/* Functions */
+/* Mixins */
+/**
+ * Theme Animations
+ *
+ * Keyframes, transitions & mixins.
+ */
+/**
+ * Theme Options
+ *
+ * Override default utility values with custom theme values
+ */
+/* Custom Breakpoints */
+/* @see `./_breakpoints.scss` */
+/* Custom Colors */
+/* @see `./_colors.scss` */
+/* Custom Font Families */
+/* @see `./_typography.scss` */
+/* Custom Z-Index */
+/* @see `./_z-index.scss` */
+/**
+ * Theme Variables
+ *
+ * Theme specific reusable values.
+ */
+/* Base unit in px */
+/* @see `../index.scss` */
+/* Default Project Colors */
+/* see `./_colors.scss` */
+/* Default Project Fonts */
+/* see `./_typography.scss` */
+/* Common theme values */
+/**
+ * Front Page layout styles
+ */
+.site-content {
+  background: transparent;
+  padding: 1rem 0; }
+  .site-content .content-area {
+    padding: 1rem 1rem;
+    background: white; }
+
+.content-area--front-page {
+  flex: 0 0 auto;
+  max-width: 100%;
+  width: 100%; }
+
+.hero-section {
+  margin-bottom: 2rem; }
+  @media (min-width: 769px) {
+    .hero-section {
+      display: flex;
+      margin-bottom: 0; } }
+
+.hero-section__featured-posts {
+  display: grid;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+  /* stylelint-disable selector-max-specificity */
+  /* Trying to limit selector conditionals in tout template. */
+  /* stylelint-enable */ }
+  @media (min-width: 513px) and (max-width: 768px) {
+    .hero-section__featured-posts {
+      grid-template-columns: 1fr 1fr; }
+      .hero-section__featured-posts .post:first-child {
+        grid-column: 1 / span 2; } }
+  @media (min-width: 769px) {
+    .hero-section__featured-posts {
+      flex: 1 0 auto;
+      margin: 0 auto 0 0;
+      max-width: 100%; } }
+  @media (min-width: 1025px) {
+    .hero-section__featured-posts {
+      grid-template-columns: 1fr 1fr; }
+      .hero-section__featured-posts .post:first-child {
+        grid-column: 1 / span 2; } }
+  @media (min-width: 513px) and (max-width: 768px) {
+    .hero-section__featured-posts .post:first-child .post__title {
+      font-size: 1.75rem; } }
+  @media (min-width: 1025px) {
+    .hero-section__featured-posts .post:first-child .post__title {
+      font-size: 2rem; } }
+
+@media (min-width: 769px) {
+  .hero-section__sidebar {
+    flex: 0 0 auto;
+    margin-left: 1rem;
+    width: 300px; } }
+
+/**
+ * Front Page Hero Sidebar layout styles
+ */
+@media (min-width: 769px) {
+  .widget-area--front-hero {
+    margin-bottom: 0; } }
+
+.widget-area--front-hero .widget_nav_menu .widget__title {
+  display: none; }
+
+.widget-area--front-hero .menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  justify-content: center; }
+
+.widget-area--front-hero .menu-item {
+  font-size: 0.75rem; }
+  .widget-area--front-hero .menu-item:not(:first-child)::before {
+    content: '/';
+    margin: 0 0.33333rem; }
+  .widget-area--front-hero .menu-item a {
+    text-decoration: none;
+    color: #1A1A1A; }
+    .widget-area--front-hero .menu-item a:hover {
+      text-decoration: underline; }
+    .widget-area--front-hero .menu-item a:hover {
+      color: #A00; }
+
