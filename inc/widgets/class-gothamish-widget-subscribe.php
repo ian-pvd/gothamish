@@ -45,8 +45,8 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 		// See: https://mailchimp.com/help/host-your-own-signup-forms/ for more info.
 		$form_fields = [
 			// DEV.
-			// 'action' => 'https://brigada71.us17.list-manage.com/subscribe/post',
-			// 'user_id' => '80a1a717470dc9aed057ef88c',
+			// 'action' => '',
+			// 'user_id' => '',
 			// 'list_id' => '6704548a5c',
 		];
 		if ( ! empty( $instance['form_action'] ) && ! empty( $instance['form_user_id'] ) && ! empty( $instance['form_list_id'] ) ) {
@@ -117,6 +117,9 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 				<?php esc_html_e( 'Enter a background image URL here:' ); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'background_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'background_url' ) ); ?>" type="url" value="<?php echo esc_url( $background_url ); ?>" />
+		</p>
+		<p style="margin: 2em 0 1em; padding-top: 1em; border-top: 1px solid #DDD; line-height: 1.667em;">
+			This subscribe widget can display a MailChimp signup form. For more information on how to fill out these fields, see <a href="https://mailchimp.com/help/host-your-own-signup-forms/" target="_blank">Hosting Your Own Signup Forms</a> in the MailChimp Guides and Tutorials. If left blank, this widget will link to your <code>/subscribe</code> page.
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'form_action' ) ); ?>">
