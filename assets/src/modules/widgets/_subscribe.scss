@@ -61,7 +61,8 @@
 			margin-top: spacer(0.5);
 		}
 
-		input {
+		input,
+		.link-button {
 			margin: spacer(0.25) 0;
 			max-width: 75%;
 			width: 100%;
@@ -80,11 +81,21 @@
 			}
 		}
 
-		input[type='submit'] {
+		input[type='submit'],
+		.link-button {
 			background: $color--primary;
 			border: none;
 			color: $color--text-alt;
 			margin-top: spacer(0.5);
+		}
+
+		.link-button {
+			border-radius: rem(4);
+			display: block;
+			font-size: 1rem;
+			margin: spacer(0.5) auto;
+			padding: rem(4) 1rem;
+			text-decoration: none;
 		}
 	}
 
