@@ -40,7 +40,7 @@ get_header();
 			?>
 		<?php foreach ( $primary_categories as $category ) : ?>
 			<div class="post-feed__column">
-				<h2><?=$category?></h2>
+				<h2><?php echo esc_html( $category ); ?></h2>
 				<?php gotham_post_feed( 3, [ 'category_name' => $category ] ); ?>
 			</div>
 		<?php endforeach; ?>

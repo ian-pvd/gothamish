@@ -16,6 +16,9 @@
  */
 function gotham_post_feed( $num_posts, $args = [] ) {
 	global $posts_to_exclude;
+	if ( empty( $posts_to_exclude ) ) {
+		$posts_to_exclude = [];
+	}
 
 	// Set cache key.
 	$cache_key = 'post_feed';

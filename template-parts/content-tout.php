@@ -19,6 +19,10 @@ if ( is_front_page() ) {
 			<?php the_title( sprintf( '<h3 class="post__title">', '</h3>' ) ); ?>
 		</header><!-- .post__header -->
 
-		<?php the_post_thumbnail( $image_size ); ?>
+		<?php if ( has_post_thumbnail() ) : ?>
+		<div class="post__thumbnail-frame">
+			<?php the_post_thumbnail( $image_size ); ?>
+		</div>
+		<?php endif; ?>
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->
