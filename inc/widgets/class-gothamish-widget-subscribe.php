@@ -43,12 +43,7 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 
 		// Check for MailChimp fields
 		// See: https://mailchimp.com/help/host-your-own-signup-forms/ for more info.
-		$form_fields = [
-			// DEV.
-			// 'action' => '',
-			// 'user_id' => '',
-			// 'list_id' => '6704548a5c',
-		];
+		$form_fields = [];
 		if ( ! empty( $instance['form_action'] ) && ! empty( $instance['form_user_id'] ) && ! empty( $instance['form_list_id'] ) ) {
 			$form_fields = [
 				'action'  => $instance['form_action'],
