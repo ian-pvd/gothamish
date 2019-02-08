@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.2adb19.css',
-		'archive-js' => 'archive.2adb19.js',
-		'editor-css' => 'editor.2adb19.css',
-		'editor-js' => 'editor.2adb19.js',
-		'front-css' => 'front.2adb19.css',
-		'front-js' => 'front.2adb19.js',
-		'page-css' => 'page.2adb19.css',
-		'page-js' => 'page.2adb19.js',
-		'post-css' => 'post.2adb19.css',
-		'post-js' => 'post.2adb19.js',
-		'site-css' => 'site.2adb19.css',
-		'site-js' => 'site.2adb19.js',
-		'user-css' => 'user.2adb19.css',
-		'user-js' => 'user.2adb19.js',
+		'archive-css' => 'archive.16de92.css',
+		'archive-js' => 'archive.16de92.js',
+		'editor-css' => 'editor.16de92.css',
+		'editor-js' => 'editor.16de92.js',
+		'front-css' => 'front.16de92.css',
+		'front-js' => 'front.16de92.js',
+		'page-css' => 'page.16de92.css',
+		'page-js' => 'page.16de92.js',
+		'post-css' => 'post.16de92.css',
+		'post-js' => 'post.16de92.js',
+		'site-css' => 'site.16de92.css',
+		'site-js' => 'site.16de92.js',
+		'user-css' => 'user.16de92.css',
+		'user-js' => 'user.16de92.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
