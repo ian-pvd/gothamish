@@ -60,11 +60,13 @@
 			margin-bottom: spacer(1);
 		}
 
+		/* stylelint-disable selector-max-specificity */
 		&:not(.has-thumbnail) {
 			.post__thumbnail-frame {
 				display: block;
 			}
 		}
+		/* stylelint-enable */
 
 		.post__link-wrapper {
 			display: flex;
