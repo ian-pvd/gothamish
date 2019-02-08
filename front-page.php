@@ -30,9 +30,5 @@ get_header();
 		);
 		?>
 
-	<div id="primary-feed" class="content-area content-area--post-feed">
-		POST FEED
-	</div>
-
 <?php
 get_footer();
