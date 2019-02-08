@@ -1,0 +1,38 @@
+/**
+ * Front Page post feed styles
+ */
+
+.content-area--post-feed {
+	display: flex;
+	justify-content: space-between;
+
+	.post-feed__column {
+		flex: 0 0 auto;
+		width: calc(( 100% - 2em ) / 3);
+	}
+
+	.post--tout {
+		height: auto;
+		padding-top: 1em;
+		overflow: visible;
+		background: none;
+
+		.post__link-wrapper {
+			display: flex;
+			flex-direction: column;
+		}
+
+		img {
+			position: relative;
+			display: block;
+			order: -1;
+		}
+
+		.post__title {
+			padding: 0.25em 0;
+			color: black;
+			background: none;
+			position: relative;
+		}
+	}
+}

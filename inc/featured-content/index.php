@@ -83,6 +83,10 @@ function gotham_featured_posts( $num_posts ) {
 			]
 		);
 
+		// DEV.
+		global $posts_to_exclude;
+		$posts_to_exclude = $featured_post_ids;
+
 		// Now, stash the featured posts for 3hrs.
 		set_transient( $cache_key, $featured_posts, 3 * HOUR_IN_SECONDS );
 	}
@@ -106,3 +110,6 @@ function gotham_delete_featured_posts_cache( $post_id ) {
 	delete_transient( 'featured_posts' );
 }
 add_action( 'save_post', 'gotham_delete_featured_posts_cache' );
+
+// Dev.
+require_once GOTHAM_PATH . '/inc/featured-content/post-feed.php';
