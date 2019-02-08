@@ -52,7 +52,7 @@
 			font-family: font-family(sans-serif);
 			font-size: rem(18);
 			font-weight: 500;
-			margin-bottom: spacer(0.5);
+			margin-bottom: spacer(1);
 		}
 
 		label {
@@ -70,14 +70,23 @@
 
 		input[type='text'],
 		input[type='email'] {
-			background: fade-out(color(white), 0.667);
+			background: fade-out(color(white), 0.5);
 			border: $border--page;
 			font-size: rem(14);
 			height: rem(32);
 			margin-bottom: spacer(0.5);
+			text-align: center;
 
 			&:focus {
-				background: fade-out(color(white), 0.333);
+				background: fade-out(color(white), 0.25);
+
+				&::placeholder {
+					color: color(grey-light);
+				}
+			}
+
+			&:not(:placeholder-shown) {
+				background: fade-out(color(white), 0.25);
 			}
 		}
 
