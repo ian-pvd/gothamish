@@ -52,7 +52,7 @@
 			font-family: font-family(sans-serif);
 			font-size: rem(18);
 			font-weight: 500;
-			margin-bottom: spacer(0.5);
+			margin-bottom: spacer(1);
 		}
 
 		label {
@@ -61,7 +61,8 @@
 			margin-top: spacer(0.5);
 		}
 
-		input {
+		input,
+		.link-button {
 			margin: spacer(0.25) 0;
 			max-width: 75%;
 			width: 100%;
@@ -69,22 +70,41 @@
 
 		input[type='text'],
 		input[type='email'] {
-			background: fade-out(color(white), 0.667);
+			background: fade-out(color(white), 0.5);
 			border: $border--page;
 			font-size: rem(14);
 			height: rem(32);
 			margin-bottom: spacer(0.5);
+			text-align: center;
 
 			&:focus {
-				background: fade-out(color(white), 0.333);
+				background: fade-out(color(white), 0.25);
+
+				&::placeholder {
+					color: color(grey-light);
+				}
+			}
+
+			&:not(:placeholder-shown) {
+				background: fade-out(color(white), 0.25);
 			}
 		}
 
-		input[type='submit'] {
+		input[type='submit'],
+		.link-button {
 			background: $color--primary;
 			border: none;
 			color: $color--text-alt;
 			margin-top: spacer(0.5);
+		}
+
+		.link-button {
+			border-radius: rem(4);
+			display: block;
+			font-size: 1rem;
+			margin: spacer(0.5) auto;
+			padding: rem(4) 1rem;
+			text-decoration: none;
 		}
 	}
 

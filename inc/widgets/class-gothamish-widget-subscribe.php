@@ -41,6 +41,17 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 			$background_url = 'style="' . esc_attr( 'background-image: url(' . esc_url( $background_url ) . ');' ) . '"';
 		}
 
+		// Check for MailChimp fields
+		// See: https://mailchimp.com/help/host-your-own-signup-forms/ for more info.
+		$form_fields = [];
+		if ( ! empty( $instance['form_action'] ) && ! empty( $instance['form_user_id'] ) && ! empty( $instance['form_list_id'] ) ) {
+			$form_fields = [
+				'action'  => $instance['form_action'],
+				'user_id' => $instance['form_user_id'],
+				'list_id' => $instance['form_list_id'],
+			];
+		}
+
 		echo $args['before_widget'];
 
 		if ( ! empty( $instance['title'] ) ) {
@@ -50,30 +61,26 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 		// Widget Contents.
 		echo '<div class="widget__wrapper" ' . $background_url . '>';
 		echo '<div class="widget__site-logo">' . gotham_logotype() . '</div>';
-		// TODO: Replace this echo statement with WP content block.
-		echo '<!-- Begin Mailchimp Signup Form -->
-			<div id="mc_embed_signup">
-			<form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-			    <div id="mc_embed_signup_scroll">
-				<h2>Subscribe to our mailing list</h2>
-			<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-			<div class="mc-field-group">
-				<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-			</label>
-				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-			</div>
-				<div id="mce-responses" class="clear">
-					<div class="response" id="mce-error-response" style="display:none"></div>
-					<div class="response" id="mce-success-response" style="display:none"></div>
-				</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" tabindex="-1" value=""></div>
-			    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-			    </div>
-			</form>
-			</div>
 
-			<!--End mc_embed_signup-->';
-		echo '</div>';
+		if ( ! empty( $form_fields ) ) {
+			echo '
+				<form action="' . esc_url( $form_fields['action'] ) . '" method="post" name="widget-subscribe-form" target="_blank">
+					<input type="hidden" name="u" value="' . esc_attr( $form_fields['user_id'] ) . '">
+					<input type="hidden" name="id" value="' . esc_attr( $form_fields['list_id'] ) . '">
+					<h2>Subscribe to our mailing list</h2>
+					<div class="field-group">
+						<label class="screen-reader-text" for="EMAIL">Email Address</label>
+						<input type="email" autocapitalize="off" autocorrect="off" name="MERGE0" id="MERGE0" value="" class="email" placeholder="Email Address">
+					</div>
+					<div>
+						<input type="submit" value="Subscribe" name="subscribe" class="button">
+					</div>
+				</form>';
+		} else {
+			echo '<a href="' . esc_url( home_url( 'subscribe' ) ) . '" class="link-button">Subscribe</a>';
+		}
+
+		echo '</div><!-- .widget__wrapper -->';
 
 		echo $args['after_widget'];
 	}
@@ -87,8 +94,11 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 
 		// Widget field values.
-		$title = isset( $instance['title'] ) ? $instance['title'] : '';
+		$title          = isset( $instance['title'] ) ? $instance['title'] : '';
 		$background_url = isset( $instance['background_url'] ) ? $instance['background_url'] : '';
+		$form_action    = isset( $instance['form_action'] ) ? $instance['form_action'] : '';
+		$form_user_id   = isset( $instance['form_user_id'] ) ? $instance['form_user_id'] : '';
+		$form_list_id   = isset( $instance['form_list_id'] ) ? $instance['form_list_id'] : '';
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
@@ -102,6 +112,27 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 				<?php esc_html_e( 'Enter a background image URL here:' ); ?>
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'background_url' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'background_url' ) ); ?>" type="url" value="<?php echo esc_url( $background_url ); ?>" />
+		</p>
+		<p style="margin: 2em 0 1em; padding-top: 1em; border-top: 1px solid #DDD; line-height: 1.667em;">
+			This subscribe widget can display a MailChimp signup form. For more information on how to fill out these fields, see <a href="https://mailchimp.com/help/host-your-own-signup-forms/" target="_blank">Hosting Your Own Signup Forms</a> in the MailChimp Guides and Tutorials. If left blank, this widget will link to your <code>/subscribe</code> page.
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'form_action' ) ); ?>">
+				<?php esc_html_e( 'Enter the form action (destination) URL here:' ); ?>
+			</label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_action' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_action' ) ); ?>" type="url" value="<?php echo esc_url( $form_action ); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'form_user_id' ) ); ?>">
+				<?php esc_html_e( 'Enter your MailChimp user ID here:' ); ?>
+			</label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_user_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_user_id' ) ); ?>" type="text" value="<?php echo esc_url( $form_user_id ); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'form_list_id' ) ); ?>">
+				<?php esc_html_e( 'Enter your mailing list ID here:' ); ?>
+			</label>
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_list_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_list_id' ) ); ?>" type="text" value="<?php echo esc_url( $form_list_id ); ?>" />
 		</p>
 		<?php
 	}
@@ -118,6 +149,9 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 		$instance = $old_instance;
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
 		$instance['background_url'] = sanitize_text_field( $new_instance['background_url'] );
+		$instance['form_action'] = sanitize_text_field( $new_instance['form_action'] );
+		$instance['form_user_id'] = sanitize_text_field( $new_instance['form_user_id'] );
+		$instance['form_list_id'] = sanitize_text_field( $new_instance['form_list_id'] );
 
 		return $instance;
 	}
