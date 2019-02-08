@@ -89,6 +89,7 @@ function gotham_featured_posts( $num_posts ) {
 
 		// Now, stash the featured posts for 3hrs.
 		set_transient( $cache_key, $featured_posts, 3 * HOUR_IN_SECONDS );
+		set_transient( 'posts_to_exclude', $posts_to_exclude, 3 * HOUR_IN_SECONDS );
 	}
 
 	if ( $featured_posts->have_posts() ) {
@@ -108,6 +109,15 @@ function gotham_featured_posts( $num_posts ) {
 function gotham_delete_featured_posts_cache( $post_id ) {
 	// Whenever posts are saved, reset the featued posts cache.
 	delete_transient( 'featured_posts' );
+	// TODO: Move to theme options.
+	$primary_categories = [
+		'news',
+		'arts',
+		'food',
+	];
+	foreach ( $primary_categories as $category_slug ) {
+		delete_transient( 'post_feed_' . $category_slug );
+	}
 }
 add_action( 'save_post', 'gotham_delete_featured_posts_cache' );
 
