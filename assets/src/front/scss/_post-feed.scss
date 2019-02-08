@@ -6,20 +6,65 @@
 	display: flex;
 	justify-content: space-between;
 
-	.post-feed__column {
-		flex: 0 0 auto;
-		width: calc(( 100% - 2em ) / 3);
-		display: flex;
+	@include breakpoints(none, large) {
 		flex-direction: column;
 	}
 
+	.post-feed__category-title {
+		@include section-header();
+		align-self: flex-start;
+		margin-bottom: spacer(1);
+
+		@include breakpoints(small, large) {
+			width: 100%;
+		}
+	}
+
+	.post-feed__column {
+		display: flex;
+		flex-direction: column;
+		flex: 0 0 auto;
+		margin-bottom: spacer(1);
+		width: 100%;
+
+		@include breakpoints(small, large) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		@include breakpoints(large) {
+			margin-bottom: 0;
+			width: calc(( 100% - 2em ) / 3);
+		}
+	}
+
 	.post--tout {
-		height: auto;
-		padding-top: 1em;
-		overflow: visible;
 		background: none;
-		height: 33%;
-		z-index: 0 0 auto;
+		flex: 1 0 auto;
+		height: auto;
+		overflow: visible;
+		padding: 0;
+
+		@include breakpoints(small, large) {
+			width: calc((100% - #{spacer(1)}) / 2);
+			flex: 0 0 auto;
+		}
+
+		@include breakpoints(large) {
+			height: calc((100% - #{spacer(3.5)} - #{spacer(3)}) / 4);
+		}
+
+		&:not(:last-child) {
+			margin-bottom: spacer(1);
+		}
+
+		&:not(.has-thumbnail) {
+			.post__thumbnail-frame {
+				display: block;
+			}
+		}
 
 		.post__link-wrapper {
 			display: flex;
@@ -27,15 +72,16 @@
 		}
 
 		.post__thumbnail-frame {
-			order: -1;
 			height: 0;
+			order: -1;
+			overflow: hidden;
 			padding-top: calc(100% * (9/16));
 			position: relative;
-			overflow: hidden;
+			background: $color--interface url('../../site/img/gothamish-logo.svg') center no-repeat;
+			background-size: 33%;
 		}
 
 		img {
-			// position: relative;
 			display: block;
 			order: -1;
 		}
@@ -45,9 +91,9 @@
 		}
 
 		.post__title {
-			padding: 0.25em 0;
-			color: black;
 			background: none;
+			color: black;
+			padding: 0.25em 0;
 			position: relative;
 		}
 	}

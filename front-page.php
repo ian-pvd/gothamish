@@ -38,10 +38,14 @@ get_header();
 				'food',
 			];
 			?>
-		<?php foreach ( $primary_categories as $category ) : ?>
+		<?php
+		foreach ( $primary_categories as $category ) :
+			$category = get_category_by_slug( $category );
+			$category = $category->name;
+			?>
 			<div class="post-feed__column">
-				<h2><?php echo esc_html( $category ); ?></h2>
-				<?php gotham_post_feed( 3, [ 'category_name' => $category ] ); ?>
+				<h2 class="post-feed__category-title"><?php echo esc_html( $category ); ?></h2>
+				<?php gotham_post_feed( 4, [ 'category_name' => $category ] ); ?>
 			</div>
 		<?php endforeach; ?>
 	</div>

@@ -9,7 +9,7 @@
 $image_size = 'tout';
 // Reset default to use theme featured thumbnail size.
 if ( is_front_page() ) {
-	$image_size = null;
+	$image_size = 'large';
 }
 ?>
 
@@ -19,10 +19,10 @@ if ( is_front_page() ) {
 			<?php the_title( sprintf( '<h3 class="post__title">', '</h3>' ) ); ?>
 		</header><!-- .post__header -->
 
-		<?php if ( has_post_thumbnail() ) : ?>
 		<div class="post__thumbnail-frame">
+		<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail( $image_size ); ?>
-		</div>
 		<?php endif; ?>
+		</div>
 	</a>
 </article><!-- #post-<?php the_ID(); ?> -->
