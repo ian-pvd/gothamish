@@ -11,11 +11,14 @@
  * Looks for Jetpack featured content posts first, and if there aren't
  * enough, backfills the results, first with sticky and then recent posts.
  *
+ * @param int $num_posts Number of posts to return.
  * @return mixed Featured posts.
  */
-function gotham_featured_posts() {
+function gotham_featured_posts( $num_posts ) {
 	// Set cache key.
-	$cache_key = 'featured-posts';
+	$cache_key = 'featured_posts';
+	// Check number of posts.
+	$num_posts = is_int( $num_posts ) ? $num_posts : '3';
 
 	// Check for cached featured posts.
 	if ( ! $featured_posts = get_transient( $cache_key ) ) {
@@ -44,15 +47,15 @@ function gotham_featured_posts() {
 		}
 
 		// If there are less than three featured post IDs...
-		if ( count( $jetpack_post_ids ) < 3 ) {
+		if ( count( $jetpack_post_ids ) < $num_posts ) {
 
-			// Query to backfill up to 3 recent posts...
+			// Query to backfill up to $num_posts recent posts...
 			// That have thumbnails and excluding featured post IDs.
 			$recent_post_ids = new WP_Query(
 				[
 					'no_found_rows'  => true,
 					'post__not_in'   => $jetpack_post_ids,
-					'posts_per_page' => ( 3 - count( $jetpack_post_ids ) ),
+					'posts_per_page' => ( $num_posts - count( $jetpack_post_ids ) ),
 					'fields'         => 'ids',
 					'meta_query' => [
 						[
@@ -67,7 +70,7 @@ function gotham_featured_posts() {
 		}
 
 		// Merge the results down to one array of three post IDs.
-		$featured_post_ids = array_slice( array_merge( $jetpack_post_ids, $recent_post_ids ), 0, 3 );
+		$featured_post_ids = array_slice( array_merge( $jetpack_post_ids, $recent_post_ids ), 0, $num_posts );
 
 		// New query to get final list of featured posts as WP post objects.
 		$featured_posts = new WP_Query(
@@ -76,7 +79,7 @@ function gotham_featured_posts() {
 				'no_found_rows'       => true,
 				'orderby'             => 'post__in',
 				'post__in'            => $featured_post_ids,
-				'posts_per_page'      => 3,
+				'posts_per_page'      => $num_posts,
 			]
 		);
 
@@ -100,6 +103,6 @@ function gotham_featured_posts() {
  */
 function gotham_delete_featured_posts_cache( $post_id ) {
 	// Whenever posts are saved, reset the featued posts cache.
-	delete_transient( 'featured-posts' );
+	delete_transient( 'featured_posts' );
 }
 add_action( 'save_post', 'gotham_delete_featured_posts_cache' );

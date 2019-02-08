@@ -30,5 +30,25 @@ get_header();
 		);
 		?>
 
+	<div id="primary-feed" class="content-area content-area--post-feed">
+		<?php
+			$primary_categories = [
+				'news',
+				'arts',
+				'food',
+			];
+			?>
+		<?php foreach ( $primary_categories as $category ) : ?>
+			<div class="post-feed__column">
+				<h2><?=$category?></h2>
+				<?php gotham_post_feed( 3, [ 'category_name' => $category ] ); ?>
+			</div>
+		<?php endforeach; ?>
+	</div>
+
+	<div id="network-feed" class="content-area content-area--network-feed">
+		NETWORK FEED
+	</div>
+
 <?php
 get_footer();
