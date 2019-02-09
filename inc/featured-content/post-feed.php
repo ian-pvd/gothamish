@@ -59,14 +59,3 @@ function gotham_post_feed( $num_posts, $args = [] ) {
 		}
 	}
 }
-
-/**
- * Deletes the cached featured post values.
- *
- * @param  int $post_id The ID of the post that was updated.
- */
-// function gotham_delete_featured_posts_cache( $post_id ) {
-	// Whenever posts are saved, reset the featued posts cache.
-	// delete_transient( 'featured_posts' );
-// }
-// add_action( 'save_post', 'gotham_delete_featured_posts_cache' );

@@ -31,24 +31,7 @@ get_header();
 		?>
 
 	<div id="primary-feed" class="content-area content-area--post-feed">
-		<?php
-			// TODO: Move to theme options.
-			$primary_categories = [
-				'news',
-				'arts',
-				'food',
-			];
-			?>
-		<?php
-		foreach ( $primary_categories as $category ) :
-			$category_title = get_category_by_slug( $category );
-			$category_title = $category_title->name;
-			?>
-			<div class="post-feed__column">
-				<h2 class="post-feed__category-title"><?php echo esc_html( $category_title ); ?></h2>
-				<?php gotham_post_feed( 4, [ 'category_name' => $category ] ); ?>
-			</div>
-		<?php endforeach; ?>
+		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
 	</div>
 
 	<div id="network-feed" class="content-area content-area--network-feed">
