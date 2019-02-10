@@ -53,6 +53,20 @@ function gotham_widgets_init() {
 			'after_title'   => '</h2>',
 		]
 	);
+	/**
+	 * Front Recirculation Sidebar
+	 */
+	register_sidebar(
+		[
+			'name'          => esc_html__( 'Front Page Recirculation Sidebar', 'gotham' ),
+			'id'            => 'front-recirc',
+			'description'   => esc_html__( 'Add an RSS widget here to display network content on the front page.', 'gotham' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget__title">',
+			'after_title'   => '</h2>',
+		]
+	);
 }
 
 add_action( 'widgets_init', 'gotham_widgets_init' );

@@ -34,9 +34,13 @@ get_header();
 		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
 	</div>
 
-	<div id="network-feed" class="content-area content-area--network-feed">
-		NETWORK FEED
-	</div>
+	<?php if ( is_active_sidebar( 'front-recirc' ) ) : ?>
+
+		<div id="network-feed" class="content-area content-area--recirc">
+			<?php dynamic_sidebar( 'front-recirc' ); ?>
+		</div>
+
+	<?php endif; ?>
 
 <?php
 get_footer();
