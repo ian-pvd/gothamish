@@ -77,3 +77,20 @@ select {
 textarea {
 	width: 100%;
 }
+
+.link-button {
+	background: $color--primary;
+	border-radius: rem(4);
+	border: none;
+	color: $color--text-alt;
+	display: inline-block;
+	font-size: 1rem;
+	padding: rem(4) 1rem;
+	text-decoration: none;
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color--text-alt;
+	}
+}

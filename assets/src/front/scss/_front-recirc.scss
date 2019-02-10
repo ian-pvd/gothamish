@@ -3,26 +3,109 @@
  */
 
 .content-area--front-recirc {
+	// Hide any widgets that aren't the RSS feed.
 	.widget:not(.widget_rss) {
 		display: none;
 	}
 
 	.widget_rss {
+		margin-bottom: spacer(1);
+
 		.rss-widget-icon {
 			display: none;
 		}
 
-		ul {
-			margin: 0;
-			list-style: none;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+
+		@include breakpoints(small) {
 			display: grid;
 			grid-gap: spacer(1);
-			grid-template-columns: repeat(3, 1fr);
 		}
 
-		li {
-			display: flex;
-			flex-direction: column;
+		@include breakpoints(small, large) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include breakpoints(large) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	li {
+		display: flex;
+		flex-direction: column;
+
+		&:not(:last-child) {
+			margin-bottom: spacer(1);
+		}
+
+		@include breakpoints(small, large) {
+			&:nth-child(n+3) {
+				display: none;
+			}
+		}
+	}
+
+	.rsswidget {
+		font: $font--header;
+		font-size: rem(20);
+	}
+
+	.rssSummary {
+		@include breakpoints(none, medium) {
+			display: none;
+		}
+	}
+}
+
+.front-recirc__donation-appeal {
+	border-top: $border--page;
+	border-bottom: $border--page;
+	padding: spacer(1);
+	display: flex;
+	justify-content: center;
+
+	@include breakpoints(none, small) {
+		flex-direction: column;
+	}
+
+	p,
+	.link-button {
+		@include breakpoints(none, small) {
+			width: 100%;
+		}
+
+		margin: auto 0;
+	}
+
+	.link-button {
+		align-items: center;
+		background: color(grey);
+		display: flex;
+		flex: 0 1 auto;
+		justify-content: center;
+		max-height: 2rem;
+		white-space: nowrap;
+
+		@include breakpoints(none, small) {
+			margin-top: spacer(1);
+		}
+
+		@include breakpoints(small) {
+			margin-left: spacer(1);
+		}
+
+		&:hover,
+		&:focus {
+			background: color(grey-light);
+		}
+
+		&:active {
+			background: $color--primary;
 		}
 	}
 }
