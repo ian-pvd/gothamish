@@ -1,0 +1,28 @@
+/**
+ * Front Page Recirculation Styles
+ */
+
+.content-area--front-recirc {
+	.widget:not(.widget_rss) {
+		display: none;
+	}
+
+	.widget_rss {
+		.rss-widget-icon {
+			display: none;
+		}
+
+		ul {
+			margin: 0;
+			list-style: none;
+			display: grid;
+			grid-gap: spacer(1);
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		li {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}

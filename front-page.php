@@ -36,7 +36,7 @@ get_header();
 
 	<?php if ( is_active_sidebar( 'front-recirc' ) ) : ?>
 
-		<div id="network-feed" class="content-area content-area--recirc">
+		<div id="network-feed" class="content-area content-area--front-recirc">
 			<?php dynamic_sidebar( 'front-recirc' ); ?>
 		</div>
 
