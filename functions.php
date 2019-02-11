@@ -208,6 +208,6 @@ require_once GOTHAM_PATH . '/inc/excerpts/index.php';
 require_once GOTHAM_PATH . '/inc/users/index.php';
 
 /**
- * Gothamish: Load Featured Content Module.
+ * Gothamish: Load Front Featured Content Module.
  */
-require_once GOTHAM_PATH . '/inc/featured-content/index.php';
+require_once GOTHAM_PATH . '/inc/front-featured/index.php';

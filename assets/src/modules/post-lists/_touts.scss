@@ -27,6 +27,12 @@
 		}
 	}
 
+	&:not(.has-post-thumbnail) {
+		.post__thumbnail-frame {
+			display: none;
+		}
+	}
+
 	.post__link-wrapper {
 		display: block;
 		text-decoration: none;

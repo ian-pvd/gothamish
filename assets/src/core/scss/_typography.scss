@@ -50,4 +50,9 @@ $font-families: (
 	font: 500 #{rem(20)}/1 font-family(headers);
 	margin-bottom: spacer(1);
 	padding: spacer(0.5) spacer(2) spacer(0.5) spacer(1);
+
+	a {
+		color: $color--text-alt;
+		text-decoration: none;
+	}
 }
