@@ -5,8 +5,6 @@
  * @package Gothamish
  */
 
-
-
 // Load Front Featured posts module.
 require_once GOTHAM_PATH . '/inc/front-featured/featured-posts.php';
 

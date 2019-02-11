@@ -28,7 +28,7 @@ get_header();
 		);
 		?>
 
-	<div id="primary-feed" class="content-area content-area--post-feed">
+	<div id="primary-feed" class="content-area content-area--featured-categories">
 		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
 	</div>
 

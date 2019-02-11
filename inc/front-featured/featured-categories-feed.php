@@ -8,11 +8,11 @@
 /**
  * Featured categories post feed function.
  *
- * Looks for featured posts first, backfills the results.
+ * Displays top posts from the theme's featured categories.
  *
  * @param int   $num_posts Number of posts to return.
  * @param array $args Options array.
- * @return mixed Featured posts.
+ * @return mixed Featured category posts.
  */
 function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 	// Set cache key to default or specific category.
@@ -27,12 +27,10 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 		// Set up the Featured Category feeder array.
 		$recent_post_ids  = [];
 
-		// Check if a list of excluded posts has been set.
+		// Excluded posts are set in the featured posts function.
 		global $exclude_displayed_post_ids;
-		// Check if there are excluded post IDs in the array.
+		// If there is a cache of featued posts, this variable won't have be set.
 		if ( empty( $exclude_displayed_post_ids ) ) {
-			// Excluded posts are set in the featured posts function.
-			// If there is cache of featued posts, this variable won't be set.
 			// If empty, try checking for the cached featued posts.
 			if ( $featured_post_cache_ids = get_transient( 'featured_posts' ) ) {
 				// Shift the cached feated posts to an array.
@@ -65,7 +63,7 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 			]
 		);
 
-		// Now, stash the featured posts for 3hrs.
+		// Now, stash the featured category posts for 3hrs.
 		set_transient( $cache_key, $featured_category_feed, 3 * HOUR_IN_SECONDS );
 	}
 
