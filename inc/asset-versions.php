@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.583411.css',
-		'archive-js' => 'archive.583411.js',
-		'editor-css' => 'editor.583411.css',
-		'editor-js' => 'editor.583411.js',
-		'front-css' => 'front.583411.css',
-		'front-js' => 'front.583411.js',
-		'page-css' => 'page.583411.css',
-		'page-js' => 'page.583411.js',
-		'post-css' => 'post.583411.css',
-		'post-js' => 'post.583411.js',
-		'site-css' => 'site.583411.css',
-		'site-js' => 'site.583411.js',
-		'user-css' => 'user.583411.css',
-		'user-js' => 'user.583411.js',
+		'archive-css' => 'archive.43057b.css',
+		'archive-js' => 'archive.43057b.js',
+		'editor-css' => 'editor.43057b.css',
+		'editor-js' => 'editor.43057b.js',
+		'front-css' => 'front.43057b.css',
+		'front-js' => 'front.43057b.js',
+		'page-css' => 'page.43057b.css',
+		'page-js' => 'page.43057b.js',
+		'post-css' => 'post.43057b.css',
+		'post-js' => 'post.43057b.js',
+		'site-css' => 'site.43057b.css',
+		'site-js' => 'site.43057b.js',
+		'user-css' => 'user.43057b.css',
+		'user-js' => 'user.43057b.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
