@@ -69,7 +69,7 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 			// Category slugs for the home page post feeds.
 			'primary-categories' => [
 				'news',
-				'arts-entertainment',
+				'arts',
 				'food',
 			],
 			// Toggle display advertisments.

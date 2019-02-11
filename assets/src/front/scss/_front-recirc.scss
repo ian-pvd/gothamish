@@ -14,7 +14,6 @@
 		.rss-widget-icon {
 			display: none;
 		}
-
 	}
 
 	ul {
@@ -39,14 +38,14 @@
 		display: flex;
 		flex-direction: column;
 
-		&:not(:last-child) {
-			margin-bottom: spacer(1);
-		}
-
 		@include breakpoints(small, large) {
 			&:nth-child(n+3) {
 				display: none;
 			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: spacer(1);
 		}
 	}
 
@@ -63,26 +62,26 @@
 }
 
 .front-recirc__donation-appeal {
-	border-top: $border--page;
 	border-bottom: $border--page;
-	padding: spacer(1);
+	border-top: $border--page;
 	display: flex;
 	justify-content: center;
+	padding: spacer(1);
 
 	@include breakpoints(none, small) {
 		flex-direction: column;
 	}
 
-	p,
-	.link-button {
+	.donation-appeal__text,
+	.donation-appeal__link-button {
+		margin: auto 0;
+
 		@include breakpoints(none, small) {
 			width: 100%;
 		}
-
-		margin: auto 0;
 	}
 
-	.link-button {
+	.donation-appeal__link-button {
 		align-items: center;
 		background: color(grey);
 		display: flex;

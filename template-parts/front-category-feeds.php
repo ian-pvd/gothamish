@@ -7,12 +7,8 @@
  * @package Gothamish
  */
 
-// TODO: Move to theme options.
-$primary_categories = [
-	'news',
-	'arts',
-	'food',
-];
+// Get primary categories from theme options.
+$primary_categories = gotham_get_option( 'primary-categories' );
 ?>
 
 <?php
@@ -26,7 +22,7 @@ foreach ( $primary_categories as $category ) :
 				<?php echo esc_html( $category->name ); ?>
 			</a>
 		</h2>
-		<?php gotham_post_feed( 4, [ 'category_name' => $category->slug ] ); ?>
+		<?php gotham_featured_categories_feed( 4, [ 'category_name' => $category->slug ] ); ?>
 	</div>
 
 <?php endforeach; ?>

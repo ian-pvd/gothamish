@@ -1,6 +1,6 @@
 <?php
 /**
- * Gothamish Featured Content functions.
+ * Gothamish featured posts.
  *
  * @package Gothamish
  */
@@ -46,11 +46,11 @@ function gotham_featured_posts( $num_posts ) {
 			unset( $jetpack_posts );
 		}
 
-		// If there are less than three featured post IDs...
+		// If there are less than $num_posts featured post IDs...
 		if ( count( $jetpack_post_ids ) < $num_posts ) {
 
 			// Query to backfill up to $num_posts recent posts...
-			// That have thumbnails and excluding featured post IDs.
+			// That have thumbnails and excluding jetpack post IDs.
 			$recent_post_ids = new WP_Query(
 				[
 					'no_found_rows'  => true,
@@ -65,11 +65,11 @@ function gotham_featured_posts( $num_posts ) {
 				]
 			);
 
-			// Shift featured posts query to an array of IDs.
+			// Shift featured posts query to just an array of IDs.
 			$recent_post_ids = $recent_post_ids->posts;
 		}
 
-		// Merge the results down to one array of three post IDs.
+		// Merge the results down to one array of $num_posts post IDs.
 		$featured_post_ids = array_slice( array_merge( $jetpack_post_ids, $recent_post_ids ), 0, $num_posts );
 
 		// New query to get final list of featured posts as WP post objects.
@@ -83,13 +83,11 @@ function gotham_featured_posts( $num_posts ) {
 			]
 		);
 
-		// DEV.
-		global $posts_to_exclude;
-		$posts_to_exclude = $featured_post_ids;
+		global $exclude_displayed_post_ids;
+		$exclude_displayed_post_ids = $featured_post_ids;
 
-		// Now, stash the featured posts for 3hrs.
+		// Now, stash the featured post info for 3hrs.
 		set_transient( $cache_key, $featured_posts, 3 * HOUR_IN_SECONDS );
-		set_transient( 'posts_to_exclude', $posts_to_exclude, 3 * HOUR_IN_SECONDS );
 	}
 
 	if ( $featured_posts->have_posts() ) {
@@ -100,26 +98,3 @@ function gotham_featured_posts( $num_posts ) {
 		}
 	}
 }
-
-/**
- * Deletes the cached featured post values.
- *
- * @param  int $post_id The ID of the post that was updated.
- */
-function gotham_delete_featured_posts_cache( $post_id ) {
-	// Whenever posts are saved, reset the featued posts cache.
-	delete_transient( 'featured_posts' );
-	// TODO: Move to theme options.
-	$primary_categories = [
-		'news',
-		'arts',
-		'food',
-	];
-	foreach ( $primary_categories as $category_slug ) {
-		delete_transient( 'post_feed_' . $category_slug );
-	}
-}
-add_action( 'save_post', 'gotham_delete_featured_posts_cache' );
-
-// Dev.
-require_once GOTHAM_PATH . '/inc/featured-content/post-feed.php';
