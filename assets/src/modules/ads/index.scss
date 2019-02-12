@@ -27,6 +27,7 @@
 	color: color(grey-very-dark);
 	display: none;
 	outline: 1px solid fade-out( color(grey-light), 0.5 );
+	overflow: hidden;
 	position: relative;
 
 	.ad__text {
