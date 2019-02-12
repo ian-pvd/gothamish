@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.81b1ba.css',
-		'archive-js' => 'archive.81b1ba.js',
-		'editor-css' => 'editor.81b1ba.css',
-		'editor-js' => 'editor.81b1ba.js',
-		'front-css' => 'front.81b1ba.css',
-		'front-js' => 'front.81b1ba.js',
-		'page-css' => 'page.81b1ba.css',
-		'page-js' => 'page.81b1ba.js',
-		'post-css' => 'post.81b1ba.css',
-		'post-js' => 'post.81b1ba.js',
-		'site-css' => 'site.81b1ba.css',
-		'site-js' => 'site.81b1ba.js',
-		'user-css' => 'user.81b1ba.css',
-		'user-js' => 'user.81b1ba.js',
+		'archive-css' => 'archive.deeb82.css',
+		'archive-js' => 'archive.deeb82.js',
+		'editor-css' => 'editor.deeb82.css',
+		'editor-js' => 'editor.deeb82.js',
+		'front-css' => 'front.deeb82.css',
+		'front-js' => 'front.deeb82.js',
+		'page-css' => 'page.deeb82.css',
+		'page-js' => 'page.deeb82.js',
+		'post-css' => 'post.deeb82.css',
+		'post-js' => 'post.deeb82.js',
+		'site-css' => 'site.deeb82.css',
+		'site-js' => 'site.deeb82.js',
+		'user-css' => 'user.deeb82.css',
+		'user-js' => 'user.deeb82.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
