@@ -61,7 +61,7 @@ function gotham_display_ad( $ad_position = null, $ad_size = '300x250' ) {
 				}
 
 				// Display the ad.
-				echo '<div class="ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" style="' . esc_attr( $px_size ) . '"><span class="ad__text">Advertisement ' . esc_html( $dimensions ) . '</span><img class="ad__image" src="' . esc_url( 'https://source.unsplash.com/random/' . $dimensions ) . '" /></div>';
+				echo '<div class="ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" style="' . esc_attr( $px_size ) . '"><span class="ad__text">Advertisement ' . esc_html( $dimensions ) . '</span><img class="ad__image" src="' . esc_url( 'https://source.unsplash.com/random/' . $dimensions ) . '/daily" /></div>';
 			}
 		} else {
 			echo '<!-- Invalid Ad Slot Display Size: ' . esc_html( $dimensions ) . ' -->';
