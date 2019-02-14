@@ -3,8 +3,9 @@
  */
 
 .content-area--featured-categories {
-
 	.post--tout {
+		flex: 1 0 auto;
+
 		@include breakpoints(large) {
 			height: calc((100% - #{spacer(3.5)} - #{spacer(3)}) / 4);
 		}
