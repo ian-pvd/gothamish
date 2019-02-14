@@ -27,26 +27,8 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 		// Set up the Featured Category feeder array.
 		$recent_post_ids = [];
 
-		// Excluded posts are set in the featured posts function.
-		global $exclude_displayed_post_ids;
-		// If there is a cache of featued posts, this variable won't have be set.
-		if ( empty( $exclude_displayed_post_ids ) ) {
-			// If empty, try checking for the cached featued posts.
-			if ( $featured_post_cache_ids = get_transient( 'featured_posts' ) ) {
-				// Shift the cached feated posts to an array.
-				$featured_post_cache_ids = $featured_post_cache_ids->posts;
-				// Reset the excluded posts as an empty array.
-				$exclude_displayed_post_ids = [];
-				// Loop through the array.
-				foreach ( $featured_post_cache_ids as $displayed_post ) {
-					// Add each featured post ID from the cache to the excluded posts list.
-					$exclude_displayed_post_ids[] = $displayed_post->ID;
-				}
-			} else {
-				// Assume no excluded posts are set.
-				$exclude_displayed_post_ids = [];
-			}
-		}
+		// Get list post IDs to excluded that have already been displayed.
+		$exclude_displayed_post_ids = gotham_get_exclude_displayed_post_ids();
 
 		// If no category set, default filter to none.
 		$args['category_name'] = ( ! empty( $args['category_name'] ) ) ? $args['category_name'] : '';
