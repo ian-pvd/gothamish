@@ -53,6 +53,8 @@
 				]
 			);
 
+			// TODO: If statement should wrap the parent div, not post display.
+			// OR: this region should be able to display a posts not found message.
 			if ( $primary_feed[ $category->slug ]->have_posts() ) {
 				while ( $primary_feed[ $category->slug ]->have_posts() ) {
 					$primary_feed[ $category->slug ]->the_post();
@@ -64,8 +66,27 @@
 	<?php endforeach; ?>
 	</div>
 
-	<div class="content-area content-area--feed-box">
-		Display a featured content box here.
+	<div class="featured-block featured-block--gothamist-featured">
+		<h2 class="featured-block__title">Featured on <?php echo gotham_logotype(); ?></h2>
+		<div class="featured-block__wrapper">
+		<?php
+			$featured_block['gothamist-featured'] = new WP_Query(
+				[
+					'posts_per_page'      => 3,
+					'ignore_sticky_posts' => true,
+				]
+			);
+
+			// TODO: If statement should wrap the parent div, not post display.
+			// OR: this region should be able to display a posts not found message.
+			if ( $featured_block['gothamist-featured']->have_posts() ) {
+				while ( $featured_block['gothamist-featured']->have_posts() ) {
+					$featured_block['gothamist-featured']->the_post();
+					get_template_part( 'template-parts/content', 'tout' );
+				}
+			}
+			?>
+		</div>
 	</div>
 
 </div>
