@@ -19,13 +19,13 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 	$cache_key = ( ! empty( $args['category_name'] ) ) ? 'featured_category_feed_' . $args['category_name'] : 'featured_category_feed';
 
 	// Check number of posts.
-	$num_posts = is_int( $num_posts ) ? $num_posts : '3';
+	$num_posts = is_int( $num_posts ) ? $num_posts : '4';
 
 	// Check for cached featured posts.
 	if ( ! $featured_category_feed = get_transient( $cache_key ) ) {
 
 		// Set up the Featured Category feeder array.
-		$recent_post_ids  = [];
+		$recent_post_ids = [];
 
 		// Excluded posts are set in the featured posts function.
 		global $exclude_displayed_post_ids;
@@ -38,7 +38,7 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 				// Reset the excluded posts as an empty array.
 				$exclude_displayed_post_ids = [];
 				// Loop through the array.
-				foreach ($featured_post_cache_ids as $displayed_post ) {
+				foreach ( $featured_post_cache_ids as $displayed_post ) {
 					// Add each featured post ID from the cache to the excluded posts list.
 					$exclude_displayed_post_ids[] = $displayed_post->ID;
 				}
@@ -54,12 +54,10 @@ function gotham_featured_categories_feed( $num_posts, $args = [] ) {
 		// New query to get featured category posts.
 		$featured_category_feed = new WP_Query(
 			[
-				'ignore_sticky_posts' => true,
-				'no_found_rows'       => true,
-				'orderby'             => 'post__in',
-				'post__not_in'        => $exclude_displayed_post_ids,
-				'posts_per_page'      => $num_posts,
-				'category_name'       => $args['category_name'],
+				'no_found_rows'  => true,
+				'post__not_in'   => $exclude_displayed_post_ids,
+				'posts_per_page' => $num_posts,
+				'category_name'  => $args['category_name'],
 			]
 		);
 
