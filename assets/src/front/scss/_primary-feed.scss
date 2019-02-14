@@ -2,6 +2,10 @@
  * Front Page primary post feed styles.
  */
 
+.primary-feed__page:not(:last-child) {
+	margin-bottom: spacer(2);
+}
+
 .content-area--primary-feed {
 	.post--tout {
 		&:first-of-type{
