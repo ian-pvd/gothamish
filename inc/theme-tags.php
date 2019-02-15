@@ -420,8 +420,8 @@ if ( ! function_exists( 'gotham_footer_byline' ) ) :
 			),
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
-				esc_html( 'tips@gothamish.com' ),
-				esc_url( 'mailto:tips@gothamish.com' )
+				esc_html( gotham_get_option( 'tips-email' ) ),
+				esc_url( 'mailto:' . gotham_get_option( 'tips-email' ) )
 			)
 		);
 

@@ -24,7 +24,7 @@
 				'span' => [
 					'class' => [],
 				],
-				'p' => [
+				'p'    => [
 					'class' => [],
 				],
 			]
@@ -44,6 +44,6 @@
 		'<a href="' . esc_url( '/donate' ) . '" class="donation-appeal__link-button link-button">%s</a>',
 		esc_html__( 'Support Us!', 'gotham' )
 	);
-?>
+	?>
 </section>
 
