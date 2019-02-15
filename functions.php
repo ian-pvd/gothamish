@@ -23,9 +23,9 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on Gothamish, use a find and replace
-		 * to change 'gotham' to the name of your theme in all the template files.
+		 * to change 'gothamish' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'gotham', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'gothamish', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -53,9 +53,9 @@ if ( ! function_exists( 'gotham_setup' ) ) :
 		// This theme uses wp_nav_menu() in several locations.
 		register_nav_menus(
 			[
-				'network-list' => esc_html__( 'Site Networks', 'gotham' ),
-				'primary-nav'  => esc_html__( 'Primary Navigation', 'gotham' ),
-				'utilities'    => esc_html__( 'Footer Utilities', 'gotham' ),
+				'network-list' => esc_html__( 'Site Networks', 'gothamish' ),
+				'primary-nav'  => esc_html__( 'Primary Navigation', 'gothamish' ),
+				'utilities'    => esc_html__( 'Footer Utilities', 'gothamish' ),
 			]
 		);
 
@@ -180,12 +180,6 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
-/**
- * Gothamish: Load Custom Featured Image Options
- *
- * To enable, require '/inc/featured-image/index.php'
- */
 
 /**
  * Gothamish: Load Social Links Module

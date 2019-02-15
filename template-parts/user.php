@@ -31,7 +31,8 @@ $social_links = [
 					'%s Article',
 					'%s Articles',
 					count_user_posts( $staff->ID ),
-					'gotham'
+					'number of articles',
+					'gothamish'
 				)
 			),
 			count_user_posts( $staff->ID )
@@ -39,19 +40,19 @@ $social_links = [
 		'link' => ( count_user_posts( $staff->ID ) > 0 && ! is_author() ) ? $author_link : '',
 	],
 	'email'     => [
-		'name' => __( 'Email', 'gotham' ),
+		'name' => __( 'Email', 'gothamish' ),
 		'link' => 'mailto:' . $user_data->user_email,
 	],
 	'website'   => [
-		'name' => __( 'Website', 'gotham' ),
+		'name' => __( 'Website', 'gothamish' ),
 		'link' => $user_data->user_url,
 	],
 	'twitter'   => [
-		'name' => __( 'Twitter', 'gotham' ),
+		'name' => __( 'Twitter', 'gothamish' ),
 		'link' => ( ! empty( $user_meta['twitter'][0] ) ) ? 'https://twitter.com/' . gotham_social_handle( $user_meta['twitter'][0] ) : null,
 	],
 	'instagram' => [
-		'name' => __( 'Instagram', 'gotham' ),
+		'name' => __( 'Instagram', 'gothamish' ),
 		'link' => ( ! empty( $user_meta['instagram'][0] ) ) ? 'https://instagram.com/' . gotham_social_handle( $user_meta['instagram'][0] ) : null,
 	],
 ];

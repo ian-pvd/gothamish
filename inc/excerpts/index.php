@@ -43,13 +43,13 @@ if ( ! function_exists( 'gotham_custom_excerpt' ) ) :
 				/* translators: %s Post Title */
 				__(
 					'Read more about: %s',
-					'gotham'
+					'gothamish'
 				),
 				get_the_title()
 			);
 			$read_more_class = 'post-excerpt__read-more read-more read-more-link';
 
-			$excerpt_end  = '<a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr( $read_more_title ) . '" class="' . esc_attr( $read_more_class ) . '">' . __( '[…]', 'gotham' ) . '</a>';
+			$excerpt_end  = '<a href="' . esc_url( get_permalink() ) . '" title="' . esc_attr( $read_more_title ) . '" class="' . esc_attr( $read_more_class ) . '">' . __( '[&hellip;]', 'gothamish' ) . '</a>';
 			$excerpt_more = apply_filters( 'excerpt_more', ' ' . $excerpt_end );
 
 			// Set the excerpt word count and only break after sentence is complete.

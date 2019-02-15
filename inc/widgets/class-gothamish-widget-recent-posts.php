@@ -23,7 +23,7 @@ class Gothamish_Widget_Recent_Posts extends WP_Widget_Recent_Posts {
 			$args['widget_id'] = $this->id;
 		}
 
-		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
+		$title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts', 'gothamish' );
 
 		/** This filter is documented in wp-includes/widgets/class-wp-widget-pages.php */
 		$title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
@@ -66,12 +66,13 @@ class Gothamish_Widget_Recent_Posts extends WP_Widget_Recent_Posts {
 		?>
 
 		<ul class="posts-list">
-			<?php while ( $recent_posts->have_posts() ) :
-				$recent_posts->the_post();
+			<?php
+				while ( $recent_posts->have_posts() ) :
+					$recent_posts->the_post();
 				?>
-				<li class="posts-list__item">
-					<?php get_template_part( 'template-parts/content', 'tout' ); ?>
-				</li>
+					<li class="posts-list__item">
+						<?php get_template_part( 'template-parts/content', 'tout' ); ?>
+					</li>
 			<?php endwhile; ?>
 		</ul>
 
@@ -88,10 +89,10 @@ class Gothamish_Widget_Recent_Posts extends WP_Widget_Recent_Posts {
 		$title  = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
 		$number = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'gothamish' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:', 'gothamish' ); ?></label>
 		<input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
 		<?php
 	}

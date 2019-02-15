@@ -25,7 +25,7 @@ if ( ! function_exists( 'gotham_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( 'on %s', 'post date', 'gotham' ),
+			esc_html_x( 'on %s', 'post date', 'gothamish' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -49,7 +49,7 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 
 		printf(
 			'<span class="byline">%1$s %2$s</span>',
-			esc_html__( 'By', 'gotham' ),
+			esc_html__( 'By', 'gothamish' ),
 			wp_kses(
 				$byline,
 				[
@@ -73,10 +73,10 @@ if ( ! function_exists( 'gotham_entry_categories' ) ) :
 		// Hide category text for pages.
 		if ( 'post' === get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'gotham' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'gothamish' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'gotham' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'gothamish' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 		}
 	}
@@ -111,7 +111,7 @@ if ( ! function_exists( 'gotham_entry_edit_icon' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'gotham' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'gothamish' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -214,7 +214,7 @@ if ( ! function_exists( 'gotham_tag_banner' ) ) :
 						$banner_type = $tag->slug;
 						$banner_text = sprintf(
 							'%1$s %2$s',
-							__( 'Best of', 'gotham' ),
+							__( 'Best of', 'gothamish' ),
 							gotham_logotype()
 						);
 						$banner_link = get_term_link( $tag );
@@ -224,7 +224,7 @@ if ( ! function_exists( 'gotham_tag_banner' ) ) :
 						$banner_text = sprintf(
 							'%1$s %2$s',
 							gotham_logotype(),
-							__( 'Films', 'gotham' )
+							__( 'Films', 'gothamish' )
 						);
 						$banner_link = get_term_link( $tag );
 						break;
@@ -232,7 +232,7 @@ if ( ! function_exists( 'gotham_tag_banner' ) ) :
 						$banner_type = $tag->slug;
 						$banner_text = sprintf(
 							'%1$s %2$s',
-							__( 'Long Form on', 'gotham' ),
+							__( 'Long Form on', 'gothamish' ),
 							gotham_logotype()
 						);
 						$banner_link = get_term_link( $tag );
@@ -275,7 +275,7 @@ if ( ! function_exists( 'gotham_posted_in' ) ) :
 				// Print the "posted in" info.
 				printf(
 					'<span class="entry-category">%1$s <a href="%2$s">%3$s</a></span>',
-					esc_html__( 'in', 'gotham' ),
+					esc_html__( 'in', 'gothamish' ),
 					esc_url( get_term_link( $category ) ),
 					esc_html( $category->name )
 				);
@@ -306,12 +306,12 @@ if ( ! function_exists( 'gotham_digest_subscribe' ) ) :
 					/* translators: %s: Subscribe Link */
 					esc_html__(
 						'Want more like this? Get the tastiest food news, restaurant openings and more every Friday with the %1$s Weekly Digest. %2$s',
-						'gotham'
+						'gothamish'
 					) . '</div>',
 					esc_html( get_bloginfo( 'name' ) ),
 					sprintf(
 						'<a href="%2$s">%1$s</a>',
-						esc_html__( 'Subscribe Today!', 'gotham' ),
+						esc_html__( 'Subscribe Today!', 'gothamish' ),
 						esc_url( '/newsletter' )
 					)
 				);
@@ -337,7 +337,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 				/* translators: 1: blog name, 2: network name, 3: donate link, 4: site locale, 5: blog name */
 				__(
 					'%1$s is now part of %2$s, a nonprofit organization that relies on its members for support. You can help us by %3$s!  Your contribution supports more local, %4$s coverage from %5$s. Thank you!',
-					'gotham'
+					'gothamish'
 				),
 				[ 'span' => [ 'class' => [] ] ]
 			) . '</div>',
@@ -366,7 +366,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 			),
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
-				esc_html__( 'making a donation today', 'gotham' ),
+				esc_html__( 'making a donation today', 'gothamish' ),
 				esc_url( '/donate' )
 			),
 			esc_html( gotham_get_option( 'site-location', 'New York' ) ),
@@ -391,7 +391,7 @@ if ( ! function_exists( 'gotham_footer_byline' ) ) :
 
 		printf(
 			'<div class="entry-footer__contact-byline">%1$s %2$s</div>',
-			esc_html__( 'Written by:', 'gotham' ),
+			esc_html__( 'Written by:', 'gothamish' ),
 			wp_kses(
 				$byline,
 				[
@@ -411,11 +411,11 @@ if ( ! function_exists( 'gotham_footer_byline' ) ) :
 			/* translators: %s: Contact Link */
 			esc_html__(
 				'Contact the %1$s of this article or email %2$s with further questions, comments or tips.',
-				'gotham'
+				'gothamish'
 			) . '</div>',
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
-				esc_html__( 'author', 'gotham' ),
+				esc_html__( 'author', 'gothamish' ),
 				esc_url( '/authors' )
 			),
 			sprintf(
@@ -450,7 +450,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 		// Donate Link.
 		printf(
 			'<a class="site-network__donate" href="/donate">%s</a>',
-			esc_html__( 'Support Us', 'gotham' )
+			esc_html__( 'Support Us', 'gothamish' )
 		);
 
 		// Get theme's menu locations and their associated menus.
@@ -460,7 +460,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 
 		// Title and mobile toggle markup to display before network list menu.
 		$menu_title_markup  = '<span class="network-list__title">' . esc_html( $networks_menu->name ) . '</span>';
-		$menu_toggle_markup = '<button id="network-list-toggle" class="network-list__menu-toggle menu-toggle" aria-controls="netowrk-list" aria-expanded="false">' . __( 'View Networks', 'gotham' ) . '</button>';
+		$menu_toggle_markup = '<button id="network-list-toggle" class="network-list__menu-toggle menu-toggle" aria-controls="netowrk-list" aria-expanded="false">' . __( 'View Networks', 'gothamish' ) . '</button>';
 		// Menu prefix markup template.
 		$menu_prefix_markup = '<div class="network-list__wrapper">' . $menu_title_markup . $menu_toggle_markup . '</div>';
 
@@ -524,8 +524,8 @@ if ( ! function_exists( 'gotham_post_media_icon' ) ) :
 					printf(
 						'<span class="post-media post-media--%1$s" title="%2$s">%3$s %4$s</span>',
 						esc_attr( $media_type ),
-						esc_attr( __( 'Post Media: ', 'gotham' ) . $media_title ),
-						esc_html__( 'Post Media:', 'gotham' ),
+						esc_attr( __( 'Post Media: ', 'gothamish' ) . $media_title ),
+						esc_html__( 'Post Media:', 'gothamish' ),
 						esc_html( $media_title )
 					);
 					break;

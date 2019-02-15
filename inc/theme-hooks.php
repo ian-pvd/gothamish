@@ -44,22 +44,22 @@ function gotham_setup_editor_features() {
 		'editor-color-palette',
 		[
 			[
-				'name'  => __( 'Red', 'gotham' ),
+				'name'  => __( 'Red', 'gothamish' ),
 				'slug'  => 'red',
 				'color' => '#900',
 			],
 			[
-				'name'  => __( 'Dark Gray', 'gotham' ),
+				'name'  => __( 'Dark Gray', 'gothamish' ),
 				'slug'  => 'gray-dark',
 				'color' => '#333',
 			],
 			[
-				'name'  => __( 'Light Gray', 'gotham' ),
+				'name'  => __( 'Light Gray', 'gothamish' ),
 				'slug'  => 'gray-light',
 				'color' => '#CCC',
 			],
 			[
-				'name'  => __( 'Yellow', 'gotham' ),
+				'name'  => __( 'Yellow', 'gothamish' ),
 				'slug'  => 'yellow',
 				'color' => '#FFFF66CC',
 			],
@@ -81,28 +81,28 @@ function gotham_get_the_archive_title() {
 		$title = single_cat_title( '', false );
 	} elseif ( is_tag() ) {
 		/* translators: Tag archive title. 1: Tag name */
-		$title = sprintf( __( 'Articles tagged "%s"' ), single_tag_title( '', false ) );
+		$title = sprintf( __( 'Articles tagged "%s"', 'gothamish' ), single_tag_title( '', false ) );
 	} elseif ( is_author() ) {
 		/* translators: Author archive title. 1: Author name */
-		$title = sprintf( __( 'Author: %s' ), get_the_author() );
+		$title = sprintf( __( 'Author: %s', 'gothamish' ), get_the_author() );
 	} elseif ( is_year() ) {
 		/* translators: Yearly archive title. 1: Year */
-		$title = sprintf( __( 'Year: %s' ), get_the_date( _x( 'Y', 'yearly archives date format' ) ) );
+		$title = sprintf( __( 'Year: %s', 'gothamish' ), get_the_date( _x( 'Y', 'yearly archives date format', 'gothamish' ) ) );
 	} elseif ( is_month() ) {
 		/* translators: Monthly archive title. 1: Month name and year */
-		$title = sprintf( __( 'Month: %s' ), get_the_date( _x( 'F Y', 'monthly archives date format' ) ) );
+		$title = sprintf( __( 'Month: %s', 'gothamish' ), get_the_date( _x( 'F Y', 'monthly archives date format', 'gothamish' ) ) );
 	} elseif ( is_day() ) {
 		/* translators: Daily archive title. 1: Date */
-		$title = sprintf( __( 'Day: %s' ), get_the_date( _x( 'F j, Y', 'daily archives date format' ) ) );
+		$title = sprintf( __( 'Day: %s', 'gothamish' ), get_the_date( _x( 'F j, Y', 'daily archives date format', 'gothamish' ) ) );
 	} elseif ( is_post_type_archive() ) {
 		/* translators: Post type archive title. 1: Post type name */
-		$title = sprintf( __( 'Archives: %s' ), post_type_archive_title( '', false ) );
+		$title = sprintf( __( 'Archives: %s', 'gothamish' ), post_type_archive_title( '', false ) );
 	} elseif ( is_tax() ) {
 		$tax = get_taxonomy( get_queried_object()->taxonomy );
 		/* translators: Taxonomy term archive title. 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( __( '%1$s: %2$s' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		$title = sprintf( __( '%1$s: %2$s', 'gothamish' ), $tax->labels->singular_name, single_term_title( '', false ) );
 	} else {
-		$title = __( 'Archives' );
+		$title = __( 'Archives', 'gothamish' );
 	}
 
 	return esc_html( $title );
@@ -123,8 +123,8 @@ function gotham_user_social_fields( $fields ) {
 	unset( $fields['yim'] );
 
 	// Add current networks.
-	$fields['instagram'] = __( 'Instagram', 'gotham' );
-	$fields['twitter']   = __( 'Twitter', 'gotham' );
+	$fields['instagram'] = __( 'Instagram', 'gothamish' );
+	$fields['twitter']   = __( 'Twitter', 'gothamish' );
 
 	// Return updated fields.
 	return $fields;

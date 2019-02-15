@@ -8,7 +8,7 @@
 /* Register Social Links Menu Location. */
 register_nav_menus(
 	[
-		'social-links' => esc_html__( 'Social Links', 'gotham' ),
+		'social-links' => esc_html__( 'Social Links', 'gothamish' ),
 	]
 );
 

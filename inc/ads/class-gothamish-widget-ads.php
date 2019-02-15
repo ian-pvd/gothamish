@@ -20,7 +20,7 @@ class Gothamish_Widget_Ads extends WP_Widget {
 			'classname'   => 'widget--gotham-ads',
 			'description' => 'Gothamish Ads widget.',
 		];
-		parent::__construct( 'gotham_ads_widget', __( 'Ads Widget', 'gotham' ), $widget_args );
+		parent::__construct( 'gotham_ads_widget', __( 'Ads Widget', 'gothamish' ), $widget_args );
 	}
 
 	/**
@@ -69,15 +69,15 @@ class Gothamish_Widget_Ads extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
-				<?php esc_html_e( 'Title:', 'gotham' ); ?>
+				<?php esc_html_e( 'Title:', 'gothamish' ); ?>
 
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'ad_size' ) ); ?>"><?php esc_html_e( 'Select Ad Size:', 'gotham' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'ad_size' ) ); ?>"><?php esc_html_e( 'Select Ad Size:', 'gothamish' ); ?></label>
 			<select id="<?php echo esc_attr( $this->get_field_id( 'ad_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'ad_size' ) ); ?>">
-				<option value="0"><?php esc_html_e( '&mdash; Select &mdash;', 'gotham' ); ?></option>
+				<option value="0"><?php esc_html_e( '&mdash; Select &mdash;', 'gothamish' ); ?></option>
 				<?php foreach ( $sizes as $size ) : ?>
 					<option value="<?php echo esc_attr( $size ); ?>" <?php selected( $ad_size, $size ); ?>>
 						<?php echo esc_html( $size ); ?>

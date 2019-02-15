@@ -18,7 +18,7 @@
 			/* translators: 1: blog name, 2: site locale */
 			__(
 				'<p class="donation-appeal__text">%1$s is reader supported local news. Help us keep telling %2$s stories.</p>',
-				'gotham'
+				'gothamish'
 			),
 			[
 				'span' => [
@@ -42,7 +42,7 @@
 
 	printf(
 		'<a href="' . esc_url( '/donate' ) . '" class="donation-appeal__link-button link-button">%s</a>',
-		esc_html__( 'Support Us!', 'gotham' )
+		esc_html__( 'Support Us!', 'gothamish' )
 	);
 	?>
 </section>

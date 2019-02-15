@@ -16,9 +16,9 @@ function gotham_widgets_init() {
 	 */
 	register_sidebar(
 		[
-			'name'          => esc_html__( 'Single Post Sidebar', 'gotham' ),
+			'name'          => esc_html__( 'Single Post Sidebar', 'gothamish' ),
 			'id'            => 'sidebar-single',
-			'description'   => esc_html__( 'Add widgets for the article sidebar here.', 'gotham' ),
+			'description'   => esc_html__( 'Add widgets for the article sidebar here.', 'gothamish' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget__title">',
@@ -30,9 +30,9 @@ function gotham_widgets_init() {
 	 */
 	register_sidebar(
 		[
-			'name'          => esc_html__( 'Page Content Sidebar', 'gotham' ),
+			'name'          => esc_html__( 'Page Content Sidebar', 'gothamish' ),
 			'id'            => 'sidebar-page',
-			'description'   => esc_html__( 'Add widgets for the page sidebar here.', 'gotham' ),
+			'description'   => esc_html__( 'Add widgets for the page sidebar here.', 'gothamish' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget__title">',
@@ -44,9 +44,9 @@ function gotham_widgets_init() {
 	 */
 	register_sidebar(
 		[
-			'name'          => esc_html__( 'Front Page Hero Sidebar', 'gotham' ),
+			'name'          => esc_html__( 'Front Page Hero Sidebar', 'gothamish' ),
 			'id'            => 'front-hero',
-			'description'   => esc_html__( 'Add widgets for the front page sidebar here.', 'gotham' ),
+			'description'   => esc_html__( 'Add widgets for the front page sidebar here.', 'gothamish' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget__title">',
@@ -58,9 +58,9 @@ function gotham_widgets_init() {
 	 */
 	register_sidebar(
 		[
-			'name'          => esc_html__( 'Front Page Recirculation Sidebar', 'gotham' ),
+			'name'          => esc_html__( 'Front Page Recirculation Sidebar', 'gothamish' ),
 			'id'            => 'front-recirc',
-			'description'   => esc_html__( 'Add an RSS widget here to display network content on the front page.', 'gotham' ),
+			'description'   => esc_html__( 'Add an RSS widget here to display network content on the front page.', 'gothamish' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget__title">',

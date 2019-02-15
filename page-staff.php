@@ -14,13 +14,13 @@
 // Default staff sections.
 $staff_groups = [
 	'editor'      => [
-		'title' => __( 'Editorial Staff', 'gotham' ),
+		'title' => __( 'Editorial Staff', 'gothamish' ),
 	],
 	'author'      => [
-		'title' => __( 'Authors', 'gotham' ),
+		'title' => __( 'Authors', 'gothamish' ),
 	],
 	'contributor' => [
-		'title' => __( 'Contributors', 'gotham' ),
+		'title' => __( 'Contributors', 'gothamish' ),
 	],
 ];
 

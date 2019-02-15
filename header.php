@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site site--mobile-nav">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gotham' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gothamish' ); ?></a>
 
 	<?php
 	if ( has_nav_menu( 'network-list' ) ) {
@@ -69,7 +69,7 @@
 			</div><!-- .site-branding -->
 
 			<nav id="site-navigation" class="site-header__navigation main-navigation">
-				<button id="main-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gotham' ); ?></button>
+				<button id="main-nav-toggle" class="main-navigation__menu-toggle menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gothamish' ); ?></button>
 				<?php
 				// Add search bar to nav before menu.
 				$menu_prefix_markup = get_search_form( false );

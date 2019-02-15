@@ -22,6 +22,12 @@
 	}
 }
 
+.wp-caption,
+.wp-caption-text,
+.gallery-caption {
+	@include figure-caption();
+}
+
 /* Inline Text & Blocks */
 a {
 	font-weight: 600;

@@ -17,7 +17,7 @@ function gotham_front_featured_block( $block_number = 0 ) {
 		'slug'       => 'gothamish-featured',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
-			__( 'Featured on %s', 'gotham' ),
+			__( 'Featured on %s', 'gothamish' ),
 			gotham_logotype()
 		),
 		'query_args' => [
@@ -29,7 +29,7 @@ function gotham_front_featured_block( $block_number = 0 ) {
 		'slug'       => 'gothamish-long-form',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
-			__( 'Long Form on %s', 'gotham' ),
+			__( 'Long Form on %s', 'gothamish' ),
 			gotham_logotype()
 		),
 		'query_args' => [
@@ -41,7 +41,7 @@ function gotham_front_featured_block( $block_number = 0 ) {
 		'slug'       => 'gothamish-best-of',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
-			__( 'Best of %s', 'gotham' ),
+			__( 'Best of %s', 'gothamish' ),
 			gotham_logotype()
 		),
 		'query_args' => [

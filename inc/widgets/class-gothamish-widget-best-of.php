@@ -20,7 +20,7 @@ class Gothamish_Widget_Best_Of extends WP_Widget {
 			'classname'   => 'widget--best-of',
 			'description' => 'Displays Best of Gothamish posts.',
 		];
-		parent::__construct( 'gotham_best_of_widget', __( 'Best Of Widget', 'gotham' ), $widget_args );
+		parent::__construct( 'gotham_best_of_widget', __( 'Best Of Widget', 'gothamish' ), $widget_args );
 	}
 
 	/**
@@ -91,13 +91,13 @@ class Gothamish_Widget_Best_Of extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
-				<?php esc_html_e( 'Title:', 'gotham' ); ?>
+				<?php esc_html_e( 'Title:', 'gothamish' ); ?>
 
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'gotham' ); ?></label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>"><?php esc_html_e( 'Number of posts to show:', 'gothamish' ); ?></label>
 		<input class="tiny-text" id="<?php echo esc_attr( $this->get_field_id( 'number' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'number' ) ); ?>" type="number" step="1" min="1" value="<?php echo esc_attr( $number ); ?>" size="3" /></p>
 		<?php
 	}

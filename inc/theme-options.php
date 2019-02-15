@@ -30,7 +30,7 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 			// Site parent network URL.
 			'network-url' => 'https://pvdindustrial.com',
 			// The location the blog covers.
-			'site-location' => __( 'New York', 'gotham' ),
+			'site-location' => __( 'New York', 'gothamish' ),
 			// Tips EMail Address.
 			'tips-email' => 'tips@gothamish.press',
 			// Category slugs for the home page post feeds.

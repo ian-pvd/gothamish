@@ -25,7 +25,7 @@ if ( post_password_required() ) {
 	// Comments Form.
 	comment_form(
 		[
-			'title_reply'          => __( 'Comments', 'gotham' ),
+			'title_reply'          => __( 'Comments', 'gothamish' ),
 			'title_reply_before'   => '<h3 id="reply-title" class="comments-respond__title">',
 			'comment_notes_before' => '',
 			'comment_field'        => '<p class="comment-form__comment"><textarea id="comment" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>',
@@ -41,13 +41,13 @@ if ( post_password_required() ) {
 			if ( '1' === $gotham_comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'gotham' ),
+					esc_html__( 'One comment on &ldquo;%1$s&rdquo;', 'gothamish' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $gotham_comment_count, 'comments title', 'gotham' ) ),
+					esc_html( _nx( '%1$s comment on &ldquo;%2$s&rdquo;', '%1$s comments on &ldquo;%2$s&rdquo;', $gotham_comment_count, 'comments title', 'gothamish' ) ),
 					number_format_i18n( $gotham_comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -74,7 +74,7 @@ if ( post_password_required() ) {
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) :
 			?>
-			<p class="comments__none"><?php esc_html_e( 'Comments are closed.', 'gotham' ); ?></p>
+			<p class="comments__none"><?php esc_html_e( 'Comments are closed.', 'gothamish' ); ?></p>
 			<?php
 		endif;
 

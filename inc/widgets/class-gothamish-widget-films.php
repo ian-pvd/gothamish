@@ -20,7 +20,7 @@ class Gothamish_Widget_Films extends WP_Widget {
 			'classname'   => 'widget--gothamish-films',
 			'description' => 'Displays a Gothamish Films post.',
 		];
-		parent::__construct( 'gotham_films_widget', __( 'Gothamish Films Widget', 'gotham' ), $widget_args );
+		parent::__construct( 'gotham_films_widget', __( 'Gothamish Films Widget', 'gothamish' ), $widget_args );
 	}
 
 	/**
@@ -74,7 +74,7 @@ class Gothamish_Widget_Films extends WP_Widget {
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>">
-				<?php esc_html_e( 'Title:', 'gotham' ); ?>
+				<?php esc_html_e( 'Title:', 'gothamish' ); ?>
 
 			</label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
