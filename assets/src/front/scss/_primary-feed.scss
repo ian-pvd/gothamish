@@ -1,0 +1,54 @@
+/**
+ * Front Page primary post feed styles.
+ */
+
+.primary-feed__page:not(:last-child) {
+	margin-bottom: spacer(2);
+}
+
+.content-area--primary-feed {
+	.post--tout {
+		/* stylelint-disable selector-max-specificity */
+		/* Overrides to display tout markup as stamp-style posts. */
+		&:first-of-type {
+			.post__title {
+				min-height: 3em;
+				max-height: 4.25em;
+				overflow: hidden;
+			}
+		}
+
+		&:not(:first-of-type) {
+			height: 4.75em;
+			overflow: hidden;
+
+			.post__link-wrapper {
+				flex-direction: row;
+			}
+
+			.post__header {
+				flex: 1 1 auto;
+				margin-left: spacer(1);
+			}
+
+			.post__title {
+				padding: 0;
+			}
+
+			.post__thumbnail-frame {
+				flex: 0 0 auto;
+				width: 4.75em;
+				padding-top: 4.75em;
+				background-size: #{100% * 2 / 3};
+			}
+		}
+		/* stylelint-enable */
+	}
+}
+
+.primary-feed__blog-link {
+	width: 100%;
+	border-radius: 0;
+	text-align: center;
+	padding: spacer(0.5) spacer(1);
+}

@@ -13,13 +13,17 @@
 		padding: 0;
 	}
 
+	.content-area,
+	.featured-block {
+		flex: 0 0 auto;
+		max-width: 100%;
+		width: 100%;
+	}
+
 	.content-area {
 		background: white;
 		border: none;
-		flex: 0 0 auto;
-		max-width: 100%;
 		padding: 1rem 1rem;
-		width: 100%;
 	}
 }
 

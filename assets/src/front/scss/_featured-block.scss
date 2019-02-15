@@ -1,0 +1,19 @@
+/**
+ * Front Page featured content block styles.
+ */
+
+.featured-block {
+	.featured-block__title {
+		@include section-header;
+	}
+
+	.featured-block__wrapper {
+		display: flex;
+		background: color(grey-very-very-dark);
+	}
+
+	.post--tout {
+		width: calc(100% / 3);
+		padding-top: calc(((2/3) * 100%) / 3);
+	}
+}

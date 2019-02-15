@@ -28,7 +28,7 @@ get_header();
 		);
 		?>
 
-	<div id="primary-feed" class="content-area content-area--featured-categories">
+	<div id="featured-categories" class="content-area content-area--featured-categories content-area--post-feed">
 		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
 	</div>
 
@@ -37,6 +37,10 @@ get_header();
 			<?php get_template_part( 'template-parts/front', 'recirculation' ); ?>
 		</div>
 	<?php endif; ?>
+
+	<div id="primary-feed" class="primary-feed">
+		<?php get_template_part( 'template-parts/front', 'primary-feed' ); ?>
+	</div>
 
 <?php
 get_footer();
