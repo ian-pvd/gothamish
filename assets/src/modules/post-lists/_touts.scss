@@ -8,7 +8,8 @@
 	background: $color--secondary;
 
 	&.has-post-thumbnail,
-	.hero-section__featured-posts & {
+	.hero-section__featured-posts &,
+	.featured-block & {
 		height: 0;
 		overflow: hidden;
 		padding-top: calc((2/3) * 100%);
