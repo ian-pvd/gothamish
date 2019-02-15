@@ -82,6 +82,6 @@ while ( $primary_feed_page <= $max_feed_pages && $more_posts ) :
 
 <?php endwhile; ?>
 
-<a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="primary-feed__blog-link link-button" title="<?php echo esc_attr( 'Read more posts from the ' . get_option( 'blogname' ) . ' blog archive.' ); ?>">
+<a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="primary-feed__blog-link link-button" title="<?php echo esc_attr( sprintf( /* translators: %s blog name */ __( 'Read more posts from the %s blog archive.' ), get_option( 'blogname', 'gotham' ) ) ); ?>">
 	<?php esc_html_e( 'Read More', 'gotham' ); ?>
 </a>
