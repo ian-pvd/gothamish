@@ -1,17 +1,17 @@
 === Gothamish ===
 
 Contributors: ian_pvd
-Tags: custom-background, custom-logo, custom-menu, featured-images, translation-ready
+Tags: one-column, two-column, right-sidebar, custom-logo, custom-menu, featured-images, translation-ready, blog, entertainment, news
 
 Requires at least: 4.5
-Tested up to: 5.0
+Tested up to: 5.1
 Stable tag: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
 == Description ==
 
-Gothamish is a WordPress news theme about New York.
+Gothamish is a WordPress theme about New York.
 
 == Installation ==
 

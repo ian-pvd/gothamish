@@ -1,7 +1,7 @@
 {
   "name": "gothamish",
   "version": "1.0.0",
-  "description": "Gothamish is a WordPress news theme about New York",
+  "description": "Gothamish is a WordPress theme about New York",
   "dependencies": {
     "webfontloader": "^1.6.28"
   },
