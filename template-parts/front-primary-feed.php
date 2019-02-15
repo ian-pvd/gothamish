@@ -10,7 +10,7 @@
 // Current Primary Feed page.
 $primary_feed_page = 1;
 
-// Max number of feed pages to display, up to 12.
+// Get max number of feed pages to display.
 $max_feed_pages = gotham_get_option( 'max_feed_pages' );
 
 // Get primary categories from theme options.
@@ -22,16 +22,17 @@ $exclude_displayed_post_ids = gotham_get_exclude_displayed_post_ids();
 // Set up a more_posts? variable to prevent showing empty pages.
 $more_posts = true;
 
+// While we're not a the the max # of pages, and there are still posts to display...
 while ( $primary_feed_page <= $max_feed_pages && $more_posts ) :
 	?>
 
-	<div class="primary-feed__page primary-feed__page--<?php echo esc_attr( str_pad( $primary_feed_page, 3, '0', STR_PAD_LEFT ) ); ?>">
+	<div class="primary-feed__page primary-feed__page--<?php echo esc_attr( str_pad( $primary_feed_page, 2, '0', STR_PAD_LEFT ) ); ?>">
 		<div class="content-area content-area--primary-feed content-area--post-feed">
 			<?php
 			foreach ( $primary_categories as $category ) :
 				$category = get_category_by_slug( $category );
 
-				$primary_feed[ $category->slug ] = new WP_Query(
+				$primary_feed_category = new WP_Query(
 					[
 						'post__not_in'  => $exclude_displayed_post_ids,
 						'category_name' => $category->slug,
@@ -47,20 +48,20 @@ while ( $primary_feed_page <= $max_feed_pages && $more_posts ) :
 						</a>
 					</h2>
 					<?php
-					if ( isset( $primary_feed[ $category->slug ] ) && $primary_feed[ $category->slug ]->have_posts() ) {
-						while ( $primary_feed[ $category->slug ]->have_posts() ) {
-							$primary_feed[ $category->slug ]->the_post();
+					if ( isset( $primary_feed_category ) && $primary_feed_category->have_posts() ) {
+						while ( $primary_feed_category->have_posts() ) {
+							$primary_feed_category->the_post();
 							get_template_part( 'template-parts/content', 'tout' );
 						}
 
 						// If this page is the max # pages...
-						if ( (int) $primary_feed[ $category->slug ]->max_num_pages === $primary_feed_page ) {
+						if ( (int) $primary_feed_category->max_num_pages === $primary_feed_page ) {
 							// Destroy "more posts?" value.
 							$more_posts = false;
 						}
 
 						// Clean up this page of primary feed posts.
-						unset( $primary_feed[ $category->slug ] );
+						unset( $primary_feed_category );
 					}
 					?>
 				</div>
