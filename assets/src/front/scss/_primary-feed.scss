@@ -8,7 +8,9 @@
 
 .content-area--primary-feed {
 	.post--tout {
-		&:first-of-type{
+		/* stylelint-disable selector-max-specificity */
+		/* Overrides to display tout markup as stamp-style posts. */
+		&:first-of-type {
 			.post__title {
 				min-height: 3em;
 				max-height: 4.25em;
@@ -40,6 +42,7 @@
 				background-size: #{100% * 2 / 3};
 			}
 		}
+		/* stylelint-enable */
 	}
 }
 
