@@ -89,3 +89,7 @@ while ( $primary_feed_page <= $max_feed_pages && ! empty( $more_posts ) ) :
 	<?php $primary_feed_page++; ?>
 
 <?php endwhile; ?>
+
+<a href="<?php echo esc_url( get_post_type_archive_link( 'post' ) ); ?>" class="primary-feed__blog-link link-button" title="<?php echo esc_attr( 'Read more posts from the ' . get_option( 'blogname' ) . ' blog archive.' ); ?>">
+	<?php esc_html_e( 'Read More', 'gotham' ); ?>
+</a>
