@@ -25,6 +25,16 @@ function gotham_jetpack_setup() {
 		]
 	);
 
+	// Add theme support for Infinite Scroll.
+	add_theme_support(
+		'infinite-scroll',
+		[
+			'container' => 'primary-feed',
+			'render'    => 'gotham_infinite_scroll_primary_feed_render',
+			'footer'    => false,
+		]
+	);
+
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 
@@ -71,6 +81,16 @@ function gotham_infinite_scroll_render() {
 		else :
 			get_template_part( 'template-parts/content' );
 		endif;
+	}
+}
+
+/**
+ * Custom Infinite Scroll render function for Primary Feed.
+ */
+function gotham_infinite_scroll_primary_feed_render() {
+	while ( have_posts() ) {
+		the_post();
+		get_template_part( 'template-parts/content', 'tout' );
 	}
 }
 
