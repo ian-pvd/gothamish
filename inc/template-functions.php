@@ -74,6 +74,8 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 			],
 			// Toggle display advertisments.
 			'display-ads' => true,
+			// Max number of feed pages to display on front page.
+			'max_feed_pages' => 9,
 		];
 
 		if ( ! empty( $theme_options[ $option ] ) ) {

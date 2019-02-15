@@ -10,8 +10,8 @@
 // Current Primary Feed page.
 $primary_feed_page = 1;
 
-// Max number of feed pages to display.
-$max_feed_pages = 20; // DEV get_option( 'posts_per_page' );
+// Max number of feed pages to display, up to 12.
+$max_feed_pages = gotham_get_option( 'max_feed_pages' );
 
 // Get primary categories from theme options.
 $primary_categories = gotham_get_option( 'primary-categories' );
@@ -77,8 +77,8 @@ while ( $primary_feed_page <= $max_feed_pages && ! empty( $more_posts ) ) :
 		</div>
 
 		<?php
-		// If there are still posts.
-		if ( ! empty( $more_posts ) ) {
+		// If there will be another page of feed posts...
+		if ( ( $primary_feed_page + 1 ) <= $max_feed_pages && ! empty( $more_posts ) ) {
 			// Display a Featured Content Block.
 			gotham_front_featured_block( $primary_feed_page );
 		}
