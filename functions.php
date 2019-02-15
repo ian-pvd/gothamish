@@ -150,19 +150,24 @@ require_once GOTHAM_PATH . '/inc/assets.php';
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
+ * Gothamish theme options.
+ */
+require get_template_directory() . '/inc/theme-options.php';
+
+/**
  * Custom template tags for this theme.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/theme-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-require get_template_directory() . '/inc/template-hooks.php';
+require get_template_directory() . '/inc/theme-hooks.php';
 
 /**
  * Gothamish theme helper functions.
  */
-require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/theme-functions.php';
 
 /**
  * Customizer additions.

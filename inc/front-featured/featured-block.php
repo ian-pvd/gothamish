@@ -14,7 +14,7 @@
 function gotham_front_featured_block( $block_number = 0 ) {
 	// Block Config 0: Featured.
 	$blocks[] = [
-		'slug'       => 'gothamist-featured',
+		'slug'       => 'gothamish-featured',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
 			__( 'Featured on %s', 'gotham' ),
@@ -26,7 +26,7 @@ function gotham_front_featured_block( $block_number = 0 ) {
 	];
 	// Block Config 1: Long Form.
 	$blocks[] = [
-		'slug'       => 'gothamist-long-form',
+		'slug'       => 'gothamish-long-form',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
 			__( 'Long Form on %s', 'gotham' ),
@@ -38,7 +38,7 @@ function gotham_front_featured_block( $block_number = 0 ) {
 	];
 	// Block Config 2: Best Of.
 	$blocks[] = [
-		'slug'       => 'gothamist-best-of',
+		'slug'       => 'gothamish-best-of',
 		'title'      => sprintf(
 			/* translators: %s site logotype */
 			__( 'Best of %s', 'gotham' ),
