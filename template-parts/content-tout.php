@@ -6,7 +6,7 @@
  */
 
 // Default image size for touts.
-$image_size = 'tout';
+$image_size = 'gotham_tout';
 // Reset default to use theme featured thumbnail size.
 if ( is_front_page() ) {
 	$image_size = 'large';

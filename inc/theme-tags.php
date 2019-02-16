@@ -563,7 +563,7 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 	 */
 	function gotham_staff_list( $args = [] ) {
 		// Use Staff global.
-		global $staff;
+		global $gotham_staff;
 
 		// Set key for each user group query.
 		$cache_key = ( ! empty( $args['role'] ) ) ? 'user_query_' . $args['role'] : 'user_query';

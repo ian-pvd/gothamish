@@ -5,7 +5,7 @@
  * @package Gothamish
  */
 
-global $staff;
+global $gotham_staff;
 
 if ( empty( $staff->ID ) && is_author() ) {
 	$staff = get_queried_object();
