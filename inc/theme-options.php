@@ -33,6 +33,10 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 			'site-location' => __( 'New York', 'gothamish' ),
 			// Tips EMail Address.
 			'tips-email' => 'tips@gothamish.press',
+			// Donate page permalink.
+			'page-donate' => get_permalink( get_page_by_path( 'donate' ) ),
+			// Terms & conditions page permalink.
+			'pageterms'  => get_permalink( get_page_by_path( 'terms' ) ),
 			// Category slugs for the home page post feeds.
 			'primary-categories' => [
 				'news',

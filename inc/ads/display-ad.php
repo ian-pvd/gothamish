@@ -49,19 +49,47 @@ function gotham_display_ad( $ad_position = null, $ad_size = '300x250' ) {
 
 			// Are the numbers greater than zero?
 			if ( ( 0 < $px_size[0] ) && ( 0 < $px_size[1] ) ) {
+				// Display a different whitelist appeal based on px^2 ad size.
+				if ( $px_size[0] * $px_size[1] >= 30000 ) {
+					$ad_appeal = '<div class="ad__appeal ad__appeal--text"><span>' . get_bloginfo( 'name' ) . ' is reader supported local news. Please consider whitelisting ads on this site, or making a donation on our <a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '">support page</a>.</span></div>';
+				} else {
+					$ad_appeal = '<div class="ad__appeal ad__appeal--button"><span><a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '" class="link-button">Support Us</a></span></div>';
+				}
+
 				// Set up ad attributes.
 				// Display size in px.
 				$px_size = 'width:' . $px_size[0] . 'px;height:' . $px_size[1] . 'px;';
 
 				// Is ad slot for a specific screen size?
 				if ( ! is_int( $slot ) ) {
-					$ad_slot = 'ad-slot--' . $slot;
+					$ad_view = 'ad-view--' . $slot;
 				} else {
-					$ad_slot = 'ad-slot--all';
+					$ad_view = 'ad-view--all';
 				}
 
 				// Display the ad.
-				echo '<div class="ad-slot ' . esc_attr( $ad_slot ) . ' ad-size--' . esc_attr( $dimensions ) . '" style="' . esc_attr( $px_size ) . '"><span class="ad__text">Advertisement ' . esc_html( $dimensions ) . '</span><img class="ad__image" src="' . esc_url( 'https://source.unsplash.com/random/' . $dimensions ) . '/daily" /></div>';
+				printf(
+					'<div class="ad-view ' . esc_attr( $ad_view ) . ' ad-size--' . esc_attr( $dimensions ) . '" style="' . esc_attr( $px_size ) . '"><span class="ad__placeholder-text">%1$s</span><img class="ad__image" src="' . esc_url( 'https://source.unsplash.com/collection/1349357/' . $dimensions ) . '/">%2$s</div>',
+					sprintf(
+						'%1$s %2$s',
+						esc_html__( 'Advertisement', 'gothamish' ),
+						esc_html( $dimensions )
+					),
+					wp_kses(
+						$ad_appeal,
+						[
+							'div'  =>
+								[
+									'class' => [],
+								],
+							'a'    => [
+								'href'  => [],
+								'class' => [],
+							],
+							'span' => [],
+						]
+					)
+				);
 			}
 		} else {
 			echo '<!-- Invalid Ad Slot Display Size: ' . esc_html( $dimensions ) . ' -->';

@@ -2,6 +2,9 @@
  * Gothamish Ad Slot styles
  */
 
+// Include fade-in keyframes animation.
+@include fade-in();
+
 .ad {
 	align-items: center;
 	display: flex;
@@ -22,62 +25,91 @@
 	}
 }
 
-.ad-slot {
+.ad-view {
 	background: color(grey-very-light);
 	color: color(grey-very-dark);
 	display: none;
-	outline: 1px solid fade-out( color(grey-light), 0.5 );
 	overflow: hidden;
 	position: relative;
 
-	.ad__text {
+	.ad__placeholder-text {
 		@include absolute-pinned();
 		align-items: center;
 		background: fade-out( color(grey-very-very-light), 0.5 );
-		display: flex;
+		display: none;
 		justify-content: center;
-		z-index: z-index(first);
+		pointer-events: none;
+		z-index: z-index(interface);
 	}
 
 	.ad__image {
 		@include absolute-center();
 		position: absolute;
+		z-index: z-index(first);
 	}
 
 	&:hover {
-		outline: none;
+		box-shadow: 0 1px 1px fade-out( color(grey-light), 0.75 );
 
-		.ad__text {
-			display: none;
+		.ad__placeholder-text {
+			display: flex;
 		}
 	}
 
 	// Responsive ad slot displays
-	&.ad-slot--all {
+	&.ad-view--all {
 		display: flex;
 	}
 
-	&.ad-slot--mobile {
-		display: none;
-
+	&.ad-view--mobile {
 		@include breakpoints(none,small) {
 			display: flex;
 		}
 	}
 
-	&.ad-slot--tablet {
-		display: none;
-
+	&.ad-view--tablet {
 		@include breakpoints(small, large) {
 			display: flex;
 		}
 	}
 
-	&.ad-slot--desktop {
-		display: none;
-
+	&.ad-view--desktop {
 		@include breakpoints(large) {
 			display: flex;
+		}
+	}
+
+	.ad__appeal {
+		@include absolute-pinned();
+		align-items: center;
+		animation-delay: 3000ms;
+		animation-duration: 1000ms;
+		animation-fill-mode: forwards;
+		animation-name: fadeIn;
+		animation-timing-function: ease-in;
+		background: $color--appeal;
+		display: flex;
+		justify-content: center;
+		opacity: 0;
+		z-index: z-index(neutral);
+
+		&.ad__appeal--text {
+			padding: spacer(2);
+		}
+
+		&.ad__appeal--button {
+			a {
+				@include absolute-pinned();
+				border-radius: 0;
+				align-items: center;
+				display: flex;
+				justify-content: center;
+			}
+		}
+
+		span {
+			text-align: center;
+			max-width: 640px;
 		}
 	}
 }
