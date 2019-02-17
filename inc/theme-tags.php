@@ -44,7 +44,7 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 		if ( function_exists( 'coauthors_posts_links' ) ) {
 			$byline = coauthors_posts_links( null, ' & ', null, null, false );
 		} else {
-			$byline = the_author_posts_link();
+			$byline = get_the_author_posts_link();
 		}
 
 		printf(
