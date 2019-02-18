@@ -1,6 +1,6 @@
 <?php
 /**
- * Gothamish theme options array.
+ * Gothamish theme-specific options.
  *
  * @package Gothamish
  */
@@ -54,5 +54,21 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 		}
 
 		return $value;
+	}
+endif;
+
+if ( ! function_exists( 'gotham_get_page' ) ) :
+	/**
+	 * Returns a permalink for a page for use in theme templates.
+	 *
+	 * @param  string $gotham_page The page being requested.
+	 * @return mixed        A permalink or boolean false.
+	 */
+	function gotham_get_page( $gotham_page ) {
+		$page_url = false;
+		if ( get_page_by_path( $gotham_page ) ) {
+			$page_url = get_permalink( get_page_by_path( $gotham_page ) );
+		}
+		return $page_url;
 	}
 endif;

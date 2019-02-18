@@ -64,13 +64,13 @@ function gotham_display_ad( $ad_position = null, $ad_size = '300x250' ) {
 							get_bloginfo( 'name' ),
 							sprintf(
 								'<a href="%1$s">%2$s</a>',
-								esc_url( gotham_get_option( 'page-donate' ) ),
+								esc_url( gotham_get_page( 'donate' ) ),
 								esc_html__( 'support page', 'gothamish' )
 							)
 						);
 				} else {
 					$ad_appeal = sprintf(
-						'<div class="ad__appeal ad__appeal--button"><span><a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '" class="link-button">%1$s</a></span></div>',
+						'<div class="ad__appeal ad__appeal--button"><span><a href="' . esc_url( gotham_get_page( 'donate' ) ) . '" class="link-button">%1$s</a></span></div>',
 						__( 'Support Us', 'gothamish' )
 					);
 				}
