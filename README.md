@@ -19,7 +19,7 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 
 ## Theme Setup
 
-### Reading Options & Static Front Page
+### Reading Options & Static Front Page:
 To use the custom home page template:
 1. Create a "Home" page and apply the "Front Page" template for the "Template" option.
 2. Create a "Blog" page.
