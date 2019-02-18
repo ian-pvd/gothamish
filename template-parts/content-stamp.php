@@ -20,7 +20,7 @@
 		// Stamp sized post thumbnail.
 		if ( has_post_thumbnail() ) :
 			the_post_thumbnail(
-				'stamp',
+				'gotham_stamp',
 				[
 					'alt' => the_title_attribute(
 						[

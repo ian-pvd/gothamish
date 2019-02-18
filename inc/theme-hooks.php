@@ -123,8 +123,8 @@ function gotham_user_social_fields( $fields ) {
 	unset( $fields['yim'] );
 
 	// Add current networks.
-	$fields['instagram'] = __( 'Instagram', 'gothamish' );
-	$fields['twitter']   = __( 'Twitter', 'gothamish' );
+	$fields['gotham_instagram'] = __( 'Instagram', 'gothamish' );
+	$fields['gotham_twitter']   = __( 'Twitter', 'gothamish' );
 
 	// Return updated fields.
 	return $fields;

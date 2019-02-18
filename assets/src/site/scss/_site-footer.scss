@@ -48,11 +48,11 @@
 }
 
 .site-info {
+	display: block;
 	font: $font--interface;
 	font-size: rem(14);
-	text-align: center;
-	display: block;
 	margin-bottom: spacer(0.5);
+	text-align: center;
 
 	@include breakpoints(small) {
 		display: inline-block;
@@ -64,6 +64,13 @@
 
 		&:hover {
 			color: color(red);
+		}
+	}
+
+	.site-info__terms + .site-info__privacy {
+		&::before {
+			content: '\0026\2009';
+			display: inline-block;
 		}
 	}
 }

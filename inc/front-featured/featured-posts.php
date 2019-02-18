@@ -84,7 +84,7 @@ function gotham_featured_posts( $num_posts ) {
 		);
 
 		// Set up a global variable for posts that have already been displayed.
-		global $exclude_displayed_post_ids;
+		global $gotham_exclude_displayed_post_ids;
 		$exclude_displayed_post_ids = $featured_post_ids;
 
 		// Now, stash the featured post info for 3hrs.
