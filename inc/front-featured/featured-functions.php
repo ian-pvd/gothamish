@@ -41,7 +41,7 @@ function gotham_has_front_feed_posts() {
 	// Check for cached value.
 	if ( ! $display_front_feed = get_transient( 'display_front_feed' ) ) {
 		// Set default return.
-		$display_feed = true;
+		$display_front_feed = true;
 		// Get primary tags.
 		$primary_categories = gotham_get_option( 'primary-categories' );
 		// for each tag...
