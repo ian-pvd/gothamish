@@ -41,7 +41,7 @@
 	);
 
 	printf(
-		'<a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '" class="donation-appeal__link-button link-button">%s</a>',
+		'<a href="' . esc_url( gotham_get_page( 'donate' ) ) . '" class="donation-appeal__link-button link-button">%s</a>',
 		esc_html__( 'Support Us!', 'gothamish' )
 	);
 	?>

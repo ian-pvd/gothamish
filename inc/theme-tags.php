@@ -364,11 +364,13 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 					)
 				)
 			),
-			sprintf(
-				'<a href="%2$s">%1$s</a>',
+			( gotham_get_page( 'donate' ) ) ?
+				sprintf(
+					'<a href="%2$s">%1$s</a>',
+					esc_html__( 'making a donation today', 'gothamish' ),
+					esc_url( gotham_get_page( 'donate' ) )
+				) :
 				esc_html__( 'making a donation today', 'gothamish' ),
-				esc_url( gotham_get_option( 'page-donate' ) )
-			),
 			esc_html( gotham_get_option( 'site-location', 'New York' ) ),
 			esc_html( get_bloginfo( 'name' ) )
 		);
@@ -449,7 +451,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 
 		// Donate Link.
 		printf(
-			'<a class="site-network__donate" href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '">%s</a>',
+			'<a class="site-network__donate" href="' . esc_url( gotham_get_page( 'donate' ) ) . '">%s</a>',
 			esc_html__( 'Support Us', 'gothamish' )
 		);
 
@@ -563,7 +565,7 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 	 */
 	function gotham_staff_list( $args = [] ) {
 		// Use Staff global.
-		global $staff;
+		global $gotham_staff;
 
 		// Set key for each user group query.
 		$cache_key = ( ! empty( $args['role'] ) ) ? 'user_query_' . $args['role'] : 'user_query';

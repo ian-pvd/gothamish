@@ -18,39 +18,45 @@ Gothamish is built on PVD Industrial's [roundhouse](https://github.com/ian-pvd/r
 To start using this theme, download or clone a copy of the theme to your `wp-content/themes` directory. Once it has been added, open your site's admin panel and go to `Appearance > Themes` and click "Activate" to use the Gothamish theme.
 
 ## Theme Setup
-**Reading Options**
 
-To use the customized home page layout, create a "Home" and "Blog" page. Under `Settings` -> `Reading`, change the "Your homepage displays" option to "A static page" and set the home page to "Home" and posts page to "Blog"
+### Reading Options & Static Front Page:
+To use the custom home page template:
+1. Create a "Home" page and apply the "Front Page" template for the "Template" option.
+2. Create a "Blog" page.
+3. Under `Settings` -> `Reading`, change the "Your homepage displays" option to "A static page" and set the home page to "Home" and posts page to "Blog"
 
-**Pages:**
-1. Create a "Privacy Policy" page at `/privacy`.
-2. Create a "Terms & Conditions" page at `/terms`.
-3. Create a "Support Us" page at `/donate`.
-4. Create a "Staff" page at `/staff`.
+### Pages:
+This theme contains links that will display conditionally in templates if matching page slugs are found. To take advantage of these links:
+1. Create a "Privacy Policy" page at `privacy` and assign it as the Privacy Policy page under `Settings` -> `Privacy`.
+2. Create a "Terms & Conditions" page at `terms`.
+3. Create a "Support Us" page at `donate`.
+4. Create a "Subscribe" page at `subscribe`.
+4. Create a "Staff" page at `staff` and apply the "Staff Page" template.
     - Staff page will display users grouped by role: Editor, Author & Contributor. Admin accounts have been deliberately excluded from displaying on the front end.
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
     - To display a special job title for a user (ie: Editor-in-Chief, Co-Founder), you can add it to the "Gothamish Staff Title" field.
 
-**Sidebars:**
+### Sidebars:
 - Single Post Sidebar: The default sidebar used throughout the site on posts.
 - Page Content Sidebar: A shorter sidebar intented for shorter page content.
 - Front Page Hero Sidebar: A sidebar that's displayed at the top of the home page next to the featured content.
+- Front Page Recirculation Sidebar: An optional widget area for including an RSS widget to display posts from another network on the home page.
 
-**Menus:**
+### Widgets:
+- Ads Widget - Leverages the theme's ad placeholder function to display one of several different sized ads in a sidebar.
+- Best of Gothamish Widget - A widget which displays an adjustible number of recent posts tagged with `best-of`.
+- Gothamish Films Widget - A widget which displays the most recent post tagged with `gothamish-films`.
+- Subscribe Widget - A widget which displays either a link to the subscribe page, or can be configured to display a MailChimp subscribe form.
+
+### Menus:
 1. Create and assign a main navigation menu for the Primary Navigation location.
 2. (Recommended) Create and assign a list of social media profile links for the Social Links location.
 3. (Recommended) Create a menu for primary page links and assign it to the Front Page Hero Sidebar using a navigation menu widget.
 4. (Optional) Create and assign a list of partner network sites for the Site Networks location.
 5. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
 
-**Logotype:**
-
+### Logotype:
 To display a custom logotype using the blog name (ie: **Gotham**ish), set your blog name to a single word that ends in '-ish'. For example: **Detroit**ish, **Seattle**ish, or **Oakland**ish.
-
-## Style & Layout Options
-This theme contains modifier styles which can be enabled or disabled to change various component layouts.
-- Site Header Layout – Choose between the traditional centred logo/logotype, or use enable the `--logo-left` option to use a left aligned logo with a right aligned nav display.
-- Site Content Layout – Enable the `--single-column` option to view site content in a centred single column layout on desktop.
 
 ## Development
 This theme front-end is built with SCSS and modern JavaScript, and is compiled using webpack. For more information, please see the [Theme Development Readme](./assets/README.md).

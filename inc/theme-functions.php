@@ -49,7 +49,7 @@ if ( ! function_exists( 'gotham_get_exclude_displayed_post_ids' ) ) :
 	 */
 	function gotham_get_exclude_displayed_post_ids() {
 		// Excluded posts are set in the featured posts function.
-		global $exclude_displayed_post_ids;
+		global $gotham_exclude_displayed_post_ids;
 		// If there is a cache of featued posts, this variable won't have be set.
 		if ( empty( $exclude_displayed_post_ids ) ) {
 			// If empty, try checking for the cached featued posts.
