@@ -28,9 +28,11 @@ get_header();
 		);
 		?>
 
+	<?php if ( gotham_has_front_feed_posts() ) : ?>
 	<div id="featured-categories" class="content-area content-area--featured-categories content-area--post-feed">
 		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
 	</div>
+	<?php endif; ?>
 
 	<?php if ( is_active_sidebar( 'front-recirc' ) ) : ?>
 		<div id="network-feed" class="content-area content-area--front-recirc">
@@ -38,9 +40,11 @@ get_header();
 		</div>
 	<?php endif; ?>
 
+	<?php if ( gotham_has_front_feed_posts() ) : ?>
 	<div id="primary-feed" class="primary-feed">
 		<?php get_template_part( 'template-parts/front', 'primary-feed' ); ?>
 	</div>
+	<?php endif; ?>
 
 <?php
 get_footer();
