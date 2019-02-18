@@ -19,13 +19,13 @@ To start using this theme, download or clone a copy of the theme to your `wp-con
 
 ## Theme Setup
 
-###Reading Options & Static Front Page
+### Reading Options & Static Front Page
 To use the custom home page template:
 1. Create a "Home" page and apply the "Front Page" template for the "Template" option.
 2. Create a "Blog" page.
 3. Under `Settings` -> `Reading`, change the "Your homepage displays" option to "A static page" and set the home page to "Home" and posts page to "Blog"
 
-###Pages:
+### Pages:
 This theme contains links that will display conditionally in templates if matching page slugs are found. To take advantage of these links:
 1. Create a "Privacy Policy" page at `privacy` and assign it as the Privacy Policy page under `Settings` -> `Privacy`.
 2. Create a "Terms & Conditions" page at `terms`.
@@ -36,26 +36,26 @@ This theme contains links that will display conditionally in templates if matchi
     - Only user accounts with first & last names set will display. This is to prevent internal / utility accounts from displaying.
     - To display a special job title for a user (ie: Editor-in-Chief, Co-Founder), you can add it to the "Gothamish Staff Title" field.
 
-###Sidebars:
+### Sidebars:
 - Single Post Sidebar: The default sidebar used throughout the site on posts.
 - Page Content Sidebar: A shorter sidebar intented for shorter page content.
 - Front Page Hero Sidebar: A sidebar that's displayed at the top of the home page next to the featured content.
 - Front Page Recirculation Sidebar: An optional widget area for including an RSS widget to display posts from another network on the home page.
 
-###Widgets:
+### Widgets:
 - Ads Widget - Leverages the theme's ad placeholder function to display one of several different sized ads in a sidebar.
 - Best of Gothamish Widget - A widget which displays an adjustible number of recent posts tagged with `best-of`.
 - Gothamish Films Widget - A widget which displays the most recent post tagged with `gothamish-films`.
 - Subscribe Widget - A widget which displays either a link to the subscribe page, or can be configured to display a MailChimp subscribe form.
 
-###Menus:
+### Menus:
 1. Create and assign a main navigation menu for the Primary Navigation location.
 2. (Recommended) Create and assign a list of social media profile links for the Social Links location.
 3. (Recommended) Create a menu for primary page links and assign it to the Front Page Hero Sidebar using a navigation menu widget.
 4. (Optional) Create and assign a list of partner network sites for the Site Networks location.
 5. (Optional) Create and assign a list of utility page links for the Footer Utilities menu location.
 
-###Logotype:
+### Logotype:
 To display a custom logotype using the blog name (ie: **Gotham**ish), set your blog name to a single word that ends in '-ish'. For example: **Detroit**ish, **Seattle**ish, or **Oakland**ish.
 
 ## Development
