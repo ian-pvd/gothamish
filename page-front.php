@@ -28,9 +28,9 @@ get_header();
 		);
 		?>
 
-	<?php if ( gotham_has_front_feed_posts() ) : ?>
+	<?php if ( gotham_has_front_feed_posts( 'featured_categories' ) ) : ?>
 	<div id="featured-categories" class="content-area content-area--featured-categories content-area--post-feed">
-		<?php get_template_part( 'template-parts/front', 'category-feeds' ); ?>
+		<?php get_template_part( 'template-parts/front', 'featured-categories' ); ?>
 	</div>
 	<?php endif; ?>
 
@@ -40,7 +40,7 @@ get_header();
 		</div>
 	<?php endif; ?>
 
-	<?php if ( gotham_has_front_feed_posts() ) : ?>
+	<?php if ( gotham_has_front_feed_posts( 'primary_feed' ) ) : ?>
 	<div id="primary-feed" class="primary-feed">
 		<?php get_template_part( 'template-parts/front', 'primary-feed' ); ?>
 	</div>

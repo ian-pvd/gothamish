@@ -1,6 +1,6 @@
 <?php
 /**
- * Front Page: Category feeds.
+ * Front Page: Featured Categories
  *
  * Template part for displaying the primary category post feeds.
  *
