@@ -44,7 +44,7 @@ if ( ! function_exists( 'gotham_posted_by' ) ) :
 		if ( function_exists( 'coauthors_posts_links' ) ) {
 			$byline = coauthors_posts_links( null, ' & ', null, null, false );
 		} else {
-			$byline = the_author_posts_link();
+			$byline = get_the_author_posts_link();
 		}
 
 		printf(
@@ -367,7 +367,7 @@ if ( ! function_exists( 'gotham_donation_appeal' ) ) :
 			sprintf(
 				'<a href="%2$s">%1$s</a>',
 				esc_html__( 'making a donation today', 'gothamish' ),
-				esc_url( '/donate' )
+				esc_url( gotham_get_option( 'page-donate' ) )
 			),
 			esc_html( gotham_get_option( 'site-location', 'New York' ) ),
 			esc_html( get_bloginfo( 'name' ) )
@@ -449,7 +449,7 @@ if ( ! function_exists( 'gotham_network_list' ) ) :
 
 		// Donate Link.
 		printf(
-			'<a class="site-network__donate" href="/donate">%s</a>',
+			'<a class="site-network__donate" href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '">%s</a>',
 			esc_html__( 'Support Us', 'gothamish' )
 		);
 
