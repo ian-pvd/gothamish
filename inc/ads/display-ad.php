@@ -50,10 +50,29 @@ function gotham_display_ad( $ad_position = null, $ad_size = '300x250' ) {
 			// Are the numbers greater than zero?
 			if ( ( 0 < $px_size[0] ) && ( 0 < $px_size[1] ) ) {
 				// Display a different whitelist appeal based on px^2 ad size.
-				if ( $px_size[0] * $px_size[1] >= 30000 ) {
-					$ad_appeal = '<div class="ad__appeal ad__appeal--text"><span>' . get_bloginfo( 'name' ) . ' is reader supported local news. Please consider whitelisting ads on this site, or making a donation on our <a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '">support page</a>.</span></div>';
+				if ( $px_size[0] * $px_size[1] >= 58000 ) {
+					$ad_appeal =
+						sprintf(
+							'<div class="ad__appeal ad__appeal--text"><span>' . wp_kses(
+								/* translators: %1$s blog name, %2$s donate link */
+								__(
+									'%1$s is reader supported local news. Please consider whitelisting ads on this site, or making a donation on our %2$s.',
+									'gothamish'
+								),
+								[ 'a' => [ 'href' => [] ] ]
+							) . '</span></div>',
+							get_bloginfo( 'name' ),
+							sprintf(
+								'<a href="%1$s">%2$s</a>',
+								esc_url( gotham_get_option( 'page-donate' ) ),
+								esc_html__( 'support page', 'gothamish' )
+							)
+						);
 				} else {
-					$ad_appeal = '<div class="ad__appeal ad__appeal--button"><span><a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '" class="link-button">Support Us</a></span></div>';
+					$ad_appeal = sprintf(
+						'<div class="ad__appeal ad__appeal--button"><span><a href="' . esc_url( gotham_get_option( 'page-donate' ) ) . '" class="link-button">%1$s</a></span></div>',
+						__( 'Support Us', 'gothamish' )
+					);
 				}
 
 				// Set up ad attributes.
