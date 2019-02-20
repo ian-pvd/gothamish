@@ -33,7 +33,7 @@ get_header();
 
 			<?php endif; ?>
 
-			<?php the_posts_pagination(); ?>
+			<?php the_posts_pagination( [ 'mid_size' => 5 ] ); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

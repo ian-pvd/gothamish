@@ -51,7 +51,7 @@ get_header();
 
 			</div><!-- .post-area -->
 
-			<?php the_posts_pagination(); ?>
+			<?php the_posts_pagination( [ 'mid_size' => 5 ] ); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
