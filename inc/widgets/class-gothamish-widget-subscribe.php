@@ -126,13 +126,13 @@ class Gothamish_Widget_Subscribe extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'form_user_id' ) ); ?>">
 				<?php esc_html_e( 'Enter your MailChimp user ID here:', 'gothamish' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_user_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_user_id' ) ); ?>" type="text" value="<?php echo esc_url( $form_user_id ); ?>" />
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_user_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_user_id' ) ); ?>" type="text" value="<?php echo esc_html( $form_user_id ); ?>" />
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'form_list_id' ) ); ?>">
 				<?php esc_html_e( 'Enter your mailing list ID here:', 'gothamish' ); ?>
 			</label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_list_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_list_id' ) ); ?>" type="text" value="<?php echo esc_url( $form_list_id ); ?>" />
+			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'form_list_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'form_list_id' ) ); ?>" type="text" value="<?php echo esc_html( $form_list_id ); ?>" />
 		</p>
 		<?php
 	}
