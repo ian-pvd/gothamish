@@ -9,7 +9,7 @@ $sidebar = 'sidebar-single';
 
 if ( is_front_page() ) {
 	$sidebar = 'front-hero';
-} elseif ( is_page() ) {
+} elseif ( is_page() || is_404() ) {
 	$sidebar = 'sidebar-page';
 }
 
