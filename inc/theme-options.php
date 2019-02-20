@@ -45,8 +45,10 @@ if ( ! function_exists( 'gotham_get_option' ) ) :
 			],
 			// Toggle display advertisments.
 			'display-ads' => true,
+			// Number of posts to display per primary feed page.
+			'primary-feed-posts' => 6,
 			// Max number of feed pages to display on front page.
-			'max_feed_pages' => 9,
+			'max-feed-pages' => 9,
 		];
 
 		if ( ! empty( $theme_options[ $option ] ) ) {

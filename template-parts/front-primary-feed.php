@@ -10,8 +10,11 @@
 // Current Primary Feed page.
 $primary_feed_page = 1;
 
+// Get number of posts to display per primary feed page.
+$primary_feed_posts = gotham_get_option( 'primary-feed-posts' );
+
 // Get max number of feed pages to display.
-$max_feed_pages = gotham_get_option( 'max_feed_pages' );
+$max_feed_pages = gotham_get_option( 'max-feed-pages' );
 
 // Get primary categories from theme options.
 $primary_categories = gotham_get_option( 'primary-categories' );
@@ -34,9 +37,10 @@ while ( $primary_feed_page <= $max_feed_pages && $more_posts ) :
 
 				$primary_feed_category = new WP_Query(
 					[
-						'post__not_in'  => $exclude_displayed_post_ids,
-						'category_name' => $category->slug,
-						'paged'         => $primary_feed_page,
+						'category_name'  => $category->slug,
+						'paged'          => $primary_feed_page,
+						'post__not_in'   => $exclude_displayed_post_ids,
+						'posts_per_page' => 6,
 					]
 				);
 				?>
