@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.b07c1a.css',
-		'archive-js' => 'archive.b07c1a.js',
-		'editor-css' => 'editor.b07c1a.css',
-		'editor-js' => 'editor.b07c1a.js',
-		'front-css' => 'front.b07c1a.css',
-		'front-js' => 'front.b07c1a.js',
-		'page-css' => 'page.b07c1a.css',
-		'page-js' => 'page.b07c1a.js',
-		'post-css' => 'post.b07c1a.css',
-		'post-js' => 'post.b07c1a.js',
-		'site-css' => 'site.b07c1a.css',
-		'site-js' => 'site.b07c1a.js',
-		'user-css' => 'user.b07c1a.css',
-		'user-js' => 'user.b07c1a.js',
+		'archive-css' => 'archive.css',
+		'archive-js' => 'archive.js',
+		'editor-css' => 'editor.css',
+		'editor-js' => 'editor.js',
+		'front-css' => 'front.css',
+		'front-js' => 'front.js',
+		'page-css' => 'page.css',
+		'page-js' => 'page.js',
+		'post-css' => 'post.css',
+		'post-js' => 'post.js',
+		'site-css' => 'site.css',
+		'site-js' => 'site.js',
+		'user-css' => 'user.css',
+		'user-js' => 'user.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }

@@ -2,6 +2,45 @@
  * Front Page primary post feed styles.
  */
 
+@mixin primary-feed-tout( $featured: 1 ) {
+	$featured: $featured + 1;
+
+	&:not(:nth-child(-n+#{$featured})) {
+		height: 5em;
+		overflow: hidden;
+
+		.post__link-wrapper {
+			flex-direction: row;
+		}
+
+		.post__header {
+			flex: 1 1 auto;
+			margin-left: spacer(1);
+		}
+
+		.post__title {
+			font-size: rem(18);
+			line-height: 1.125;
+			padding: 0;
+		}
+
+		.post__thumbnail-frame {
+			background-size: #{100% * 2 / 3};
+			flex: 0 0 auto;
+			padding-top: 5em;
+			width: 5em;
+		}
+	}
+
+	&:nth-child(-n+#{$featured}) {
+		.post__title {
+			max-height: 4.25em;
+			min-height: 3em;
+			overflow: hidden;
+		}
+	}
+}
+
 .primary-feed__page:not(:last-child) {
 	margin-bottom: spacer(2);
 }
@@ -10,39 +49,12 @@
 	.post--tout {
 		/* stylelint-disable selector-max-specificity */
 		/* Overrides to display tout markup as stamp-style posts. */
-		&:first-of-type {
-			.post__title {
-				max-height: 4.25em;
-				min-height: 3em;
-				overflow: hidden;
-			}
+		@include breakpoints(small, medium) {
+			@include primary-feed-tout(2);
 		}
 
-		&:not(:first-of-type) {
-			height: 5em;
-			overflow: hidden;
-
-			.post__link-wrapper {
-				flex-direction: row;
-			}
-
-			.post__header {
-				flex: 1 1 auto;
-				margin-left: spacer(1);
-			}
-
-			.post__title {
-				font-size: rem(18);
-				line-height: 1.125;
-				padding: 0;
-			}
-
-			.post__thumbnail-frame {
-				background-size: #{100% * 2 / 3};
-				flex: 0 0 auto;
-				padding-top: 5em;
-				width: 5em;
-			}
+		@include breakpoints(medium) {
+			@include primary-feed-tout;
 		}
 		/* stylelint-enable */
 
@@ -53,8 +65,15 @@
 }
 
 .primary-feed__blog-link {
-	width: 100%;
 	border-radius: 0;
-	text-align: center;
+	display: block;
+	margin: 0 auto;
 	padding: spacer(0.5) spacer(1);
+	text-align: center;
+	width: 100%;
+	max-width: calc(100% - #{spacer(2)});
+
+	@include breakpoints(large) {
+		max-width: 100%;
+	}
 }

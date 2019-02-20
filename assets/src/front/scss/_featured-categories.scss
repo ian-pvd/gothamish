@@ -6,13 +6,26 @@
 	.post--tout {
 		flex: 1 0 auto;
 
+		@include breakpoints (small, medium) {
+			flex: 0 0 auto;
+			width: calc((100% - #{spacer(1)}) / 2);
+		}
+
 		@include breakpoints(large) {
 			height: calc((100% - #{spacer(3.5)} - #{spacer(3)}) / 4);
 		}
 
 		.post__header {
 			min-height: 2.5em;
-			max-height: 4.25em;
+
+			@include breakpoints(small) {
+				max-height: 4.25em;
+				overflow: hidden;
+			}
+
+			@include breakpoints(large) {
+				max-height: 3.5em;
+			}
 		}
 	}
 }
