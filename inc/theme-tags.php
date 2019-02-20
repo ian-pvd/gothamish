@@ -149,7 +149,24 @@ if ( ! function_exists( 'gotham_post_thumbnail' ) ) :
 				</div>
 
 				<?php if ( get_the_post_thumbnail_caption() ) : ?>
-				<figcaption class="post-thumbnail__caption"><?php echo esc_html( get_the_post_thumbnail_caption() ); ?></figcaption>
+				<figcaption class="post-thumbnail__caption">
+					<?php
+						echo wp_kses(
+							get_the_post_thumbnail_caption(),
+							[
+								'a'      => [
+									'href'   => [],
+									'rel'    => [],
+									'target' => [],
+								],
+								'b'      => [],
+								'strong' => [],
+								'i'      => [],
+								'em'     => [],
+							]
+						);
+					?>
+				</figcaption>
 				<?php endif; ?>
 			</figure><!-- .post-thumbnail -->
 
