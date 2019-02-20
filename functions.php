@@ -210,3 +210,8 @@ require_once GOTHAM_PATH . '/inc/users/index.php';
  * Gothamish: Load Front Featured Content Module.
  */
 require_once GOTHAM_PATH . '/inc/front-featured/index.php';
+
+/**
+ * Require 3rd party Open Graph parsing library.
+ */
+require_once GOTHAM_PATH . '/inc/class-opengraph.php';

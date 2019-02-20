@@ -29,3 +29,8 @@ require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-best-of.php';
  * Register Best of Gothamish Widget
  */
 require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-subscribe.php';
+
+/**
+ * Register Custom RSS Widget
+ */
+require_once GOTHAM_PATH . '/inc/widgets/class-gothamish-widget-rss.php';
