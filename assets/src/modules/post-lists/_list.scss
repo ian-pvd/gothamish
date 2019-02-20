@@ -50,6 +50,16 @@
 		display: none;
 	}
 
+	.post-thumbnail__link {
+		@include intrinsic-image(3,2);
+		display: block;
+		width: 100%;
+
+		img {
+			@include image-fill();
+		}
+	}
+
 	.entry-excerpt {
 		display: none;
 
