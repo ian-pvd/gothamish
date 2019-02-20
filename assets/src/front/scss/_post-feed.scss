@@ -6,7 +6,7 @@
 	display: flex;
 	justify-content: space-between;
 
-	@include breakpoints(none, large) {
+	@include breakpoints(none, medium) {
 		flex-direction: column;
 	}
 
@@ -15,7 +15,7 @@
 		align-self: flex-start;
 		margin-bottom: spacer(1);
 
-		@include breakpoints(small, large) {
+		@include breakpoints(small, medium) {
 			width: 100%;
 		}
 	}
@@ -27,14 +27,14 @@
 		margin-bottom: spacer(1);
 		width: 100%;
 
-		@include breakpoints(small, large) {
+		@include breakpoints(small, medium) {
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
 			justify-content: space-between;
 		}
 
-		@include breakpoints(large) {
+		@include breakpoints(medium) {
 			margin-bottom: 0;
 			width: calc(( 100% - 2em ) / 3);
 		}
@@ -47,7 +47,7 @@
 		overflow: visible;
 		padding: 0;
 
-		@include breakpoints(small, large) {
+		@include breakpoints(small, medium) {
 			width: calc((100% - #{spacer(1)}) / 2);
 			flex: 0 0 auto;
 		}
@@ -87,8 +87,18 @@
 		.post__title {
 			background: none;
 			color: black;
+			font-weight: 500;
+			line-height: 1.25;
 			padding: 0.25em 0;
 			position: relative;
+
+			@include breakpoints(small, large) {
+				font-size: rem(18);
+			}
+
+			@include breakpoints(large) {
+				font-size: rem(20);
+			}
 		}
 	}
 }

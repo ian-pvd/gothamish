@@ -9,11 +9,30 @@
 
 	.featured-block__wrapper {
 		display: flex;
+		flex-direction: column;
 		background: color(grey-very-very-dark);
+
+		@include breakpoints(small) {
+			flex-direction: row;
+		}
 	}
 
 	.post--tout {
-		width: calc(100% / 3);
-		padding-top: calc(((2/3) * 100%) / 3);
+		@include breakpoints(small, medium) {
+			width: calc(100% / 2);
+			padding-top: calc(((2/3) * 100%) / 2);
+
+			/* stylelint-disable selector-max-specificity */
+			/* Hides third featured post tout. */
+			&:nth-child(n+3) {
+				display: none;
+			}
+			/* stylelint-enable */
+		}
+
+		@include breakpoints(medium) {
+			width: calc(100% / 3);
+			padding-top: calc(((2/3) * 100%) / 3);
+		}
 	}
 }
