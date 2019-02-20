@@ -176,21 +176,23 @@ function gotham_widget_rss_output( $rss, $args = array() ) {
 		}
 
 		$image = '';
-		if ( $show_image ) {
-			// Get Open Graph image for RSS link.
-			$image = OpenGraph::fetch( $link );
+		if ( $show_image && ! empty( $link ) ) {
+			// Fetch Open Graph data to get image for RSS link.
+			$og_data = OpenGraph::fetch( $link );
 			// If object returned...
-			if ( is_object( $image ) ) {
-				// Shift to image URL in Open Graph object.
-				$image = $image->image;
+			if ( is_object( $og_data ) ) {
 				// If the image field isn't empty...
-				if ( ! empty( $image ) ) {
+				if ( ! empty( $og_data->image ) ) {
 					// Add it to an image tag.
-					$image = '<img src="' . $image . '" class="rsswidget__image">';
+					$image = '<img src="' . esc_url( $og_data->image ) . '" class="rsswidget__image">';
+				} elseif ( ! empty( $og_data->title ) ) {
+					$image = '<span class="rsswidget__image-fallback">' . esc_html( $og_data->site_name ) . '</span>';
 				}
 			}
+
+			// Wrap the image.
 			if ( '' !== $link ) {
-				$image = '<a href="' . $link . '" class="rsswidget__image-frame">' . $image . '</a>';
+				$image = '<a href="' . esc_url( $link ) . '" class="rsswidget__image-frame">' . $image . '</a>';
 			} else {
 				$image = '<div class="rsswidget__image-frame">' . $image . '</div>';
 			}
@@ -199,9 +201,9 @@ function gotham_widget_rss_output( $rss, $args = array() ) {
 		if ( '' === $link ) {
 			echo "<li>$title{$date}{$summary}{$author}</li>";
 		} elseif ( $show_summary ) {
-			echo "<li>$image<a class='rsswidget' href='$link'>$title</a>{$date}{$summary}{$author}</li>";
+			echo "<li>$image<a class='rsswidget__link' href='$link'>$title</a>{$date}{$summary}{$author}</li>";
 		} else {
-			echo "<li><a class='rsswidget' href='$link'>$title</a>{$date}{$author}</li>";
+			echo "<li>$image<a class='rsswidget__link' href='$link'>$title</a>{$date}{$author}</li>";
 		}
 	}
 	echo '</ul>';

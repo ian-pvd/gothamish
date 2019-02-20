@@ -54,6 +54,48 @@
 		font-size: rem(20);
 	}
 
+	.rsswidget__image-frame {
+		@include intrinsic-image(3,2);
+		background: $color--interface;
+		margin-bottom: spacer(1);
+	}
+
+	.rsswidget__image {
+		@include image-fill();
+	}
+
+	.rsswidget__image-fallback {
+		@include absolute-center();
+		background: $color--primary;
+		color: $color--text-alt;
+		display: block;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1;
+		max-width: calc(100% - #{spacer(4)});
+		opacity: 0.75;
+		padding: spacer(1) spacer(2);
+		text-align: center;
+		white-space: nowrap;
+		width: 100%;
+	}
+
+	.rsswidget__link {
+		@include link-hover();
+		color: $color--text;
+		font: $font--header;
+		font-size: rem(20);
+		font-weight: 500;
+
+		&:hover {
+			color: $color--primary;
+		}
+	}
+
+	.rss-date {
+		font-size: rem(14);
+	}
+
 	.rssSummary {
 		@include breakpoints(none, medium) {
 			display: none;
