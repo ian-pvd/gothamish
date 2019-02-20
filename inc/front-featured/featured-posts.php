@@ -92,10 +92,15 @@ function gotham_featured_posts( $num_posts ) {
 	}
 
 	if ( $featured_posts->have_posts() ) {
+		// Set a global is_hero_post value.
+		global $gotham_is_hero_post;
+		$gotham_is_hero_post = true;
 		// Loop through featured posts with the tout template.
 		while ( $featured_posts->have_posts() ) {
 			$featured_posts->the_post();
 			get_template_part( 'template-parts/content', 'tout' );
+			// After the first hero tout, set is_hero_post to false.
+			$gotham_is_hero_post = false;
 		}
 	}
 }
