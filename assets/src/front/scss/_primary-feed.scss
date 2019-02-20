@@ -12,14 +12,14 @@
 		/* Overrides to display tout markup as stamp-style posts. */
 		&:first-of-type {
 			.post__title {
-				min-height: 3em;
 				max-height: 4.25em;
+				min-height: 3em;
 				overflow: hidden;
 			}
 		}
 
 		&:not(:first-of-type) {
-			height: 4.75em;
+			height: 5em;
 			overflow: hidden;
 
 			.post__link-wrapper {
@@ -32,17 +32,23 @@
 			}
 
 			.post__title {
+				font-size: rem(18);
+				line-height: 1.125;
 				padding: 0;
 			}
 
 			.post__thumbnail-frame {
-				flex: 0 0 auto;
-				width: 4.75em;
-				padding-top: 4.75em;
 				background-size: #{100% * 2 / 3};
+				flex: 0 0 auto;
+				padding-top: 5em;
+				width: 5em;
 			}
 		}
 		/* stylelint-enable */
+
+		.post__title {
+			font-weight: 500;
+		}
 	}
 }
 
