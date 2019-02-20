@@ -7,19 +7,19 @@
 
 global $gotham_staff;
 
-if ( empty( $staff->ID ) && is_author() ) {
-	$staff = get_queried_object();
+if ( empty( $gotham_staff->ID ) && is_author() ) {
+	$gotham_staff = get_queried_object();
 }
 
 // Get user account data and user meta info.
-$user_data = get_userdata( $staff->ID );
-$user_meta = get_user_meta( $staff->ID );
+$user_data = get_userdata( $gotham_staff->ID );
+$user_meta = get_user_meta( $gotham_staff->ID );
 
 // Author Posts Link.
-$author_link = get_author_posts_url( $staff->ID );
+$author_link = get_author_posts_url( $gotham_staff->ID );
 
 // Staff Photo URL.
-$staff_photo = get_avatar_url( $staff->ID, [ 'size' => 300 ] );
+$staff_photo = get_avatar_url( $gotham_staff->ID, [ 'size' => 300 ] );
 
 // Build social media links array.
 $social_links = [
@@ -30,14 +30,14 @@ $social_links = [
 				_nx(
 					'%s Article',
 					'%s Articles',
-					count_user_posts( $staff->ID ),
+					count_user_posts( $gotham_staff->ID ),
 					'number of articles',
 					'gothamish'
 				)
 			),
-			count_user_posts( $staff->ID )
+			count_user_posts( $gotham_staff->ID )
 		),
-		'link' => ( count_user_posts( $staff->ID ) > 0 && ! is_author() ) ? $author_link : '',
+		'link' => ( count_user_posts( $gotham_staff->ID ) > 0 && ! is_author() ) ? $author_link : '',
 	],
 	'email'     => [
 		'name' => __( 'Email', 'gothamish' ),
@@ -68,9 +68,9 @@ $social_links = [
 	</figure>
 	<main class="user__info">
 		<?php if ( is_author() ) : ?>
-			<h1 class="user__name"><?php echo esc_html( $staff->display_name ); ?></h1>
+			<h1 class="user__name"><?php echo esc_html( $gotham_staff->display_name ); ?></h1>
 		<?php else : ?>
-			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ); ?>"><?php echo esc_html( $staff->display_name ); ?></a></h3>
+			<h3 class="user__name"><a href="<?php echo esc_url( $author_link ); ?>"><?php echo esc_html( $gotham_staff->display_name ); ?></a></h3>
 		<?php endif; ?>
 
 		<?php if ( ! empty( $user_meta['gotham_user_title'][0] ) ) : ?>

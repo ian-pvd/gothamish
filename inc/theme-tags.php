@@ -609,7 +609,7 @@ if ( ! function_exists( 'gotham_staff_list' ) ) :
 
 		if ( ! empty( $user_results ) ) {
 			echo '<ul class="staff-list">';
-			foreach ( $user_results as $staff ) :
+			foreach ( $user_results as $gotham_staff ) :
 				echo '<li class="staff-list__item">';
 				get_template_part( 'template-parts/user' );
 				echo '</li>';
