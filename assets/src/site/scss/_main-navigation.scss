@@ -94,7 +94,7 @@
 			text-decoration: none;
 
 			@include breakpoints(large) {
-				padding: spacer(1.5) spacer(2);
+				padding: spacer(1.25) spacer(1.5);
 
 				&:hover {
 					background: $color--primary;
