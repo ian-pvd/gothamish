@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.878dcc.css',
-		'archive-js' => 'archive.878dcc.js',
-		'editor-css' => 'editor.878dcc.css',
-		'editor-js' => 'editor.878dcc.js',
-		'front-css' => 'front.878dcc.css',
-		'front-js' => 'front.878dcc.js',
-		'page-css' => 'page.878dcc.css',
-		'page-js' => 'page.878dcc.js',
-		'post-css' => 'post.878dcc.css',
-		'post-js' => 'post.878dcc.js',
-		'site-css' => 'site.878dcc.css',
-		'site-js' => 'site.878dcc.js',
-		'user-css' => 'user.878dcc.css',
-		'user-js' => 'user.878dcc.js',
+		'archive-css' => 'archive.da011e.css',
+		'archive-js' => 'archive.da011e.js',
+		'editor-css' => 'editor.da011e.css',
+		'editor-js' => 'editor.da011e.js',
+		'front-css' => 'front.da011e.css',
+		'front-js' => 'front.da011e.js',
+		'page-css' => 'page.da011e.css',
+		'page-js' => 'page.da011e.js',
+		'post-css' => 'post.da011e.css',
+		'post-js' => 'post.da011e.js',
+		'site-css' => 'site.da011e.css',
+		'site-js' => 'site.da011e.js',
+		'user-css' => 'user.da011e.css',
+		'user-js' => 'user.da011e.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
