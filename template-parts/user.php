@@ -49,11 +49,11 @@ $social_links = [
 	],
 	'twitter'   => [
 		'name' => __( 'Twitter', 'gothamish' ),
-		'link' => ( ! empty( $user_meta['twitter'][0] ) ) ? 'https://twitter.com/' . gotham_social_handle( $user_meta['twitter'][0] ) : null,
+		'link' => ( ! empty( $user_meta['gotham_twitter'][0] ) ) ? 'https://twitter.com/' . gotham_social_handle( $user_meta['gotham_twitter'][0] ) : null,
 	],
 	'instagram' => [
 		'name' => __( 'Instagram', 'gothamish' ),
-		'link' => ( ! empty( $user_meta['instagram'][0] ) ) ? 'https://instagram.com/' . gotham_social_handle( $user_meta['instagram'][0] ) : null,
+		'link' => ( ! empty( $user_meta['gotham_instagram'][0] ) ) ? 'https://instagram.com/' . gotham_social_handle( $user_meta['gotham_instagram'][0] ) : null,
 	],
 ];
 ?>
