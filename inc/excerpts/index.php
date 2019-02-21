@@ -53,7 +53,7 @@ if ( ! function_exists( 'gotham_custom_excerpt' ) ) :
 			$excerpt_more = apply_filters( 'excerpt_more', ' ' . $excerpt_end );
 
 			// Set the excerpt word count and only break after sentence is complete.
-			$excerpt_word_count = 35;
+			$excerpt_word_count = 30;
 			if ( wp_is_mobile() ) {
 				$excerpt_word_count = 15;
 			}

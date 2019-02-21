@@ -71,16 +71,18 @@ function gotham_front_featured_block( $block_number = 0 ) {
 		?>
 		<div class="featured-block featured-block--<?php echo esc_attr( $block['slug'] ); ?>">
 			<h2 class="featured-block__title">
-				<?php
-					echo wp_kses(
-						$block['title'],
-						[
-							'span' => [
-								'class' => [],
-							],
-						]
-					);
-				?>
+				<a href="<?php echo esc_url( get_term_link( get_term_by( 'slug', $block['query_args']['tag'], 'post_tag' ) ) ); ?>">
+					<?php
+						echo wp_kses(
+							$block['title'],
+							[
+								'span' => [
+									'class' => [],
+								],
+							]
+						);
+					?>
+				</a>
 			</h2>
 			<div class="featured-block__wrapper">
 

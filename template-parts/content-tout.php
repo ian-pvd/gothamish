@@ -7,9 +7,14 @@
 
 // Default image size for touts.
 $image_size = 'gotham_tout';
-// Reset default to use theme featured thumbnail size.
+// Check if front page tout.
 if ( is_front_page() ) {
-	$image_size = 'large';
+	// If so, check for global is hero value.
+	global $gotham_is_hero_post;
+	if ( $gotham_is_hero_post ) {
+		// Use special thumbnail size for hero tout.
+		$image_size = [ 1312, 1312 ];
+	}
 }
 ?>
 

@@ -12,20 +12,20 @@
  */
 function gotham_get_asset_version( $asset ) {
 	$assets = array(
-		'archive-css' => 'archive.da011e.css',
-		'archive-js' => 'archive.da011e.js',
-		'editor-css' => 'editor.da011e.css',
-		'editor-js' => 'editor.da011e.js',
-		'front-css' => 'front.da011e.css',
-		'front-js' => 'front.da011e.js',
-		'page-css' => 'page.da011e.css',
-		'page-js' => 'page.da011e.js',
-		'post-css' => 'post.da011e.css',
-		'post-js' => 'post.da011e.js',
-		'site-css' => 'site.da011e.css',
-		'site-js' => 'site.da011e.js',
-		'user-css' => 'user.da011e.css',
-		'user-js' => 'user.da011e.js',
+		'archive-css' => 'archive.8eef24.css',
+		'archive-js' => 'archive.8eef24.js',
+		'editor-css' => 'editor.8eef24.css',
+		'editor-js' => 'editor.8eef24.js',
+		'front-css' => 'front.8eef24.css',
+		'front-js' => 'front.8eef24.js',
+		'page-css' => 'page.8eef24.css',
+		'page-js' => 'page.8eef24.js',
+		'post-css' => 'post.8eef24.css',
+		'post-js' => 'post.8eef24.js',
+		'site-css' => 'site.8eef24.css',
+		'site-js' => 'site.8eef24.js',
+		'user-css' => 'user.8eef24.css',
+		'user-js' => 'user.8eef24.js',
 	);
 	return ! empty( $assets[ $asset ] ) ? $assets[ $asset ] : false;
 }
