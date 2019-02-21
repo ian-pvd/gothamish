@@ -61,15 +61,7 @@
 	}
 
 	.entry-excerpt {
-		display: none;
-
-		@include breakpoints(small, medium) {
-			display: block;
-		}
-
-		@include breakpoints(large) {
-			display: block;
-		}
+		font-size: rem(14);
 	}
 
 	.read-more {
